@@ -1,6 +1,4 @@
-package com.example.rateman
-
-import com.example.rateman.ui.theme.CurrencyCode
+package com.currency.rateman.data.model
 
 data class CurrencyRate(
     val foreignCurrency: CurrencyCode,

@@ -1,4 +1,4 @@
-package com.example.rateman.ui.theme
+package com.currency.rateman.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

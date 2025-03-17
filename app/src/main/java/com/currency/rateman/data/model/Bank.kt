@@ -1,6 +1,4 @@
-package com.example.rateman
-
-import com.example.rateman.ui.theme.CurrencyCode
+package com.currency.rateman.data.model
 
 class Bank(private val name: String, private val baseCurrency: CurrencyCode, private val rates: List<CurrencyRate>) {
     fun get(): String {

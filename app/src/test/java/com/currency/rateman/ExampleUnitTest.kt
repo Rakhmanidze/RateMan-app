@@ -1,4 +1,4 @@
-package com.example.rateman
+package com.currency.rateman
 
 import org.junit.Test
 
