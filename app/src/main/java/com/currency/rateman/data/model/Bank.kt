@@ -1,25 +1,29 @@
 package com.currency.rateman.data.model
 
-class Bank(private val name: String, private val baseCurrency: CurrencyCode, private val rates: List<CurrencyRate>) {
-    fun get(): String {
-        return name
+data class Bank(
+    private val name: String,
+    private val baseCurrency: CurrencyCode,
+    private val rates: List<CurrencyRate>,
+    private val nearestBranchAddress: Address,
+    private val phoneNumber: String
+) {
+    fun getName(): String {
+        return name;
+    }
+
+    fun getBaseCurrency(): CurrencyCode {
+        return baseCurrency
     }
 
     fun getRate(currencyCode: CurrencyCode): CurrencyRate? {
-        return rates.find { it.foreignCurrency == currencyCode }
+        return rates.find { it.getForeignCurrency() == currencyCode }
     }
-}
 
-fun main() {
-    val bank = Bank(
-        name = "MyBank",
-        baseCurrency = CurrencyCode.CZK,
-        rates = listOf(
-            CurrencyRate(CurrencyCode.USD, buyRate = 24.0, sellRate = 24.5),
-            CurrencyRate(CurrencyCode.EUR, buyRate = 25.0, sellRate = 25.5),
-        )
-    )
+    fun getNearestBranchAddress(): Address {
+        return nearestBranchAddress
+    }
 
-    val usdRate = bank.getRate(CurrencyCode.USD)
-    println("USD Buy: ${usdRate?.buyRate}, Sell: ${usdRate?.sellRate}")
+    fun getPhoneNumber(): String {
+        return phoneNumber
+    }
 }

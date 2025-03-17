@@ -1,7 +1,19 @@
 package com.currency.rateman.data.model
 
 data class CurrencyRate(
-    val foreignCurrency: CurrencyCode,
-    val buyRate: Double,
-    val sellRate: Double
-)
+    private val foreignCurrency: CurrencyCode,
+    private val buyRate: Double,
+    private val sellRate: Double
+) {
+
+    fun getForeignCurrency(): CurrencyCode {
+        return foreignCurrency
+    }
+
+    fun getBuyRate(): Double {
+        return buyRate
+    }
+    fun getSellRate(): Double {
+        return sellRate
+    }
+}
