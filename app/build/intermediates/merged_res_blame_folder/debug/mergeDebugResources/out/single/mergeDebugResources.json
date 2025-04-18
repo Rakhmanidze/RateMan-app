@@ -1,126 +1,126 @@
 [
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_ic_launcher_foreground.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/ic_launcher_foreground.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_person_24px.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/person_24px.xml"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xxhdpi_profile_placeholder.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xxhdpi/profile_placeholder.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xhdpi/ic_launcher.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xhdpi_ic_launcher_round.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xhdpi/ic_launcher_round.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_edit_24px.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/edit_24px.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-hdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_edit_24px.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/edit_24px.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_cancel_24px.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/cancel_24px.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-hdpi_profile_placeholder.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-hdpi/profile_placeholder.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-mdpi_ic_launcher.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-mdpi/ic_launcher.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_na_krejcarku.jpg.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/na_krejcarku.jpg"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-hdpi_ic_launcher_round.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-hdpi/ic_launcher_round.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xxxhdpi_profile_placeholder.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xxxhdpi/profile_placeholder.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xhdpi/ic_launcher.webp"
+        "merged": "com.currency.rateman.app-debug-59:/xml_backup_rules.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/xml/backup_rules.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-hdpi_splashscreen.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-hdpi/splashscreen.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-mdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-mdpi_ic_launcher_round.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-mdpi/ic_launcher_round.webp"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-hdpi/ic_launcher.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_logout_24px.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/logout_24px.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xxxhdpi_splashscreen.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xxxhdpi/splashscreen.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_swing_icon.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/swing_icon.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_swing_icon.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/swing_icon.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xhdpi_profile_placeholder.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xhdpi/profile_placeholder.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-hdpi/ic_launcher.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xxhdpi_profile_placeholder.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xxhdpi/profile_placeholder.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_cancel_24px.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/cancel_24px.xml"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xxxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xxxhdpi_splashscreen.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xxxhdpi/splashscreen.png"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_logout_24px.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/logout_24px.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xhdpi_splashscreen.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xhdpi/splashscreen.png"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-hdpi_splashscreen.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-hdpi/splashscreen.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/xml_data_extraction_rules.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/xml/data_extraction_rules.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_person_24px.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/person_24px.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_alarm_24px.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/alarm_24px.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xhdpi_splashscreen.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xhdpi/splashscreen.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xxhdpi_ic_launcher.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xxhdpi/ic_launcher.webp"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xxxhdpi/ic_launcher.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xhdpi_profile_placeholder.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xhdpi/profile_placeholder.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_ic_launcher_background.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/ic_launcher_background.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-hdpi_profile_placeholder.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-hdpi/profile_placeholder.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xxxhdpi_ic_launcher.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xxxhdpi/ic_launcher.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable-xxhdpi_splashscreen.png.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable-xxhdpi/splashscreen.png"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xxxhdpi_profile_placeholder.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xxxhdpi/profile_placeholder.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-mdpi/ic_launcher.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xxhdpi/ic_launcher_round.webp"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_alarm_24px.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/alarm_24px.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/xml_backup_rules.xml.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/xml/backup_rules.xml"
+        "merged": "com.currency.rateman.app-debug-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/drawable/ic_launcher_background.xml"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable_na_krejcarku.jpg.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable/na_krejcarku.jpg"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xxhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/drawable-xxhdpi_splashscreen.png.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/drawable-xxhdpi/splashscreen.png"
+        "merged": "com.currency.rateman.app-debug-59:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.currency.rateman.app-main-61:/mipmap-xhdpi/ic_launcher_round.webp"
     },
     {
-        "merged": "cz.cvut.fel.dcgi.zan.playgroundapp-debug-59:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
-        "source": "cz.cvut.fel.dcgi.zan.playgroundapp-main-61:/mipmap-xxxhdpi/ic_launcher_round.webp"
+        "merged": "com.currency.rateman.app-debug-59:/xml_data_extraction_rules.xml.flat",
+        "source": "com.currency.rateman.app-main-61:/xml/data_extraction_rules.xml"
     }
 ]

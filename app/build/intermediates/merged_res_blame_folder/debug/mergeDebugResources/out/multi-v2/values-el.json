@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "cz.cvut.fel.dcgi.zan.playgroundapp-mergeDebugResources-57:/values-el/values-el.xml",
+            "outputFile": "com.currency.rateman.app-mergeDebugResources-57:/values-el/values-el.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rahma\\.gradle\\caches\\8.10.2\\transforms\\0efe8934e43d12a926a2f8b2358e779a\\transformed\\material3-release\\res\\values-el\\values-el.xml",

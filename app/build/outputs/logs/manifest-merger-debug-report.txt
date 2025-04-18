@@ -131,7 +131,7 @@ MERGED from [androidx.startup:startup-runtime:1.1.1] C:\Users\rahma\.gradle\cach
 		ADDED from C:\Users\rahma\CVUT\KOTLIN\RateMan\app\src\main\AndroidManifest.xml:17:9-44
 	android:name
 		ADDED from C:\Users\rahma\CVUT\KOTLIN\RateMan\app\src\main\AndroidManifest.xml:8:9-38
-activity#cz.cvut.fel.dcgi.zan.playgroundapp.MainActivity
+activity#com.currency.rateman.MainActivity
 ADDED from C:\Users\rahma\CVUT\KOTLIN\RateMan\app\src\main\AndroidManifest.xml:19:9-29:20
 	android:label
 		ADDED from C:\Users\rahma\CVUT\KOTLIN\RateMan\app\src\main\AndroidManifest.xml:22:13-45
@@ -325,7 +325,7 @@ ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\tran
 		ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
 	android:name
 		ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:23:9-81
-permission#cz.cvut.fel.dcgi.zan.playgroundapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+permission#com.currency.rateman.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:22:5-24:47
 	android:protectionLevel
 		ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:24:9-44
@@ -335,7 +335,7 @@ uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:26:22-94
-uses-permission#cz.cvut.fel.dcgi.zan.playgroundapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission#com.currency.rateman.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
 ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:26:5-97
 	android:name
 		ADDED from [androidx.core:core:1.15.0] C:\Users\rahma\.gradle\caches\8.10.2\transforms\67980e3381bf0ac51861ed7c9a6ed8b0\transformed\core-1.15.0\AndroidManifest.xml:26:22-94

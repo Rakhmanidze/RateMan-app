@@ -1,4 +1,4 @@
-cz.cvut.fel.dcgi.zan.playgroundapp
+com.currency.rateman
 attr action
 attr alpha
 attr argType

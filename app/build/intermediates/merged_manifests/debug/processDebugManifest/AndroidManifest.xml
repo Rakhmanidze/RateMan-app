@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cz.cvut.fel.dcgi.zan.playgroundapp"
+    package="com.currency.rateman"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -11,13 +11,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <permission
-        android:name="cz.cvut.fel.dcgi.zan.playgroundapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+        android:name="com.currency.rateman.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="cz.cvut.fel.dcgi.zan.playgroundapp.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+    <uses-permission android:name="com.currency.rateman.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
 
     <application
-        android:name="cz.cvut.fel.dcgi.zan.playgroundapp.PlaygroundApp"
+        android:name="com.currency.rateman.PlaygroundApp"
         android:allowBackup="true"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -28,11 +28,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.PlaygroundApp"
         android:usesCleartextTraffic="true" >
         <activity
-            android:name="cz.cvut.fel.dcgi.zan.playgroundapp.MainActivity"
+            android:name="com.currency.rateman.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.PlaygroundApp" >
@@ -48,7 +47,7 @@
 
         <provider
             android:name="androidx.startup.InitializationProvider"
-            android:authorities="cz.cvut.fel.dcgi.zan.playgroundapp.androidx-startup"
+            android:authorities="com.currency.rateman.androidx-startup"
             android:exported="false" >
             <meta-data
                 android:name="androidx.emoji2.text.EmojiCompatInitializer"

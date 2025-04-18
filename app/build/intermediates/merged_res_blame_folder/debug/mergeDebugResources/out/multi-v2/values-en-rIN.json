@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "cz.cvut.fel.dcgi.zan.playgroundapp-mergeDebugResources-57:/values-en-rIN/values-en-rIN.xml",
+            "outputFile": "com.currency.rateman.app-mergeDebugResources-57:/values-en-rIN/values-en-rIN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\rahma\\.gradle\\caches\\8.10.2\\transforms\\746953d9a7674acbca8d38ab98ab8272\\transformed\\foundation-release\\res\\values-en-rIN\\values-en-rIN.xml",

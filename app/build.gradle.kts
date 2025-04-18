@@ -8,11 +8,11 @@ plugins {
 }
 
 android {
-    namespace = "cz.cvut.fel.dcgi.zan.playgroundapp"
+    namespace = "com.currency.rateman"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "cz.cvut.fel.dcgi.zan.playgroundapp"
+        applicationId = "com.currency.rateman"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
