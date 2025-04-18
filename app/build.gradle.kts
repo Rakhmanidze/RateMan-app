@@ -2,14 +2,17 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.google.devtools.ksp)
 }
 
 android {
-    namespace = "com.currency.rateman"
+    namespace = "cz.cvut.fel.dcgi.zan.playgroundapp"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.currency.rateman"
+        applicationId = "cz.cvut.fel.dcgi.zan.playgroundapp"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -49,6 +52,15 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.coil.network.okhttp)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation (libs.squareup.retrofit)
+    implementation(libs.retrofit2.kotlinx.serialization.converter)
+    ksp(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
