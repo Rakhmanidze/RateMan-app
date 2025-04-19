@@ -32,8 +32,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
-import com.currency.rateman.data.local.UserProfile
-import com.currency.rateman.data.local.playgrounds
+import com.currency.rateman.data.model.UserProfile
+import com.currency.rateman.data.model.playgrounds
 import com.currency.rateman.ui.navigation.BottomNavigationItem
 import com.currency.rateman.ui.theme.PlaygroundAppTheme
 

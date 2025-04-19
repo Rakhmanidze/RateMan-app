@@ -2,7 +2,7 @@ package com.currency.rateman.data.datasource
 
 import com.currency.rateman.data.db.PlaygroundDao
 import com.currency.rateman.data.db.PlaygroundEntity
-import com.currency.rateman.data.local.Playground
+import com.currency.rateman.data.model.Playground
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 

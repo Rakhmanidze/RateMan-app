@@ -33,7 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
-import com.currency.rateman.data.local.Playground
+import com.currency.rateman.data.model.Playground
 import com.currency.rateman.ui.components.SingleLineText
 import com.currency.rateman.ui.navigation.BottomNavigationItem
 import com.currency.rateman.ui.viewmodels.PlaygroundListScreenViewModel

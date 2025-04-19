@@ -1,9 +1,9 @@
-package com.currency.rateman.data.local
+package com.currency.rateman.data.model
 
 data class RateProvider(
     val name: String,
     val baseCurrency: CurrencyCode,
     val rates: List<CurrencyRate>,
     val phoneNumber: String,
-    val providerType: ProviderType,
+    val type: ProviderType,
 )

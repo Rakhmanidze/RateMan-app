@@ -5,8 +5,8 @@ import androidx.lifecycle.viewModelScope
 import com.currency.rateman.AppContainer
 import com.currency.rateman.data.datasource.PlaygroundDbDataSource
 import com.currency.rateman.data.datasource.PlaygroundRemoteDatasource
-import com.currency.rateman.data.local.Playground
-import com.currency.rateman.data.local.playgrounds
+import com.currency.rateman.data.model.Playground
+import com.currency.rateman.data.model.playgrounds
 import com.currency.rateman.data.remote.PlaygroundsWebApi
 import com.currency.rateman.data.repository.PlaygroundRepository
 import kotlinx.coroutines.flow.SharingStarted

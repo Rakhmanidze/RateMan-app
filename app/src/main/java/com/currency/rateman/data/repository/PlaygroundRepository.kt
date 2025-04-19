@@ -2,7 +2,7 @@ package com.currency.rateman.data.repository
 
 import com.currency.rateman.data.datasource.PlaygroundDbDataSource
 import com.currency.rateman.data.datasource.PlaygroundRemoteDatasource
-import com.currency.rateman.data.local.Playground
+import com.currency.rateman.data.model.Playground
 
 class PlaygroundRepository(
     private val playgroundDbDataSource: PlaygroundDbDataSource,

@@ -1,4 +1,4 @@
-package com.currency.rateman.data.local
+package com.currency.rateman.data.model
 
 data class Address(
     val street: String,

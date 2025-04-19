@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.currency.rateman.R
-import com.currency.rateman.data.local.UserProfile
+import com.currency.rateman.data.model.UserProfile
 import com.currency.rateman.ui.theme.PlaygroundAppTheme
 import com.currency.rateman.ui.viewmodels.UserProfileEditorEvent
 import com.currency.rateman.ui.viewmodels.UserProfileEditorViewModel

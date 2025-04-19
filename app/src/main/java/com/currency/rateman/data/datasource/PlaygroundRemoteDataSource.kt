@@ -1,6 +1,6 @@
 package com.currency.rateman.data.datasource
 
-import com.currency.rateman.data.local.Playground
+import com.currency.rateman.data.model.Playground
 import com.currency.rateman.data.remote.GeoJsonFeature
 import com.currency.rateman.data.remote.PlaygroundsWebApi
 import com.currency.rateman.data.repository.ApiCallResult

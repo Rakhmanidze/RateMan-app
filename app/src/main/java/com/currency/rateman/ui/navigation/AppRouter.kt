@@ -12,7 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.currency.rateman.R
-import com.currency.rateman.data.local.UserProfile
+import com.currency.rateman.data.model.UserProfile
 import com.currency.rateman.ui.screens.CountdownScreen
 import com.currency.rateman.ui.screens.PlaygroundEditorScreen
 import com.currency.rateman.ui.screens.PlaygroundListScreen

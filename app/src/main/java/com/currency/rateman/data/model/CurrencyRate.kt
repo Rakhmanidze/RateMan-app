@@ -1,4 +1,4 @@
-package com.currency.rateman.data.local
+package com.currency.rateman.data.model
 
 import java.time.LocalDate
 
