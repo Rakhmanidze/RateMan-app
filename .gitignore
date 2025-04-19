@@ -1,14 +1,15 @@
-/build
-/app/build
+.gradle/
+build/
+app/build/
 
 *.apk
 *.aar
 *.ap_
 *.aab
 
-.gradle
-/local.properties
-/.idea
+local.properties
+
+.idea/
 *.iml
 
 *.swp
@@ -18,4 +19,7 @@
 captures/
 externalNativeBuild/
 cxx/
+
 *.log
+
+.DS_Store
