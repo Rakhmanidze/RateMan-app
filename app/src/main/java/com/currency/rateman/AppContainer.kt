@@ -1,13 +1,13 @@
 package com.currency.rateman
 
 import android.content.Context
-import com.currency.rateman.data.db.PlaygroundDatabase
+import com.currency.rateman.data.db.RateManDatabase
 
 object AppContainer {
-    lateinit var playgroundDatabase : PlaygroundDatabase
+    lateinit var ratemanDatabase : RateManDatabase
         private set
 
     fun init(context: Context) {
-        playgroundDatabase = PlaygroundDatabase.getDatabase(context)
+        ratemanDatabase = RateManDatabase.getDatabase(context)
     }
 }

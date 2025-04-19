@@ -25,7 +25,7 @@ import javax.annotation.processing.Generated;
 
 @Generated("androidx.room.RoomProcessor")
 @SuppressWarnings({"unchecked", "deprecation"})
-public final class PlaygroundDatabase_Impl extends PlaygroundDatabase {
+public final class RateManDatabase_Impl extends RateManDatabase {
   private volatile PlaygroundDao _playgroundDao;
 
   @Override

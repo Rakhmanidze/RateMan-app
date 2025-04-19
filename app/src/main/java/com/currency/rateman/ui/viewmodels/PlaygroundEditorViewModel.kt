@@ -30,7 +30,7 @@ class PlaygroundEditorViewModel(
 
     private val playgroundRepository = PlaygroundRepository(
         playgroundDbDataSource = PlaygroundDbDataSource(
-            playgroundDao = AppContainer.playgroundDatabase.playgroundDao()
+            playgroundDao = AppContainer.ratemanDatabase.playgroundDao()
         ),
         playgroundRemoteDataSource = PlaygroundRemoteDatasource(
             playgroundsWebApi = PlaygroundsWebApi.getPlaygroundsApiService()
