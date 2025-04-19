@@ -1,4 +1,4 @@
-package com.currency.rateman.data.model
+package com.currency.rateman.data.local
 
 data class CurrencyRate(
     val foreignCurrency: CurrencyCode,
