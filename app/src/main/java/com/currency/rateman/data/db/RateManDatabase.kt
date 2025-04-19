@@ -4,11 +4,25 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.currency.rateman.data.db.entity.RateProviderEntity
+import com.currency.rateman.data.db.entity.CurrencyRateEntity
+import com.currency.rateman.data.db.dao.CurrencyRateDao
+import com.currency.rateman.data.db.dao.RateProviderDao
 
-@Database(entities = [PlaygroundEntity::class], version = 1, exportSchema = false)
+@Database(
+    entities = [
+        PlaygroundEntity::class,
+        RateProviderEntity::class,
+        CurrencyRateEntity::class,
+       ],
+    version = 1,
+    exportSchema = false
+)
 abstract class RateManDatabase : RoomDatabase() {
 
     abstract fun playgroundDao(): PlaygroundDao
+    abstract  fun rateProviderDao(): RateProviderDao
+    abstract fun currencyRateDao(): CurrencyRateDao
 
     companion object {
         // Singleton prevents multiple instances of database opening at the same time.
@@ -25,7 +39,7 @@ abstract class RateManDatabase : RoomDatabase() {
                 Room.databaseBuilder(
                     context.applicationContext,
                     RateManDatabase::class.java,
-                    "playground_database"
+                    "rateman.db"
                 )
                 .fallbackToDestructiveMigration()
                 .build()
