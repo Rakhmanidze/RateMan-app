@@ -21,4 +21,5 @@ data class CurrencyRateEntity(
     val foreignCurrency: String = "",
     val buyRate: Double = 0.0,
     val sellRate: Double = 0.0,
+    val date: String = "",
 )
