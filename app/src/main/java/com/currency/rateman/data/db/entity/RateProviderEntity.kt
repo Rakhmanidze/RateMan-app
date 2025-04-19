@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 data class RateProviderEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val name: String,
-    val baseCurrency: String,
-    val ratesDate: String,
-    val phoneNumber: String,
-    val type: String
+    val name: String = "",
+    val baseCurrency: String = "",
+    val ratesDate: String = "",
+    val phoneNumber: String = "",
+    val type: String = "",
 )
