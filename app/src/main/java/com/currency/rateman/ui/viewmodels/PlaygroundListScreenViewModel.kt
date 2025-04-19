@@ -19,7 +19,7 @@ class PlaygroundListScreenViewModel() : ViewModel() {
 
     private val playgroundRepository = PlaygroundRepository(
         playgroundDbDataSource = PlaygroundDbDataSource(
-            playgroundDao = AppContainer.ratemanDatabase.playgroundDao()
+            playgroundDao = AppContainer.rateManDatabase.playgroundDao()
         ),
         playgroundRemoteDataSource = PlaygroundRemoteDatasource(
             playgroundsWebApi = PlaygroundsWebApi.getPlaygroundsApiService()
