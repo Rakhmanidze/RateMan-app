@@ -1,6 +1,7 @@
 package com.currency.rateman.ui.screens
 
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
@@ -26,7 +27,8 @@ fun BottomNavBar(
                 icon = {
                     Icon(
                         painter = painterResource(id = item.iconId),
-                        contentDescription = item.contentDescription
+                        contentDescription = item.contentDescription,
+                        modifier = Modifier.size(24.dp)
                     )
                 }
             )
