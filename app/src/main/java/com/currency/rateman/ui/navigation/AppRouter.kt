@@ -12,13 +12,14 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.currency.rateman.R
-import com.currency.rateman.data.model.UserProfile
+import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.LanguageCode
+import com.currency.rateman.data.model.Profile
+import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.ui.screens.CountdownScreen
 import com.currency.rateman.ui.screens.PlaygroundEditorScreen
 import com.currency.rateman.ui.screens.PlaygroundListScreen
 import com.currency.rateman.ui.screens.Splashscreen
-import com.currency.rateman.ui.screens.UserProfileEditorScreen
-import com.currency.rateman.ui.screens.UserProfileScreen
 
 @Composable
 fun AppRouter() {
@@ -57,10 +58,10 @@ fun MainAppRouter(navController: NavHostController) {
     }
 
     var profile by rememberSaveable { mutableStateOf(
-        UserProfile (
-            name = "Ivo",
-            surname = "Maly",
-            numberOfKids = 3
+        Profile (
+            defaultCurrency = CurrencyCode.CZK,
+            uiLanguage = LanguageCode.EN,
+            themeMode = ThemeMode.DARK
         )
     ) }
 

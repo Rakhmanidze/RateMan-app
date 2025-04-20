@@ -6,8 +6,8 @@ import kotlinx.serialization.Serializable
 
 @Parcelize
 @Serializable
-data class UserProfile(
-    val name: String = "",
-    val surname: String = "",
-    val numberOfKids: Int = 0,
+data class Profile(
+    val defaultCurrency: CurrencyCode = CurrencyCode.CZK,
+    val uiLanguage: LanguageCode = LanguageCode.EN,
+    val themeMode: ThemeMode = ThemeMode.DARK,
 ) : Parcelable
