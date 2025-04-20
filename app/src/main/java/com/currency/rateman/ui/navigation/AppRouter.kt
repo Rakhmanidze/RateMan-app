@@ -19,6 +19,8 @@ import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.ui.screens.CountdownScreen
 import com.currency.rateman.ui.screens.PlaygroundEditorScreen
 import com.currency.rateman.ui.screens.PlaygroundListScreen
+import com.currency.rateman.ui.screens.ProfileScreen
+import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
 
 @Composable
@@ -67,12 +69,12 @@ fun MainAppRouter(navController: NavHostController) {
 
     NavHost (
         navController = navController,
-        startDestination = Routes.Splashscreen
+        startDestination = Routes.Rates
     ) {
         composable<Routes.Splashscreen>() {
             Splashscreen(
                 onNavigate = {
-                    navController.navigate(Routes.PlaygroundList) {
+                    navController.navigate(Routes.Rates) {
                         popUpTo(Routes.Splashscreen) {
                             inclusive = true
                         }
@@ -80,54 +82,17 @@ fun MainAppRouter(navController: NavHostController) {
                 }
             )
         }
-        composable<Routes.Countdown>() {
-            CountdownScreen(
-                bottomNavItems,
-                currentBackStackEntry.value?.destination?.route,
+        composable<Routes.Rates>() {
+            RatesScreen(
+                bottomNavItems  = bottomNavItems,
+                currentRoute = currentBackStackEntry.value?.destination?.route,
             )
         }
-        composable<Routes.PlaygroundList>() {
-            PlaygroundListScreen(
-                bottomNavItems,
-                currentBackStackEntry.value?.destination?.route,
-                onItemClick = {
-                    navController.navigate(Routes.PlaygroundEditor(it))
-                }
-            )
-        }
-        composable<Routes.UserProfile>() {
-            UserProfileScreen(
-                bottomNavItems,
-                currentBackStackEntry.value?.destination?.route,
-                profile,
-                {
-                    navController.navigate(Routes.UserProfileEditor(
-                        profile.name,
-                        profile.surname,
-                        profile.numberOfKids
-                    ))
-                }
-            )
-        }
-        composable<Routes.UserProfileEditor>() {
-            UserProfileEditorScreen(
-                saveUserProfile = {
-                    profile = it
-                    navController.popBackStack()
-                },
-                cancelEditing = {
-                    navController.popBackStack()
-                }
-            )
-        }
-        composable<Routes.PlaygroundEditor> {
-            PlaygroundEditorScreen(
-                savePlayground = {
-                    navController.popBackStack()
-                },
-                cancelEditing = {
-                    navController.popBackStack()
-                }
+        composable<Routes.Profile>() {
+            ProfileScreen(
+                bottomNavItems  = bottomNavItems,
+                currentRoute = currentBackStackEntry.value?.destination?.route,
+                profile = profile
             )
         }
     }

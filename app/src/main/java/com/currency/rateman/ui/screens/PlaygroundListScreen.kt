@@ -78,7 +78,7 @@ fun PlaygroundListScreen(
             )
         },
         bottomBar = {
-            MainBottomNavigation(mainBottomNavItems, currentDestination)
+//            BottomNavigation(mainBottomNavItems, currentDestination)
         },
         floatingActionButton = {
             FloatingActionButton(

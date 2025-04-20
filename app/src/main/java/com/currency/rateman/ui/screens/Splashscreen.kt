@@ -29,7 +29,7 @@ fun Splashscreen(
             modifier = Modifier.fillMaxSize()
         )
         Text (
-            "Playgrounds",
+            "RateMan",
             color = Color.Blue,
             fontSize = 36.sp,
             modifier = Modifier
