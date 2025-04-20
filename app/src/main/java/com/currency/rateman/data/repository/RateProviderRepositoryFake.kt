@@ -10,7 +10,6 @@ class RateProviderRepositoryFake : RateProviderRepository  {
     private val providers = mutableListOf<RateProvider>()
 
     init {
-        // Add some initial test providers
         providers.addAll(listOf(
             RateProvider(
                 name = "Komerční Banka",
