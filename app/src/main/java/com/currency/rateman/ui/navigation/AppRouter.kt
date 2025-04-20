@@ -16,9 +16,6 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.Profile
 import com.currency.rateman.data.model.ThemeMode
-import com.currency.rateman.ui.screens.CountdownScreen
-import com.currency.rateman.ui.screens.PlaygroundEditorScreen
-import com.currency.rateman.ui.screens.PlaygroundListScreen
 import com.currency.rateman.ui.screens.ProfileScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
@@ -86,13 +83,31 @@ fun MainAppRouter(navController: NavHostController) {
             RatesScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
+                onNavItemClick = { item ->
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
             )
         }
         composable<Routes.Profile>() {
             ProfileScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
-                profile = profile
+                profile = profile,
+                onNavItemClick = { item ->
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
             )
         }
     }
