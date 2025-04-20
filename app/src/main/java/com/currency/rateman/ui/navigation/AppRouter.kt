@@ -41,7 +41,7 @@ fun MainAppRouter(navController: NavHostController) {
                 iconId = R.drawable.swing_icon,
                 contentDescription = "Currency rates",
                 onClick = {
-                    navigateToBottomNavItem(navController, Routes.Rates)
+                    navigateToBottomNavItem(navController, Routes.Rates.route)
                 }
             ),
             BottomNavItem(
@@ -50,7 +50,7 @@ fun MainAppRouter(navController: NavHostController) {
                 iconId = R.drawable.person_24px,
                 contentDescription = "User profile",
                 onClick = {
-                    navigateToBottomNavItem(navController, Routes.Profile)
+                    navigateToBottomNavItem(navController, Routes.Profile.route)
                 }
             ),
         )
@@ -66,20 +66,20 @@ fun MainAppRouter(navController: NavHostController) {
 
     NavHost (
         navController = navController,
-        startDestination = Routes.Rates
+        startDestination = Routes.Splashscreen.route
     ) {
-        composable<Routes.Splashscreen>() {
+        composable(Routes.Splashscreen.route) {
             Splashscreen(
                 onNavigate = {
-                    navController.navigate(Routes.Rates) {
-                        popUpTo(Routes.Splashscreen) {
+                    navController.navigate(Routes.Rates.route) {
+                        popUpTo(Routes.Splashscreen.route) {
                             inclusive = true
                         }
                     }
                 }
             )
         }
-        composable<Routes.Rates>() {
+        composable(Routes.Rates.route) {
             RatesScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -94,7 +94,7 @@ fun MainAppRouter(navController: NavHostController) {
                 }
             )
         }
-        composable<Routes.Profile>() {
+        composable(Routes.Profile.route) {
             ProfileScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -113,7 +113,7 @@ fun MainAppRouter(navController: NavHostController) {
     }
 }
 
-fun navigateToBottomNavItem(navController: NavHostController, route: Routes) {
+fun navigateToBottomNavItem(navController: NavHostController, route: String) {
     navController.navigate(route) {
         popUpTo(navController.graph.startDestinationId) {
             saveState = true

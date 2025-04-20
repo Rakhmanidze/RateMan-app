@@ -5,9 +5,9 @@ import kotlinx.serialization.Serializable
 @Serializable
 sealed class Routes (val route: String) {
     @Serializable
-    data object Rates : Routes("Rates")
+    data object Rates : Routes("rates")
     @Serializable
-    data object Profile : Routes("Profile")
+    data object Profile : Routes("profile")
     @Serializable
-    data object Splashscreen : Routes("Splashscreen")
+    data object Splashscreen : Routes("splashscreen")
 }
