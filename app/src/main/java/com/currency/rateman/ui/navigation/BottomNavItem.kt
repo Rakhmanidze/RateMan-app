@@ -2,7 +2,7 @@ package com.currency.rateman.ui.navigation
 
 import androidx.annotation.DrawableRes
 
-data class BottomNavigationItem(
+data class BottomNavItem(
     val route: String,
     val label: String,
     @DrawableRes val iconId: Int,

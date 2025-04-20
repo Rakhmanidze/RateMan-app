@@ -33,39 +33,30 @@ fun AppRouter() {
 fun MainAppRouter(navController: NavHostController) {
     val currentBackStackEntry = navController.currentBackStackEntryAsState()
 
-    val mainBottomNavigationItems = remember {
+    val bottomNavItems = remember {
         listOf(
-            BottomNavigationItem(
-                route = Routes.PlaygroundList::class.qualifiedName.toString(),
-                label = "Playgrounds",
+            BottomNavItem(
+                route = Routes.Rates.route,
+                label = "Rates",
                 iconId = R.drawable.swing_icon,
-                contentDescription = "Playgrounds nav bar item",
+                contentDescription = "Currency rates",
                 onClick = {
-                    navigateToBottomNavItem(navController, Routes.PlaygroundList)
+                    navigateToBottomNavItem(navController, Routes.Rates)
                 }
             ),
-            BottomNavigationItem(
-                route = Routes.UserProfile::class.qualifiedName.toString(),
-                label = "User profile",
+            BottomNavItem(
+                route = Routes.Profile.route,
+                label = "Profile",
                 iconId = R.drawable.person_24px,
-                contentDescription = "User profile nav bar item",
+                contentDescription = "User profile",
                 onClick = {
-                    navigateToBottomNavItem(navController, Routes.UserProfile)
-                }
-            ),
-            BottomNavigationItem(
-                route = Routes.Countdown::class.qualifiedName.toString(),
-                label = "Countdown",
-                iconId = R.drawable.alarm_24px,
-                contentDescription = "Countdown nav bar item",
-                onClick = {
-                    navigateToBottomNavItem(navController, Routes.Countdown)
+                    navigateToBottomNavItem(navController, Routes.Profile)
                 }
             ),
         )
     }
 
-    var userProfile by rememberSaveable { mutableStateOf(
+    var profile by rememberSaveable { mutableStateOf(
         UserProfile (
             name = "Ivo",
             surname = "Maly",
@@ -90,13 +81,13 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable<Routes.Countdown>() {
             CountdownScreen(
-                mainBottomNavigationItems,
+                bottomNavItems,
                 currentBackStackEntry.value?.destination?.route,
             )
         }
         composable<Routes.PlaygroundList>() {
             PlaygroundListScreen(
-                mainBottomNavigationItems,
+                bottomNavItems,
                 currentBackStackEntry.value?.destination?.route,
                 onItemClick = {
                     navController.navigate(Routes.PlaygroundEditor(it))
@@ -105,14 +96,14 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable<Routes.UserProfile>() {
             UserProfileScreen(
-                mainBottomNavigationItems,
+                bottomNavItems,
                 currentBackStackEntry.value?.destination?.route,
-                userProfile,
+                profile,
                 {
                     navController.navigate(Routes.UserProfileEditor(
-                        userProfile.name,
-                        userProfile.surname,
-                        userProfile.numberOfKids
+                        profile.name,
+                        profile.surname,
+                        profile.numberOfKids
                     ))
                 }
             )
@@ -120,7 +111,7 @@ fun MainAppRouter(navController: NavHostController) {
         composable<Routes.UserProfileEditor>() {
             UserProfileEditorScreen(
                 saveUserProfile = {
-                    userProfile = it
+                    profile = it
                     navController.popBackStack()
                 },
                 cancelEditing = {

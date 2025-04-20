@@ -35,13 +35,13 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil3.compose.AsyncImage
 import com.currency.rateman.data.model.Playground
 import com.currency.rateman.ui.components.SingleLineText
-import com.currency.rateman.ui.navigation.BottomNavigationItem
+import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.PlaygroundListScreenViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlaygroundListScreen(
-    mainBottomNavigationItems: List<BottomNavigationItem>,
+    mainBottomNavItems: List<BottomNavItem>,
     currentDestination: String?,
     onItemClick: (Long) -> Unit,
     viewModel: PlaygroundListScreenViewModel = viewModel()
@@ -78,7 +78,7 @@ fun PlaygroundListScreen(
             )
         },
         bottomBar = {
-            MainBottomNavigation(mainBottomNavigationItems, currentDestination)
+            MainBottomNavigation(mainBottomNavItems, currentDestination)
         },
         floatingActionButton = {
             FloatingActionButton(

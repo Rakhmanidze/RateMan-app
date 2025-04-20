@@ -24,17 +24,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.currency.rateman.ui.navigation.BottomNavigationItem
+import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.CountdownScreenViewModel
 
 @Composable
 fun CountdownScreen(
-    mainBottomNavigationItems: List<BottomNavigationItem>,
+    mainBottomNavItems: List<BottomNavItem>,
     currentDestination: String?,
 ) {
     Scaffold(
         bottomBar = {
-            MainBottomNavigation(mainBottomNavigationItems, currentDestination)
+            MainBottomNavigation(mainBottomNavItems, currentDestination)
         },
         modifier = Modifier.fillMaxSize(),
     ) { innerPadding ->

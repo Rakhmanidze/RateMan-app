@@ -34,19 +34,19 @@ import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
 import com.currency.rateman.data.model.UserProfile
 import com.currency.rateman.data.model.playgrounds
-import com.currency.rateman.ui.navigation.BottomNavigationItem
+import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.theme.PlaygroundAppTheme
 
 @Composable
 fun UserProfileScreen(
-    mainBottomNavigationItems: List<BottomNavigationItem>,
+    mainBottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     userProfile: UserProfile,
     startEditing: () -> Unit,
 ) {
     Scaffold(
         topBar = { UserProfileAppBar(startEditing) },
-        bottomBar = { MainBottomNavigation(mainBottomNavigationItems, currentRoute) },
+        bottomBar = { MainBottomNavigation(mainBottomNavItems, currentRoute) },
         modifier = Modifier.fillMaxSize(),
     ) { innerPadding ->
         UserProfileContent(
@@ -89,11 +89,11 @@ fun UserProfileAppBar(
 
 @Composable
 fun MainBottomNavigation(
-    mainBottomNavigationItems: List<BottomNavigationItem>,
+    mainBottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
 ) {
     NavigationBar {
-        mainBottomNavigationItems.forEach { item ->
+        mainBottomNavItems.forEach { item ->
             NavigationBarItem(
                 icon = {
                     Icon(
@@ -177,7 +177,7 @@ fun UserProfileContent(
 fun UserProfileScreenPreview() {
     PlaygroundAppTheme {
         UserProfileScreen(
-            mainBottomNavigationItems = emptyList(),
+            mainBottomNavItems = emptyList(),
             currentRoute = "",
             UserProfile(),
             startEditing = {},
