@@ -37,7 +37,6 @@ fun MainAppRouter(navController: NavHostController) {
         listOf(
             BottomNavItem(
                 route = Routes.Rates.route,
-                label = "Rates",
                 iconId = R.drawable.swing_icon,
                 contentDescription = "Currency rates",
                 onClick = {
@@ -46,7 +45,6 @@ fun MainAppRouter(navController: NavHostController) {
             ),
             BottomNavItem(
                 route = Routes.Profile.route,
-                label = "Profile",
                 iconId = R.drawable.person_24px,
                 contentDescription = "User profile",
                 onClick = {
