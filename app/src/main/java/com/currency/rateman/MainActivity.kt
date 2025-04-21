@@ -5,14 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.currency.rateman.ui.navigation.AppRouter
-import com.currency.rateman.ui.theme.PlaygroundAppTheme
+import com.currency.rateman.ui.theme.RateManAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            PlaygroundAppTheme {
+            RateManAppTheme {
                 AppRouter()
             }
         }
