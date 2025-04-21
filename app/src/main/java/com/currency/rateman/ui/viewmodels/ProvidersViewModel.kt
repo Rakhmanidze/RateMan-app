@@ -38,7 +38,7 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
             ProviderType.ALL -> filteredProviders
             ProviderType.BANK -> filteredProviders.filter { it.type == ProviderType.BANK }
             ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
-            ProviderType.CRYPTO_EXCHANGE -> filteredProviders
+            ProviderType.CRYPTO_EXCHANGE -> filteredProviders.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
 

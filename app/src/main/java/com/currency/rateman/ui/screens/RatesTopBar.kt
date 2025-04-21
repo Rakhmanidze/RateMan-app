@@ -65,7 +65,63 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-
+                // Sort By Dropdown
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .width(150.dp)
+                    ) {
+                        OutlinedButton(
+                            onClick = { sortByExpanded = true },
+                            colors = ButtonDefaults.outlinedButtonColors(
+                                containerColor = Color(0xFF2D2D2D),
+                                contentColor = Color(0xFFE0E0E0)
+                            ),
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = when (selectedProviderType) {
+                                    ProviderType.ALL -> "All"
+                                    ProviderType.BANK -> "Bank"
+                                    ProviderType.EXCHANGE -> "Exchange"
+                                    ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                                },
+                                style = MaterialTheme.typography.bodySmall
+                            )
+                        }
+                        DropdownMenu(
+                            expanded = sortByExpanded,
+                            onDismissRequest = { sortByExpanded = false },
+                            modifier = Modifier
+                                .background(Color(0xFF2D2D2D))
+                                .width(150.dp)
+                        ) {
+                            ProviderType.values().forEach { type ->
+                                DropdownMenuItem(
+                                    text = {
+                                        Text(
+                                            text = when (type) {
+                                                ProviderType.ALL -> "All"
+                                                ProviderType.BANK -> "Bank"
+                                                ProviderType.EXCHANGE -> "Exchange"
+                                                ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                                            },
+                                            color = Color(0xFFE0E0E0),
+                                            style = MaterialTheme.typography.bodySmall
+                                        )
+                                    },
+                                    onClick = {
+                                        viewModel.updateProviderType(type)
+                                        sortByExpanded = false
+                                    }
+                                )
+                            }
+                        }
+                    }
+                }
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
