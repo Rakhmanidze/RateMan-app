@@ -32,6 +32,10 @@ fun RatesScreen(
 ) {
     val providers by viewModel.providers.collectAsState()
     Scaffold(
+        topBar = {
+
+        },
+
         bottomBar = {
             BottomNavBar(
                 bottomNavItems = bottomNavItems,

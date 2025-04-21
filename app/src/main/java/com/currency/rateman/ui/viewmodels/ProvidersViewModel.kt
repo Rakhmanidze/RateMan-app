@@ -6,17 +6,59 @@ import com.currency.rateman.data.repository.RateProviderRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import androidx.lifecycle.viewModelScope
+import com.currency.rateman.data.model.ProviderType
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.stateIn
 
 class ProvidersViewModel(private val repository: RateProviderRepository) : ViewModel() {
-    private val _providers = MutableStateFlow<List<RateProvider>>(emptyList())
+//    private val _providers = MutableStateFlow<List<RateProvider>>(emptyList())
+//
+//    val providers: StateFlow<List<RateProvider>> = _providers.asStateFlow()
+//
+//    init {
+//        loadProviders()
+//    }
+//
+//    private fun loadProviders() {
+//        _providers.value = repository.getAllProviders()
+//    }
 
-    val providers: StateFlow<List<RateProvider>> = _providers.asStateFlow()
+    private val allProviders = repository.getAllProviders()
 
-    init {
-        loadProviders()
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+
+    private val _selectedProviderType = MutableStateFlow(ProviderType.ALL)
+    val selectedProviderType: StateFlow<ProviderType> = _selectedProviderType.asStateFlow()
+
+    val providers: StateFlow<List<RateProvider>> = combine(
+        _searchQuery,
+        _selectedProviderType
+
+    ) { query, selectedProviderType ->
+        var filteredProviders = allProviders
+
+        if (query.isNotBlank()) {
+            filteredProviders = filteredProviders.filter { provider ->
+                provider.name.contains(query, ignoreCase = true)
+            }
+        }
+
+        when (selectedProviderType) {
+            ProviderType.ALL -> filteredProviders
+            ProviderType.BANK -> filteredProviders.filter { it.type == ProviderType.BANK }
+            ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
+            ProviderType.CRYPTO_EXCHANGE -> filteredProviders
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
+
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = query
     }
 
-    private fun loadProviders() {
-        _providers.value = repository.getAllProviders()
+    fun updateProviderType(type: ProviderType) {
+        _selectedProviderType.value = type
     }
 }
