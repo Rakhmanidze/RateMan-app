@@ -21,6 +21,10 @@ import androidx.compose.material3.CardDefaults
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.RateProvider
 
 @Composable
@@ -31,9 +35,13 @@ fun RatesScreen(
     viewModel: ProvidersViewModel = ProvidersViewModel(RateProviderRepositoryFake())
 ) {
     val providers by viewModel.providers.collectAsState()
+
+    var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
+    var sortByExpanded by remember { mutableStateOf(false) }
+
     Scaffold(
         topBar = {
-
+            RatesTopAppBar(viewModel = viewModel)
         },
 
         bottomBar = {
