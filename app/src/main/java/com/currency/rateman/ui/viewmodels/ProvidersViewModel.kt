@@ -13,18 +13,6 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
 class ProvidersViewModel(private val repository: RateProviderRepository) : ViewModel() {
-//    private val _providers = MutableStateFlow<List<RateProvider>>(emptyList())
-//
-//    val providers: StateFlow<List<RateProvider>> = _providers.asStateFlow()
-//
-//    init {
-//        loadProviders()
-//    }
-//
-//    private fun loadProviders() {
-//        _providers.value = repository.getAllProviders()
-//    }
-
     private val allProviders = repository.getAllProviders()
 
     private val _searchQuery = MutableStateFlow("")
