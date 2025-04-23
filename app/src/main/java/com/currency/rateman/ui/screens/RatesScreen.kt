@@ -67,7 +67,7 @@ fun RatesScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(16.dp)
+                    .padding(top = 16.dp)
             ) {
                 // Search field
                 BasicTextField(
@@ -162,13 +162,13 @@ fun RatesScreen(
                 Text(
                     text = "No providers available",
                     style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(top = 16.dp)
+                    modifier = Modifier.padding(top = 8.dp)
                 )
             } else {
                 LazyColumn(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 16.dp)
+                        .padding(top = 8.dp)
                 ) {
                     items(providers) { provider ->
                         ProviderItem(provider = provider)
