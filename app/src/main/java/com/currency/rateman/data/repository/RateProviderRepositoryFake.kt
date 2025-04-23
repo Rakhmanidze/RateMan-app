@@ -86,7 +86,6 @@ class RateProviderRepositoryFake : RateProviderRepository  {
         )
     }
 
-
     override fun getAllProviders(): List<RateProvider> {
         return providers.toList()
     }
