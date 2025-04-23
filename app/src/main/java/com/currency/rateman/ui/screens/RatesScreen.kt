@@ -133,7 +133,7 @@ fun RatesScreen(
                             .background(MaterialTheme.colorScheme.surfaceVariant)
                             .width(150.dp)
                     ) {
-                        ProviderType.values().forEach { type ->
+                        ProviderType.entries.forEach { type ->
                             DropdownMenuItem(
                                 text = {
                                     Text(
