@@ -24,6 +24,15 @@ import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
 import com.currency.rateman.data.model.RateProvider
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.input.TextFieldValue
+import com.currency.rateman.data.model.ProviderType
 
 @Composable
 fun RatesScreen(
@@ -34,11 +43,11 @@ fun RatesScreen(
 ) {
     val providers by viewModel.providers.collectAsState()
 
-    Scaffold(
-        topBar = {
-            RatesTopAppBar(viewModel = viewModel)
-        },
+    var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
+    var sortByExpanded by remember { mutableStateOf(false) }
+    val selectedProviderType by viewModel.selectedProviderType.collectAsState()
 
+    Scaffold(
         bottomBar = {
             BottomNavBar(
                 bottomNavItems = bottomNavItems,
@@ -54,6 +63,102 @@ fun RatesScreen(
                 .padding(paddingValues)
                 .padding(16.dp)
         ) {
+            // Fixed header section (won't scroll)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp)
+            ) {
+                // Search field
+                BasicTextField(
+                    value = searchQuery,
+                    onValueChange = {
+                        searchQuery = it
+                        viewModel.updateSearchQuery(it.text)
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            color = MaterialTheme.colorScheme.surfaceVariant,
+                            shape = RoundedCornerShape(4.dp)
+                        )
+                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                    decorationBox = { innerTextField ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            if (searchQuery.text.isEmpty()) {
+                                Text(
+                                    text = "Find providers",
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                                    style = MaterialTheme.typography.bodyLarge
+                                )
+                            }
+                            innerTextField()
+                        }
+                    },
+                    singleLine = true,
+                    textStyle = LocalTextStyle.current.copy(
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                )
+
+                Spacer(modifier = Modifier.height(8.dp))
+
+                // Filter button
+                Box(modifier = Modifier.width(150.dp)) {
+                    OutlinedButton(
+                        onClick = { sortByExpanded = true },
+                        colors = ButtonDefaults.outlinedButtonColors(
+                            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                            contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                        ),
+                        modifier = Modifier.fillMaxWidth()
+                    ) {
+                        Text(
+                            text = when (selectedProviderType) {
+                                ProviderType.ALL -> "All"
+                                ProviderType.BANK -> "Bank"
+                                ProviderType.EXCHANGE -> "Exchange"
+                                ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                            },
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
+                    DropdownMenu(
+                        expanded = sortByExpanded,
+                        onDismissRequest = { sortByExpanded = false },
+                        modifier = Modifier
+                            .background(MaterialTheme.colorScheme.surfaceVariant)
+                            .width(150.dp)
+                    ) {
+                        ProviderType.values().forEach { type ->
+                            DropdownMenuItem(
+                                text = {
+                                    Text(
+                                        text = when (type) {
+                                            ProviderType.ALL -> "All"
+                                            ProviderType.BANK -> "Bank"
+                                            ProviderType.EXCHANGE -> "Exchange"
+                                            ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                                        },
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        style = MaterialTheme.typography.bodySmall
+                                    )
+                                },
+                                onClick = {
+                                    viewModel.updateProviderType(type)
+                                    sortByExpanded = false
+                                }
+                            )
+                        }
+                    }
+                }
+            }
+
+            // Scrollable content section
+
             if (providers.isEmpty()) {
                 Text(
                     text = "No providers available",
