@@ -40,7 +40,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                     modifier = Modifier
                         .fillMaxWidth()
                         .background(
-                            color = Color(0xFF2D2D2D),
+                            color = MaterialTheme.colorScheme.surfaceVariant,
                             shape = RoundedCornerShape(4.dp)
                         )
                         .padding(horizontal = 12.dp, vertical = 8.dp),
@@ -52,7 +52,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                             if (searchQuery.text.isEmpty()) {
                                 Text(
                                     text = "Find providers",
-                                    color = Color(0xFFE0E0E0).copy(alpha = 0.5f),
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
                                     style = MaterialTheme.typography.bodyLarge
                                 )
                             }
@@ -61,7 +61,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                     },
                     singleLine = true,
                     textStyle = LocalTextStyle.current.copy(
-                        color = Color(0xFFE0E0E0)
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
                     )
                 )
 
@@ -78,8 +78,8 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                         OutlinedButton(
                             onClick = { sortByExpanded = true },
                             colors = ButtonDefaults.outlinedButtonColors(
-                                containerColor = Color(0xFF2D2D2D),
-                                contentColor = Color(0xFFE0E0E0)
+                                containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                                contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                             ),
                             modifier = Modifier.fillMaxWidth()
                         ) {
@@ -97,7 +97,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                             expanded = sortByExpanded,
                             onDismissRequest = { sortByExpanded = false },
                             modifier = Modifier
-                                .background(Color(0xFF2D2D2D))
+                                .background(MaterialTheme.colorScheme.surfaceVariant)
                                 .width(150.dp)
                         ) {
                             ProviderType.values().forEach { type ->
@@ -110,7 +110,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
                                                 ProviderType.EXCHANGE -> "Exchange"
                                                 ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
                                             },
-                                            color = Color(0xFFE0E0E0),
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
                                             style = MaterialTheme.typography.bodySmall
                                         )
                                     },
@@ -126,7 +126,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
             }
         },
         colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color(0xFF1A1A1A)
+            containerColor = MaterialTheme.colorScheme.surface
         )
     )
 }
