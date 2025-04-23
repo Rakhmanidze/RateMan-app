@@ -34,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.ui.components.ProviderItem
 
 @Composable
 fun RatesScreen(
@@ -185,44 +186,3 @@ fun RatesScreen(
 }
 
 
-@Composable
-fun ProviderItem(provider: RateProvider) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(vertical = 4.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp)
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp)
-        ) {
-            Text(
-                text = provider.name,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            Text(
-                text = provider.phoneNumber,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
-            )
-            provider.rates.forEach { rate ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 4.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = rate.foreignCurrency.name,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                }
-            }
-        }
-    }
-}
