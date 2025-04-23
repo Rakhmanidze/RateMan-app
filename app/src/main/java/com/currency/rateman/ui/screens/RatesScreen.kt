@@ -31,6 +31,7 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.ProviderType
 
@@ -46,6 +47,7 @@ fun RatesScreen(
     var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
     var sortByExpanded by remember { mutableStateOf(false) }
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
+    var isSearchFocused by remember { mutableStateOf(false) }
 
     Scaffold(
         bottomBar = {
@@ -82,13 +84,16 @@ fun RatesScreen(
                             color = MaterialTheme.colorScheme.surfaceVariant,
                             shape = RoundedCornerShape(4.dp)
                         )
-                        .padding(horizontal = 12.dp, vertical = 8.dp),
+                        .padding(horizontal = 12.dp, vertical = 8.dp)
+                        .onFocusChanged { focusState ->
+                            isSearchFocused = focusState.isFocused
+                        },
                     decorationBox = { innerTextField ->
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
-                            if (searchQuery.text.isEmpty()) {
+                            if (!isSearchFocused && searchQuery.text.isEmpty()) {
                                 Text(
                                     text = "Find providers",
                                     color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
