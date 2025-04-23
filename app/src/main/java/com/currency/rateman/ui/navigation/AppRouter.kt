@@ -64,7 +64,7 @@ fun MainAppRouter(navController: NavHostController) {
 
     NavHost (
         navController = navController,
-        startDestination = Routes.Splashscreen.route
+        startDestination = Routes.Rates.route
     ) {
         composable(Routes.Splashscreen.route) {
             Splashscreen(

@@ -1,6 +1,7 @@
 package com.currency.rateman.ui.screens
 
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -22,6 +23,7 @@ fun BottomNavBar(
     ) {
         bottomNavItems.forEach { item ->
             NavigationBarItem(
+                modifier = Modifier.padding(top = 10.dp),
                 selected = currentRoute == item.route,
                 onClick = { onItemClick(item) },
                 icon = {

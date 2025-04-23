@@ -22,14 +22,16 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
 
     TopAppBar(
+//        modifier = Modifier.height(120.dp),
+
         title = {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(bottom = 8.dp)
+                    .padding(horizontal = 16.dp)
+                    .padding(top = 8.dp)
             ) {
-                // Search Input
-                BasicTextField(
+                BasicTextField( // Search Input
                     value = searchQuery,
                     onValueChange = {
                         searchQuery = it
@@ -65,8 +67,7 @@ fun RatesTopAppBar(viewModel: ProvidersViewModel) {
 
                 Spacer(modifier = Modifier.height(8.dp))
 
-                // Sort By Dropdown
-                Row(
+                Row( // Sort By Dropdown
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.Start
                 ) {
