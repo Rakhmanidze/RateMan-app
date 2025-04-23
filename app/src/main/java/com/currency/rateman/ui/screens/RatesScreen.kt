@@ -124,9 +124,9 @@ fun RatesScreen(
                         Text(
                             text = when (selectedProviderType) {
                                 ProviderType.ALL -> "All"
-                                ProviderType.BANK -> "Bank"
-                                ProviderType.EXCHANGE -> "Exchange"
-                                ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                                ProviderType.BANK -> "Banks"
+                                ProviderType.EXCHANGE -> "Exchanges"
+                                ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
                             },
                             style = MaterialTheme.typography.bodySmall
                         )
@@ -144,9 +144,9 @@ fun RatesScreen(
                                     Text(
                                         text = when (type) {
                                             ProviderType.ALL -> "All"
-                                            ProviderType.BANK -> "Bank"
-                                            ProviderType.EXCHANGE -> "Exchange"
-                                            ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchange"
+                                            ProviderType.BANK -> "Banks"
+                                            ProviderType.EXCHANGE -> "Exchanges"
+                                            ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
                                         },
                                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                                         style = MaterialTheme.typography.bodySmall
