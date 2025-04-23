@@ -54,11 +54,6 @@ fun RatesScreen(
                 .padding(paddingValues)
                 .padding(16.dp)
         ) {
-            Text(
-                text = "Currency Rates",
-                style = MaterialTheme.typography.headlineMedium
-            )
-
             if (providers.isEmpty()) {
                 Text(
                     text = "No providers available",
