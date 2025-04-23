@@ -1,6 +1,5 @@
 package com.currency.rateman.ui.screens
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -18,12 +17,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.repository.RateProviderRepositoryFake
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
-import com.currency.rateman.data.model.RateProvider
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -184,5 +180,3 @@ fun RatesScreen(
         }
     }
 }
-
-
