@@ -61,9 +61,9 @@ fun RatesScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(16.dp)
+                .padding(horizontal = 16.dp)
         ) {
-            // Fixed header section (won't scroll)
+            // Fixed header section
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -158,7 +158,6 @@ fun RatesScreen(
             }
 
             // Scrollable content section
-
             if (providers.isEmpty()) {
                 Text(
                     text = "No providers available",
