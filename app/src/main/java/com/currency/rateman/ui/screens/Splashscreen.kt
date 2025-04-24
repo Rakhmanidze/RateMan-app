@@ -23,11 +23,11 @@ fun Splashscreen(
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
-        Image(
-            painter = painterResource(R.drawable.splashscreen),
-            contentDescription = "Splashscreen",
-            modifier = Modifier.fillMaxSize()
-        )
+//        Image(
+//            painter = painterResource(R.drawable.splashscreen),
+//            contentDescription = "Splashscreen",
+//            modifier = Modifier.fillMaxSize()
+//        )
         Text (
             "RateMan",
             color = Color.Blue,
