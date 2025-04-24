@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -16,7 +15,6 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.repository.RateProviderRepositoryFake
-import androidx.compose.foundation.lazy.items
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
@@ -30,7 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.ProviderType
-import com.currency.rateman.ui.components.ProviderItem
+import com.currency.rateman.ui.components.ProvidersList
 
 @Composable
 fun RatesScreen(
@@ -160,23 +158,7 @@ fun RatesScreen(
             }
 
             // Scrollable content section
-            if (providers.isEmpty()) {
-                Text(
-                    text = "No providers available",
-                    style = MaterialTheme.typography.bodyLarge,
-                    modifier = Modifier.padding(top = 8.dp)
-                )
-            } else {
-                LazyColumn(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(top = 8.dp)
-                ) {
-                    items(providers) { provider ->
-                        ProviderItem(provider = provider)
-                    }
-                }
-            }
+            ProvidersList(providers = providers)
         }
     }
 }
