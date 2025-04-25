@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.RateSortType
 
 @Composable
 fun SearchAndFilterHeader(
@@ -27,9 +28,12 @@ fun SearchAndFilterHeader(
     onSearchQueryChange: (TextFieldValue) -> Unit,
     selectedProviderType: ProviderType,
     onProviderTypeChange: (ProviderType) -> Unit,
+    selectedRateSortType: RateSortType,
+    onRateSortTypeChange: (RateSortType) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    var sortByExpanded by remember { mutableStateOf(false) }
+    var providerTypeExpanded by remember { mutableStateOf(false) }
+    var rateSortTypeExpanded by remember { mutableStateOf(false) }
     var isSearchFocused by remember { mutableStateOf(false) }
 
     Column(
@@ -74,52 +78,104 @@ fun SearchAndFilterHeader(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Filter button
-        Box(modifier = Modifier.width(150.dp)) {
-            OutlinedButton(
-                onClick = { sortByExpanded = true },
-                colors = ButtonDefaults.outlinedButtonColors(
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant
-                ),
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = when (selectedProviderType) {
-                        ProviderType.ALL -> "All"
-                        ProviderType.BANK -> "Banks"
-                        ProviderType.EXCHANGE -> "Exchanges"
-                        ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
-                    },
-                    style = MaterialTheme.typography.bodySmall
-                )
-            }
-            DropdownMenu(
-                expanded = sortByExpanded,
-                onDismissRequest = { sortByExpanded = false },
-                modifier = Modifier
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
-                    .width(150.dp)
-            ) {
-                ProviderType.entries.forEach { type ->
-                    DropdownMenuItem(
-                        text = {
-                            Text(
-                                text = when (type) {
-                                    ProviderType.ALL -> "All"
-                                    ProviderType.BANK -> "Banks"
-                                    ProviderType.EXCHANGE -> "Exchanges"
-                                    ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
-                                },
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                style = MaterialTheme.typography.bodySmall
-                            )
+        // Filter buttons
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Box(modifier = Modifier.width(150.dp)) {
+                OutlinedButton(
+                    onClick = { providerTypeExpanded = true },
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = when (selectedProviderType) {
+                            ProviderType.ALL -> "All"
+                            ProviderType.BANK -> "Banks"
+                            ProviderType.EXCHANGE -> "Exchanges"
+                            ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
                         },
-                        onClick = {
-                            onProviderTypeChange(type)
-                            sortByExpanded = false
-                        }
+                        style = MaterialTheme.typography.bodySmall
                     )
+                }
+                DropdownMenu(
+                    expanded = providerTypeExpanded,
+                    onDismissRequest = { providerTypeExpanded = false },
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .width(150.dp)
+                ) {
+                    ProviderType.entries.forEach { type ->
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = when (type) {
+                                        ProviderType.ALL -> "All"
+                                        ProviderType.BANK -> "Banks"
+                                        ProviderType.EXCHANGE -> "Exchanges"
+                                        ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
+                                    },
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            },
+                            onClick = {
+                                onProviderTypeChange(type)
+                                providerTypeExpanded = false
+                            }
+                        )
+                    }
+                }
+            }
+
+            Box(modifier = Modifier.width(102.dp)) {
+                OutlinedButton(
+                    onClick = { rateSortTypeExpanded = true },
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = when (selectedRateSortType) {
+                            RateSortType.BEST_RATE -> "Best Rate"
+                            RateSortType.BEST_BUY -> "Best Buy"
+                            RateSortType.BEST_SELL -> "Best Sell"
+                        },
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+                DropdownMenu(
+                    expanded = rateSortTypeExpanded,
+                    onDismissRequest = { rateSortTypeExpanded = false },
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .width(150.dp)
+                ) {
+                    RateSortType.entries.forEach { option ->
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = when (option) {
+                                        RateSortType.BEST_RATE -> "Best Rate"
+                                        RateSortType.BEST_BUY -> "Best Buy"
+                                        RateSortType.BEST_SELL -> "Best Sell"
+                                    },
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            },
+                            onClick = {
+                                onRateSortTypeChange(option)
+                                rateSortTypeExpanded = false
+                            }
+                        )
+                    }
                 }
             }
         }

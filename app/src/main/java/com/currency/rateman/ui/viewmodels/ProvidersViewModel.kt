@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.RateSortType
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -48,5 +49,9 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
 
     fun updateProviderType(type: ProviderType) {
         _selectedProviderType.value = type
+    }
+
+    fun updateRateSortType(type: RateSortType) {
+
     }
 }
