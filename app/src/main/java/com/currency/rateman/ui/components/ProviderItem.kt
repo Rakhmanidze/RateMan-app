@@ -43,11 +43,7 @@ fun ProviderItem(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = rate.foreignCurrency.name,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                        Text(
-                            text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate}",
+                            text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate} CZK",
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
