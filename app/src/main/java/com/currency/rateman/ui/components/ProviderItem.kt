@@ -34,11 +34,6 @@ fun ProviderItem(
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurface
             )
-            Text(
-                text = provider.phoneNumber,
-                style = MaterialTheme.typography.titleMedium,
-                color = MaterialTheme.colorScheme.onSurface
-            )
             if (ratesToDisplay.isNotEmpty()) {
                 ratesToDisplay.forEach { rate ->
                     Row(
