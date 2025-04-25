@@ -19,6 +19,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
+import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
 
@@ -28,11 +29,14 @@ fun SearchAndFilterHeader(
     onSearchQueryChange: (TextFieldValue) -> Unit,
     selectedProviderType: ProviderType,
     onProviderTypeChange: (ProviderType) -> Unit,
+    selectedCurrency: CurrencyCode,
+    onCurrencyChange: (CurrencyCode) -> Unit,
     selectedRateSortType: RateSortType,
     onRateSortTypeChange: (RateSortType) -> Unit,
     modifier: Modifier = Modifier
 ) {
     var providerTypeExpanded by remember { mutableStateOf(false) }
+    var currencyExpanded by remember { mutableStateOf(false) }
     var rateSortTypeExpanded by remember { mutableStateOf(false) }
     var isSearchFocused by remember { mutableStateOf(false) }
 
@@ -132,6 +136,45 @@ fun SearchAndFilterHeader(
                 }
             }
 
+            Box(modifier = Modifier.width(80.dp)) {
+                OutlinedButton(
+                    onClick = { currencyExpanded = true },
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                        contentColor = MaterialTheme.colorScheme.onSurfaceVariant
+                    ),
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    Text(
+                        text = selectedCurrency.name,
+                        style = MaterialTheme.typography.bodySmall
+                    )
+                }
+                DropdownMenu(
+                    expanded = currencyExpanded,
+                    onDismissRequest = { currencyExpanded = false },
+                    modifier = Modifier
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .width(80.dp)
+                ) {
+                    CurrencyCode.entries.forEach { currency ->
+                        DropdownMenuItem(
+                            text = {
+                                Text(
+                                    text = currency.name,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    style = MaterialTheme.typography.bodySmall
+                                )
+                            },
+                            onClick = {
+                                onCurrencyChange(currency)
+                                currencyExpanded = false
+                            }
+                        )
+                    }
+                }
+            }
+
             Box(modifier = Modifier.width(102.dp)) {
                 OutlinedButton(
                     onClick = { rateSortTypeExpanded = true },
@@ -155,7 +198,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { rateSortTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(150.dp)
+                        .width(102.dp)
                 ) {
                     RateSortType.entries.forEach { option ->
                         DropdownMenuItem(

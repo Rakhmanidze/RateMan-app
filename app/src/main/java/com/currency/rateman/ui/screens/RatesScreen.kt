@@ -16,6 +16,7 @@ import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
 import androidx.compose.ui.text.input.TextFieldValue
+import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.RateSortType
 import com.currency.rateman.ui.components.ProvidersList
 import com.currency.rateman.ui.components.SearchAndFilterHeader
@@ -31,6 +32,7 @@ fun RatesScreen(
     var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
     var selectedRateSortType by remember { mutableStateOf(RateSortType.BEST_RATE) }
+    var selectedCurrency by remember { mutableStateOf(CurrencyCode.USD) }
 
     Scaffold(
         bottomBar = {
@@ -56,6 +58,11 @@ fun RatesScreen(
                 },
                 selectedProviderType = selectedProviderType,
                 onProviderTypeChange = { viewModel.updateProviderType(it) },
+                selectedCurrency = selectedCurrency,
+                onCurrencyChange ={ newCurrency ->
+                    selectedCurrency = newCurrency
+                    viewModel.updateCurrency(newCurrency)
+                },
                 selectedRateSortType = selectedRateSortType,
                 onRateSortTypeChange = { newSortType ->
                     selectedRateSortType = newSortType
