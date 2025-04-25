@@ -16,6 +16,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.RateProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.*
 
 @Composable
 fun ProvidersList(
@@ -23,6 +25,8 @@ fun ProvidersList(
     selectedCurrency: CurrencyCode,
     modifier: Modifier = Modifier
 ) {
+    var selectedProvider by remember { mutableStateOf<RateProvider?>(null) }
+
     if (providers.isEmpty()) {
         Box(
             modifier = Modifier
