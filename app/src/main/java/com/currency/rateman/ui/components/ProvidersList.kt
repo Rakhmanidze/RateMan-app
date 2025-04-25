@@ -14,11 +14,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.RateProvider
 
 @Composable
 fun ProvidersList(
     providers: List<RateProvider>,
+    selectedCurrency: CurrencyCode,
     modifier: Modifier = Modifier
 ) {
     if (providers.isEmpty()) {
@@ -44,7 +46,12 @@ fun ProvidersList(
                 .padding(top = 8.dp)
         ) {
             items(providers) { provider ->
-                ProviderItem(provider = provider)
+                val displayRates = provider.rates.filter { rate ->
+                    rate.foreignCurrency == selectedCurrency
+                }
+                ProviderItem(provider = provider,
+                    ratesToDisplay = displayRates,
+                )
             }
         }
     }

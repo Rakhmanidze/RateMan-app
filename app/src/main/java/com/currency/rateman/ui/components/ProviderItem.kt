@@ -12,10 +12,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.RateProvider
 
 @Composable
-fun ProviderItem(provider: RateProvider) {
+fun ProviderItem(
+    provider: RateProvider,
+    ratesToDisplay : List<CurrencyRate>,
+    ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -35,21 +39,23 @@ fun ProviderItem(provider: RateProvider) {
                 style = MaterialTheme.typography.titleMedium,
                 color = MaterialTheme.colorScheme.onSurface
             )
-            provider.rates.forEach { rate ->
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 4.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text(
-                        text = rate.foreignCurrency.name,
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate}",
-                        style = MaterialTheme.typography.bodyMedium
-                    )
+            if (ratesToDisplay.isNotEmpty()) {
+                ratesToDisplay.forEach { rate ->
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 4.dp),
+                        horizontalArrangement = Arrangement.SpaceBetween
+                    ) {
+                        Text(
+                            text = rate.foreignCurrency.name,
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                        Text(
+                            text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate}",
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
                 }
             }
         }

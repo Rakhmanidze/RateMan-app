@@ -31,6 +31,7 @@ fun RatesScreen(
     var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
     var selectedRateSortType by remember { mutableStateOf(RateSortType.BEST_RATE) }
+    val selectedCurrency by viewModel.selectedCurrency.collectAsState()
 
     Scaffold(
         bottomBar = {
@@ -56,7 +57,7 @@ fun RatesScreen(
                 },
                 selectedProviderType = selectedProviderType,
                 onProviderTypeChange = { viewModel.updateProviderType(it) },
-                selectedCurrency = viewModel.selectedCurrency.collectAsState().value,
+                selectedCurrency = selectedCurrency,
                 onCurrencyChange ={ newCurrency ->
                     viewModel.updateCurrency(newCurrency)
                 },
@@ -66,7 +67,9 @@ fun RatesScreen(
                     viewModel.updateRateSortType(newSortType)
                 }
             )
-            ProvidersList(providers = providers)
+            ProvidersList(providers = providers,
+                selectedCurrency = selectedCurrency
+            )
         }
     }
 }

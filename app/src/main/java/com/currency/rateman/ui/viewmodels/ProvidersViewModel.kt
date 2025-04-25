@@ -40,7 +40,7 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
             }
         }
 
-        when (selectedProviderType) {
+        filteredProviders = when (selectedProviderType) {
             ProviderType.ALL -> filteredProviders
             ProviderType.BANK -> filteredProviders.filter { it.type == ProviderType.BANK }
             ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
