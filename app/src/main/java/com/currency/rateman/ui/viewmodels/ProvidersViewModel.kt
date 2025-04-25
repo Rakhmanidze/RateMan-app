@@ -23,11 +23,15 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
     private val _selectedProviderType = MutableStateFlow(ProviderType.ALL)
     val selectedProviderType: StateFlow<ProviderType> = _selectedProviderType.asStateFlow()
 
+    private val _selectedCurrency = MutableStateFlow(CurrencyCode.EUR)
+    val selectedCurrency: StateFlow<CurrencyCode> = _selectedCurrency.asStateFlow()
+
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
+        _selectedCurrency,
         _selectedProviderType
 
-    ) { query, selectedProviderType ->
+    ) { query, selectedCurrency, selectedProviderType ->
         var filteredProviders = allProviders
 
         if (query.isNotBlank()) {
@@ -42,6 +46,11 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
             ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
             ProviderType.CRYPTO_EXCHANGE -> filteredProviders.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
         }
+
+        filteredProviders = filteredProviders.filter { provider ->
+            provider.rates.any {rate -> rate.foreignCurrency == selectedCurrency }
+        }
+        filteredProviders
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
 
     fun updateSearchQuery(query: String) {
@@ -51,8 +60,9 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
     fun updateProviderType(type: ProviderType) {
         _selectedProviderType.value = type
     }
-    fun updateCurrency(type: CurrencyCode) {
 
+    fun updateCurrency(newCurrency: CurrencyCode) {
+        _selectedCurrency.value = newCurrency
     }
 
     fun updateRateSortType(type: RateSortType) {
