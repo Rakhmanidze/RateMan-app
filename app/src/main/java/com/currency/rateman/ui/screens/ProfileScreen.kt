@@ -61,7 +61,7 @@ fun ProfileScreen(
             ) {
                 Column {
                     Text(
-                        text = "interface language",
+                        text = "Interface language",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
@@ -110,7 +110,7 @@ fun ProfileScreen(
             ) {
                 Column {
                     Text(
-                        text = "theme",
+                        text = "Theme",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
@@ -159,7 +159,7 @@ fun ProfileScreen(
             ) {
                 Column {
                     Text(
-                        text = "default currency",
+                        text = "Default currency",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
