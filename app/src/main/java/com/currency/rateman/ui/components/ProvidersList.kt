@@ -1,7 +1,10 @@
 package com.currency.rateman.ui.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -44,19 +47,37 @@ fun ProvidersList(
             )
         }
     } else {
-
-        LazyColumn(
+        Column(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(top = 8.dp)
         ) {
-            items(providers) { provider ->
-                val displayRates = provider.rates.filter { rate ->
-                    rate.foreignCurrency == selectedCurrency
-                }
-                ProviderItem(provider = provider,
-                    ratesToDisplay = displayRates,
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp, vertical = 4.dp),
+                horizontalArrangement = Arrangement.End
+            ) {
+                Text(
+                    text = "Buy / Sell",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
                 )
+            }
+            LazyColumn(
+                modifier = modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp)
+            ) {
+                items(providers) { provider ->
+                    val displayRates = provider.rates.filter { rate ->
+                        rate.foreignCurrency == selectedCurrency
+                    }
+                    ProviderItem(
+                        provider = provider,
+                        ratesToDisplay = displayRates,
+                    )
+                }
             }
         }
     }
