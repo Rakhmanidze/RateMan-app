@@ -87,7 +87,7 @@ fun SearchAndFilterHeader(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Box(modifier = Modifier.width(150.dp)) {
+            Box(modifier = Modifier.width(149.dp)) {
                 OutlinedButton(
                     onClick = { providerTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -111,7 +111,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { providerTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(150.dp)
+                        .width(149.dp)
                 ) {
                     ProviderType.entries.forEach { type ->
                         DropdownMenuItem(
