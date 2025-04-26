@@ -81,6 +81,56 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     ),
                     phoneNumber = "+420 800 900 900",
                     type = ProviderType.BANK
+                ),
+                RateProvider(
+                    name = "Unicredit Bank",
+                    baseCurrency = CurrencyCode.CZK,
+                    rates = listOf(
+                        CurrencyRate(CurrencyCode.USD, 22.5, 23.1, LocalDate.of(2025, 4, 19)),
+                        CurrencyRate(CurrencyCode.EUR, 24.1, 24.6, LocalDate.of(2025, 4, 19))
+                    ),
+                    phoneNumber = "+420 800 123 456",
+                    type = ProviderType.BANK
+                ),
+                RateProvider(
+                    name = "Směnárna Karlova",
+                    baseCurrency = CurrencyCode.CZK,
+                    rates = listOf(
+                        CurrencyRate(CurrencyCode.USD, 22.9, 23.4, LocalDate.of(2025, 4, 19)),
+                        CurrencyRate(CurrencyCode.EUR, 24.4, 24.9, LocalDate.of(2025, 4, 19))
+                    ),
+                    phoneNumber = "+420 603 987 654",
+                    type = ProviderType.EXCHANGE
+                ),
+                RateProvider(
+                    name = "Fio Banka",
+                    baseCurrency = CurrencyCode.CZK,
+                    rates = listOf(
+                        CurrencyRate(CurrencyCode.USD, 22.4, 22.9, LocalDate.of(2025, 4, 19)),
+                        CurrencyRate(CurrencyCode.EUR, 23.9, 24.4, LocalDate.of(2025, 4, 19))
+                    ),
+                    phoneNumber = "+420 840 111 222",
+                    type = ProviderType.BANK
+                ),
+                RateProvider(
+                    name = "Express Exchange",
+                    baseCurrency = CurrencyCode.CZK,
+                    rates = listOf(
+                        CurrencyRate(CurrencyCode.USD, 22.7, 23.2, LocalDate.of(2025, 4, 19)),
+                        CurrencyRate(CurrencyCode.EUR, 24.2, 24.7, LocalDate.of(2025, 4, 19))
+                    ),
+                    phoneNumber = "+420 777 888 999",
+                    type = ProviderType.EXCHANGE
+                ),
+                RateProvider(
+                    name = "Air Bank",
+                    baseCurrency = CurrencyCode.CZK,
+                    rates = listOf(
+                        CurrencyRate(CurrencyCode.USD, 22.3, 22.8, LocalDate.of(2025, 4, 19)),
+                        CurrencyRate(CurrencyCode.EUR, 23.8, 24.3, LocalDate.of(2025, 4, 19))
+                    ),
+                    phoneNumber = "+420 850 111 333",
+                    type = ProviderType.BANK
                 )
             )
         )
