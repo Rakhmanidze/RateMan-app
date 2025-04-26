@@ -28,7 +28,7 @@ fun BottomNavBar(
                 onClick = { onItemClick(item) },
                 icon = {
                     Icon(
-                        painter = painterResource(id = item.iconId),
+                        painter = painterResource(id = item.iconRes),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp)
                     )
