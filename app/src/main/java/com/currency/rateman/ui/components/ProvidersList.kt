@@ -76,6 +76,7 @@ fun ProvidersList(
                     ProviderItem(
                         provider = provider,
                         ratesToDisplay = displayRates,
+                        onClick = { selectedProvider = provider }
                     )
                 }
             }
