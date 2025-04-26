@@ -1,5 +1,6 @@
 package com.currency.rateman.ui.viewmodels
 
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import com.currency.rateman.data.model.RateProvider
 import com.currency.rateman.data.repository.RateProviderRepository
@@ -17,8 +18,8 @@ import kotlinx.coroutines.flow.stateIn
 class ProvidersViewModel(private val repository: RateProviderRepository) : ViewModel() {
     private val allProviders = repository.getAllProviders()
 
-    private val _searchQuery = MutableStateFlow("")
-    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+    private val _searchQuery = MutableStateFlow(TextFieldValue(""))
+    val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
 
     private val _selectedProviderType = MutableStateFlow(ProviderType.ALL)
     val selectedProviderType: StateFlow<ProviderType> = _selectedProviderType.asStateFlow()
@@ -37,9 +38,9 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
     ) { query, selectedCurrency, selectedProviderType ->
         var filteredProviders = allProviders
 
-        if (query.isNotBlank()) {
+        if (query.text.isNotBlank()) {
             filteredProviders = filteredProviders.filter { provider ->
-                provider.name.contains(query, ignoreCase = true)
+                provider.name.contains(query.text, ignoreCase = true)
             }
         }
 
@@ -56,7 +57,7 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
         filteredProviders
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
 
-    fun updateSearchQuery(query: String) {
+    fun updateSearchQuery(query: TextFieldValue) {
         _searchQuery.value = query
     }
 

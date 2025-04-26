@@ -10,12 +10,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.currency.rateman.data.repository.RateProviderRepositoryFake
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.navigation.NavHostController
 import com.currency.rateman.data.model.RateSortType
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
@@ -35,7 +33,7 @@ fun RatesScreen(
         ?: return
 
     val providers by viewModel.providers.collectAsState()
-    var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
+    val searchQuery by viewModel.searchQuery.collectAsState()
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
     var selectedRateSortType by remember { mutableStateOf(RateSortType.BEST_RATE) }
     val selectedCurrency by viewModel.selectedCurrency.collectAsState()
@@ -58,9 +56,8 @@ fun RatesScreen(
         ) {
             SearchAndFilterHeader(
                 searchQuery = searchQuery,
-                onSearchQueryChange = {
-                    searchQuery = it
-                    viewModel.updateSearchQuery(it.text)
+                onSearchQueryChange = { newValue ->
+                    viewModel.updateSearchQuery(newValue)
                 },
                 selectedProviderType = selectedProviderType,
                 onProviderTypeChange = { viewModel.updateProviderType(it) },
