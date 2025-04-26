@@ -43,7 +43,7 @@ fun ProviderItem(
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = "Buy: ${rate.buyRate} | Sell: ${rate.sellRate} CZK",
+                            text = "${rate.buyRate} / ${rate.sellRate} CZK",
                             style = MaterialTheme.typography.bodyMedium
                         )
                     }
