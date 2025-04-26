@@ -26,6 +26,9 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
     private val _selectedCurrency = MutableStateFlow(CurrencyCode.EUR)
     val selectedCurrency: StateFlow<CurrencyCode> = _selectedCurrency.asStateFlow()
 
+    private val _selectedRateSortType = MutableStateFlow(RateSortType.BEST_RATE)
+    val selectedRateSortType: StateFlow<RateSortType> = _selectedRateSortType.asStateFlow()
+
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
         _selectedCurrency,
@@ -66,6 +69,6 @@ class ProvidersViewModel(private val repository: RateProviderRepository) : ViewM
     }
 
     fun updateRateSortType(type: RateSortType) {
-
+        _selectedRateSortType.value = type
     }
 }

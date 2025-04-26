@@ -79,6 +79,7 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable(Routes.Rates.route) {
             RatesScreen(
+                navController = navController,
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->

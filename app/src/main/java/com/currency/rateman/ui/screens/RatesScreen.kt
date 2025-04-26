@@ -16,7 +16,9 @@ import com.currency.rateman.ui.viewmodels.ProvidersViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.navigation.NavHostController
 import com.currency.rateman.data.model.RateSortType
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.ProvidersList
 import com.currency.rateman.ui.components.SearchAndFilterHeader
 
@@ -25,8 +27,13 @@ fun RatesScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
-    viewModel: ProvidersViewModel = ProvidersViewModel(RateProviderRepositoryFake())
+    navController: NavHostController
 ) {
+    val viewModel: ProvidersViewModel = navController
+        .currentBackStackEntry
+        ?.sharedKoinNavViewModel(navController)
+        ?: return
+
     val providers by viewModel.providers.collectAsState()
     var searchQuery by remember { mutableStateOf(TextFieldValue("")) }
     val selectedProviderType by viewModel.selectedProviderType.collectAsState()
