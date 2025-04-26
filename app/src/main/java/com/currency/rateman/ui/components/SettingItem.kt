@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
 fun <T : Enum<T>> SettingItem(
@@ -18,6 +19,7 @@ fun <T : Enum<T>> SettingItem(
     value: String,
     options: List<T>,
     onValueChange: (T) -> Unit,
+    icon: ImageVector,
     modifier: Modifier = Modifier
 ) {
     var expanded by remember { mutableStateOf(false) }
@@ -36,6 +38,14 @@ fun <T : Enum<T>> SettingItem(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
         ) {
+            Icon(
+                imageVector = icon,
+                contentDescription = label,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .size(24.dp)
+                    .padding(end = 8.dp)
+            )
             Column(
                 modifier = Modifier.weight(1f)
             ) {

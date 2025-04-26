@@ -1,6 +1,9 @@
 package com.currency.rateman.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -47,7 +50,8 @@ fun ProfileScreen(
                 options = enumValues<LanguageCode>().toList(),
                 onValueChange = { language ->
                     onProfileChange(profile.copy(uiLanguage = language))
-                }
+                },
+                icon = Icons.Default.AccountCircle
             )
 
             SettingItem(
@@ -57,7 +61,8 @@ fun ProfileScreen(
                 onValueChange = { theme ->
                     onProfileChange(profile.copy(themeMode = theme))
                 },
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp),
+                icon = Icons.Default.Clear
             )
 
             SettingItem(
@@ -67,7 +72,8 @@ fun ProfileScreen(
                 onValueChange = { currency ->
                     onProfileChange(profile.copy(defaultCurrency = currency))
                 },
-                modifier = Modifier.padding(top = 8.dp)
+                modifier = Modifier.padding(top = 8.dp),
+                icon = Icons.Default.Clear
             )
         }
     }
