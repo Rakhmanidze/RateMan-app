@@ -34,7 +34,7 @@ fun ProfileScreen(
                 .padding(paddingValues)
                 .padding(16.dp)
         ) {
-            Text(text = "Profile Settings", style = MaterialTheme.typography.headlineMedium)
+            Text(text = "Settings", style = MaterialTheme.typography.headlineMedium)
 
             Text(
                 text = "Default Currency: ${profile.defaultCurrency.name}",
