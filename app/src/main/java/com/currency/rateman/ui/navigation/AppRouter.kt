@@ -105,6 +105,8 @@ fun MainAppRouter(navController: NavHostController) {
                         launchSingleTop = true
                         restoreState = true
                     }
+                },
+                onProfileChange = { updatedProfile ->
                 }
             )
         }
