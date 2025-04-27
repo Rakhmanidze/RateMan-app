@@ -85,5 +85,3 @@ fun <T : Enum<T>> SettingItem(
         }
     }
 }
-
-
