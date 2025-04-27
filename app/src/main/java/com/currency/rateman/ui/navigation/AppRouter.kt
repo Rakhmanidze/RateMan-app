@@ -54,14 +54,6 @@ fun MainAppRouter(navController: NavHostController) {
         )
     }
 
-    var profile by rememberSaveable { mutableStateOf(
-        Profile (
-            defaultCurrency = CurrencyCode.CZK,
-            uiLanguage = LanguageCode.EN,
-            themeMode = ThemeMode.DARK
-        )
-    ) }
-
     NavHost (
         navController = navController,
         startDestination = Routes.Rates.route
