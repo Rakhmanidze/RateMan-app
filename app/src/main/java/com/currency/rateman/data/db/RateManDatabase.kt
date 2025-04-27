@@ -11,7 +11,6 @@ import com.currency.rateman.data.db.dao.RateProviderDao
 
 @Database(
     entities = [
-        PlaygroundEntity::class,
         RateProviderEntity::class,
         CurrencyRateEntity::class,
        ],
@@ -20,7 +19,6 @@ import com.currency.rateman.data.db.dao.RateProviderDao
 )
 abstract class RateManDatabase : RoomDatabase() {
 
-    abstract fun playgroundDao(): PlaygroundDao
     abstract  fun rateProviderDao(): RateProviderDao
     abstract fun currencyRateDao(): CurrencyRateDao
 
