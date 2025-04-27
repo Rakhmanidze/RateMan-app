@@ -17,15 +17,20 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 
 @Composable
 fun SettingsScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
+    navController: NavHostController
 ) {
-    val viewModel: SettingsViewModel = viewModel()
+    val viewModel: SettingsViewModel = navController
+        .currentBackStackEntry
+        ?.sharedKoinNavViewModel(navController)
+        ?: return
 
     val profile by viewModel.settings.collectAsState()
 

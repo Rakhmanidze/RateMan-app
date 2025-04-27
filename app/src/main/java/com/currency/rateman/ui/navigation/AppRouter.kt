@@ -89,7 +89,8 @@ fun MainAppRouter(navController: NavHostController) {
                         launchSingleTop = true
                         restoreState = true
                     }
-                }
+                },
+                navController = navController
             )
         }
     }

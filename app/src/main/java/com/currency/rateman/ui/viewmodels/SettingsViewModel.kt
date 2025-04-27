@@ -1,34 +1,50 @@
 package com.currency.rateman.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.ThemeMode
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.currency.rateman.data.repository.SettingsRepository
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
-class SettingsViewModel  : ViewModel() {
-    private val _settings = MutableStateFlow(
-        Settings(
-            CurrencyCode.EUR,
-            LanguageCode.EN,
-            ThemeMode.LIGHT
+class SettingsViewModel(private val repository: SettingsRepository) : ViewModel() {
+    val settings: StateFlow<Settings> = repository.getSettings()
+        .stateIn(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(5000),
+            initialValue = Settings(
+                defaultCurrency = CurrencyCode.CZK,
+                uiLanguage = LanguageCode.EN,
+                themeMode = ThemeMode.DARK
+            )
         )
-    )
-
-    val settings: StateFlow<Settings> = _settings.asStateFlow()
 
     fun updateLanguage(language: LanguageCode) {
-        _settings.value = _settings.value.copy(uiLanguage = language)
+        viewModelScope.launch {
+            repository.saveSettings(settings.value.copy(uiLanguage = language))
+        }
     }
 
     fun updateTheme(newTheme: ThemeMode) {
-        _settings.value = _settings.value.copy(themeMode = newTheme)
+        viewModelScope.launch {
+            repository.saveSettings(settings.value.copy(themeMode = newTheme))
+        }
     }
 
     fun updateCurrency(newCurrency: CurrencyCode) {
-        _settings.value = _settings.value.copy(defaultCurrency = newCurrency)
+        viewModelScope.launch {
+            repository.saveSettings(settings.value.copy(defaultCurrency = newCurrency))
+        }
+    }
+
+    fun resetSettings() {
+        viewModelScope.launch {
+            repository.resetSettings()
+        }
     }
 }
