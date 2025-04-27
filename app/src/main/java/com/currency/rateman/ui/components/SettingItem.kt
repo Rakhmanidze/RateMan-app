@@ -23,7 +23,7 @@ fun <T : Enum<T>> SettingItem(
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier
 ) {
-    var expanded by remember { mutableStateOf(false) }
+    var dialogOpened by remember { mutableStateOf(false) }
 
     Box(
         modifier = modifier
@@ -32,7 +32,7 @@ fun <T : Enum<T>> SettingItem(
                 MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { expanded = true }
+            .clickable { dialogOpened = true }
             .padding(12.dp)
     ) {
         Row(
@@ -69,9 +69,14 @@ fun <T : Enum<T>> SettingItem(
                 modifier = Modifier.size(24.dp)
             )
         }
+
+        if (dialogOpened) {
+
+        }
+
         DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
+            expanded = dialogOpened,
+            onDismissRequest = { dialogOpened = false },
             modifier = Modifier
                 .background(MaterialTheme.colorScheme.surface)
         ) {
@@ -85,7 +90,7 @@ fun <T : Enum<T>> SettingItem(
                     },
                     onClick = {
                         onValueChange(option)
-                        expanded = false
+                        dialogOpened = false
                     }
                 )
             }
