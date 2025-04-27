@@ -19,6 +19,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.components.CurrencySettingItem
 
 @Composable
 fun SettingsScreen(
@@ -76,7 +77,7 @@ fun SettingsScreen(
                 iconRes = R.drawable.theme
             )
 
-            SettingItem(
+            CurrencySettingItem(
                 label = "Default currency",
                 value = profile.defaultCurrency.name,
                 options = CurrencyCode.entries.toList(),
