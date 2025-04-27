@@ -10,5 +10,5 @@ data class RateProviderEntity(
     val name: String = "",
     val baseCurrency: String = "",
     val phoneNumber: String = "",
-    val type: String = "",
+    val type: String = ""
 )

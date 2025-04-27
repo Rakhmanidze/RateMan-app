@@ -9,5 +9,5 @@ import kotlinx.serialization.Serializable
 data class Settings(
     val defaultCurrency: CurrencyCode = CurrencyCode.CZK,
     val uiLanguage: LanguageCode = LanguageCode.EN,
-    val themeMode: ThemeMode = ThemeMode.DARK,
+    val themeMode: ThemeMode = ThemeMode.DARK
 ) : Parcelable

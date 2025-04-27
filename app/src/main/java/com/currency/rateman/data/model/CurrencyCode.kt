@@ -38,5 +38,5 @@ enum class CurrencyCode {
     ILS,
     TND,
     XDR,
-    BAM,
+    BAM
 }

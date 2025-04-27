@@ -5,5 +5,5 @@ data class RateProvider(
     val baseCurrency: CurrencyCode,
     val rates: List<CurrencyRate>,
     val phoneNumber: String,
-    val type: ProviderType,
+    val type: ProviderType
 )
