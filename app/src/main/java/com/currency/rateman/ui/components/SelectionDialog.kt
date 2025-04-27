@@ -42,12 +42,6 @@ fun<T> SelectionDialog(
                     text = title,
                     style = MaterialTheme.typography.titleMedium
                 )
-                Icon(
-                    painter = painterResource(id = R.drawable.select),
-                    contentDescription = "Selected",
-                    modifier = Modifier.size(24.dp)
-                )
-
             }
             options.forEach { option ->
                 Row(
@@ -75,6 +69,7 @@ fun<T> SelectionDialog(
                 }
                 Divider()
             }
+            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
