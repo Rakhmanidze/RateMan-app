@@ -1,5 +1,6 @@
 package com.currency.rateman.ui.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -22,6 +23,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
+import androidx.compose.ui.res.painterResource
 
 @Composable
 fun SearchAndFilterHeader(
@@ -136,7 +138,7 @@ fun SearchAndFilterHeader(
                 }
             }
 
-            Box(modifier = Modifier.width(80.dp)) {
+            Box(modifier = Modifier.width(92.dp)) {
                 OutlinedButton(
                     onClick = { currencyExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -145,26 +147,50 @@ fun SearchAndFilterHeader(
                     ),
                     modifier = Modifier.fillMaxWidth()
                 ) {
-                    Text(
-                        text = selectedCurrency.name,
-                        style = MaterialTheme.typography.bodySmall
-                    )
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Image(
+                            painter = painterResource(id = getCurrencyIconRes(selectedCurrency)),
+                            contentDescription = "${selectedCurrency.name} icon",
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Text(
+                            text = selectedCurrency.name,
+                            style = MaterialTheme.typography.bodySmall
+                        )
+                    }
                 }
                 DropdownMenu(
                     expanded = currencyExpanded,
                     onDismissRequest = { currencyExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(80.dp)
+                        .width(92.dp)
                 ) {
                     CurrencyCode.entries.forEach { currency ->
                         DropdownMenuItem(
                             text = {
-                                Text(
-                                    text = currency.name,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    style = MaterialTheme.typography.bodySmall
-                                )
+                                Row(
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
+                                ) {
+                                    Image(
+                                        painter = painterResource(
+                                            id = getCurrencyIconRes(
+                                                currency
+                                            )
+                                        ),
+                                        contentDescription = "${currency.name} icon",
+                                        modifier = Modifier.size(16.dp)
+                                    )
+                                    Text(
+                                        text = currency.name,
+                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        style = MaterialTheme.typography.bodySmall
+                                    )
+                                }
                             },
                             onClick = {
                                 onCurrencyChange(currency)
