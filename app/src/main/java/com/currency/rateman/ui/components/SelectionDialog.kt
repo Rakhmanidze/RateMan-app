@@ -19,10 +19,12 @@ fun<T> SelectionDialog(
     onOptionSelected: (T) -> Unit,
     onDismiss: () -> Unit
 ) {
+
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         modifier = Modifier.fillMaxWidth(),
         sheetState = rememberModalBottomSheetState(),
+        windowInsets = WindowInsets(0),
         containerColor = MaterialTheme.colorScheme.surfaceVariant
     ) {
         Column(
@@ -73,7 +75,6 @@ fun<T> SelectionDialog(
                 }
                 Divider()
             }
-            Spacer(modifier = Modifier.height(16.dp))
         }
     }
 }
