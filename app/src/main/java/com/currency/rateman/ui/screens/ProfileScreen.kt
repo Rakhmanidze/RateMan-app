@@ -1,26 +1,34 @@
 package com.currency.rateman.ui.screens
 
-import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
-import com.currency.rateman.data.model.Profile
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.ui.components.SettingItem
+import com.currency.rateman.ui.viewmodels.SettingsViewModel
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun ProfileScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
-    profile: Profile,
     onNavItemClick: (BottomNavItem) -> Unit,
-    onProfileChange: (Profile) -> Unit
 ) {
+    val viewModel: SettingsViewModel = viewModel()
+
+    val profile by viewModel.profile.collectAsState()
+
     Scaffold(
         bottomBar = {
             BottomNavBar(
@@ -47,7 +55,7 @@ fun ProfileScreen(
                 value = profile.uiLanguage.name,
                 options = enumValues<LanguageCode>().toList(),
                 onValueChange = { language ->
-                    onProfileChange(profile.copy(uiLanguage = language))
+                    viewModel.updateLanguage(language)
                 },
                 iconRes = R.drawable.language
             )
@@ -57,7 +65,7 @@ fun ProfileScreen(
                 value = profile.themeMode.name,
                 options = enumValues<ThemeMode>().toList(),
                 onValueChange = { theme ->
-                    onProfileChange(profile.copy(themeMode = theme))
+                    viewModel.updateTheme(theme)
                 },
                 modifier = Modifier.padding(top = 8.dp),
                 iconRes = R.drawable.theme
@@ -68,7 +76,7 @@ fun ProfileScreen(
                 value = profile.defaultCurrency.name,
                 options = CurrencyCode.entries.toList(),
                 onValueChange = { currency ->
-                    onProfileChange(profile.copy(defaultCurrency = currency))
+                    viewModel.updateCurrency(currency)
                 },
                 modifier = Modifier.padding(top = 8.dp),
                 iconRes = R.drawable.currency

@@ -79,25 +79,8 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable(Routes.Rates.route) {
             RatesScreen(
-                navController = navController,
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
-                onNavItemClick = { item ->
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                }
-            )
-        }
-        composable(Routes.Profile.route) {
-            ProfileScreen(
-                bottomNavItems  = bottomNavItems,
-                currentRoute = currentBackStackEntry.value?.destination?.route,
-                profile = profile,
                 onNavItemClick = { item ->
                     navController.navigate(item.route) {
                         popUpTo(navController.graph.startDestinationId) {
@@ -107,7 +90,21 @@ fun MainAppRouter(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                onProfileChange = { updatedProfile ->
+                navController = navController
+            )
+        }
+        composable(Routes.Profile.route) {
+            ProfileScreen(
+                bottomNavItems = bottomNavItems,
+                currentRoute = currentBackStackEntry.value?.destination?.route,
+                onNavItemClick = { item ->
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) {
+                            saveState = true
+                        }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
                 }
             )
         }
