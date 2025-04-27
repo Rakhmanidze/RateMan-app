@@ -71,29 +71,17 @@ fun <T : Enum<T>> SettingItem(
         }
 
         if (dialogOpened) {
-
-        }
-
-        DropdownMenu(
-            expanded = dialogOpened,
-            onDismissRequest = { dialogOpened = false },
-            modifier = Modifier
-                .background(MaterialTheme.colorScheme.surface)
-        ) {
-            options.forEach { option ->
-                DropdownMenuItem(
-                    text = {
-                        Text(
-                            text = option.name,
-                            style = MaterialTheme.typography.bodyMedium
-                        )
-                    },
-                    onClick = {
-                        onValueChange(option)
-                        dialogOpened = false
-                    }
-                )
-            }
+            SelectionDialog(
+                title = "Select $label",
+                options = options,
+                selectedOption = options.find { it.name == value },
+                onOptionSelected = { option ->
+                    onValueChange(option)
+                },
+                onDismiss = {
+                    dialogOpened = false
+                }
+            )
         }
     }
 }
