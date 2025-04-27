@@ -38,7 +38,7 @@ fun SearchAndFilterHeader(
     modifier: Modifier = Modifier
 ) {
     var providerTypeExpanded by remember { mutableStateOf(false) }
-    var currencyExpanded by remember { mutableStateOf(false) }
+    var currencyDialogOpened by remember { mutableStateOf(false) }
     var rateSortTypeExpanded by remember { mutableStateOf(false) }
     var isSearchFocused by remember { mutableStateOf(false) }
 
@@ -140,7 +140,7 @@ fun SearchAndFilterHeader(
 
             Box(modifier = Modifier.width(95.dp)) {
                 OutlinedButton(
-                    onClick = { currencyExpanded = true },
+                    onClick = { currencyDialogOpened = true },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
@@ -162,42 +162,19 @@ fun SearchAndFilterHeader(
                         )
                     }
                 }
-                DropdownMenu(
-                    expanded = currencyExpanded,
-                    onDismissRequest = { currencyExpanded = false },
-                    modifier = Modifier
-                        .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(95.dp)
-                ) {
-                    CurrencyCode.entries.forEach { currency ->
-                        DropdownMenuItem(
-                            text = {
-                                Row(
-                                    verticalAlignment = Alignment.CenterVertically,
-                                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                                ) {
-                                    Image(
-                                        painter = painterResource(
-                                            id = getCurrencyIconRes(
-                                                currency
-                                            )
-                                        ),
-                                        contentDescription = "${currency.name} icon",
-                                        modifier = Modifier.size(16.dp)
-                                    )
-                                    Text(
-                                        text = currency.name,
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                        style = MaterialTheme.typography.bodySmall
-                                    )
-                                }
-                            },
-                            onClick = {
-                                onCurrencyChange(currency)
-                                currencyExpanded = false
-                            }
-                        )
-                    }
+                if (currencyDialogOpened) {
+                    CurrencySelectionDialog(
+                        title = "Select Currency",
+                        options = CurrencyCode.entries.toList(),
+                        selectedOption = selectedCurrency,
+                        onOptionSelected = { currency ->
+                            onCurrencyChange(currency)
+                            currencyDialogOpened = false
+                        },
+                        onDismiss = {
+                            currencyDialogOpened = false
+                        }
+                    )
                 }
             }
 
