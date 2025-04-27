@@ -138,7 +138,7 @@ fun SearchAndFilterHeader(
                 }
             }
 
-            Box(modifier = Modifier.width(92.dp)) {
+            Box(modifier = Modifier.width(95.dp)) {
                 OutlinedButton(
                     onClick = { currencyExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -167,7 +167,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { currencyExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(92.dp)
+                        .width(95.dp)
                 ) {
                     CurrencyCode.entries.forEach { currency ->
                         DropdownMenuItem(
