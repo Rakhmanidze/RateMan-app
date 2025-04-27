@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
 import com.currency.rateman.R
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun<T> SelectionDialog(
     title: String,
@@ -18,52 +19,61 @@ fun<T> SelectionDialog(
     onOptionSelected: (T) -> Unit,
     onDismiss: () -> Unit
 ) {
-    AlertDialog(
+    ModalBottomSheet(
         onDismissRequest = onDismiss,
-        title = {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleMedium
-            )
-        },
-        text = {
-            Column {
-                options.forEach { option ->
-                    Row(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .clickable {
-                                onOptionSelected(option)
-                            }
-                            .padding(vertical = 9.dp),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = option.toString(),
-                            style = MaterialTheme.typography.bodyMedium,
-                            modifier = Modifier.weight(1f)
-                        )
-                        if (option == selectedOption) {
-                            Icon(
-                                painter = painterResource(id = R.drawable.select),
-                                contentDescription = "Selected",
-                                modifier = Modifier.size(24.dp)
-                            )
-                        }
-                    }
-                    Divider()
-                }
-            }
-        },
-        confirmButton = {},
-        dismissButton = {
-            IconButton(onClick = onDismiss) {
+        modifier = Modifier.fillMaxWidth(),
+        sheetState = rememberModalBottomSheetState(),
+        containerColor = MaterialTheme.colorScheme.surfaceVariant
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+        ) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 9.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium
+                )
                 Icon(
-                    painter = painterResource(id = R.drawable.close),
-                    contentDescription = "Close",
+                    painter = painterResource(id = R.drawable.select),
+                    contentDescription = "Selected",
                     modifier = Modifier.size(24.dp)
                 )
+
             }
+            options.forEach { option ->
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            onOptionSelected(option)
+                            onDismiss()
+                        }
+                        .padding(vertical = 9.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Text(
+                        text = option.toString(),
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.weight(1f)
+                    )
+                    if (option == selectedOption) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.select),
+                            contentDescription = "Selected",
+                            modifier = Modifier.size(24.dp)
+                        )
+                    }
+                }
+                Divider()
+            }
+            Spacer(modifier = Modifier.height(16.dp))
         }
-    )
+    }
 }
