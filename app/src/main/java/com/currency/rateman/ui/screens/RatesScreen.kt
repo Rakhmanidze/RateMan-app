@@ -11,7 +11,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.ui.navigation.BottomNavItem
-import com.currency.rateman.ui.viewmodels.ProvidersViewModel
+import com.currency.rateman.ui.viewmodels.RatesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
 import androidx.navigation.NavHostController
@@ -27,7 +27,7 @@ fun RatesScreen(
     onNavItemClick: (BottomNavItem) -> Unit,
     navController: NavHostController
 ) {
-    val viewModel: ProvidersViewModel = navController
+    val viewModel: RatesViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
         ?: return

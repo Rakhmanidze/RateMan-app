@@ -15,7 +15,7 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
-class ProvidersViewModel(private val repository: RateProviderRepository) : ViewModel() {
+class RatesViewModel(private val repository: RateProviderRepository) : ViewModel() {
     private val allProviders = repository.getAllProviders()
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
