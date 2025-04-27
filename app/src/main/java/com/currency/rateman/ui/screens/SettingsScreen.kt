@@ -20,14 +20,14 @@ import androidx.compose.runtime.getValue
 import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
-fun ProfileScreen(
+fun SettingsScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
 ) {
     val viewModel: SettingsViewModel = viewModel()
 
-    val profile by viewModel.profile.collectAsState()
+    val profile by viewModel.settings.collectAsState()
 
     Scaffold(
         bottomBar = {

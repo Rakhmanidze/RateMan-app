@@ -1,7 +1,7 @@
 package com.currency.rateman.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
-import com.currency.rateman.data.model.Profile
+import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.ThemeMode
@@ -10,25 +10,25 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 class SettingsViewModel  : ViewModel() {
-    private val _profile = MutableStateFlow(
-        Profile(
+    private val _settings = MutableStateFlow(
+        Settings(
             CurrencyCode.EUR,
             LanguageCode.EN,
             ThemeMode.LIGHT
         )
     )
 
-    val profile: StateFlow<Profile> = _profile.asStateFlow()
+    val settings: StateFlow<Settings> = _settings.asStateFlow()
 
     fun updateLanguage(language: LanguageCode) {
-        _profile.value = _profile.value.copy(uiLanguage = language)
+        _settings.value = _settings.value.copy(uiLanguage = language)
     }
 
     fun updateTheme(newTheme: ThemeMode) {
-        _profile.value = _profile.value.copy(themeMode = newTheme)
+        _settings.value = _settings.value.copy(themeMode = newTheme)
     }
 
     fun updateCurrency(newCurrency: CurrencyCode) {
-        _profile.value = _profile.value.copy(defaultCurrency = newCurrency)
+        _settings.value = _settings.value.copy(defaultCurrency = newCurrency)
     }
 }

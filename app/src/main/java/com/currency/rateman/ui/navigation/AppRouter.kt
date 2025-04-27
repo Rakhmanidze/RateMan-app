@@ -8,7 +8,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.currency.rateman.R
-import com.currency.rateman.ui.screens.ProfileScreen
+import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
 
@@ -78,7 +78,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Profile.route) {
-            ProfileScreen(
+            SettingsScreen(
                 bottomNavItems = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->

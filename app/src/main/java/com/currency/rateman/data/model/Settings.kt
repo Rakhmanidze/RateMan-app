@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 
 @Parcelize
 @Serializable
-data class Profile(
+data class Settings(
     val defaultCurrency: CurrencyCode = CurrencyCode.CZK,
     val uiLanguage: LanguageCode = LanguageCode.EN,
     val themeMode: ThemeMode = ThemeMode.DARK,
