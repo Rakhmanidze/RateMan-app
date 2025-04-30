@@ -1,5 +1,6 @@
 package com.currency.rateman.data.repository
 
+import androidx.room.Transaction
 import com.currency.rateman.data.db.dao.SettingsDao
 import com.currency.rateman.data.db.entity.SettingsEntity
 import com.currency.rateman.data.model.CurrencyCode
@@ -39,19 +40,19 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         themeMode: ThemeMode?
     ) {
         ensureSettingsExist()
-        val currentEntity = settingsDao.getSettings().first() ?: SettingsEntity(id = 0)
-        val updatedEntity = currentEntity.copy(
-            defaultCurrency = currencyCode?.name ?: currentEntity.defaultCurrency,
-            uiLanguage = languageCode?.name ?: currentEntity.uiLanguage,
-            themeMode = themeMode?.name ?: currentEntity.themeMode
-        )
-        settingsDao.updateSettings(updatedEntity)
+        val current = settingsDao.getSettings().first() ?: return
+        settingsDao.updateSettings(current.copy(
+            defaultCurrency = currencyCode?.name ?: current.defaultCurrency,
+            uiLanguage = languageCode?.name ?: current.uiLanguage,
+            themeMode = themeMode?.name ?: current.themeMode
+        ))
     }
 
     override suspend fun saveSettings(settings: Settings) {
         settingsDao.insertSettings(settings.toEntity().copy(id = 0))
     }
 
+    @Transaction
     override suspend fun resetSettings() {
         settingsDao.deleteAllSettings()
         settingsDao.insertSettings(SettingsEntity(id = 0))
