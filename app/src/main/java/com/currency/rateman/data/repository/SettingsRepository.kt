@@ -15,4 +15,5 @@ interface SettingsRepository {
         languageCode: LanguageCode? = null,
         themeMode: ThemeMode? = null
     )
+    suspend fun ensureSettingsExist()
 }

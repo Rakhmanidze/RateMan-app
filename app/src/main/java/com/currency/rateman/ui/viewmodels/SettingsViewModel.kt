@@ -17,8 +17,8 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     val settings: StateFlow<Settings?> = _settings.asStateFlow()
 
     init {
-        resetSettings()
         viewModelScope.launch {
+            repository.ensureSettingsExist()
             repository.getSettings().collect { settings ->
                 _settings.value = settings
             }

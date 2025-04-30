@@ -11,20 +11,17 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SettingsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertSettings(settings: SettingsEntity): Long
+    suspend fun insertSettings(settings: SettingsEntity)
 
     @Update
     suspend fun updateSettings(settings: SettingsEntity)
 
-    @Query("SELECT * FROM settings WHERE id = :id")
-    fun getSettingsById(id: Long): Flow<SettingsEntity?>
+    @Query("SELECT * FROM settings WHERE id = 0")
+    fun getSettings(): Flow<SettingsEntity?>
 
     @Query("DELETE FROM settings")
     suspend fun deleteAllSettings()
 
     @Query("SELECT COUNT(*) FROM settings")
     suspend fun getSettingsCount(): Int
-
-    @Query("SELECT * FROM settings LIMIT 1")
-    fun getSettings(): Flow<SettingsEntity?>
 }
