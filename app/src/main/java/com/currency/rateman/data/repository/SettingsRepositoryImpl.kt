@@ -1,6 +1,7 @@
 package com.currency.rateman.data.repository
 
 import com.currency.rateman.data.db.dao.SettingsDao
+import com.currency.rateman.data.db.entity.SettingsEntity
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.Settings
@@ -9,22 +10,41 @@ import com.currency.rateman.data.model.toEntity
 import com.currency.rateman.data.model.toSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRepository{
-    override fun getSettings(): Flow<Settings> {
-        return settingsDao.getSettingsById(0).map { entity ->
-            if ( entity == null ) {
-                val defaultSettings = Settings(
-                    defaultCurrency = CurrencyCode.CZK,
-                    uiLanguage = LanguageCode.EN,
-                    themeMode = ThemeMode.DARK
-                )
-                settingsDao.insertSettings(defaultSettings.toEntity())
-                defaultSettings
-            } else {
-                entity.toSettings()
+    init {
+        CoroutineScope(Dispatchers.IO).launch {
+            val settings = settingsDao.getSettingsById(0).first()
+            if (settings == null) {
+                settingsDao.insertSettings(SettingsEntity())
             }
         }
+    }
+
+    override fun getSettings(): Flow<Settings> {
+        return settingsDao.getSettingsById(0).map { entity ->
+            entity?.toSettings() ?: run {
+                SettingsEntity().toSettings()
+            }
+        }
+    }
+
+    override suspend fun editSettings(
+        currencyCode: CurrencyCode?,
+        languageCode: LanguageCode?,
+        themeMode: ThemeMode?
+    ) {
+        val currentSettings = getSettings().first()
+        val updatedSettings = currentSettings.copy(
+            defaultCurrency = (currencyCode ?: currentSettings.defaultCurrency),
+            uiLanguage = (languageCode ?: currentSettings.uiLanguage),
+            themeMode = (themeMode ?: currentSettings.themeMode)
+        )
+        settingsDao.updateSettings(updatedSettings.toEntity())
     }
 
     override suspend fun saveSettings(settings: Settings) {
@@ -36,7 +56,7 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
 
         settingsDao.insertSettings(
             Settings(
-                defaultCurrency = CurrencyCode.CZK,
+                defaultCurrency = CurrencyCode.DKK,
                 uiLanguage = LanguageCode.EN,
                 themeMode = ThemeMode.DARK
             ).toEntity()

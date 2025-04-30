@@ -13,8 +13,8 @@ fun Settings.toEntity() : SettingsEntity {
 
 fun SettingsEntity.toSettings() : Settings {
     return Settings(
-        defaultCurrency = CurrencyCode.valueOf(defaultCurrency.toString()),
-        uiLanguage = LanguageCode.valueOf(uiLanguage.toString()),
-        themeMode = ThemeMode.valueOf(themeMode.toString())
+        defaultCurrency = CurrencyCode.valueOf(defaultCurrency),
+        uiLanguage = LanguageCode.valueOf(uiLanguage),
+        themeMode = ThemeMode.valueOf(themeMode)
     )
 }

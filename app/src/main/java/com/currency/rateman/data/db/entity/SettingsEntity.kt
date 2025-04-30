@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class SettingsEntity (
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val defaultCurrency: String = "",
-    val uiLanguage: String = "",
-    val themeMode: String = "",
+    val defaultCurrency: String = "DKK",
+    val uiLanguage: String = "EN",
+    val themeMode: String = "DARK",
 )

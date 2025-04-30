@@ -33,7 +33,15 @@ fun SettingsScreen(
         ?.sharedKoinNavViewModel(navController)
         ?: return
 
-    val profile by viewModel.settings.collectAsState()
+    val settings by viewModel.settings.collectAsState()
+
+    if (settings == null) {
+        Text(
+            text = "Loading settings...",
+            modifier = Modifier.padding(16.dp)
+        )
+        return
+    }
 
     Scaffold(
         bottomBar = {
@@ -58,7 +66,7 @@ fun SettingsScreen(
 
             SettingItem(
                 label = "Interface language",
-                value = profile.uiLanguage.name,
+                value = settings!!.uiLanguage.name,
                 options = enumValues<LanguageCode>().toList(),
                 onValueChange = { language ->
                     viewModel.updateLanguage(language)
@@ -68,7 +76,7 @@ fun SettingsScreen(
 
             SettingItem(
                 label = "Theme",
-                value = profile.themeMode.name,
+                value = settings!!.themeMode.name,
                 options = enumValues<ThemeMode>().toList(),
                 onValueChange = { theme ->
                     viewModel.updateTheme(theme)
@@ -79,7 +87,7 @@ fun SettingsScreen(
 
             CurrencySettingItem(
                 label = "Default currency",
-                value = profile.defaultCurrency.name,
+                value = settings!!.defaultCurrency.name,
                 options = CurrencyCode.entries.toList(),
                 onValueChange = { currency ->
                     viewModel.updateCurrency(currency)

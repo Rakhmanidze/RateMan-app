@@ -30,4 +30,12 @@ class SettingsRepositoryFake : SettingsRepository {
             themeMode = ThemeMode.DARK
         )
     }
+
+    override suspend fun editSettings(
+        currencyCode: CurrencyCode?,
+        languageCode: LanguageCode?,
+        themeMode: ThemeMode?
+    ) {
+        TODO("Not yet implemented")
+    }
 }

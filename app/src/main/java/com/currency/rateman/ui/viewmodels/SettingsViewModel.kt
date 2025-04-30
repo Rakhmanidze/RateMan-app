@@ -7,38 +7,39 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.data.repository.SettingsRepository
-import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(private val repository: SettingsRepository) : ViewModel() {
-    val settings: StateFlow<Settings> = repository.getSettings()
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5000),
-            initialValue = Settings(
-                defaultCurrency = CurrencyCode.CZK,
-                uiLanguage = LanguageCode.EN,
-                themeMode = ThemeMode.DARK
-            )
-        )
+    private val _settings = MutableStateFlow<Settings?>(null)
+    val settings: StateFlow<Settings?> = _settings.asStateFlow()
+
+    init {
+        resetSettings()
+        viewModelScope.launch {
+            repository.getSettings().collect { settings ->
+                _settings.value = settings
+            }
+        }
+    }
 
     fun updateLanguage(language: LanguageCode) {
         viewModelScope.launch {
-            repository.saveSettings(settings.value.copy(uiLanguage = language))
+            repository.editSettings(languageCode = language)
         }
     }
 
     fun updateTheme(newTheme: ThemeMode) {
         viewModelScope.launch {
-            repository.saveSettings(settings.value.copy(themeMode = newTheme))
+            repository.editSettings(themeMode = newTheme)
         }
     }
 
     fun updateCurrency(newCurrency: CurrencyCode) {
         viewModelScope.launch {
-            repository.saveSettings(settings.value.copy(defaultCurrency = newCurrency))
+            repository.editSettings(currencyCode = newCurrency)
         }
     }
 
