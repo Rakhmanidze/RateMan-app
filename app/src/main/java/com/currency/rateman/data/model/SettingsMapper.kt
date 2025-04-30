@@ -11,7 +11,7 @@ fun Settings.toEntity() : SettingsEntity {
     )
 }
 
-fun Settings.toSettings() : Settings {
+fun SettingsEntity.toSettings() : Settings {
     return Settings(
         defaultCurrency = CurrencyCode.valueOf(defaultCurrency.toString()),
         uiLanguage = LanguageCode.valueOf(uiLanguage.toString()),
