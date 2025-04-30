@@ -21,4 +21,10 @@ interface SettingsDao {
 
     @Query("DELETE FROM settings")
     suspend fun deleteAllSettings()
+
+    @Query("SELECT COUNT(*) FROM settings")
+    suspend fun getSettingsCount(): Int
+
+    @Query("SELECT * FROM settings LIMIT 1")
+    fun getSettings(): Flow<SettingsEntity?>
 }

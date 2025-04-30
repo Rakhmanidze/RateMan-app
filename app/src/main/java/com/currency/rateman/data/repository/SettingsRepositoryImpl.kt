@@ -18,18 +18,15 @@ import kotlinx.coroutines.launch
 class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRepository{
     init {
         CoroutineScope(Dispatchers.IO).launch {
-            val settings = settingsDao.getSettingsById(0).first()
-            if (settings == null) {
+            if (settingsDao.getSettingsCount() == 0) {
                 settingsDao.insertSettings(SettingsEntity())
             }
         }
     }
 
     override fun getSettings(): Flow<Settings> {
-        return settingsDao.getSettingsById(0).map { entity ->
-            entity?.toSettings() ?: run {
-                SettingsEntity().toSettings()
-            }
+        return settingsDao.getSettings().map { entity ->
+            entity?.toSettings() ?: SettingsEntity(id = 1).toSettings()
         }
     }
 
