@@ -7,8 +7,8 @@ import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.ThemeMode
 
 @Entity(tableName = "settings")
-data class SettingsEntity (
-    @PrimaryKey(autoGenerate = true)
+data class SettingsEntity(
+    @PrimaryKey
     val id: Long = 0,
     val defaultCurrency: String = CurrencyCode.DKK.name,
     val uiLanguage: String = LanguageCode.EN.name,

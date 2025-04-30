@@ -17,7 +17,7 @@ import com.currency.rateman.data.db.entity.SettingsEntity
         CurrencyRateEntity::class,
         SettingsEntity::class
        ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class RateManDatabase : RoomDatabase() {
