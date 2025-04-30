@@ -2,12 +2,15 @@ package com.currency.rateman.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.LanguageCode
+import com.currency.rateman.data.model.ThemeMode
 
 @Entity(tableName = "settings")
 data class SettingsEntity (
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 1,
-    val defaultCurrency: String = "DKK",
-    val uiLanguage: String = "EN",
-    val themeMode: String = "DARK",
+    val id: Long = 0,
+    val defaultCurrency: String = CurrencyCode.DKK.name,
+    val uiLanguage: String = LanguageCode.EN.name,
+    val themeMode: String = ThemeMode.DARK.name,
 )
