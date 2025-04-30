@@ -13,11 +13,17 @@ import kotlinx.coroutines.flow.map
 class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRepository{
     override fun getSettings(): Flow<Settings> {
         return settingsDao.getSettingsById(0).map { entity ->
-            entity?.toSettings() ?: Settings(
-                defaultCurrency = CurrencyCode.CZK,
-                uiLanguage = LanguageCode.EN,
-                themeMode = ThemeMode.DARK
-            )
+            if ( entity == null ) {
+                val defaultSettings = Settings(
+                    defaultCurrency = CurrencyCode.CZK,
+                    uiLanguage = LanguageCode.EN,
+                    themeMode = ThemeMode.DARK
+                )
+                settingsDao.insertSettings(defaultSettings.toEntity())
+                defaultSettings
+            } else {
+                entity.toSettings()
+            }
         }
     }
 
