@@ -1,6 +1,8 @@
 package com.currency.rateman.di
 
 import com.currency.rateman.AppContainer
+import com.currency.rateman.data.repository.FilterRepository
+import com.currency.rateman.data.repository.FilterRepositoryImpl
 import com.currency.rateman.data.repository.RateProviderRepository
 import com.currency.rateman.data.repository.RateProviderRepositoryFake
 import com.currency.rateman.data.repository.SettingsRepository
@@ -15,6 +17,7 @@ val appModule = module {
 
     single<RateProviderRepository> { RateProviderRepositoryFake() }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
+    single <FilterRepository> { FilterRepositoryImpl(get()) }
 
     viewModel { RatesViewModel(get()) }
     viewModel { SettingsViewModel(get()) }
