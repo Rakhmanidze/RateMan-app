@@ -14,11 +14,12 @@ import org.koin.dsl.module
 
 val appModule = module {
     single { AppContainer.rateManDatabase.settingsDao() }
+    single { AppContainer.rateManDatabase.filterDao() }
 
     single<RateProviderRepository> { RateProviderRepositoryFake() }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single <FilterRepository> { FilterRepositoryImpl(get()) }
 
-    viewModel { RatesViewModel(get()) }
+    viewModel { RatesViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
 }

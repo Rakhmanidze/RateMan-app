@@ -11,12 +11,17 @@ import androidx.lifecycle.viewModelScope
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
+import com.currency.rateman.data.repository.FilterRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 
-class RatesViewModel(private val repository: RateProviderRepository) : ViewModel() {
-    private val allProviders = repository.getAllProviders()
+class RatesViewModel(
+    private val rateProviderRepository: RateProviderRepository,
+    private val filterRepository: FilterRepository
+    ) : ViewModel() {
+    private val allProviders = rateProviderRepository.getAllProviders()
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
     val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
@@ -57,19 +62,43 @@ class RatesViewModel(private val repository: RateProviderRepository) : ViewModel
         filteredProviders
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
 
+    init {
+        viewModelScope.launch {
+            filterRepository.ensureFiltersExist()
+            filterRepository.getFilter().collect { filter ->
+                _selectedProviderType.value = filter.selectedProviderType
+                _selectedCurrency.value = filter.selectedCurrency
+                _selectedRateSortType.value = filter.selectedRateSortType
+            }
+        }
+    }
+
     fun updateSearchQuery(query: TextFieldValue) {
         _searchQuery.value = query
     }
 
     fun updateProviderType(type: ProviderType) {
         _selectedProviderType.value = type
+        saveFilter()
     }
 
     fun updateCurrency(newCurrency: CurrencyCode) {
         _selectedCurrency.value = newCurrency
+        saveFilter()
     }
 
     fun updateRateSortType(type: RateSortType) {
         _selectedRateSortType.value = type
+        saveFilter()
+    }
+
+    private fun saveFilter() {
+        viewModelScope.launch {
+            filterRepository.editFilters(
+                selectedProviderType = _selectedProviderType.value,
+                selectedCurrency = _selectedCurrency.value,
+                selectedRateSortType = _selectedRateSortType.value
+            )
+        }
     }
 }
