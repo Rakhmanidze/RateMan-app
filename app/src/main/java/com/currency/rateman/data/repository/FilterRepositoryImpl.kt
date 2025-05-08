@@ -24,12 +24,6 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
         filterDao.insertFilter(filter.toEntity().copy(id = 0))
     }
 
-    @Transaction
-    override suspend fun resetFilters() {
-        filterDao.deleteAllFilters()
-        filterDao.insertFilter(FilterEntity(id = 0))
-    }
-
     override suspend fun editFilters(
         selectedProviderType: ProviderType?,
         selectedCurrency: CurrencyCode?,
@@ -45,11 +39,16 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
         ))
     }
 
+    @Transaction
+    override suspend fun resetFilters() {
+        filterDao.deleteAllFilters()
+        filterDao.insertFilter(FilterEntity(id = 0))
+    }
+
     override suspend fun ensureFiltersExist() {
         if (filterDao.getFilterCount() == 0) {
             filterDao.insertFilter(FilterEntity(id = 0))
         }
-
     }
 
     private fun getDefaultFilter(): Filter {

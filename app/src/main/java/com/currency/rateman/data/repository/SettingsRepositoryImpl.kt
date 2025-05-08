@@ -20,18 +20,8 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         }
     }
 
-    override suspend fun ensureSettingsExist() {
-        if (settingsDao.getSettingsCount() == 0) {
-            settingsDao.insertSettings(SettingsEntity(id = 0))
-        }
-    }
-
-    private fun getDefaultSettings(): Settings {
-        return Settings(
-            defaultCurrency = CurrencyCode.DKK,
-            uiLanguage = LanguageCode.EN,
-            themeMode = ThemeMode.DARK
-        )
+    override suspend fun saveSettings(settings: Settings) {
+        settingsDao.insertSettings(settings.toEntity().copy(id = 0))
     }
 
     override suspend fun editSettings(
@@ -48,13 +38,24 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         ))
     }
 
-    override suspend fun saveSettings(settings: Settings) {
-        settingsDao.insertSettings(settings.toEntity().copy(id = 0))
-    }
 
     @Transaction
     override suspend fun resetSettings() {
         settingsDao.deleteAllSettings()
         settingsDao.insertSettings(SettingsEntity(id = 0))
+    }
+
+    override suspend fun ensureSettingsExist() {
+        if (settingsDao.getSettingsCount() == 0) {
+            settingsDao.insertSettings(SettingsEntity(id = 0))
+        }
+    }
+
+    private fun getDefaultSettings(): Settings {
+        return Settings(
+            defaultCurrency = CurrencyCode.DKK,
+            uiLanguage = LanguageCode.EN,
+            themeMode = ThemeMode.DARK
+        )
     }
 }

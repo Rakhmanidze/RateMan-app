@@ -9,11 +9,11 @@ import kotlinx.coroutines.flow.Flow
 interface FilterRepository {
     fun getFilter(): Flow<Filter>
     suspend fun saveFilter(filter: Filter)
-    suspend fun resetFilters()
     suspend fun editFilters(
         selectedProviderType: ProviderType? = null,
         selectedCurrency: CurrencyCode? = null,
         selectedRateSortType: RateSortType? = null
     )
+    suspend fun resetFilters()
     suspend fun ensureFiltersExist()
 }
