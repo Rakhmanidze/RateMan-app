@@ -62,7 +62,16 @@ fun CurrencySelectionDialog(
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1,
                 singleLine = true,
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
+                leadingIcon = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.search),
+                        contentDescription = "Search",
+                        modifier = Modifier
+                            .size(24.dp),
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                }
             )
 
             val filteredOptions = options.filter {

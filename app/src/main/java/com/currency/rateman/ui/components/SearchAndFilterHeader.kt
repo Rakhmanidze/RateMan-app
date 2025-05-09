@@ -1,5 +1,6 @@
 package com.currency.rateman.ui.components
 
+import android.R
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -66,6 +67,14 @@ fun SearchAndFilterHeader(
                     modifier = Modifier.fillMaxWidth(),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_menu_search),
+                        contentDescription =  "Search icon",
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier
+                            .size(24.dp)
+                            .padding(end = 8.dp)
+                    )
                     if (!isSearchFocused && searchQuery.text.isEmpty()) {
                         Text(
                             text = "Find providers",
