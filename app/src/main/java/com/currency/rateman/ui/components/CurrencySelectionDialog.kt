@@ -44,7 +44,7 @@ fun CurrencySelectionDialog(
                 .fillMaxWidth()
                 .height((LocalConfiguration.current.screenHeightDp * 2/3).dp)
                 .fillMaxHeight()
-                .padding(16.dp),
+                .padding(horizontal = 16.dp),
             verticalArrangement = Arrangement.Top
         ) {
             var searchCurrency by remember { mutableStateOf("") }
