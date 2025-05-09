@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.Filter
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
 import com.currency.rateman.data.repository.FilterRepository
@@ -26,21 +27,13 @@ class RatesViewModel(
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
     val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
 
-    private val _selectedProviderType = MutableStateFlow<ProviderType?>(null)
-    val selectedProviderType: StateFlow<ProviderType?> = _selectedProviderType.asStateFlow()
-
-    private val _selectedCurrency = MutableStateFlow<CurrencyCode?>(null)
-    val selectedCurrency: StateFlow<CurrencyCode?> = _selectedCurrency.asStateFlow()
-
-    private val _selectedRateSortType = MutableStateFlow<RateSortType?>(null)
-    val selectedRateSortType: StateFlow<RateSortType?> = _selectedRateSortType.asStateFlow()
+    private val _filter = MutableStateFlow<Filter?>(null)
+    val filter: StateFlow<Filter?> = _filter.asStateFlow()
 
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
-        _selectedCurrency,
-        _selectedProviderType
-
-    ) { query, selectedCurrency, selectedProviderType ->
+        _filter
+    ) { query, filter ->
         var filteredProviders = allProviders
 
         if (query.text.isNotBlank()) {
@@ -48,17 +41,17 @@ class RatesViewModel(
                 provider.name.contains(query.text, ignoreCase = true)
             }
         }
-        if (selectedProviderType != null) {
-            filteredProviders = when (selectedProviderType) {
+        if (filter?.selectedProviderType != null) {
+            filteredProviders = when (filter.selectedProviderType) {
                 ProviderType.ALL -> filteredProviders
                 ProviderType.BANK -> filteredProviders.filter { it.type == ProviderType.BANK }
                 ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
                 ProviderType.CRYPTO_EXCHANGE -> filteredProviders.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
             }
         }
-        if (selectedCurrency != null) {
+        if (filter?.selectedCurrency != null) {
             filteredProviders = filteredProviders.filter { provider ->
-                provider.rates.any { rate -> rate.foreignCurrency == selectedCurrency }
+                provider.rates.any { rate -> rate.foreignCurrency == filter.selectedCurrency }
             }
         }
         filteredProviders
@@ -67,10 +60,8 @@ class RatesViewModel(
     init {
         viewModelScope.launch {
             filterRepository.ensureFiltersExist()
-            filterRepository.getFilter().collect { filter ->
-                _selectedProviderType.value = filter.selectedProviderType
-                _selectedCurrency.value = filter.selectedCurrency
-                _selectedRateSortType.value = filter.selectedRateSortType
+            filterRepository.getFilter().collect { loadedFilter ->
+                _filter.value = loadedFilter
             }
         }
     }
@@ -80,26 +71,37 @@ class RatesViewModel(
     }
 
     fun updateProviderType(type: ProviderType) {
-        _selectedProviderType.value = type
-        saveFilter()
+        _filter.value?.let { current ->
+            _filter.value = current.copy(selectedProviderType = type)
+            saveFilter()
+        }
     }
 
     fun updateCurrency(newCurrency: CurrencyCode) {
-        _selectedCurrency.value = newCurrency
-        saveFilter()
+        _filter.value?.let { current ->
+            _filter.value = current.copy(selectedCurrency = newCurrency)
+            saveFilter()
+        }
     }
 
     fun updateRateSortType(type: RateSortType) {
-        _selectedRateSortType.value = type
-        saveFilter()
+        _filter.value?.let { current ->
+            _filter.value = current.copy(selectedRateSortType = type)
+            saveFilter()
+        }
     }
 
     private fun saveFilter() {
         viewModelScope.launch {
+            val currentFilter = _filter.value ?: Filter(
+                selectedProviderType = ProviderType.ALL,
+                selectedCurrency = CurrencyCode.EUR,
+                selectedRateSortType = RateSortType.BEST_RATE
+            )
             filterRepository.editFilters(
-                selectedProviderType = _selectedProviderType.value ?: ProviderType.ALL,
-                selectedCurrency = _selectedCurrency.value ?: CurrencyCode.EUR,
-                selectedRateSortType = _selectedRateSortType.value ?: RateSortType.BEST_RATE
+                selectedProviderType = currentFilter.selectedProviderType,
+                selectedCurrency = currentFilter.selectedCurrency,
+                selectedRateSortType = currentFilter.selectedRateSortType
             )
         }
     }

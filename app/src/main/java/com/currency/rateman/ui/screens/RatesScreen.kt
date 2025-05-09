@@ -35,11 +35,9 @@ fun RatesScreen(
 
     val providers by viewModel.providers.collectAsState()
     val searchQuery by viewModel.searchQuery.collectAsState()
-    val selectedProviderType by viewModel.selectedProviderType.collectAsState()
-    val selectedRateSortType by viewModel.selectedRateSortType.collectAsState()
-    val selectedCurrency by viewModel.selectedCurrency.collectAsState()
+    val filter by viewModel.filter.collectAsState()
 
-    val isFiltersLoading = selectedCurrency == null  || selectedProviderType == null || selectedRateSortType == null
+    val isFiltersLoading = filter == null
 
     Scaffold(
         bottomBar = {
@@ -73,20 +71,20 @@ fun RatesScreen(
                     onSearchQueryChange = { newValue ->
                         viewModel.updateSearchQuery(newValue)
                     },
-                    selectedProviderType = selectedProviderType,
+                    selectedProviderType = filter!!.selectedProviderType,
                     onProviderTypeChange = { viewModel.updateProviderType(it) },
-                    selectedCurrency = selectedCurrency,
+                    selectedCurrency = filter!!.selectedCurrency,
                     onCurrencyChange = { newCurrency ->
                         viewModel.updateCurrency(newCurrency)
                     },
-                    selectedRateSortType = selectedRateSortType,
+                    selectedRateSortType = filter!!.selectedRateSortType,
                     onRateSortTypeChange = { newSortType ->
                         viewModel.updateRateSortType(newSortType)
                     }
                 )
                 ProvidersList(
                     providers = providers,
-                    selectedCurrency = selectedCurrency
+                    selectedCurrency = filter?.selectedCurrency
                 )
             }
         }
