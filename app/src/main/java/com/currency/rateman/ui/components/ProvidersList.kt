@@ -25,10 +25,28 @@ import androidx.compose.runtime.*
 @Composable
 fun ProvidersList(
     providers: List<RateProvider>,
-    selectedCurrency: CurrencyCode,
+    selectedCurrency: CurrencyCode?,
     modifier: Modifier = Modifier
 ) {
     var selectedProvider by remember { mutableStateOf<RateProvider?>(null) }
+
+    if (selectedProvider != null) {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp)
+                .height(40.dp)
+                .background(MaterialTheme.colorScheme.surfaceVariant, RoundedCornerShape(8.dp)),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "Loading currency...",
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.padding(top = 8.dp)
+            )
+        }
+        return
+    }
 
     if (providers.isEmpty()) {
         Box(

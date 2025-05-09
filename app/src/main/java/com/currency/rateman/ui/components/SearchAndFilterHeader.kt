@@ -29,11 +29,11 @@ import androidx.compose.ui.res.painterResource
 fun SearchAndFilterHeader(
     searchQuery: TextFieldValue,
     onSearchQueryChange: (TextFieldValue) -> Unit,
-    selectedProviderType: ProviderType,
+    selectedProviderType: ProviderType?,
     onProviderTypeChange: (ProviderType) -> Unit,
-    selectedCurrency: CurrencyCode,
+    selectedCurrency: CurrencyCode?,
     onCurrencyChange: (CurrencyCode) -> Unit,
-    selectedRateSortType: RateSortType,
+    selectedRateSortType: RateSortType?,
     onRateSortTypeChange: (RateSortType) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -96,7 +96,8 @@ fun SearchAndFilterHeader(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = selectedProviderType != null
                 ) {
                     Text(
                         text = when (selectedProviderType) {
@@ -104,12 +105,13 @@ fun SearchAndFilterHeader(
                             ProviderType.BANK -> "Banks"
                             ProviderType.EXCHANGE -> "Exchanges"
                             ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
+                            null -> "Loading..."
                         },
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
                 DropdownMenu(
-                    expanded = providerTypeExpanded,
+                    expanded = providerTypeExpanded && selectedProviderType != null,
                     onDismissRequest = { providerTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
@@ -145,24 +147,25 @@ fun SearchAndFilterHeader(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = selectedCurrency != null
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Image(
-                            painter = painterResource(id = getCurrencyIconRes(selectedCurrency)),
-                            contentDescription = "${selectedCurrency.name} icon",
+                            painter = painterResource(id = getCurrencyIconRes(selectedCurrency ?: CurrencyCode.EUR)),
+                            contentDescription = "${selectedCurrency?.name ?: "Loading"} icon",
                             modifier = Modifier.size(16.dp)
                         )
                         Text(
-                            text = selectedCurrency.name,
+                            text = selectedCurrency?.name ?: "Loading",
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
                 }
-                if (currencyDialogOpened) {
+                if (currencyDialogOpened && selectedCurrency != null) {
                     CurrencySelectionDialog(
                         title = "Select Currency",
                         options = CurrencyCode.entries.toList(),
@@ -185,19 +188,21 @@ fun SearchAndFilterHeader(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = selectedRateSortType != null
                 ) {
                     Text(
                         text = when (selectedRateSortType) {
                             RateSortType.BEST_RATE -> "Best Rate"
                             RateSortType.BEST_BUY -> "Best Buy"
                             RateSortType.BEST_SELL -> "Best Sell"
+                            null -> "Loading..."
                         },
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
                 DropdownMenu(
-                    expanded = rateSortTypeExpanded,
+                    expanded = rateSortTypeExpanded && selectedRateSortType != null,
                     onDismissRequest = { rateSortTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
