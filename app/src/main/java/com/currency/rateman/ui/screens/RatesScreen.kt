@@ -15,10 +15,8 @@ import androidx.compose.ui.unit.dp
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
-import com.currency.rateman.data.model.RateSortType
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.ProvidersList
 import com.currency.rateman.ui.components.SearchAndFilterHeader

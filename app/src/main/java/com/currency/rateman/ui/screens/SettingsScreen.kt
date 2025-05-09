@@ -1,5 +1,6 @@
 package com.currency.rateman.ui.screens
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -17,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.CurrencySettingItem
@@ -35,14 +37,6 @@ fun SettingsScreen(
 
     val settings by viewModel.settings.collectAsState()
 
-    if (settings == null) {
-        Text(
-            text = "Loading settings...",
-            modifier = Modifier.padding(16.dp)
-        )
-        return
-    }
-
     Scaffold(
         bottomBar = {
             BottomNavBar(
@@ -52,49 +46,61 @@ fun SettingsScreen(
             )
         }
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .padding(16.dp)
-        ) {
-            Text(
-                text = "Settings",
-                style = MaterialTheme.typography.titleLarge,
-                modifier = Modifier.padding(bottom = 16.dp)
-            )
+        if (settings == null) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                CircularProgressIndicator()
+            }
+        }  else {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(16.dp)
+            ) {
+                Text(
+                    text = "Settings",
+                    style = MaterialTheme.typography.titleLarge,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
 
-            SettingItem(
-                label = "Interface language",
-                value = settings!!.uiLanguage.name,
-                options = enumValues<LanguageCode>().toList(),
-                onValueChange = { language ->
-                    viewModel.updateLanguage(language)
-                },
-                iconRes = R.drawable.language
-            )
+                SettingItem(
+                    label = "Interface language",
+                    value = settings!!.uiLanguage.name,
+                    options = enumValues<LanguageCode>().toList(),
+                    onValueChange = { language ->
+                        viewModel.updateLanguage(language)
+                    },
+                    iconRes = R.drawable.language
+                )
 
-            SettingItem(
-                label = "Theme",
-                value = settings!!.themeMode.name,
-                options = enumValues<ThemeMode>().toList(),
-                onValueChange = { theme ->
-                    viewModel.updateTheme(theme)
-                },
-                modifier = Modifier.padding(top = 8.dp),
-                iconRes = R.drawable.theme
-            )
+                SettingItem(
+                    label = "Theme",
+                    value = settings!!.themeMode.name,
+                    options = enumValues<ThemeMode>().toList(),
+                    onValueChange = { theme ->
+                        viewModel.updateTheme(theme)
+                    },
+                    modifier = Modifier.padding(top = 8.dp),
+                    iconRes = R.drawable.theme
+                )
 
-            CurrencySettingItem(
-                label = "Default currency",
-                value = settings!!.defaultCurrency.name,
-                options = CurrencyCode.entries.toList(),
-                onValueChange = { currency ->
-                    viewModel.updateCurrency(currency)
-                },
-                modifier = Modifier.padding(top = 8.dp),
-                iconRes = R.drawable.currency
-            )
+                CurrencySettingItem(
+                    label = "Default currency",
+                    value = settings!!.defaultCurrency.name,
+                    options = CurrencyCode.entries.toList(),
+                    onValueChange = { currency ->
+                        viewModel.updateCurrency(currency)
+                    },
+                    modifier = Modifier.padding(top = 8.dp),
+                    iconRes = R.drawable.currency
+                )
+            }
         }
     }
 }
