@@ -5,13 +5,16 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.res.painterResource
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
-
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.setValue
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -34,6 +37,14 @@ fun CurrencySelectionDialog(
                 .fillMaxWidth()
                 .padding(16.dp)
         ) {
+            var searchCurrency by remember { mutableStateOf("") }
+            TextField(
+                value = searchCurrency,
+                onValueChange = { searchCurrency = it },
+                placeholder = { Text("Search currencies")},
+                modifier = Modifier.fillMaxWidth(),
+                maxLines = 1
+            )
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -45,7 +56,19 @@ fun CurrencySelectionDialog(
                     style = MaterialTheme.typography.titleMedium
                 )
             }
-            options.forEach { option ->
+
+            val filteredOptions = options.filter {
+                it.name.contains(searchCurrency, ignoreCase = true)
+            }
+
+            if (filteredOptions.isEmpty()) {
+                Text(
+                    text = "No currencies found",
+                    modifier = Modifier.padding(vertical = 16.dp)
+                )
+            }
+
+            filteredOptions.forEach { option ->
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
