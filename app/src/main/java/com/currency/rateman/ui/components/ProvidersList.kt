@@ -41,7 +41,7 @@ fun ProvidersList(
         ) {
 
             Text(
-                text = "No results found",
+                text = "No results",
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 8.dp)
             )

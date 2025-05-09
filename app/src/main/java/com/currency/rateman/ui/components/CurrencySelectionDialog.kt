@@ -58,7 +58,7 @@ fun CurrencySelectionDialog(
             TextField(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
-                placeholder = { Text("Search currencies")},
+                placeholder = { Text("Find currencies")},
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1,
                 singleLine = true,
@@ -73,8 +73,11 @@ fun CurrencySelectionDialog(
                 if (filteredOptions.isEmpty()) {
                     item {
                         Text(
-                            text = "No currencies found",
-                            modifier = Modifier.padding(vertical = 16.dp)
+                            text = "No results",
+                            modifier = Modifier
+                                .padding(vertical = 16.dp)
+                                .fillMaxWidth()
+                                .wrapContentWidth(Alignment.CenterHorizontally)
                         )
                     }
                 } else {
