@@ -16,7 +16,9 @@
     <string name="crypto_exchanges">Krypto směnárny</string>
 
     <!-- Currency Selection -->
-    <string name="select_currency">Vyberte měnu</string>
+    <string name="select_language">Vyberte jazyk rozhraní</string>
+    <string name="select_theme">Vyberte tému</string>
+    <string name="select_currency">Vyberte výchozí měnu</string>
     <string name="find_currencies">Najít měny</string>
     <string name="select">Vybrat</string>
     <string name="buy_sell">Nákup / Prodej</string>

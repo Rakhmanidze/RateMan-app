@@ -85,8 +85,12 @@ fun CurrencySettingItem(
         }
 
         if (dialogOpened) {
+            val title = when (label) {
+                stringResource(R.string.default_currency) -> stringResource(R.string.select_currency)
+                else -> stringResource(R.string.select) + " " + label
+            }
             CurrencySelectionDialog(
-                title = stringResource(id = R.string.select) + label,
+                title = title,
                 options = options,
                 selectedOption = options.find { it.name == value },
                 onOptionSelected = { option ->

@@ -73,8 +73,14 @@ fun <T : Enum<T>> SettingItem(
         }
 
         if (dialogOpened) {
+            val title = when (label) {
+                stringResource(R.string.interface_language) -> stringResource(R.string.select_language)
+                stringResource(R.string.theme) -> stringResource(R.string.select_theme)
+                stringResource(R.string.default_currency) -> stringResource(R.string.select_currency)
+                else -> stringResource(R.string.select) + " " + label
+            }
             SelectionDialog(
-                title = stringResource(id = R.string.select) + label,
+                title = title,
                 options = options,
                 selectedOption = options.find { it.name == value },
                 onOptionSelected = { option ->
