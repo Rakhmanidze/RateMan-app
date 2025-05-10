@@ -53,7 +53,17 @@ class RatesViewModel(
             filteredProviders = filteredProviders.filter { provider ->
                 provider.rates.any { rate -> rate.foreignCurrency == filter.selectedCurrency }
             }
+            filteredProviders = when (filter.selectedRateSortType) {
+                RateSortType.BEST_BUY -> filteredProviders.sortedBy { provider ->
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.selectedCurrency }?.buyRate ?: Double.POSITIVE_INFINITY
+                }
+                RateSortType.BEST_SELL -> filteredProviders.sortedByDescending { provider ->
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.selectedCurrency }?.sellRate ?: Double.NEGATIVE_INFINITY
+                }
+                RateSortType.BEST_RATE ->  filteredProviders
+            }
         }
+
         filteredProviders
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
 
