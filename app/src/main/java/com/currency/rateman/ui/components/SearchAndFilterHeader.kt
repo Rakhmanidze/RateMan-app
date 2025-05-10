@@ -112,11 +112,11 @@ fun SearchAndFilterHeader(
                 ) {
                     Text(
                         text = when (selectedProviderType) {
-                            ProviderType.ALL -> "All"
-                            ProviderType.BANK -> "Banks"
-                            ProviderType.EXCHANGE -> "Exchanges"
-                            ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
-                            null -> "Loading..."
+                            ProviderType.ALL -> stringResource(id = AppR.string.all_providers)
+                            ProviderType.BANK -> stringResource(id = AppR.string.banks)
+                            ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
+                            ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
+                            null ->  stringResource(id = AppR.string.loading)
                         },
                         style = MaterialTheme.typography.bodySmall
                     )
@@ -133,10 +133,10 @@ fun SearchAndFilterHeader(
                             text = {
                                 Text(
                                     text = when (type) {
-                                        ProviderType.ALL -> "All"
-                                        ProviderType.BANK -> "Banks"
-                                        ProviderType.EXCHANGE -> "Exchanges"
-                                        ProviderType.CRYPTO_EXCHANGE -> "Crypto Exchanges"
+                                        ProviderType.ALL -> stringResource(id = AppR.string.all_providers)
+                                        ProviderType.BANK -> stringResource(id = AppR.string.banks)
+                                        ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
+                                        ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
                                     },
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     style = MaterialTheme.typography.bodySmall
@@ -171,14 +171,14 @@ fun SearchAndFilterHeader(
                             modifier = Modifier.size(16.dp)
                         )
                         Text(
-                            text = selectedCurrency?.name ?: "Loading",
+                            text = selectedCurrency?.name ?: stringResource(id = AppR.string.loading),
                             style = MaterialTheme.typography.bodySmall
                         )
                     }
                 }
                 if (currencyDialogOpened && selectedCurrency != null) {
                     CurrencySelectionDialog(
-                        title = "Select Currency",
+                        title = stringResource(id = AppR.string.select_currency),
                         options = CurrencyCode.entries.toList(),
                         selectedOption = selectedCurrency,
                         onOptionSelected = { currency ->
@@ -204,10 +204,10 @@ fun SearchAndFilterHeader(
                 ) {
                     Text(
                         text = when (selectedRateSortType) {
-                            RateSortType.BEST_RATE -> "Best Rate"
-                            RateSortType.BEST_BUY -> "Best Buy"
-                            RateSortType.BEST_SELL -> "Best Sell"
-                            null -> "Loading..."
+                            RateSortType.BEST_RATE -> stringResource(id = AppR.string.best_rate)
+                            RateSortType.BEST_BUY -> stringResource(id = AppR.string.best_buy)
+                            RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
+                            null -> stringResource(id = AppR.string.loading)
                         },
                         style = MaterialTheme.typography.bodySmall
                     )
@@ -224,9 +224,9 @@ fun SearchAndFilterHeader(
                             text = {
                                 Text(
                                     text = when (option) {
-                                        RateSortType.BEST_RATE -> "Best Rate"
-                                        RateSortType.BEST_BUY -> "Best Buy"
-                                        RateSortType.BEST_SELL -> "Best Sell"
+                                        RateSortType.BEST_RATE -> stringResource(id = AppR.string.best_rate)
+                                        RateSortType.BEST_BUY -> stringResource(id = AppR.string.best_buy)
+                                        RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
                                     },
                                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                                     style = MaterialTheme.typography.bodySmall
