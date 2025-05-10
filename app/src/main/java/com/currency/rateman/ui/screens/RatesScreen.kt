@@ -84,7 +84,8 @@ fun RatesScreen(
                 )
                 ProvidersList(
                     providers = providers,
-                    selectedCurrency = filter?.selectedCurrency
+                    selectedCurrency = filter?.selectedCurrency,
+                    navController = navController
                 )
             }
         }

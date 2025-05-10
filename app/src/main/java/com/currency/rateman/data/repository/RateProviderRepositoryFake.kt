@@ -13,6 +13,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
         providers.addAll(
             listOf(
                 RateProvider(
+                    id = 0,
                     name = "Komerční Banka",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -23,6 +24,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 1,
                     name = "Exchange Praha",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -33,6 +35,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.EXCHANGE
                 ),
                 RateProvider(
+                    id = 2,
                     name = "Česká Spořitelna",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -43,6 +46,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 3,
                     name = "Směnárna Centrum",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -53,6 +57,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.EXCHANGE
                 ),
                 RateProvider(
+                    id = 4,
                     name = "Moneta Money Bank",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -63,6 +68,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 5,
                     name = "VIP Exchange",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -73,6 +79,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.EXCHANGE
                 ),
                 RateProvider(
+                    id = 6,
                     name = "Raiffeisenbank",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -83,6 +90,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 7,
                     name = "Unicredit Bank",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -93,6 +101,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 8,
                     name = "Směnárna Karlova",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -103,6 +112,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.EXCHANGE
                 ),
                 RateProvider(
+                    id = 9,
                     name = "Fio Banka",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -113,6 +123,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.BANK
                 ),
                 RateProvider(
+                    id = 10,
                     name = "Express Exchange",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(
@@ -123,6 +134,7 @@ class RateProviderRepositoryFake : RateProviderRepository  {
                     type = ProviderType.EXCHANGE
                 ),
                 RateProvider(
+                    id = 11,
                     name = "Air Bank",
                     baseCurrency = CurrencyCode.CZK,
                     rates = listOf(

@@ -21,12 +21,14 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.RateProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
+import androidx.navigation.NavHostController
 
 @Composable
 fun ProvidersList(
     providers: List<RateProvider>,
     selectedCurrency: CurrencyCode?,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    navController: NavHostController
 ) {
     var selectedProvider by remember { mutableStateOf<RateProvider?>(null) }
 
@@ -76,7 +78,7 @@ fun ProvidersList(
                     ProviderItem(
                         provider = provider,
                         ratesToDisplay = displayRates,
-                        onClick = { selectedProvider = provider }
+                        onClick = { id -> navController.navigate("providerDetail/$id") }
                     )
                 }
             }

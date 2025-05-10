@@ -22,14 +22,14 @@ import com.currency.rateman.data.model.RateProvider
 fun ProviderItem(
     provider: RateProvider,
     ratesToDisplay : List<CurrencyRate>,
-    onClick: () -> Unit,
+    onClick: (Int) -> Unit,
     modifier: Modifier = Modifier
     ) {
     Card(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 6.dp)
-            .clickable { onClick() },
+            .clickable { onClick(provider.id) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
