@@ -59,7 +59,7 @@ fun CurrencySelectionDialog(
             TextField(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
-                placeholder = { stringResource(R.string.find_currencies)},
+                placeholder = {Text(stringResource(R.string.find_currencies))},
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1,
                 singleLine = true,
