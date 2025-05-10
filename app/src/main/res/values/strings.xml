@@ -2,7 +2,7 @@
 <string name="app_name">RateMan</string>
 
 <!-- Home / Tabs -->
-<string name="find_providers">Find Providers</string>
+<string name="find_providers">Find Banks and Exchanges</string>
 <string name="best_rate">Best Rate</string>
 <string name="best_buy">Best Buy</string>
 <string name="best_sell">Best Sell</string>

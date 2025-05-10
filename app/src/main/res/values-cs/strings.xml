@@ -1,2 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <!-- App name -->
+    <string name="app_name">RateMan</string>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Najít banky a směnárny</string>
+    <string name="best_rate">Nejlepší kurz</string>
+    <string name="best_buy">Nejlepší nákup</string>
+    <string name="best_sell">Nejlepší prodej</string>
+    <string name="all_providers">Všichni</string>
+
+    <!-- Categories -->
+    <string name="banks">Banky</string>
+    <string name="exchanges">Směnárny</string>
+    <string name="crypto_exchanges">Krypto směnárny</string>
+
+    <!-- Currency Selection -->
+    <string name="select_currency">Vyberte měnu</string>
+    <string name="find_currencies">Najít měny</string>
+    <string name="select">Vybrat</string>
+    <string name="buy_sell">Nákup / Prodej</string>
+
+    <!-- UI State -->
+    <string name="loading">Načítání</string>
+    <string name="no_results">Žádné výsledky</string>
+
+    <!-- Settings -->
+    <string name="settings">Nastavení</string>
+    <string name="interface_language">Jazyk rozhraní</string>
+    <string name="theme">Téma</string>
+    <string name="default_currency">Výchozí měna</string>
+</resources>
