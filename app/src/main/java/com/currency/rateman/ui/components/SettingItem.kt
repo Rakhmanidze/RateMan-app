@@ -13,6 +13,8 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import com.currency.rateman.R
 
 @Composable
 fun <T : Enum<T>> SettingItem(
@@ -72,7 +74,7 @@ fun <T : Enum<T>> SettingItem(
 
         if (dialogOpened) {
             SelectionDialog(
-                title = "Select $label",
+                title = stringResource(id = R.string.select) + label,
                 options = options,
                 selectedOption = options.find { it.name == value },
                 onOptionSelected = { option ->

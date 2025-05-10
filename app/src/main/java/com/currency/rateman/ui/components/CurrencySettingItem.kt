@@ -14,7 +14,9 @@ import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.R
 
 @Composable
 fun CurrencySettingItem(
@@ -84,7 +86,7 @@ fun CurrencySettingItem(
 
         if (dialogOpened) {
             CurrencySelectionDialog(
-                title = "Select $label",
+                title = stringResource(id = R.string.select) + label,
                 options = options,
                 selectedOption = options.find { it.name == value },
                 onOptionSelected = { option ->

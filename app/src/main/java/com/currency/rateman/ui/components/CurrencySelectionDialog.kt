@@ -20,6 +20,7 @@ import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.res.stringResource
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -58,7 +59,7 @@ fun CurrencySelectionDialog(
             TextField(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
-                placeholder = { Text("Find currencies")},
+                placeholder = { stringResource(R.string.find_currencies)},
                 modifier = Modifier.fillMaxWidth(),
                 maxLines = 1,
                 singleLine = true,
@@ -82,7 +83,7 @@ fun CurrencySelectionDialog(
                 if (filteredOptions.isEmpty()) {
                     item {
                         Text(
-                            text = "No results",
+                            text = stringResource(R.string.no_results),
                             modifier = Modifier
                                 .padding(vertical = 16.dp)
                                 .fillMaxWidth()

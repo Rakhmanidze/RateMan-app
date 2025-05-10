@@ -21,7 +21,9 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.RateProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import com.currency.rateman.R
 
 @Composable
 fun ProvidersList(
@@ -43,7 +45,7 @@ fun ProvidersList(
         ) {
 
             Text(
-                text = "No results",
+                text = stringResource(id = R.string.no_results),
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 8.dp)
             )
@@ -61,7 +63,7 @@ fun ProvidersList(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = "Buy / Sell",
+                    text = stringResource(id = R.string.buy_sell),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant
                 )

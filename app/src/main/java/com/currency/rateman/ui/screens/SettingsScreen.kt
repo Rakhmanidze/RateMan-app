@@ -65,13 +65,13 @@ fun SettingsScreen(
                     .padding(16.dp)
             ) {
                 Text(
-                    text =  stringResource(id = R.string.settings),
+                    text = stringResource(id = R.string.settings),
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
                 SettingItem(
-                    label = "Interface language",
+                    label = stringResource(id = R.string.interface_language),
                     value = settings!!.uiLanguage.name,
                     options = enumValues<LanguageCode>().toList(),
                     onValueChange = { language ->
@@ -81,7 +81,7 @@ fun SettingsScreen(
                 )
 
                 SettingItem(
-                    label = "Theme",
+                    label = stringResource(id = R.string.theme),
                     value = settings!!.themeMode.name,
                     options = enumValues<ThemeMode>().toList(),
                     onValueChange = { theme ->
@@ -92,7 +92,7 @@ fun SettingsScreen(
                 )
 
                 CurrencySettingItem(
-                    label = "Default currency",
+                    label = stringResource(id = R.string.default_currency),
                     value = settings!!.defaultCurrency.name,
                     options = CurrencyCode.entries.toList(),
                     onValueChange = { currency ->
