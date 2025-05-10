@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RateMan</string>
+    <string name="find_providers">Find providers</string>
+    <string name="best_rate">Best Rate</string>
+    <string name="best_buy">Best Buy</string>
+    <string name="best_sell">Best Sell</string>
 </resources>

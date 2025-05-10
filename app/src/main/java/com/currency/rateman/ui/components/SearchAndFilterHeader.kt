@@ -1,6 +1,7 @@
 package com.currency.rateman.ui.components
 
-import android.R
+import com.currency.rateman.R as AppR
+import android.R as AndroidR
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -25,6 +26,7 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun SearchAndFilterHeader(
@@ -68,7 +70,7 @@ fun SearchAndFilterHeader(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Icon(
-                        painter = painterResource(id = R.drawable.ic_menu_search),
+                        painter = painterResource(id = AndroidR.drawable.ic_menu_search),
                         contentDescription =  "Search icon",
                         tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier
@@ -77,7 +79,7 @@ fun SearchAndFilterHeader(
                     )
                     if (!isSearchFocused && searchQuery.text.isEmpty()) {
                         Text(
-                            text = "Find providers",
+                            text = stringResource(id = AppR.string.find_providers),
                             color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
                             style = MaterialTheme.typography.bodyLarge
                         )
