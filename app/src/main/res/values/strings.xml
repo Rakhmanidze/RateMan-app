@@ -1,21 +1,31 @@
 <resources>
-    <string name="app_name">RateMan</string>
-    <string name="find_providers">Find providers</string>
-    <string name="best_rate">Best Rate</string>
-    <string name="best_buy">Best Buy</string>
-    <string name="best_sell">Best Sell</string>
-    <string name="all_providers">All Providers</string>
-    <string name="banks">Banks</string>
-    <string name="exchanges">Exchanges</string>
-    <string name="crypto_exchanges">Crypto Exchanges</string>
-    <string name="select_currency">Select Currency</string>
-    <string name="loading">Loading</string>
-    <string name="settings">Settings</string>
-    <string name="interface_language">Interface language</string>
-    <string name="theme">Theme</string>
-    <string name="default_currency">Default currency</string>
-    <string name="no_results">No results</string>
-    <string name="buy_sell">Buy / Sell</string>
-    <string name="find_currencies">Find currencies</string>
-    <string name="select">Select</string>
+<string name="app_name">RateMan</string>
+
+<!-- Home / Tabs -->
+<string name="find_providers">Find Providers</string>
+<string name="best_rate">Best Rate</string>
+<string name="best_buy">Best Buy</string>
+<string name="best_sell">Best Sell</string>
+<string name="all_providers">All Providers</string>
+
+<!-- Categories -->
+<string name="banks">Banks</string>
+<string name="exchanges">Exchanges</string>
+<string name="crypto_exchanges">Crypto Exchanges</string>
+
+<!-- Currency Selection -->
+<string name="select_currency">Select Currency</string>
+<string name="find_currencies">Find Currencies</string>
+<string name="select">Select</string>
+<string name="buy_sell">Buy / Sell</string>
+
+<!-- UI State -->
+<string name="loading">Loading</string>
+<string name="no_results">No Results</string>
+
+<!-- Settings -->
+<string name="settings">Settings</string>
+<string name="interface_language">Interface Language</string>
+<string name="theme">Theme</string>
+<string name="default_currency">Default Currency</string>
 </resources>
