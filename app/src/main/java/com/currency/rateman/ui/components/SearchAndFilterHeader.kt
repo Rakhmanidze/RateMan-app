@@ -192,7 +192,7 @@ fun SearchAndFilterHeader(
                 }
             }
 
-            Box(modifier = Modifier.width(103.dp)) {
+            Box(modifier = Modifier.width(134.dp)) {
                 OutlinedButton(
                     onClick = { rateSortTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
@@ -217,7 +217,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { rateSortTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(103.dp)
+                        .width(134.dp)
                 ) {
                     RateSortType.entries.forEach { option ->
                         DropdownMenuItem(
