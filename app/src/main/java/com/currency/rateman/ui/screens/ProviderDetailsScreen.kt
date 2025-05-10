@@ -1,12 +1,16 @@
 package com.currency.rateman.ui.screens
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -37,6 +41,12 @@ fun ProviderDetailsScreen(
             .fillMaxSize()
             .padding(16.dp)
     ) {
-
+        Icon(
+            imageVector = Icons.Default.Clear,
+            contentDescription = "Back",
+            modifier = Modifier
+                .padding(top = 16.dp)
+                .clickable { navController.popBackStack() }
+        )
     }
 }
