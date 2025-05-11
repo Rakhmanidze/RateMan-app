@@ -10,7 +10,7 @@ import com.currency.rateman.data.model.ThemeMode
 data class SettingsEntity(
     @PrimaryKey
     val id: Long = 0,
-    val defaultCurrency: String = CurrencyCode.DKK.name,
-    val uiLanguage: String = LanguageCode.EN.name,
+    val defaultCurrency: String = CurrencyCode.EUR.name,
+    val uiLanguage: String = LanguageCode.SYSTEM.name,
     val themeMode: String = ThemeMode.DARK.name,
 )

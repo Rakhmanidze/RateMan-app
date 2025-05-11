@@ -1,5 +1,5 @@
 package com.currency.rateman.data.model
 
 enum class LanguageCode {
-    EN, CZ
-}
+    EN, CZ, SYSTEM
+}   
