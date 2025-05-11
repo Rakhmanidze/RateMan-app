@@ -5,11 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
-import com.currency.rateman.data.db.RateManDatabase
-import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -17,17 +14,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // Apply saved language on startup
         lifecycleScope.launch {
-            val settingsDao = RateManDatabase.getDatabase(this@MainActivity).settingsDao()
-            val settings = settingsDao.getSettings().first()
-            val languageCode = settings?.uiLanguage?.let { uiLanguage ->
-                when (uiLanguage) {
-                    LanguageCode.EN.name -> "en"
-                    LanguageCode.CZ.name -> "cs"
-                    else -> "en"
-                }
-            } ?: "en"
-            LanguageHelper.setAppLanguage(this@MainActivity, languageCode)
+            LanguageManager.applySavedLanguage(this@MainActivity)
         }
 
         enableEdgeToEdge()
@@ -35,6 +24,13 @@ class MainActivity : ComponentActivity() {
             RateManAppTheme {
                 AppRouter()
             }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        lifecycleScope.launch {
+            LanguageManager.applySavedLanguage(this@MainActivity)
         }
     }
 }
