@@ -1,7 +1,9 @@
 package com.currency.rateman.ui.viewmodels
 
+import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.currency.rateman.LanguageHelper
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
@@ -25,9 +27,17 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
         }
     }
 
-    fun updateLanguage(language: LanguageCode) {
+    fun updateLanguage(context: Context, language: LanguageCode) {
         viewModelScope.launch {
             repository.editSettings(languageCode = language)
+            applyLanguage(context, language)
+        }
+    }
+
+    fun applyLanguage(context: Context, language: LanguageCode) {
+        when (language) {
+            LanguageCode.EN -> LanguageHelper.setAppLanguage(context, "en")
+            LanguageCode.CZ -> LanguageHelper.setAppLanguage(context, "cs")
         }
     }
 
