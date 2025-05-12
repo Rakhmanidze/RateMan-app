@@ -1,4 +1,4 @@
-package com.currency.rateman
+package com.currency.rateman.utils
 
 import android.content.Context
 import android.content.res.Configuration
@@ -7,12 +7,12 @@ import androidx.core.os.LocaleListCompat
 import com.currency.rateman.data.db.RateManDatabase
 import com.currency.rateman.data.model.LanguageCode
 import kotlinx.coroutines.flow.firstOrNull
-import java.util.*
+import java.util.Locale
 
 object LanguageHelper {
 
     suspend fun applySavedLanguage(context: Context): Boolean {
-        val settingsDao = RateManDatabase.getDatabase(context).settingsDao()
+        val settingsDao = RateManDatabase.Companion.getDatabase(context).settingsDao()
         val settings = settingsDao.getSettings().firstOrNull()
         val savedLanguageCode = settings?.uiLanguage ?: LanguageCode.EN
 

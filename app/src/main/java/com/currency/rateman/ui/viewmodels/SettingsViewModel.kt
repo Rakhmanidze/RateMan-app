@@ -3,7 +3,7 @@ package com.currency.rateman.ui.viewmodels
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.LanguageHelper
+import com.currency.rateman.utils.LanguageHelper
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
