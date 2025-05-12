@@ -30,14 +30,7 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     fun updateLanguage(context: Context, language: LanguageCode) {
         viewModelScope.launch {
             repository.editSettings(languageCode = language)
-            applyLanguage(context, language)
-        }
-    }
-
-    fun applyLanguage(context: Context, language: LanguageCode) {
-        when (language) {
-            LanguageCode.EN -> LanguageHelper.setAppLanguage(context, "en")
-            LanguageCode.CZ -> LanguageHelper.setAppLanguage(context, "cs")
+            LanguageHelper.setAppLanguage(context, language)
         }
     }
 

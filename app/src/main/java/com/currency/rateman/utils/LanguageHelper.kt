@@ -4,18 +4,23 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
+import com.currency.rateman.data.model.LanguageCode
 import java.util.*
 
 object LanguageHelper {
-    fun setAppLanguage(context: Context, languageCode: String) {
+    fun setAppLanguage(context: Context, language: LanguageCode) {
+        val languageCode = when (language) {
+            LanguageCode.EN -> "en"
+            LanguageCode.CZ -> "cs"
+        }
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
 
         val resources = context.resources
         val configuration = Configuration(resources.configuration)
-        val locale = when (languageCode) {
-            "cs" -> Locale("cs")
-            else -> Locale.ENGLISH
+        val locale = when (language) {
+            LanguageCode.EN -> Locale.ENGLISH
+            LanguageCode.CZ -> Locale("cs")
         }
         configuration.setLocale(locale)
 

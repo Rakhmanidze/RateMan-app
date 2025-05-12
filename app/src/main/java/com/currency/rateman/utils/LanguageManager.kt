@@ -9,17 +9,16 @@ object LanguageManager {
     suspend fun applySavedLanguage(context: Context): Boolean {
         val settingsDao = RateManDatabase.getDatabase(context).settingsDao()
         val settings = settingsDao.getSettings().firstOrNull()
-        val savedLanguageCode = settings?.uiLanguage ?: LanguageCode.EN.name
+        val savedLanguage = LanguageCode.valueOf(settings?.uiLanguage ?: LanguageCode.EN.name)
 
         val currentLanguage = context.resources.configuration.locales[0].language
-        val desiredLanguage = when (savedLanguageCode) {
-            LanguageCode.EN.name -> "en"
-            LanguageCode.CZ.name -> "cs"
-            else -> "en"
+        val desiredLanguageCode = when (savedLanguage) {
+            LanguageCode.EN -> "en"
+            LanguageCode.CZ -> "cs"
         }
 
-        return if (currentLanguage != desiredLanguage) {
-            LanguageHelper.setAppLanguage(context, desiredLanguage)
+        return if (currentLanguage != desiredLanguageCode) {
+            LanguageHelper.setAppLanguage(context, savedLanguage)
             true
         } else {
             false
