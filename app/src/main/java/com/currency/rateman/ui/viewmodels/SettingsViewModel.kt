@@ -35,10 +35,11 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     }
 
     fun applyLanguage(context: Context, language: LanguageCode) {
-        when (language) {
-            LanguageCode.EN -> LanguageHelper.setAppLanguage(context, "en")
-            LanguageCode.CZ -> LanguageHelper.setAppLanguage(context, "cs")
+        val languageCode = when (language) {
+            LanguageCode.EN -> "en"
+            LanguageCode.CZ -> "cs"
         }
+        LanguageHelper.setAppLanguage(context, languageCode)
     }
 
     fun updateTheme(newTheme: ThemeMode) {

@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         lifecycleScope.launch {
-            LanguageManager.applySavedLanguage(this@MainActivity)
+            LanguageHelper.applySavedLanguage(this@MainActivity)
         }
 
         enableEdgeToEdge()
@@ -32,12 +32,13 @@ class MainActivity : ComponentActivity() {
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val updatedContext = runBlocking {
-            val settingsDao = RateManDatabase.getDatabase(newBase).settingsDao()
-            val settings = settingsDao.getSettings().firstOrNull()
-            val languageCode = settings?.uiLanguage ?: LanguageCode.EN.name
-            LanguageHelper.wrapContextWithLanguage(newBase, languageCode)
-        }
+        val updatedContext =
+            runBlocking {
+                val settingsDao = RateManDatabase.getDatabase(newBase).settingsDao()
+                val settings = settingsDao.getSettings().firstOrNull()
+                val languageCode = settings?.uiLanguage ?: LanguageCode.EN.name
+                LanguageHelper.wrapContextWithLanguage(newBase, languageCode)
+            }
         super.attachBaseContext(updatedContext)
     }
 }
