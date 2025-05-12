@@ -10,12 +10,13 @@ import com.currency.rateman.data.db.RateManDatabase
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
+import com.currency.rateman.utils.LanguageHelper
+import com.currency.rateman.utils.LanguageManager
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -1,4 +1,4 @@
-package com.currency.rateman
+package com.currency.rateman.utils
 
 import android.content.Context
 import com.currency.rateman.data.db.RateManDatabase
