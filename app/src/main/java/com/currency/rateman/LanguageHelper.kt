@@ -11,7 +11,6 @@ object LanguageHelper {
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
 
-        // Update configuration for current context
         val resources = context.resources
         val configuration = Configuration(resources.configuration)
         val locale = when (languageCode) {

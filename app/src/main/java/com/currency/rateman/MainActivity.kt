@@ -30,7 +30,9 @@ class MainActivity : ComponentActivity() {
     override fun onResume() {
         super.onResume()
         lifecycleScope.launch {
-            LanguageManager.applySavedLanguage(this@MainActivity)
-        }
+            val applied = LanguageManager.applySavedLanguage(this@MainActivity)
+            if (applied) {
+                recreate() // 🔁 Restart the activity only if language was changed
+            }        }
     }
 }
