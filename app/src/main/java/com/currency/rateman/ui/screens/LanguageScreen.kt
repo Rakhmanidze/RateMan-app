@@ -51,7 +51,7 @@ fun LanguageScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(16.dp)
+                .padding(horizontal = 16.dp, vertical = 8.dp)
                 .background(MaterialTheme.colorScheme.surface)
         ) {
             Row(
