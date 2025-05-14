@@ -18,6 +18,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.components.BottomNavBar
 import com.currency.rateman.ui.components.ProvidersList
 import com.currency.rateman.ui.components.SearchAndFilterHeader
 

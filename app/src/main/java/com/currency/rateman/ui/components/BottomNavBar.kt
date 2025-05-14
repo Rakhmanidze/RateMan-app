@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.screens
+package com.currency.rateman.ui.components
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding

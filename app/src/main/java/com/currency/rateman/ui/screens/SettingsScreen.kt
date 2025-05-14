@@ -23,6 +23,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.components.BottomNavBar
 import com.currency.rateman.ui.components.CurrencySettingItem
 import com.currency.rateman.ui.components.ThemeSettingItem
 
