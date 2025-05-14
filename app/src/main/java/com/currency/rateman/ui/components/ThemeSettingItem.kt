@@ -24,8 +24,6 @@ fun <T : Enum<T>> ThemeSettingItem(
     @DrawableRes iconRes: Int,
     modifier: Modifier = Modifier
 ) {
-    var dialogOpened by remember { mutableStateOf(false) }
-
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -33,7 +31,6 @@ fun <T : Enum<T>> ThemeSettingItem(
                 MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { dialogOpened = true }
             .padding(12.dp)
     ) {
         Row(
