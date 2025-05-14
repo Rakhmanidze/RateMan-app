@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- App name -->
+    <string name="app_name">RateMan</string>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Найти банки и обменники</string>
+    <string name="best_rate">Лучший курс</string>
+    <string name="best_buy">Лучшая покупка</string>
+    <string name="best_sell">Лучшая продажа</string>
+    <string name="all">Все</string>
+
+    <!-- Categories -->
+    <string name="banks">Банки</string>
+    <string name="exchanges">Обменники</string>
+    <string name="crypto_exchanges">Криптообменники</string>
+
+    <!-- Currency Selection -->
+    <string name="select_language">Выбрать язык приложения</string>
+    <string name="select_theme">Выбрать тему</string>
+    <string name="select_currency">Выбрать валюту</string>
+    <string name="find_currencies">Найти валюты</string>
+    <string name="select">Выбрать</string>
+    <string name="buy_sell">Покупка / Продажа</string>
+
+    <!-- UI State -->
+    <string name="loading">Загрузка</string>
+    <string name="no_results">Нет результатов</string>
+
+    <!-- Settings -->
+    <string name="settings">Настройки</string>
+    <string name="app_language">Язык приложения</string>
+    <string name="theme">Тема</string>
+    <string name="default_currency">Валюта по умолчанию</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_light">Светлая</string>
+</resources>

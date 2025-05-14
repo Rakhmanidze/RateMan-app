@@ -12,6 +12,7 @@ object LanguageHelper {
         val languageCode = when (language) {
             LanguageCode.EN -> "en"
             LanguageCode.CS -> "cs"
+            LanguageCode.RU -> "ru"
         }
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
@@ -21,6 +22,7 @@ object LanguageHelper {
         val locale = when (language) {
             LanguageCode.EN -> Locale.ENGLISH
             LanguageCode.CS -> Locale("cs")
+            LanguageCode.RU -> Locale("ru")
         }
         configuration.setLocale(locale)
 
@@ -30,6 +32,7 @@ object LanguageHelper {
     fun wrapContextWithLanguage(context: Context, languageCode: String): Context {
         val locale = when (languageCode) {
             "cs" -> Locale("cs")
+            "ru" -> Locale("ru")
             else -> Locale.ENGLISH
         }
 

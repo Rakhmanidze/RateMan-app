@@ -15,6 +15,7 @@ object LanguageManager {
         val desiredLanguageCode = when (savedLanguage) {
             LanguageCode.EN -> "en"
             LanguageCode.CS -> "cs"
+            LanguageCode.RU -> "ru"
         }
 
         return if (currentLanguage != desiredLanguageCode) {
