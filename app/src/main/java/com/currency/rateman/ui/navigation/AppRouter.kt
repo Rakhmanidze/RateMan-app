@@ -40,11 +40,11 @@ fun MainAppRouter(navController: NavHostController) {
                 }
             ),
             BottomNavItem(
-                route = Routes.Profile.route,
+                route = Routes.Settings.route,
                 iconRes = R.drawable.settings,
                 contentDescription = "User profile",
                 onClick = {
-                    navigateToBottomNavItem(navController, Routes.Profile.route)
+                    navigateToBottomNavItem(navController, Routes.Settings.route)
                 }
             ),
         )
@@ -81,7 +81,7 @@ fun MainAppRouter(navController: NavHostController) {
                 navController = navController
             )
         }
-        composable(Routes.Profile.route) {
+        composable(Routes.Settings.route) {
             SettingsScreen(
                 bottomNavItems = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
