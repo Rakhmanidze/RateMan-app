@@ -6,7 +6,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
-import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.ui.components.LanguageSettingItem
@@ -19,7 +18,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
@@ -34,8 +32,6 @@ fun SettingsScreen(
     onNavItemClick: (BottomNavItem) -> Unit,
     navController: NavHostController
 ) {
-    val context = LocalContext.current
-
     val viewModel: SettingsViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
@@ -78,10 +74,6 @@ fun SettingsScreen(
                 LanguageSettingItem(
                     label = stringResource(id = R.string.interface_language),
                     value = settings!!.uiLanguage.name,
-                    options = LanguageCode.entries.toList(),
-                    onValueChange = { language ->
-                        viewModel.updateLanguage(context, language)
-                    },
                     iconRes = R.drawable.language,
                     navController = navController
                 )

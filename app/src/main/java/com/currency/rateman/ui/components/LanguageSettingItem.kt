@@ -13,22 +13,16 @@ import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
-import com.currency.rateman.R
 
 @Composable
 fun <T : Enum<T>> LanguageSettingItem(
     label: String,
     value: String,
-    options: List<T>,
-    onValueChange: (T) -> Unit,
     @DrawableRes iconRes: Int,
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    var dialogOpened by remember { mutableStateOf(false) }
-
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -78,26 +72,6 @@ fun <T : Enum<T>> LanguageSettingItem(
                     modifier = Modifier.size(24.dp)
                 )
             }
-        }
-
-        if (dialogOpened) {
-            val title = when (label) {
-                stringResource(R.string.interface_language) -> stringResource(R.string.select_language)
-                stringResource(R.string.theme) -> stringResource(R.string.select_theme)
-                stringResource(R.string.default_currency) -> stringResource(R.string.select_currency)
-                else -> stringResource(R.string.select) + " " + label
-            }
-            SelectionDialog(
-                title = title,
-                options = options,
-                selectedOption = options.find { it.name == value },
-                onOptionSelected = { option ->
-                    onValueChange(option)
-                },
-                onDismiss = {
-                    dialogOpened = false
-                }
-            )
         }
     }
 }
