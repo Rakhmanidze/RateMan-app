@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
+import com.currency.rateman.ui.navigation.Routes
 
 @Composable
 fun <T : Enum<T>> LanguageSettingItem(
@@ -30,7 +31,7 @@ fun <T : Enum<T>> LanguageSettingItem(
                 MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { navController.navigate("language") }
+            .clickable { navController.navigate(Routes.Language.route) }
             .padding(12.dp)
     ) {
         Row(

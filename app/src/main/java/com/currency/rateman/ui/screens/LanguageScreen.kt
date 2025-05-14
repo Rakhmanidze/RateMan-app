@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Clear
+import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -72,7 +73,7 @@ fun LanguageScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Column {
-                LanguageCode.entries.forEach { language ->
+                LanguageCode.entries.forEachIndexed { index, language ->
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -95,7 +96,15 @@ fun LanguageScreen(
                                 contentDescription = "Selected",
                                 modifier = Modifier.size(24.dp)
                             )
-                            }
+                        }
+                    }
+
+                    if (index < LanguageCode.entries.size - 1) {
+                        Divider(
+                            modifier = Modifier.padding(vertical = 4.dp),
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f),
+                            thickness = 1.dp
+                        )
                     }
                 }
             }
