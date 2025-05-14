@@ -10,6 +10,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.currency.rateman.R
+import com.currency.rateman.ui.screens.LanguageScreen
 import com.currency.rateman.ui.screens.ProviderDetailsScreen
 import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
@@ -103,6 +104,11 @@ fun MainAppRouter(navController: NavHostController) {
             val providerId = backStackEntry.arguments?.getInt("id")
             ProviderDetailsScreen(
                 providerId = providerId,
+                navController = navController
+            )
+        }
+        composable(Routes.Language.route) {
+            LanguageScreen(
                 navController = navController
             )
         }

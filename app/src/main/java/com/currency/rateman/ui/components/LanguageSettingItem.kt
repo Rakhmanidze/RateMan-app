@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
 import com.currency.rateman.R
 
 @Composable
@@ -23,6 +24,7 @@ fun <T : Enum<T>> LanguageSettingItem(
     options: List<T>,
     onValueChange: (T) -> Unit,
     @DrawableRes iconRes: Int,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     var dialogOpened by remember { mutableStateOf(false) }
@@ -34,7 +36,7 @@ fun <T : Enum<T>> LanguageSettingItem(
                 MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { dialogOpened = true }
+            .clickable { navController.navigate("language") }
             .padding(12.dp)
     ) {
         Row(

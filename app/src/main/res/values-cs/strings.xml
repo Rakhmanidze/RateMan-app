@@ -32,6 +32,7 @@
     <string name="interface_language">Jazyk rozhraní</string>
     <string name="theme">Téma</string>
     <string name="default_currency">Výchozí měna</string>
+    <string name="languages">Jazyky</string>
 
     <string name="system_language">Jazyk zařízení</string>
 </resources>

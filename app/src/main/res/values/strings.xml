@@ -30,6 +30,7 @@
     <string name="interface_language">Interface Language</string>
     <string name="theme">Theme</string>
     <string name="default_currency">Default Currency</string>
+    <string name="languages">Languages</string>
 
     <string name="system_language">Device Language</string>
 </resources>

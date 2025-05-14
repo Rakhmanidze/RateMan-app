@@ -10,4 +10,6 @@ sealed class Routes (val route: String) {
     data object Profile : Routes("profile")
     @Serializable
     data object Splashscreen : Routes("splashscreen")
+    @Serializable
+    data object Language : Routes("language")
 }

@@ -82,7 +82,8 @@ fun SettingsScreen(
                     onValueChange = { language ->
                         viewModel.updateLanguage(context, language)
                     },
-                    iconRes = R.drawable.language
+                    iconRes = R.drawable.language,
+                    navController = navController
                 )
 
                 ThemeSettingItem(
