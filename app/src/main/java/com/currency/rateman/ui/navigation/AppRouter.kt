@@ -54,11 +54,11 @@ fun MainAppRouter(navController: NavHostController) {
         navController = navController,
         startDestination = Routes.Rates.route
     ) {
-        composable(Routes.Splashscreen.route) {
+        composable(Routes.Splash.route) {
             Splashscreen(
                 onNavigate = {
                     navController.navigate(Routes.Rates.route) {
-                        popUpTo(Routes.Splashscreen.route) {
+                        popUpTo(Routes.Splash.route) {
                             inclusive = true
                         }
                     }
