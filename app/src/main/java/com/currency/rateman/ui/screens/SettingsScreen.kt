@@ -9,7 +9,7 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.data.model.ThemeMode
-import com.currency.rateman.ui.components.SettingItem
+import com.currency.rateman.ui.components.LanguageSettingItem
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -73,7 +73,7 @@ fun SettingsScreen(
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
-                SettingItem(
+                LanguageSettingItem(
                     label = stringResource(id = R.string.interface_language),
                     value = settings!!.uiLanguage.name,
                     options = LanguageCode.entries.toList(),
@@ -83,7 +83,7 @@ fun SettingsScreen(
                     iconRes = R.drawable.language
                 )
 
-                SettingItem(
+                LanguageSettingItem(
                     label = stringResource(id = R.string.theme),
                     value = settings!!.themeMode.name,
                     options = enumValues<ThemeMode>().toList(),

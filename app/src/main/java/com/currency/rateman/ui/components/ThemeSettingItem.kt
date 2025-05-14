@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import com.currency.rateman.R
 
 @Composable
-fun <T : Enum<T>> SettingItem(
+fun <T : Enum<T>> ThemeSettingItem(
     label: String,
     value: String,
     options: List<T>,
@@ -61,7 +61,7 @@ fun <T : Enum<T>> SettingItem(
                 )
             }
             Row(
-              verticalAlignment = Alignment.CenterVertically,
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Text(
                     text = value,
