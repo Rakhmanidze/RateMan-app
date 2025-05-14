@@ -12,6 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import com.currency.rateman.R
 
 @Composable
 fun <T : Enum<T>> ThemeSettingItem(
@@ -62,6 +64,12 @@ fun <T : Enum<T>> ThemeSettingItem(
             ) {
                 options.forEach { option ->
                     val isSelected = option.name == value
+
+                    val displayText = when (option.name) {
+                        "DARK" -> stringResource(R.string.theme_dark)
+                        "LIGHT" -> stringResource(R.string.theme_light)
+                        else -> option.name.lowercase().replaceFirstChar { it.uppercase() }
+                    }
                     Box(
                         modifier = Modifier
                             .background(
@@ -74,7 +82,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                             .padding(horizontal = 12.dp, vertical = 6.dp)
                     ) {
                         Text(
-                            text = option.name.lowercase().replaceFirstChar { it.uppercase() },
+                            text = displayText,
                             style = MaterialTheme.typography.bodyMedium,
                             color = MaterialTheme.colorScheme.onSurface
                         )

@@ -33,6 +33,9 @@
     <string name="theme">Téma</string>
     <string name="default_currency">Výchozí měna</string>
     <string name="languages">Jazyky</string>
-
     <string name="system_language">Jazyk zařízení</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Tmavé</string>
+    <string name="theme_light">Světlé</string>
 </resources>
