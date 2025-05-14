@@ -8,7 +8,7 @@
     <string name="best_rate">Nejlepší kurz</string>
     <string name="best_buy">Nejlepší nákup</string>
     <string name="best_sell">Nejlepší prodej</string>
-    <string name="all_providers">Všichni</string>
+    <string name="all">Vše</string>
 
     <!-- Categories -->
     <string name="banks">Banky</string>
@@ -19,7 +19,7 @@
     <string name="select_language">Vyberte jazyk rozhraní</string>
     <string name="select_theme">Vyberte tému</string>
     <string name="select_currency">Vyberte výchozí měnu</string>
-    <string name="find_currencies">Najít měny</string>
+    <string name="find_currencies">Vyhledat měny</string>
     <string name="select">Vybrat</string>
     <string name="buy_sell">Nákup / Prodej</string>
 
@@ -29,11 +29,9 @@
 
     <!-- Settings -->
     <string name="settings">Nastavení</string>
-    <string name="interface_language">Jazyk rozhraní</string>
-    <string name="theme">Téma</string>
+    <string name="app_language">Jazyk aplikace</string>
+    <string name="theme">Vzhled</string>
     <string name="default_currency">Výchozí měna</string>
-    <string name="languages">Jazyky</string>
-    <string name="system_language">Jazyk zařízení</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Tmavé</string>

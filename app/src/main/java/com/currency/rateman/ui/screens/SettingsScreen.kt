@@ -74,7 +74,7 @@ fun SettingsScreen(
 
                 val locale = Locale(settings!!.uiLanguage.name)
                 LanguageSettingItem(
-                    label = stringResource(id = R.string.interface_language),
+                    label = stringResource(id = R.string.app_language),
                     value = locale.getDisplayName(locale)
                         .replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() },
                     iconRes = R.drawable.language,

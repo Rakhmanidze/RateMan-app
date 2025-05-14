@@ -112,7 +112,7 @@ fun SearchAndFilterHeader(
                 ) {
                     Text(
                         text = when (selectedProviderType) {
-                            ProviderType.ALL -> stringResource(id = AppR.string.all_providers)
+                            ProviderType.ALL -> stringResource(id = AppR.string.all)
                             ProviderType.BANK -> stringResource(id = AppR.string.banks)
                             ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
                             ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
@@ -133,7 +133,7 @@ fun SearchAndFilterHeader(
                             text = {
                                 Text(
                                     text = when (type) {
-                                        ProviderType.ALL -> stringResource(id = AppR.string.all_providers)
+                                        ProviderType.ALL -> stringResource(id = AppR.string.all)
                                         ProviderType.BANK -> stringResource(id = AppR.string.banks)
                                         ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
                                         ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
