@@ -24,6 +24,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.CurrencySettingItem
+import com.currency.rateman.ui.components.ThemeSettingItem
 
 @Composable
 fun SettingsScreen(
@@ -83,7 +84,7 @@ fun SettingsScreen(
                     iconRes = R.drawable.language
                 )
 
-                LanguageSettingItem(
+                ThemeSettingItem(
                     label = stringResource(id = R.string.theme),
                     value = settings!!.themeMode.name,
                     options = enumValues<ThemeMode>().toList(),
