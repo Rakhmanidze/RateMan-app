@@ -65,7 +65,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                     Box(
                         modifier = Modifier
                             .background(
-                                color = if (isSelected) Color(0xFF2A3B5A) else Color(0xFF3B4A6A),
+                                color = if (isSelected) Color(0xFFB0B0B0) else Color(0xFFF0F0F0),
                                 shape = RoundedCornerShape(8.dp)
                             )
                             .clickable {
@@ -76,7 +76,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                         Text(
                             text = option.name.lowercase().replaceFirstChar { it.uppercase() },
                             style = MaterialTheme.typography.bodyMedium,
-                            color = if (isSelected) Color.White else Color.LightGray
+                            color = MaterialTheme.colorScheme.onSurface
                         )
                     }
                 }
