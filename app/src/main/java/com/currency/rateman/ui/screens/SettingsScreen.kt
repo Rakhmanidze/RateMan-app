@@ -24,6 +24,7 @@ import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.BottomNavBar
 import com.currency.rateman.ui.components.CurrencySettingItem
 import com.currency.rateman.ui.components.ThemeSettingItem
+import java.util.Locale
 
 @Composable
 fun SettingsScreen(
@@ -71,9 +72,11 @@ fun SettingsScreen(
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
+                val locale = Locale(settings!!.uiLanguage.name)
                 LanguageSettingItem(
                     label = stringResource(id = R.string.interface_language),
-                    value = settings!!.uiLanguage.name,
+                    value = locale.getDisplayName(locale)
+                        .replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() },
                     iconRes = R.drawable.language,
                     navController = navController
                 )

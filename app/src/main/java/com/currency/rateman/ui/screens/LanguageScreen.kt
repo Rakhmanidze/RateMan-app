@@ -32,6 +32,7 @@ import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import com.currency.rateman.R
 import com.currency.rateman.data.model.LanguageCode
+import java.util.Locale
 
 @Composable
 fun LanguageScreen(
@@ -74,6 +75,9 @@ fun LanguageScreen(
 
             Column {
                 LanguageCode.entries.forEachIndexed { index, language ->
+                    val locale = Locale(language.name.lowercase())
+                    val displayName = locale.getDisplayName(locale)
+                        .replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() }
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -82,11 +86,11 @@ fun LanguageScreen(
                                 navController.popBackStack()
                             }
                             .padding(vertical = 12.dp),
-                        verticalAlignment = Alignment.CenterVertically,
+                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
                         Text(
-                            text = language.name,
+                            text = displayName,
                             style = MaterialTheme.typography.bodyLarge,
                             color = MaterialTheme.colorScheme.onSurface
                         )

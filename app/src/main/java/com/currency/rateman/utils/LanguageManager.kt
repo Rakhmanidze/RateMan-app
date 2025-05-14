@@ -14,7 +14,7 @@ object LanguageManager {
         val currentLanguage = context.resources.configuration.locales[0].language
         val desiredLanguageCode = when (savedLanguage) {
             LanguageCode.EN -> "en"
-            LanguageCode.CZ -> "cs"
+            LanguageCode.CS -> "cs"
         }
 
         return if (currentLanguage != desiredLanguageCode) {
