@@ -8,13 +8,10 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import com.currency.rateman.R
 
 @Composable
 fun <T : Enum<T>> ThemeSettingItem(
@@ -61,41 +58,29 @@ fun <T : Enum<T>> ThemeSettingItem(
                 )
             }
             Row(
-                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                Text(
-                    text = value,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.padding(top = 4.dp)
-                )
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
-                    contentDescription = "Expand",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(24.dp)
-                )
-            }
-        }
-
-        if (dialogOpened) {
-            val title = when (label) {
-                stringResource(R.string.interface_language) -> stringResource(R.string.select_language)
-                stringResource(R.string.theme) -> stringResource(R.string.select_theme)
-                stringResource(R.string.default_currency) -> stringResource(R.string.select_currency)
-                else -> stringResource(R.string.select) + " " + label
-            }
-            SelectionDialog(
-                title = title,
-                options = options,
-                selectedOption = options.find { it.name == value },
-                onOptionSelected = { option ->
-                    onValueChange(option)
-                },
-                onDismiss = {
-                    dialogOpened = false
+                options.forEach { option ->
+                    val isSelected = option.name == value
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                color = if (isSelected) Color(0xFF2A3B5A) else Color(0xFF3B4A6A),
+                                shape = RoundedCornerShape(8.dp)
+                            )
+                            .clickable {
+                                onValueChange(option)
+                            }
+                            .padding(horizontal = 12.dp, vertical = 6.dp)
+                    ) {
+                        Text(
+                            text = option.name.lowercase().replaceFirstChar { it.uppercase() },
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = if (isSelected) Color.White else Color.LightGray
+                        )
+                    }
                 }
-            )
+            }
         }
     }
 }
