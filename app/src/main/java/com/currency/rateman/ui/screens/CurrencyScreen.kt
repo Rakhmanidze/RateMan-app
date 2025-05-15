@@ -25,7 +25,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
@@ -46,7 +45,6 @@ fun CurrencyScreen(
     navController: NavHostController,
     onCurrencySelected: (CurrencyCode) -> Unit,
     selectedCurrency: CurrencyCode?,
-    modifier: Modifier = Modifier
 ) {
     val options = CurrencyCode.entries.toList()
 

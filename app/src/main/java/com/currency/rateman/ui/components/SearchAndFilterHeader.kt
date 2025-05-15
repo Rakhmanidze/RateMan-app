@@ -37,14 +37,12 @@ fun SearchAndFilterHeader(
     selectedProviderType: ProviderType?,
     onProviderTypeChange: (ProviderType) -> Unit,
     selectedCurrency: CurrencyCode?,
-    onCurrencyChange: (CurrencyCode) -> Unit,
     selectedRateSortType: RateSortType?,
     onRateSortTypeChange: (RateSortType) -> Unit,
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     var providerTypeExpanded by remember { mutableStateOf(false) }
-    var currencyDialogOpened by remember { mutableStateOf(false) }
     var rateSortTypeExpanded by remember { mutableStateOf(false) }
     var isSearchFocused by remember { mutableStateOf(false) }
 
@@ -53,7 +51,6 @@ fun SearchAndFilterHeader(
             .fillMaxWidth()
             .padding(top = 16.dp)
     ) {
-        // Search field
         BasicTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChange,
@@ -98,7 +95,6 @@ fun SearchAndFilterHeader(
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Filter buttons
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
@@ -179,18 +175,6 @@ fun SearchAndFilterHeader(
                         )
                     }
                 }
-//                    CurrencySelectionDialog(
-//                        title = stringResource(id = AppR.string.select_currency),
-//                        options = CurrencyCode.entries.toList(),
-//                        selectedOption = selectedCurrency,
-//                        onOptionSelected = { currency ->
-//                            onCurrencyChange(currency)
-//                            currencyDialogOpened = false
-//                        },
-//                        onDismiss = {
-//                            currencyDialogOpened = false
-//                        }
-//                    )
             }
 
             Box(modifier = Modifier.width(134.dp)) {
