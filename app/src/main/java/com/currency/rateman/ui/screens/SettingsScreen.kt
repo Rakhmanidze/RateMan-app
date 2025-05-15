@@ -100,7 +100,8 @@ fun SettingsScreen(
                         viewModel.updateCurrency(currency)
                     },
                     modifier = Modifier.padding(top = 8.dp),
-                    iconRes = R.drawable.currency
+                    iconRes = R.drawable.currency,
+                    navController = navController
                 )
             }
         }

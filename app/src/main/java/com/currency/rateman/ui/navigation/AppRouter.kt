@@ -10,11 +10,21 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.currency.rateman.R
+import com.currency.rateman.ui.screens.CurrencyScreen
 import com.currency.rateman.ui.screens.LanguageScreen
 import com.currency.rateman.ui.screens.ProviderDetailsScreen
 import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
+import androidx.compose.runtime.collectAsState
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.navArgument
+import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.screens.CurrencyScreen
+import com.currency.rateman.ui.screens.LanguageScreen
+import com.currency.rateman.ui.viewmodels.SettingsViewModel
 
 @Composable
 fun AppRouter() {
@@ -109,6 +119,11 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable(Routes.Language.route) {
             LanguageScreen(
+                navController = navController
+            )
+        }
+        composable(Routes.Currency.route) {
+            CurrencyScreen(
                 navController = navController
             )
         }

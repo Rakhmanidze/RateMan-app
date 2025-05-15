@@ -15,8 +15,10 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.R
+import com.currency.rateman.ui.navigation.Routes
 
 @Composable
 fun CurrencySettingItem(
@@ -25,6 +27,7 @@ fun CurrencySettingItem(
     options: List<CurrencyCode>,
     onValueChange: (CurrencyCode) -> Unit,
     @DrawableRes iconRes: Int,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     var dialogOpened by remember { mutableStateOf(false) }
@@ -36,7 +39,7 @@ fun CurrencySettingItem(
                 MaterialTheme.colorScheme.surfaceVariant,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { dialogOpened = true }
+            .clickable { navController.navigate(Routes.Currency.route) }
             .padding(12.dp)
     ) {
         Row(

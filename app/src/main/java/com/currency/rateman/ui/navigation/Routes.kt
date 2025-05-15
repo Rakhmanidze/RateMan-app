@@ -12,4 +12,6 @@ sealed class Routes (val route: String) {
     data object Splash : Routes("splash")
     @Serializable
     data object Language : Routes("language")
+    @Serializable
+    data object Currency : Routes("currency")
 }
