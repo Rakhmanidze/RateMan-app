@@ -5,7 +5,6 @@ import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
-import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.ui.components.LanguageSettingItem
@@ -95,10 +94,6 @@ fun SettingsScreen(
                 CurrencySettingItem(
                     label = stringResource(id = R.string.default_currency),
                     value = settings!!.defaultCurrency.name,
-                    options = CurrencyCode.entries.toList(),
-                    onValueChange = { currency ->
-                        viewModel.updateCurrency(currency)
-                    },
                     modifier = Modifier.padding(top = 8.dp),
                     iconRes = R.drawable.currency,
                     navController = navController

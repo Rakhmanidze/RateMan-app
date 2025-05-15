@@ -14,24 +14,18 @@ import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.data.model.CurrencyCode
-import com.currency.rateman.R
 import com.currency.rateman.ui.navigation.Routes
 
 @Composable
 fun CurrencySettingItem(
     label: String,
     value: String,
-    options: List<CurrencyCode>,
-    onValueChange: (CurrencyCode) -> Unit,
     @DrawableRes iconRes: Int,
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
-    var dialogOpened by remember { mutableStateOf(false) }
-
     Box(
         modifier = modifier
             .fillMaxWidth()
@@ -86,24 +80,6 @@ fun CurrencySettingItem(
                     modifier = Modifier.size(24.dp)
                 )
             }
-        }
-
-        if (dialogOpened) {
-            val title = when (label) {
-                stringResource(R.string.default_currency) -> stringResource(R.string.select_currency)
-                else -> stringResource(R.string.select) + " " + label
-            }
-            CurrencySelectionDialog(
-                title = title,
-                options = options,
-                selectedOption = options.find { it.name == value },
-                onOptionSelected = { option ->
-                    onValueChange(option)
-                },
-                onDismiss = {
-                    dialogOpened = false
-                }
-            )
         }
     }
 }
