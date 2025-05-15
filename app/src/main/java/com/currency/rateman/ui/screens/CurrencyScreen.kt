@@ -45,6 +45,7 @@ fun CurrencyScreen(
     navController: NavHostController,
     onCurrencySelected: (CurrencyCode) -> Unit,
     selectedCurrency: CurrencyCode?,
+    prevRoute : String
 ) {
     val options = CurrencyCode.entries.toList()
 
@@ -66,7 +67,7 @@ fun CurrencyScreen(
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .size(32.dp)
-                        .clickable { navController.popBackStack() }
+                        .clickable { navController.navigate(prevRoute) }
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
@@ -120,7 +121,7 @@ fun CurrencyScreen(
                                 .fillMaxWidth()
                                 .clickable {
                                     onCurrencySelected(currency)
-//                                    navController.popBackStack()
+                                    navController.navigate(prevRoute)
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically

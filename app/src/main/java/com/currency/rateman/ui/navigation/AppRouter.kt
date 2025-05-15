@@ -133,7 +133,8 @@ fun MainAppRouter(navController: NavHostController) {
                         onCurrencySelected = { currency ->
                            vm.updateCurrency(currency)
                         },
-                        selectedCurrency = settings?.defaultCurrency
+                        selectedCurrency = settings?.defaultCurrency,
+                        prevRoute = prevRoute
                     )
                 }
                 Routes.Rates.route -> {
@@ -148,7 +149,8 @@ fun MainAppRouter(navController: NavHostController) {
                         onCurrencySelected = { currency ->
                             vm.updateCurrency(currency)
                         },
-                        selectedCurrency = filter?.selectedCurrency
+                        selectedCurrency = filter?.selectedCurrency,
+                        prevRoute = prevRoute
                     )
                 }
             }
