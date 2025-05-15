@@ -83,7 +83,6 @@ fun LanguageScreen(
                             .fillMaxWidth()
                             .clickable {
                                 viewModel.updateLanguage(context, language)
-                                navController.popBackStack()
                             }
                             .padding(vertical = 12.dp),
                          verticalAlignment = Alignment.CenterVertically,
