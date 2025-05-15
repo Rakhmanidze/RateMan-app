@@ -27,6 +27,8 @@ import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
+import com.currency.rateman.ui.navigation.Routes
 
 @Composable
 fun SearchAndFilterHeader(
@@ -38,6 +40,7 @@ fun SearchAndFilterHeader(
     onCurrencyChange: (CurrencyCode) -> Unit,
     selectedRateSortType: RateSortType?,
     onRateSortTypeChange: (RateSortType) -> Unit,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     var providerTypeExpanded by remember { mutableStateOf(false) }
@@ -153,7 +156,7 @@ fun SearchAndFilterHeader(
 
             Box(modifier = Modifier.width(95.dp)) {
                 OutlinedButton(
-                    onClick = { currencyDialogOpened = true },
+                    onClick = { navController.navigate(Routes.Currency.route) },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
@@ -176,20 +179,18 @@ fun SearchAndFilterHeader(
                         )
                     }
                 }
-                if (currencyDialogOpened && selectedCurrency != null) {
-                    CurrencySelectionDialog(
-                        title = stringResource(id = AppR.string.select_currency),
-                        options = CurrencyCode.entries.toList(),
-                        selectedOption = selectedCurrency,
-                        onOptionSelected = { currency ->
-                            onCurrencyChange(currency)
-                            currencyDialogOpened = false
-                        },
-                        onDismiss = {
-                            currencyDialogOpened = false
-                        }
-                    )
-                }
+//                    CurrencySelectionDialog(
+//                        title = stringResource(id = AppR.string.select_currency),
+//                        options = CurrencyCode.entries.toList(),
+//                        selectedOption = selectedCurrency,
+//                        onOptionSelected = { currency ->
+//                            onCurrencyChange(currency)
+//                            currencyDialogOpened = false
+//                        },
+//                        onDismiss = {
+//                            currencyDialogOpened = false
+//                        }
+//                    )
             }
 
             Box(modifier = Modifier.width(134.dp)) {

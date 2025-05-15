@@ -24,6 +24,7 @@ import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.screens.CurrencyScreen
 import com.currency.rateman.ui.screens.LanguageScreen
+import com.currency.rateman.ui.viewmodels.RatesViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 
 @Composable
@@ -123,9 +124,40 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Currency.route) {
-            CurrencyScreen(
-                navController = navController
-            )
+            val prevRoute = navController.previousBackStackEntry?.destination?.route
+
+            when (prevRoute) {
+                Routes.Settings.route -> {
+                    val vm: SettingsViewModel = navController
+                        .currentBackStackEntry
+                        ?.sharedKoinNavViewModel(navController)
+                        ?: return@composable
+                    val settingsState = vm.settings.collectAsState()
+                    val settings = settingsState.value
+                    CurrencyScreen(
+                        navController = navController,
+                        onCurrencySelected = { currency ->
+                           vm.updateCurrency(currency)
+                        },
+                        selectedCurrency = settings?.defaultCurrency
+                    )
+                }
+                Routes.Rates.route -> {
+                    val vm: RatesViewModel = navController
+                        .currentBackStackEntry
+                        ?.sharedKoinNavViewModel(navController)
+                        ?: return@composable
+                    val filterState = vm.filter.collectAsState()
+                    val filter = filterState.value
+                    CurrencyScreen(
+                        navController = navController,
+                        onCurrencySelected = { currency ->
+                            vm.updateCurrency(currency)
+                        },
+                        selectedCurrency = filter?.selectedCurrency
+                    )
+                }
+            }
         }
     }
 }

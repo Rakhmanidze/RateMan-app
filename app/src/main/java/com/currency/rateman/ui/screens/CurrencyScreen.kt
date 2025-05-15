@@ -37,8 +37,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.navigation.NavHostController
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.ui.components.getCurrencyIconRes
@@ -46,16 +44,11 @@ import com.currency.rateman.ui.components.getCurrencyIconRes
 @Composable
 fun CurrencyScreen(
     navController: NavHostController,
-    viewModel: SettingsViewModel? = navController
-        .currentBackStackEntry
-        ?.sharedKoinNavViewModel(navController)
+    onCurrencySelected: (CurrencyCode) -> Unit,
+    selectedCurrency: CurrencyCode?,
+    modifier: Modifier = Modifier
 ) {
-    if (viewModel == null) return
-
-    val settings by viewModel.settings.collectAsState()
-
     val options = CurrencyCode.entries.toList()
-    val selectedOption = settings?.defaultCurrency?.let { CurrencyCode.valueOf(it.toString()) }
 
     Scaffold { paddingValues ->
         Column(
@@ -123,34 +116,30 @@ fun CurrencyScreen(
                         )
                     }
                 } else {
-                    items(filteredOptions) { option ->
+                    items(filteredOptions) { currency ->
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    viewModel.updateCurrency(option)
+                                    onCurrencySelected(currency)
+//                                    navController.popBackStack()
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Image(
-                                painter = painterResource(id = getCurrencyIconRes(option)),
-                                contentDescription = "${option.name} icon",
+                                painter = painterResource(id = getCurrencyIconRes(currency)),
+                                contentDescription = "${currency.name} icon",
                                 modifier = Modifier.size(24.dp)
                             )
                             Spacer(modifier = Modifier.width(12.dp))
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(
-                                    text = option.name,
+                                    text = currency.name,
                                     style = MaterialTheme.typography.bodyMedium
                                 )
-//                                Text(
-//                                    text = option.name,
-//                                    style = MaterialTheme.typography.bodySmall,
-//                                    color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)
-//                                )
                             }
-                            if (option == selectedOption) {
+                            if (currency == selectedCurrency) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.select),
                                     contentDescription = "Selected",
