@@ -17,13 +17,7 @@ import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
 import androidx.compose.runtime.collectAsState
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
-import androidx.navigation.navArgument
-import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.ui.screens.CurrencyScreen
-import com.currency.rateman.ui.screens.LanguageScreen
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 
