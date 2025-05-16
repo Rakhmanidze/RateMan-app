@@ -107,7 +107,7 @@ fun LanguageScreen(
                         HorizontalDivider(
                             modifier = Modifier.padding(vertical = 4.dp),
                             thickness = 1.dp,
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f)
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f)
                         )
                     }
                 }
