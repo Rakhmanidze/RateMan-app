@@ -99,14 +99,16 @@ fun SearchAndFilterHeader(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            Box(modifier = Modifier.width(149.dp)) {
+            Box {
                 OutlinedButton(
                     onClick = { providerTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .defaultMinSize(minWidth = 100.dp)
+                        .wrapContentWidth(),
                     enabled = selectedProviderType != null
                 ) {
                     Text(
@@ -125,7 +127,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { providerTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(149.dp)
+                        .width(IntrinsicSize.Max)
                 ) {
                     ProviderType.entries.forEach { type ->
                         DropdownMenuItem(
@@ -177,14 +179,16 @@ fun SearchAndFilterHeader(
                 }
             }
 
-            Box(modifier = Modifier.width(134.dp)) {
+            Box {
                 OutlinedButton(
                     onClick = { rateSortTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .defaultMinSize(minWidth = 60.dp)
+                        .wrapContentWidth(),
                     enabled = selectedRateSortType != null
                 ) {
                     Text(
@@ -202,7 +206,7 @@ fun SearchAndFilterHeader(
                     onDismissRequest = { rateSortTypeExpanded = false },
                     modifier = Modifier
                         .background(MaterialTheme.colorScheme.surfaceVariant)
-                        .width(134.dp)
+                        .width(IntrinsicSize.Max)
                 ) {
                     RateSortType.entries.forEach { option ->
                         DropdownMenuItem(
