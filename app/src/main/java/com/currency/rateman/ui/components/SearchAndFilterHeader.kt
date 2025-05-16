@@ -107,7 +107,7 @@ fun SearchAndFilterHeader(
                         contentColor = MaterialTheme.colorScheme.onSurfaceVariant
                     ),
                     modifier = Modifier
-                        .defaultMinSize(minWidth = 100.dp)
+                        .defaultMinSize(minWidth = 50.dp)
                         .wrapContentWidth(Alignment.Start),
                     enabled = selectedProviderType != null
                 ) {
