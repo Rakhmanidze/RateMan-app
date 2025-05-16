@@ -108,7 +108,7 @@ fun SearchAndFilterHeader(
                     ),
                     modifier = Modifier
                         .defaultMinSize(minWidth = 100.dp)
-                        .wrapContentWidth(),
+                        .wrapContentWidth(Alignment.Start),
                     enabled = selectedProviderType != null
                 ) {
                     Text(
