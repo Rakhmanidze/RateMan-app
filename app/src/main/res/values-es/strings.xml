@@ -13,7 +13,7 @@
     <!-- Categories -->
     <string name="banks">Bancos</string>
     <string name="exchanges">Casas de cambio</string>
-    <string name="crypto_exchanges">Cripto casas de cambio</string>
+    <string name="crypto_exchanges">Criptointercambios</string>
 
     <!-- Currency Selection -->
     <string name="select_language">Seleccionar idioma</string>
@@ -29,7 +29,7 @@
 
     <!-- Settings -->
     <string name="settings">Configuración</string>
-    <string name="app_language">Idioma de la app</string>
+    <string name="app_language">Idioma de la aplicación</string>
     <string name="theme">Tema</string>
     <string name="default_currency">Moneda predeterminada</string>
 
