@@ -5,15 +5,15 @@
 
     <!-- Home / Tabs -->
     <string name="find_providers">Buscar bancos y casas de cambio</string>
-    <string name="best_rate">Mejor tipo</string>
+    <string name="best_rate">Mejor tasa</string>
     <string name="best_buy">Mejor compra</string>
     <string name="best_sell">Mejor venta</string>
-    <string name="all">Todo</string>
+    <string name="all">Todos</string>
 
     <!-- Categories -->
     <string name="banks">Bancos</string>
     <string name="exchanges">Casas de cambio</string>
-    <string name="crypto_exchanges">Cripto casas de cambio</string> <!-- Criptointercambios -->
+    <string name="crypto_exchanges">Cripto casas de cambio</string> <!-- Criptointercambios, Criptocasas -->
 
     <!-- Currency Selection -->
     <string name="select_language">Seleccionar idioma</string>
