@@ -13,7 +13,7 @@
     <!-- Categories -->
     <string name="banks">Bancos</string>
     <string name="exchanges">Casas de cambio</string>
-    <string name="crypto_exchanges">Criptointercambios</string>
+    <string name="crypto_exchanges">Cripto casas de cambio</string> <!-- Criptointercambios -->
 
     <!-- Currency Selection -->
     <string name="select_language">Seleccionar idioma</string>

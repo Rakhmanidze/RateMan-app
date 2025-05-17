@@ -14,17 +14,26 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.navigation.NavHostController
+import com.currency.rateman.ui.navigation.Routes
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
 import com.currency.rateman.data.model.RateSortType
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavHostController
-import com.currency.rateman.ui.navigation.Routes
 
 @Composable
 fun SearchAndFilterHeader(
@@ -56,7 +65,9 @@ fun SearchAndFilterHeader(
         Spacer(modifier = Modifier.height(8.dp))
 
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .horizontalScroll(rememberScrollState()),
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             Box {
@@ -67,7 +78,6 @@ fun SearchAndFilterHeader(
                         contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier
-                        .defaultMinSize(minWidth = 50.dp)
                         .wrapContentWidth(Alignment.Start),
                     enabled = selectedProviderType != null
                 ) {
@@ -77,9 +87,10 @@ fun SearchAndFilterHeader(
                             ProviderType.BANK -> stringResource(id = AppR.string.banks)
                             ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
                             ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
-                            null ->  stringResource(id = AppR.string.loading)
+                            null -> stringResource(id = AppR.string.loading)
                         },
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodySmall,
+                        maxLines = 1
                     )
                 }
                 DropdownMenu(
@@ -112,14 +123,15 @@ fun SearchAndFilterHeader(
                 }
             }
 
-            Box(modifier = Modifier.width(95.dp)) {
+            Box {
                 OutlinedButton(
                     onClick = { navController.navigate(Routes.Currency.route) },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surface,
                         contentColor = MaterialTheme.colorScheme.onSurface
                     ),
-                    modifier = Modifier.fillMaxWidth(),
+                    modifier = Modifier
+                        .width(95.dp),
                     enabled = selectedCurrency != null
                 ) {
                     Row(
@@ -133,7 +145,8 @@ fun SearchAndFilterHeader(
                         )
                         Text(
                             text = selectedCurrency?.name ?: stringResource(id = AppR.string.loading),
-                            style = MaterialTheme.typography.bodySmall
+                            style = MaterialTheme.typography.bodySmall,
+                            maxLines = 1
                         )
                     }
                 }
@@ -147,7 +160,6 @@ fun SearchAndFilterHeader(
                         contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier
-                        .defaultMinSize(minWidth = 60.dp)
                         .wrapContentWidth(),
                     enabled = selectedRateSortType != null
                 ) {
@@ -159,7 +171,8 @@ fun SearchAndFilterHeader(
                             null -> stringResource(id = AppR.string.loading)
                         },
                         color = MaterialTheme.colorScheme.onSurface,
-                        style = MaterialTheme.typography.bodySmall
+                        style = MaterialTheme.typography.bodySmall,
+                        maxLines = 1
                     )
                 }
                 DropdownMenu(
