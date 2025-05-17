@@ -55,7 +55,7 @@ fun CurrencyScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
                 .padding(horizontal = 16.dp, vertical = 8.dp)
-                .background(MaterialTheme.colorScheme.surface)
+                .background(MaterialTheme.colorScheme.background)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -64,7 +64,7 @@ fun CurrencyScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                         .size(32.dp)
                         .clickable { navController.navigate(prevRoute) }
@@ -92,7 +92,7 @@ fun CurrencyScreen(
                         painter = painterResource(id = R.drawable.search),
                         contentDescription = "Search",
                         modifier = Modifier.size(24.dp),
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant
+                        tint = MaterialTheme.colorScheme.onSurface
                     )
                 }
             )
