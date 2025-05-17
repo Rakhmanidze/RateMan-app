@@ -16,7 +16,6 @@
     <!-- Selection -->
     <string name="select_currency">Select Currency</string>
     <string name="find_currencies">Find Currencies</string>
-    <string name="select">Select</string>
     <string name="buy_sell">Buy / Sell</string>
 
     <!-- UI State -->

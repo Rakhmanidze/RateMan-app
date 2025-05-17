@@ -18,7 +18,6 @@
     <!-- Selection -->
     <string name="select_currency">Vyberte výchozí měnu</string>
     <string name="find_currencies">Vyhledat měny</string>
-    <string name="select">Vybrat</string>
     <string name="buy_sell">Nákup / Prodej</string>
 
     <!-- UI State -->
