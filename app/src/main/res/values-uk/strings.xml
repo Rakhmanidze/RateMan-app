@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RateMan</string>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Знайти банки та обмінники</string>
+    <string name="best_rate">Найкращий курс</string>
+    <string name="best_buy">Найкраща покупка</string>
+    <string name="best_sell">Найкращий продаж</string>
+    <string name="all">Усі</string>
+
+    <!-- Categories -->
+    <string name="banks">Банки</string>
+    <string name="exchanges">Обмінники</string>
+    <string name="crypto_exchanges">Криптообмінники</string>
+
+    <!-- Selection -->
+    <string name="select_currency">Вибрати валюту</string>
+    <string name="find_currencies">Знайти валюти</string>
+    <string name="buy_sell">Купити / Продати</string>
+
+    <!-- UI State -->
+    <string name="loading">Завантаження</string>
+    <string name="no_results">Немає результатів</string>
+
+    <!-- Settings -->
+    <string name="settings">Налаштування</string>
+    <string name="app_language">Мова програми</string>
+    <string name="theme">Тема</string>
+    <string name="default_currency">Валюта за замовчуванням</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Темна</string>
+    <string name="theme_light">Світла</string>
+</resources>
