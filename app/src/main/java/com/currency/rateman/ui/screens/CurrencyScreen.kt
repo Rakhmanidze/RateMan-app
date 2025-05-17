@@ -109,6 +109,7 @@ fun CurrencyScreen(
                             modifier = Modifier.size(24.dp),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
+                        Spacer(modifier = Modifier.width(8.dp))
                         if (!isSearchFocused && searchCurrency.isEmpty()) {
                             Text(
                                 text = stringResource(R.string.find_currencies),
