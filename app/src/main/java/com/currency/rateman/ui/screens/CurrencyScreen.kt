@@ -41,6 +41,7 @@ import androidx.navigation.NavHostController
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.ui.components.getCurrencyIconRes
+import android.R as AndroidR
 
 @Composable
 fun CurrencyScreen(
@@ -103,7 +104,7 @@ fun CurrencyScreen(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
                         Icon(
-                            painter = painterResource(id = R.drawable.search),
+                            painter = painterResource(id = AndroidR.drawable.ic_menu_search), // Use the same icon as SearchAndFilterHeader
                             contentDescription = "Search",
                             modifier = Modifier.size(24.dp),
                             tint = MaterialTheme.colorScheme.onSurface
