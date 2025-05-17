@@ -33,6 +33,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
@@ -80,6 +81,7 @@ fun CurrencyScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             var searchCurrency by remember { mutableStateOf("") }
+            var isSearchFocused by remember { mutableStateOf(false) }
             BasicTextField(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
@@ -89,7 +91,10 @@ fun CurrencyScreen(
                         color = MaterialTheme.colorScheme.surface,
                         shape = RoundedCornerShape(4.dp)
                     )
-                    .padding(horizontal = 12.dp, vertical = 8.dp),
+                    .padding(horizontal = 12.dp, vertical = 8.dp)
+                    .onFocusChanged { focusState ->
+                        isSearchFocused = focusState.isFocused
+                    },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
                 decorationBox = { innerTextField ->
@@ -103,7 +108,7 @@ fun CurrencyScreen(
                             modifier = Modifier.size(24.dp),
                             tint = MaterialTheme.colorScheme.onSurface
                         )
-                        if (searchCurrency.isEmpty()) {
+                        if (!isSearchFocused && searchCurrency.isEmpty()) {
                             Text(
                                 text = stringResource(R.string.find_currencies),
                                 color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
