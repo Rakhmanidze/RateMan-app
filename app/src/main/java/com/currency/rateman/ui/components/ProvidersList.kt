@@ -40,7 +40,7 @@ fun ProvidersList(
                 .fillMaxWidth()
                 .padding(16.dp)
                 .height(40.dp)
-                .background(MaterialTheme.colorScheme.surfaceVariant, RoundedCornerShape(8.dp)),
+                .background(MaterialTheme.colorScheme.surface, RoundedCornerShape(8.dp)),
             contentAlignment = Alignment.Center
         ) {
 
@@ -65,7 +65,7 @@ fun ProvidersList(
                 Text(
                     text = stringResource(id = R.string.buy_sell),
                     style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                    color = MaterialTheme.colorScheme.onSurface
                 )
             }
             LazyColumn(
