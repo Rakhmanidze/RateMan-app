@@ -29,8 +29,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.ui.navigation.Routes
-import com.currency.rateman.ui.theme.LightOnBackground
-import com.currency.rateman.ui.theme.LightSurface
 
 @Composable
 fun SearchAndFilterHeader(
@@ -59,7 +57,7 @@ fun SearchAndFilterHeader(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(
-                    color = LightSurface,
+                    color = MaterialTheme.colorScheme.surface,
                     shape = RoundedCornerShape(4.dp)
                 )
                 .padding(horizontal = 12.dp, vertical = 8.dp)
@@ -91,7 +89,7 @@ fun SearchAndFilterHeader(
             },
             singleLine = true,
             textStyle = LocalTextStyle.current.copy(
-                color = LightOnBackground
+                color = MaterialTheme.colorScheme.onBackground
             )
         )
 
@@ -105,8 +103,8 @@ fun SearchAndFilterHeader(
                 OutlinedButton(
                     onClick = { providerTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = LightSurface,
-                        contentColor = LightOnBackground
+                        containerColor = MaterialTheme.colorScheme.surface,
+                        contentColor = MaterialTheme.colorScheme.onBackground
                     ),
                     modifier = Modifier
                         .defaultMinSize(minWidth = 50.dp)
@@ -128,7 +126,7 @@ fun SearchAndFilterHeader(
                     expanded = providerTypeExpanded && selectedProviderType != null,
                     onDismissRequest = { providerTypeExpanded = false },
                     modifier = Modifier
-                        .background(LightSurface)
+                        .background(MaterialTheme.colorScheme.surface)
                         .width(IntrinsicSize.Max)
                 ) {
                     ProviderType.entries.forEach { type ->
@@ -158,8 +156,8 @@ fun SearchAndFilterHeader(
                 OutlinedButton(
                     onClick = { navController.navigate(Routes.Currency.route) },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = LightSurface,
-                        contentColor = LightOnBackground
+                        containerColor = MaterialTheme.colorScheme.surface,
+                        contentColor = MaterialTheme.colorScheme.onBackground
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     enabled = selectedCurrency != null
@@ -185,8 +183,8 @@ fun SearchAndFilterHeader(
                 OutlinedButton(
                     onClick = { rateSortTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
-                        containerColor = LightSurface,
-                        contentColor = LightOnBackground
+                        containerColor = MaterialTheme.colorScheme.surface,
+                        contentColor = MaterialTheme.colorScheme.onBackground
                     ),
                     modifier = Modifier
                         .defaultMinSize(minWidth = 60.dp)
@@ -207,7 +205,7 @@ fun SearchAndFilterHeader(
                     expanded = rateSortTypeExpanded && selectedRateSortType != null,
                     onDismissRequest = { rateSortTypeExpanded = false },
                     modifier = Modifier
-                        .background(LightSurface)
+                        .background(MaterialTheme.colorScheme.surface)
                         .width(IntrinsicSize.Max)
                 ) {
                     RateSortType.entries.forEach { option ->
