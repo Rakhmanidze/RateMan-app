@@ -15,9 +15,7 @@
     <string name="exchanges">Обменники</string>
     <string name="crypto_exchanges">Криптообменники</string>
 
-    <!-- Currency Selection -->
-    <string name="select_language">Выбрать язык приложения</string>
-    <string name="select_theme">Выбрать тему</string>
+    <!-- Selection -->
     <string name="select_currency">Выбрать валюту</string>
     <string name="find_currencies">Найти валюты</string>
     <string name="select">Выбрать</string>

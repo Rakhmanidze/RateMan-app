@@ -15,9 +15,7 @@
     <string name="exchanges">Casas de cambio</string>
     <string name="crypto_exchanges">Cripto casas de cambio</string> <!-- Criptointercambios, Criptocasas -->
 
-    <!-- Currency Selection -->
-    <string name="select_language">Seleccionar idioma</string>
-    <string name="select_theme">Seleccionar tema</string>
+    <!-- Selection -->
     <string name="select_currency">Seleccionar moneda</string>
     <string name="find_currencies">Buscar monedas</string>
     <string name="select">Seleccionar</string>
