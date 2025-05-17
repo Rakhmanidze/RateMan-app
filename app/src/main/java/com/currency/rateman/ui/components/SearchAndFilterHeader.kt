@@ -89,7 +89,7 @@ fun SearchAndFilterHeader(
             },
             singleLine = true,
             textStyle = LocalTextStyle.current.copy(
-                color = MaterialTheme.colorScheme.onBackground
+                color = MaterialTheme.colorScheme.onSurface
             )
         )
 
