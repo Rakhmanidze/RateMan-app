@@ -106,10 +106,11 @@ fun CurrencyScreen(
                         Icon(
                             painter = painterResource(id = AndroidR.drawable.ic_menu_search), // Use the same icon as SearchAndFilterHeader
                             contentDescription = "Search",
-                            modifier = Modifier.size(24.dp),
-                            tint = MaterialTheme.colorScheme.onSurface
+                            tint = MaterialTheme.colorScheme.onSurface,
+                            modifier = Modifier
+                                .size(24.dp)
                         )
-                        Spacer(modifier = Modifier.width(8.dp))
+                        Spacer(modifier = Modifier.width(12.dp))
                         if (!isSearchFocused && searchCurrency.isEmpty()) {
                             Text(
                                 text = stringResource(R.string.find_currencies),
