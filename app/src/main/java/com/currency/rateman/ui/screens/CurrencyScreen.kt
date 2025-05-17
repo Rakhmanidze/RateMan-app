@@ -27,7 +27,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
@@ -76,7 +76,7 @@ fun CurrencyScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
 
-            var searchCurrency by remember { mutableStateOf("") }
+            var searchCurrency by rememberSaveable { mutableStateOf("") }
 
             SearchInput(
                 value = searchCurrency,
