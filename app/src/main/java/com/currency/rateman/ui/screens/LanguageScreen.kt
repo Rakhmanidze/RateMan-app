@@ -52,7 +52,7 @@ fun LanguageScreen(
                 .fillMaxSize()
                 .padding(paddingValues)
                 .padding(horizontal = 16.dp, vertical = 8.dp)
-                .background(MaterialTheme.colorScheme.surface)
+                .background(MaterialTheme.colorScheme.background)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -61,7 +61,7 @@ fun LanguageScreen(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
                     contentDescription = "Back",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(32.dp)
                         .clickable { navController.popBackStack() }
                 )
