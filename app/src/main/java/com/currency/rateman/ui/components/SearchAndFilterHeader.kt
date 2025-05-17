@@ -72,7 +72,7 @@ fun SearchAndFilterHeader(
                     Icon(
                         painter = painterResource(id = AndroidR.drawable.ic_menu_search),
                         contentDescription =  "Search icon",
-                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        tint = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier
                             .size(24.dp)
                             .padding(end = 8.dp)
@@ -80,7 +80,7 @@ fun SearchAndFilterHeader(
                     if (!isSearchFocused && searchQuery.text.isEmpty()) {
                         Text(
                             text = stringResource(id = AppR.string.find_providers),
-                            color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.5f),
+                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                             style = MaterialTheme.typography.bodyLarge
                         )
                     }
@@ -104,7 +104,7 @@ fun SearchAndFilterHeader(
                     onClick = { providerTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surface,
-                        contentColor = MaterialTheme.colorScheme.onBackground
+                        contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier
                         .defaultMinSize(minWidth = 50.dp)
@@ -139,7 +139,7 @@ fun SearchAndFilterHeader(
                                         ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
                                         ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
                                     },
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    color = MaterialTheme.colorScheme.onSurface,
                                     style = MaterialTheme.typography.bodySmall
                                 )
                             },
@@ -157,7 +157,7 @@ fun SearchAndFilterHeader(
                     onClick = { navController.navigate(Routes.Currency.route) },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surface,
-                        contentColor = MaterialTheme.colorScheme.onBackground
+                        contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier.fillMaxWidth(),
                     enabled = selectedCurrency != null
@@ -184,7 +184,7 @@ fun SearchAndFilterHeader(
                     onClick = { rateSortTypeExpanded = true },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surface,
-                        contentColor = MaterialTheme.colorScheme.onBackground
+                        contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier
                         .defaultMinSize(minWidth = 60.dp)
@@ -198,6 +198,7 @@ fun SearchAndFilterHeader(
                             RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
                             null -> stringResource(id = AppR.string.loading)
                         },
+                        color = MaterialTheme.colorScheme.onSurface,
                         style = MaterialTheme.typography.bodySmall
                     )
                 }
@@ -217,7 +218,7 @@ fun SearchAndFilterHeader(
                                         RateSortType.BEST_BUY -> stringResource(id = AppR.string.best_buy)
                                         RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
                                     },
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    color = MaterialTheme.colorScheme.onSurface,
                                     style = MaterialTheme.typography.bodySmall
                                 )
                             },
