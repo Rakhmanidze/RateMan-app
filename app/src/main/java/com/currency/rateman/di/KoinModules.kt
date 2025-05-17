@@ -7,6 +7,7 @@ import com.currency.rateman.data.repository.RateProviderRepository
 import com.currency.rateman.data.repository.RateProviderRepositoryFake
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.data.repository.SettingsRepositoryImpl
+import com.currency.rateman.ui.viewmodels.CurrencySelectionViewModel
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,4 +23,6 @@ val appModule = module {
 
     viewModel { RatesViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
+    viewModel { CurrencySelectionViewModel() }
+
 }

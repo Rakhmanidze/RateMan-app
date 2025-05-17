@@ -23,12 +23,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,6 +35,8 @@ import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
+import com.currency.rateman.ui.viewmodels.CurrencySelectionViewModel
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CurrencyScreen(
@@ -45,7 +45,9 @@ fun CurrencyScreen(
     selectedCurrency: CurrencyCode?,
     prevRoute : String
 ) {
-    val options = CurrencyCode.entries.toList()
+    val viewModel: CurrencySelectionViewModel = koinViewModel()
+    val searchCurrency by viewModel.currencySearchQuery.collectAsState()
+    val filteredCurrencies by viewModel.filteredCurrencies.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -76,23 +78,16 @@ fun CurrencyScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
 
-            var searchCurrency by rememberSaveable { mutableStateOf("") }
-
             SearchInput(
                 value = searchCurrency,
-                onValueChange = { searchCurrency = it },
+                onValueChange = { viewModel.updateCurrencySearchQuery(it) },
                 placeholderResId = R.string.find_currencies,
                 modifier = Modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.height(8.dp))
 
-            val filteredOptions = options.filter {
-                it.name.contains(searchCurrency, ignoreCase = true) ||
-                        it.name.contains(searchCurrency, ignoreCase = true)
-            }
-
             LazyColumn(Modifier.weight(1f)) {
-                if (filteredOptions.isEmpty()) {
+                if (filteredCurrencies.isEmpty()) {
                     item {
                         Text(
                             text = stringResource(R.string.no_results),
@@ -103,7 +98,7 @@ fun CurrencyScreen(
                         )
                     }
                 } else {
-                    items(filteredOptions) { currency ->
+                    items(filteredCurrencies) { currency ->
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
