@@ -10,7 +10,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.currency.rateman.R
@@ -28,7 +27,7 @@ fun <T : Enum<T>> ThemeSettingItem(
         modifier = modifier
             .fillMaxWidth()
             .background(
-                MaterialTheme.colorScheme.surfaceVariant,
+                MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(12.dp)
             )
             .padding(12.dp)
@@ -70,8 +69,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                     Box(
                         modifier = Modifier
                             .background(
-                                color = if (isSelected) Color(0xFFB0B0B0) else Color(0xFFF0F0F0),
-                                shape = RoundedCornerShape(8.dp)
+                                color = if (isSelected) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.background,                                shape = RoundedCornerShape(8.dp)
                             )
                             .clickable {
                                 onValueChange(option)
