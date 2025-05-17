@@ -84,7 +84,6 @@ fun CurrencyScreen(
                 onValueChange = { searchCurrency = it },
                 placeholderResId = R.string.find_currencies,
                 modifier = Modifier.fillMaxWidth(),
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)
             )
             Spacer(modifier = Modifier.height(8.dp))
 
