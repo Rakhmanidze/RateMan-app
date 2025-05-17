@@ -69,7 +69,8 @@ fun <T : Enum<T>> ThemeSettingItem(
                     Box(
                         modifier = Modifier
                             .background(
-                                color = if (isSelected) MaterialTheme.colorScheme.tertiary else MaterialTheme.colorScheme.background,                                shape = RoundedCornerShape(8.dp)
+                                color = if (isSelected) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.tertiary,
+                                shape = RoundedCornerShape(8.dp)
                             )
                             .clickable {
                                 onValueChange(option)
