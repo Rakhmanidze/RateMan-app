@@ -15,8 +15,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowLeft
@@ -33,15 +31,14 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
 import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
-import android.R as AndroidR
 
 @Composable
 fun CurrencyScreen(
@@ -82,45 +79,12 @@ fun CurrencyScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             var searchCurrency by remember { mutableStateOf("") }
-            var isSearchFocused by remember { mutableStateOf(false) }
-            BasicTextField(
+            SearchInput(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .background(
-                        color = MaterialTheme.colorScheme.surface,
-                        shape = RoundedCornerShape(4.dp)
-                    )
-                    .padding(horizontal = 12.dp, vertical = 8.dp)
-                    .onFocusChanged { focusState ->
-                        isSearchFocused = focusState.isFocused
-                    },
-                singleLine = true,
-                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search),
-                decorationBox = { innerTextField ->
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Icon(
-                            painter = painterResource(id = AndroidR.drawable.ic_menu_search), // Use the same icon as SearchAndFilterHeader
-                            contentDescription = "Search",
-                            tint = MaterialTheme.colorScheme.onSurface,
-                            modifier = Modifier
-                                .size(24.dp)
-                        )
-                        Spacer(modifier = Modifier.width(12.dp))
-                        if (!isSearchFocused && searchCurrency.isEmpty()) {
-                            Text(
-                                text = stringResource(R.string.find_currencies),
-                                color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                                style = MaterialTheme.typography.bodyLarge
-                            )
-                        }
-                        innerTextField()
-                    }
-                }
+                placeholderResId = R.string.find_currencies,
+                modifier = Modifier.fillMaxWidth(),
+                keyboardOptions = KeyboardOptions(imeAction = ImeAction.Search)
             )
             Spacer(modifier = Modifier.height(8.dp))
 

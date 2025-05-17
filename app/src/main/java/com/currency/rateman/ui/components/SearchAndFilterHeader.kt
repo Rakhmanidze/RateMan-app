@@ -1,7 +1,6 @@
 package com.currency.rateman.ui.components
 
 import com.currency.rateman.R as AppR
-import android.R as AndroidR
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -15,12 +14,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.getValue
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
-import androidx.compose.ui.focus.onFocusChanged
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.ProviderType
@@ -44,53 +40,17 @@ fun SearchAndFilterHeader(
 ) {
     var providerTypeExpanded by remember { mutableStateOf(false) }
     var rateSortTypeExpanded by remember { mutableStateOf(false) }
-    var isSearchFocused by remember { mutableStateOf(false) }
 
     Column(
         modifier = modifier
             .fillMaxWidth()
             .padding(top = 16.dp)
     ) {
-        BasicTextField(
-            value = searchQuery,
-            onValueChange = onSearchQueryChange,
-            modifier = Modifier
-                .fillMaxWidth()
-                .background(
-                    color = MaterialTheme.colorScheme.surface,
-                    shape = RoundedCornerShape(4.dp)
-                )
-                .padding(horizontal = 12.dp, vertical = 8.dp)
-                .onFocusChanged { focusState ->
-                    isSearchFocused = focusState.isFocused
-                },
-            decorationBox = { innerTextField ->
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-                    Icon(
-                        painter = painterResource(id = AndroidR.drawable.ic_menu_search),
-                        contentDescription =  "Search icon",
-                        tint = MaterialTheme.colorScheme.onSurface,
-                        modifier = Modifier
-                            .size(24.dp)
-                            .padding(end = 8.dp)
-                    )
-                    if (!isSearchFocused && searchQuery.text.isEmpty()) {
-                        Text(
-                            text = stringResource(id = AppR.string.find_providers),
-                            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
-                            style = MaterialTheme.typography.bodyLarge
-                        )
-                    }
-                    innerTextField()
-                }
-            },
-            singleLine = true,
-            textStyle = LocalTextStyle.current.copy(
-                color = MaterialTheme.colorScheme.onSurface
-            )
+        SearchInput(
+            value = searchQuery.text,
+            onValueChange = { newText -> onSearchQueryChange(searchQuery.copy(text = newText)) },
+            placeholderResId = AppR.string.find_providers,
+            modifier = Modifier.fillMaxWidth()
         )
 
         Spacer(modifier = Modifier.height(8.dp))

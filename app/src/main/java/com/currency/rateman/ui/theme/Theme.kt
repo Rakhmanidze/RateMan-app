@@ -34,7 +34,7 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun RateManAppTheme(
-    darkTheme: Boolean = false, //isSystemInDarkTheme()
+    darkTheme: Boolean = true, //isSystemInDarkTheme()
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = false,
     content: @Composable () -> Unit
