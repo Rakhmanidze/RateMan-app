@@ -77,6 +77,7 @@ fun CurrencyScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             var searchCurrency by remember { mutableStateOf("") }
+
             SearchInput(
                 value = searchCurrency,
                 onValueChange = { searchCurrency = it },
