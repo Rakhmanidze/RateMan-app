@@ -30,7 +30,7 @@ fun CurrencySettingItem(
         modifier = modifier
             .fillMaxWidth()
             .background(
-                MaterialTheme.colorScheme.surfaceVariant,
+                MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(12.dp)
             )
             .clickable { navController.navigate(Routes.Currency.route) }
@@ -47,7 +47,7 @@ fun CurrencySettingItem(
                 Icon(
                     painter = painterResource(id = iconRes),
                     contentDescription = label,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                         .size(24.dp)
                         .padding(end = 8.dp)
@@ -76,7 +76,7 @@ fun CurrencySettingItem(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                     contentDescription = "Expand",
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(24.dp)
                 )
             }
