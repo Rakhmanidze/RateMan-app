@@ -5,23 +5,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.currency.rateman.data.db.RateManDatabase
-import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
-import com.currency.rateman.utils.LanguageHelper
-import com.currency.rateman.utils.LanguageManager
-import kotlinx.coroutines.flow.firstOrNull
-import kotlinx.coroutines.runBlocking
+import com.currency.rateman.utils.LanguageInitializer
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        runBlocking {
-            LanguageManager.applySavedLanguage(this@MainActivity)
-        }
-
+        LanguageInitializer.initLanguage(this)
         super.onCreate(savedInstanceState)
-
         enableEdgeToEdge()
         setContent {
             RateManAppTheme {
@@ -32,29 +23,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
-
-        runBlocking {
-            LanguageManager.applySavedLanguage(this@MainActivity)
-        }
+        LanguageInitializer.initLanguage(this)
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val updatedContext = runBlocking {
-            val settingsDao = RateManDatabase.getDatabase(newBase).settingsDao()
-            val settings = settingsDao.getSettings().firstOrNull()
-            val language = settings?.uiLanguage ?: LanguageCode.EN.name
-
-            val actualLanguageCode = when (LanguageCode.valueOf(language)) {
-                LanguageCode.EN -> "en"
-                LanguageCode.CS -> "cs"
-                LanguageCode.RU -> "ru"
-                LanguageCode.ES -> "es"
-                LanguageCode.UK -> "uk"
-                LanguageCode.KY -> "ky"
-                LanguageCode.TR -> "tr"
-            }
-            LanguageHelper.wrapContextWithLanguage(newBase, actualLanguageCode)
-        }
+        val updatedContext = LanguageInitializer.wrapContextWithSavedLanguage(newBase)
         super.attachBaseContext(updatedContext)
     }
 }
