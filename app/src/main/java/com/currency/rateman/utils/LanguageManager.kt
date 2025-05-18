@@ -31,60 +31,56 @@ object LanguageManager {
     fun wrapContextWithSavedLanguage(context: Context): Context {
         return runBlocking {
             val savedLanguage = getSavedLanguage(context)
-            val languageCode = when (savedLanguage) {
-                LanguageCode.EN -> "en"
-                LanguageCode.CS -> "cs"
-                LanguageCode.RU -> "ru"
-                LanguageCode.ES -> "es"
-                LanguageCode.UK -> "uk"
-                LanguageCode.KY -> "ky"
-                LanguageCode.TR -> "tr"
-            }
-            wrapContextWithLanguage(context, languageCode)
+            wrapContextWithLanguage(context, savedLanguage.toLanguageCode())
         }
     }
 
     fun setAppLanguage(context: Context, language: LanguageCode) {
-        val languageCode = when (language) {
-            LanguageCode.EN -> "en"
-            LanguageCode.CS -> "cs"
-            LanguageCode.RU -> "ru"
-            LanguageCode.ES -> "es"
-            LanguageCode.UK -> "uk"
-            LanguageCode.KY -> "ky"
-            LanguageCode.TR -> "tr"
-        }
+        val languageCode = language.toLanguageCode()
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
 
         val resources = context.resources
         val configuration = Configuration(resources.configuration)
-        val locale = when (language) {
-            LanguageCode.EN -> Locale.ENGLISH
-            LanguageCode.CS -> Locale("cs")
-            LanguageCode.RU -> Locale("ru")
-            LanguageCode.ES -> Locale("es")
-            LanguageCode.UK -> Locale("uk")
-            LanguageCode.KY -> Locale("ky")
-            LanguageCode.TR -> Locale("tr")
-        }
-        configuration.setLocale(locale)
+        configuration.setLocale(language.toLocale())
         resources.updateConfiguration(configuration, resources.displayMetrics)
     }
 
     fun wrapContextWithLanguage(context: Context, languageCode: String): Context {
-        val locale = when (languageCode) {
-            "cs" -> Locale("cs")
-            "ru" -> Locale("ru")
-            "es" -> Locale("es")
-            "uk" -> Locale("uk")
-            "ky" -> Locale("ky")
-            "tr" -> Locale("tr")
-            else -> Locale.ENGLISH
-        }
+        val locale = languageCode.toLocale()
         Locale.setDefault(locale)
         val config = Configuration(context.resources.configuration)
         config.setLocale(locale)
         return context.createConfigurationContext(config)
+    }
+
+    private fun LanguageCode.toLanguageCode(): String = when (this) {
+        LanguageCode.EN -> "en"
+        LanguageCode.CS -> "cs"
+        LanguageCode.RU -> "ru"
+        LanguageCode.ES -> "es"
+        LanguageCode.UK -> "uk"
+        LanguageCode.KY -> "ky"
+        LanguageCode.TR -> "tr"
+    }
+
+    private fun LanguageCode.toLocale(): Locale = when (this) {
+        LanguageCode.EN -> Locale.ENGLISH
+        LanguageCode.CS -> Locale("cs")
+        LanguageCode.RU -> Locale("ru")
+        LanguageCode.ES -> Locale("es")
+        LanguageCode.UK -> Locale("uk")
+        LanguageCode.KY -> Locale("ky")
+        LanguageCode.TR -> Locale("tr")
+    }
+
+    private fun String.toLocale(): Locale = when (this) {
+        "cs" -> Locale("cs")
+        "ru" -> Locale("ru")
+        "es" -> Locale("es")
+        "uk" -> Locale("uk")
+        "ky" -> Locale("ky")
+        "tr" -> Locale("tr")
+        else -> Locale.ENGLISH
     }
 }
