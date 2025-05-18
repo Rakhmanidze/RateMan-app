@@ -19,6 +19,7 @@ object LanguageManager {
             LanguageCode.ES -> "es"
             LanguageCode.UK -> "uk"
             LanguageCode.KY -> "ky"
+            LanguageCode.TR -> "tr"
         }
 
         return if (currentLanguage != desiredLanguageCode) {

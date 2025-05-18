@@ -16,6 +16,7 @@ object LanguageHelper {
             LanguageCode.ES -> "es"
             LanguageCode.UK -> "uk"
             LanguageCode.KY -> "ky"
+            LanguageCode.TR -> "tr"
         }
         val appLocale = LocaleListCompat.forLanguageTags(languageCode)
         AppCompatDelegate.setApplicationLocales(appLocale)
@@ -29,6 +30,7 @@ object LanguageHelper {
             LanguageCode.ES -> Locale("es")
             LanguageCode.UK -> Locale("uk")
             LanguageCode.KY -> Locale("ky")
+            LanguageCode.TR -> Locale("tr")
         }
         configuration.setLocale(locale)
 
@@ -42,6 +44,7 @@ object LanguageHelper {
             "es" -> Locale("es")
             "uk" -> Locale("uk")
             "ky" -> Locale("ky")
+            "tr" -> Locale("tr")
             else -> Locale.ENGLISH
         }
 

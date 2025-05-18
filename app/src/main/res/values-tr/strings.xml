@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RateMan</string>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Banka ve döviz bürolarını bul</string>
+    <string name="best_rate">En iyi kur</string>
+    <string name="best_buy">En iyi alış</string>
+    <string name="best_sell">En iyi satış</string>
+    <string name="all">Tümü</string>
+
+    <!-- Categories -->
+    <string name="banks">Bankalar</string>
+    <string name="exchanges">Döviz büroları</string>
+    <string name="crypto_exchanges">Kripto borsaları</string>
+
+    <!-- Selection -->
+    <string name="select_currency">Para birimi seç</string>
+    <string name="find_currencies">Para birimlerini bul</string>
+    <string name="buy_sell">Alış / Satış</string>
+
+    <!-- UI State -->
+    <string name="loading">Yükleniyor</string>
+    <string name="no_results">Sonuç bulunamadı</string>
+
+    <!-- Settings -->
+    <string name="settings">Ayarlar</string>
+    <string name="app_language">Uygulama dili</string>
+    <string name="theme">Tema</string>
+    <string name="default_currency">Varsayılan para birimi</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Karanlık</string>
+    <string name="theme_light">Aydınlık</string>
+</resources>
