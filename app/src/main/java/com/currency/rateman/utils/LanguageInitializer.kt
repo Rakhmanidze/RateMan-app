@@ -3,10 +3,16 @@ package com.currency.rateman.utils
 import android.content.Context
 import com.currency.rateman.data.db.RateManDatabase
 import com.currency.rateman.data.model.LanguageCode
-import kotlinx.coroutines.flow.firstOrNull
+import com.currency.rateman.data.repository.SettingsRepository
+import com.currency.rateman.data.repository.SettingsRepositoryImpl
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 object LanguageInitializer {
+    private fun getSettingsRepository(context: Context): SettingsRepository {
+        return SettingsRepositoryImpl(RateManDatabase.getDatabase(context).settingsDao())
+    }
+
     fun initLanguage(context: Context) {
         runBlocking {
             val savedLanguage = getSavedLanguage(context)
@@ -31,8 +37,7 @@ object LanguageInitializer {
     }
 
     private suspend fun getSavedLanguage(context: Context): LanguageCode {
-        val settingsDao = RateManDatabase.getDatabase(context).settingsDao()
-        val settings = settingsDao.getSettings().firstOrNull()
-        return settings?.uiLanguage?.let { LanguageCode.valueOf(it) } ?: LanguageCode.EN
+        return getSettingsRepository(context).getSettings().first().uiLanguage
     }
-} //todo this func shouldnt use repo not dao ? //todo too many files reduce 3
+}
+// todo too many files reduce 2 to one or doesnt make sense
