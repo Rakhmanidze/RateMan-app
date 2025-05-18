@@ -53,15 +53,7 @@ object LanguageManager {
         return context.createConfigurationContext(config)
     }
 
-    private fun LanguageCode.toLanguageTag(): String = when (this) {
-        LanguageCode.EN -> "en"
-        LanguageCode.CS -> "cs"
-        LanguageCode.RU -> "ru"
-        LanguageCode.ES -> "es"
-        LanguageCode.UK -> "uk"
-        LanguageCode.KY -> "ky"
-        LanguageCode.TR -> "tr"
-    }
+    private fun LanguageCode.toLanguageTag(): String = name.lowercase()
 
     private fun LanguageCode.toLocale(): Locale = when (this) {
         LanguageCode.EN -> Locale.ENGLISH
