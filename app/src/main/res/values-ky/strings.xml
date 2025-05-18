@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RateMan</string>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Банктарды жана Алмаштыруу Жайларын Табуу</string>
+    <string name="best_rate">Эң Жакшы Курс</string>
+    <string name="best_buy">Эң Жакшы Сатып Алуу</string>
+    <string name="best_sell">Эң Жакшы Сатуу</string>
+    <string name="all">Баары</string>
+
+    <!-- Categories -->
+    <string name="banks">Банктар</string>
+    <string name="exchanges">Обменниктер</string>
+    <string name="crypto_exchanges">Крипто Обменниктер</string>
+
+    <!-- Selection -->
+    <string name="select_currency">Валютаны Тандоо</string>
+    <string name="find_currencies">Валюталарды Табуу</string>
+    <string name="buy_sell">Сатып Алуу / Сатуу</string>
+
+    <!-- UI State -->
+    <string name="loading">Күтүңүз</string>
+    <string name="no_results">Жыйынтык Жок</string>
+
+    <!-- Settings -->
+    <string name="settings">Жөндөөлөр</string>
+    <string name="app_language">Колдонмо Тили</string>
+    <string name="theme">Тема</string>
+    <string name="default_currency">Негизги Валюта</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Караңгы</string>
+    <string name="theme_light">Жарык</string>
+</resources>
