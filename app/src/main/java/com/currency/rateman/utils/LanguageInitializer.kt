@@ -35,4 +35,4 @@ object LanguageInitializer {
         val settings = settingsDao.getSettings().firstOrNull()
         return settings?.uiLanguage?.let { LanguageCode.valueOf(it) } ?: LanguageCode.EN
     }
-}
+} //todo this func shouldnt use repo not dao ? //todo too many files reduce 3
