@@ -3,12 +3,12 @@ package com.currency.rateman.ui.viewmodels
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.utils.LanguageHelper
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.LanguageCode
 import com.currency.rateman.data.model.ThemeMode
 import com.currency.rateman.data.repository.SettingsRepository
+import com.currency.rateman.utils.LanguageManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,7 +30,7 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     fun updateLanguage(context: Context, language: LanguageCode) {
         viewModelScope.launch {
             repository.editSettings(languageCode = language)
-            LanguageHelper.setAppLanguage(context, language)
+            LanguageManager.setAppLanguage(context, language)
         }
     }
 

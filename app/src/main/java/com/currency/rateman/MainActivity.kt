@@ -7,11 +7,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
-import com.currency.rateman.utils.LanguageInitializer
+import com.currency.rateman.utils.LanguageManager
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        LanguageInitializer.initLanguage(this)
+        LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -23,11 +23,11 @@ class MainActivity : ComponentActivity() {
 
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
-        LanguageInitializer.initLanguage(this)
+        LanguageManager.initLanguage(this)
     }
 
     override fun attachBaseContext(newBase: Context) {
-        val updatedContext = LanguageInitializer.wrapContextWithSavedLanguage(newBase)
+        val updatedContext = LanguageManager.wrapContextWithSavedLanguage(newBase)
         super.attachBaseContext(updatedContext)
     }
 }
