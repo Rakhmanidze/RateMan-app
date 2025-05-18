@@ -55,13 +55,5 @@ object LanguageManager {
 
     private fun LanguageCode.toLanguageTag(): String = name.lowercase()
 
-    private fun LanguageCode.toLocale(): Locale = when (this) {
-        LanguageCode.EN -> Locale.ENGLISH
-        LanguageCode.CS -> Locale("cs")
-        LanguageCode.RU -> Locale("ru")
-        LanguageCode.ES -> Locale("es")
-        LanguageCode.UK -> Locale("uk")
-        LanguageCode.KY -> Locale("ky")
-        LanguageCode.TR -> Locale("tr")
-    }
+    private fun LanguageCode.toLocale(): Locale = Locale(name.lowercase())
 }
