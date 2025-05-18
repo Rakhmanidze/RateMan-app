@@ -63,6 +63,7 @@ dependencies {
     implementation(libs.androidx.room.ktx)
     implementation (libs.squareup.retrofit)
     implementation(libs.retrofit2.kotlinx.serialization.converter)
+    implementation(libs.retrofit2.converter.gson)
     ksp(libs.androidx.room.compiler)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
