@@ -3,31 +3,31 @@
     <string name="app_name">RateMan</string>
 
     <!-- Home / Tabs -->
-    <string name="find_providers">Банктарды жана Алмаштыруу Жайларын Табуу</string>
-    <string name="best_rate">Эң Жакшы Курс</string>
-    <string name="best_buy">Эң Жакшы Сатып Алуу</string>
-    <string name="best_sell">Эң Жакшы Сатуу</string>
+    <string name="find_providers">Банктарды жана обменниктерди табуу</string>
+    <string name="best_rate">Эң жакшы курс</string>
+    <string name="best_buy">Эң жакшы сатып алуу</string>
+    <string name="best_sell">Эң жакшы сатуу</string>
     <string name="all">Баары</string>
 
     <!-- Categories -->
     <string name="banks">Банктар</string>
     <string name="exchanges">Обменниктер</string>
-    <string name="crypto_exchanges">Крипто Обменниктер</string>
+    <string name="crypto_exchanges">Крипто обменниктер</string>
 
     <!-- Selection -->
-    <string name="select_currency">Валютаны Тандоо</string>
-    <string name="find_currencies">Валюталарды Табуу</string>
-    <string name="buy_sell">Сатып Алуу / Сатуу</string>
+    <string name="select_currency">Валютаны тандаңыз</string>
+    <string name="find_currencies">Валюталарды табуу</string>
+    <string name="buy_sell">Сатып алуу / сатуу</string>
 
     <!-- UI State -->
-    <string name="loading">Күтүңүз</string>
-    <string name="no_results">Жыйынтык Жок</string>
+    <string name="loading">Жүктөлүүдө</string>
+    <string name="no_results">Жыйынтык жок</string>
 
     <!-- Settings -->
     <string name="settings">Жөндөөлөр</string>
-    <string name="app_language">Колдонмо Тили</string>
+    <string name="app_language">Колдонмо тили</string>
     <string name="theme">Тема</string>
-    <string name="default_currency">Негизги Валюта</string>
+    <string name="default_currency">Негизги валюта</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Караңгы</string>
