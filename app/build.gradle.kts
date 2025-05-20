@@ -82,4 +82,5 @@ dependencies {
     implementation(libs.koin.compose.viewmodel.navigation)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.okhttp3.logging.interceptor)
 }

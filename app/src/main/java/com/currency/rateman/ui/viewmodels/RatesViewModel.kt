@@ -1,5 +1,6 @@
 package com.currency.rateman.ui.viewmodels
 
+import android.util.Log
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import com.currency.rateman.data.model.RateProvider
@@ -8,6 +9,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
+import com.currency.rateman.api.APIClient
+import com.currency.rateman.api.RateProviderAPI
 import com.currency.rateman.data.model.CurrencyCode
 import com.currency.rateman.data.model.Filter
 import com.currency.rateman.data.model.ProviderType
@@ -29,6 +32,9 @@ class RatesViewModel(
 
     private val _filter = MutableStateFlow<Filter?>(null)
     val filter: StateFlow<Filter?> = _filter.asStateFlow()
+
+    private val _apiProviders = MutableStateFlow<List<RateProviderAPI>>(emptyList())
+    val apiProviders: StateFlow<List<RateProviderAPI>> = _apiProviders.asStateFlow()
 
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
@@ -73,6 +79,8 @@ class RatesViewModel(
             filterRepository.getFilter().collect { loadedFilter ->
                 _filter.value = loadedFilter
             }
+
+            getRates()
         }
     }
 
@@ -113,6 +121,22 @@ class RatesViewModel(
                 selectedCurrency = currentFilter.selectedCurrency,
                 selectedRateSortType = currentFilter.selectedRateSortType
             )
+        }
+    }
+
+    internal suspend fun getRates() { //private
+        Log.d("RatesViewModel", "getRates started")
+        try {
+            val response = APIClient.ratesAPIService.getExchangeRates()
+            Log.d("RatesViewModel", "API Response received, size: ${response.size}")
+            if (response.isNotEmpty()) {
+                Log.d("RatesViewModel", "First item: ${response[0]}")
+            }
+            _apiProviders.value = response
+        } catch (e: Exception) {
+            Log.e("RatesViewModel", "API Error: ${e.message}", e)
+            Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
+            _apiProviders.value = emptyList()
         }
     }
 }
