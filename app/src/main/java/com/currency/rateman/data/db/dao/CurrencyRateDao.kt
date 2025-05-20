@@ -37,4 +37,7 @@ interface CurrencyRateDao {
 
     @Query("DELETE FROM currency_rates WHERE providerId = :providerId")
     suspend fun deleteRatesForProvider(providerId: Long)
+
+    @Query("DELETE FROM currency_rates")
+    suspend fun deleteAllRates()
 }

@@ -25,7 +25,7 @@ class RatesViewModel(
     private val rateProviderRepository: RateProviderRepository,
     private val filterRepository: FilterRepository
     ) : ViewModel() {
-    private val allProviders = rateProviderRepository.getAllProviders()
+    private val allProviders = emptyList<RateProvider>()
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
     val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
@@ -80,7 +80,8 @@ class RatesViewModel(
                 _filter.value = loadedFilter
             }
 
-            getRates()
+//            getRates()
+//            getRatesAndStore()
         }
     }
 
@@ -133,6 +134,23 @@ class RatesViewModel(
                 Log.d("RatesViewModel", "First item: ${response[0]}")
             }
             _apiProviders.value = response
+        } catch (e: Exception) {
+            Log.e("RatesViewModel", "API Error: ${e.message}", e)
+            Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
+            _apiProviders.value = emptyList()
+        }
+    }
+
+    private suspend fun getRatesAndStore() {
+        Log.d("RatesViewModel", "getRatesAndStore started")
+        try {
+            val response = APIClient.ratesAPIService.getExchangeRates()
+            Log.d("RatesViewModel", "API Response received, size: ${response.size}")
+            if (response.isNotEmpty()) {
+                Log.d("RatesViewModel", "First item: ${response[0]}")
+            }
+            _apiProviders.value = response
+            rateProviderRepository.insertApiProviders(response)
         } catch (e: Exception) {
             Log.e("RatesViewModel", "API Error: ${e.message}", e)
             Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")

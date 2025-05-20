@@ -33,5 +33,5 @@ interface RateProviderDao {
     suspend fun deleteProvider(provider: RateProviderEntity)
 
     @Query("DELETE FROM rate_providers")
-    suspend fun deleteAllPlaygrounds()
+    suspend fun deleteAllProviders()
 }

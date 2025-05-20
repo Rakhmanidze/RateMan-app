@@ -29,7 +29,7 @@ fun ProviderItem(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 6.dp)
-            .clickable { onClick(provider.id) },
+            .clickable { onClick(provider.id.toInt()) },
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         shape = RoundedCornerShape(12.dp),
         colors = CardDefaults.cardColors(
