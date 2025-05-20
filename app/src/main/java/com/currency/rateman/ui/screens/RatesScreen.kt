@@ -94,7 +94,8 @@ fun RatesScreen(
                 Button(
                     onClick = {
                         viewModel.viewModelScope.launch {
-                            viewModel.getRates()
+//                            viewModel.getRates()
+                            viewModel.getRatesAndStore()
                         }
                     },
                     modifier = Modifier.padding(bottom = 16.dp)

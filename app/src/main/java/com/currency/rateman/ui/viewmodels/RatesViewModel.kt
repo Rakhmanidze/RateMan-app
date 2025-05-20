@@ -80,7 +80,6 @@ class RatesViewModel(
                 _filter.value = loadedFilter
             }
 
-//            getRates()
 //            getRatesAndStore()
         }
     }
@@ -125,23 +124,7 @@ class RatesViewModel(
         }
     }
 
-    internal suspend fun getRates() { //private
-        Log.d("RatesViewModel", "getRates started")
-        try {
-            val response = APIClient.ratesAPIService.getExchangeRates()
-            Log.d("RatesViewModel", "API Response received, size: ${response.size}")
-            if (response.isNotEmpty()) {
-                Log.d("RatesViewModel", "First item: ${response[0]}")
-            }
-            _apiProviders.value = response
-        } catch (e: Exception) {
-            Log.e("RatesViewModel", "API Error: ${e.message}", e)
-            Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
-            _apiProviders.value = emptyList()
-        }
-    }
-
-    private suspend fun getRatesAndStore() {
+    internal suspend fun getRatesAndStore() { //private later
         Log.d("RatesViewModel", "getRatesAndStore started")
         try {
             val response = APIClient.ratesAPIService.getExchangeRates()
