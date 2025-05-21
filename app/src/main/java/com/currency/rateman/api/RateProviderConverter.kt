@@ -2,9 +2,9 @@ package com.currency.rateman.api
 
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.RateProviderEntity
-import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.CurrencyRate
-import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.data.model.RateProvider
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter

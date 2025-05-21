@@ -15,7 +15,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
-import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.ui.navigation.Routes
 
 @Composable

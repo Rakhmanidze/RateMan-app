@@ -32,7 +32,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
-import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
 import com.currency.rateman.ui.viewmodels.CurrencySelectionViewModel

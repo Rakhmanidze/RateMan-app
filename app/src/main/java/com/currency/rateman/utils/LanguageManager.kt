@@ -5,7 +5,7 @@ import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.currency.rateman.data.db.RateManDatabase
-import com.currency.rateman.data.model.LanguageCode
+import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.data.repository.SettingsRepositoryImpl
 import kotlinx.coroutines.flow.first

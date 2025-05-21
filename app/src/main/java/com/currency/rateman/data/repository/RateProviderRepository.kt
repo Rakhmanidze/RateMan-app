@@ -1,7 +1,7 @@
 package com.currency.rateman.data.repository
 
 import com.currency.rateman.api.RateProviderAPI
-import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.data.model.RateProvider
 import kotlinx.coroutines.flow.Flow
 

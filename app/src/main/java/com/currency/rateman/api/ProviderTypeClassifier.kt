@@ -1,6 +1,6 @@
 package com.currency.rateman.api
 
-import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.enums.ProviderType
 
 object ProviderTypeClassifier {
     private val knownBanks = listOf(

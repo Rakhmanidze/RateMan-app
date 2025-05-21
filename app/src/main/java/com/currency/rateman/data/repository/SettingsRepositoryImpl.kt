@@ -3,10 +3,10 @@ package com.currency.rateman.data.repository
 import androidx.room.Transaction
 import com.currency.rateman.data.db.dao.SettingsDao
 import com.currency.rateman.data.db.entity.SettingsEntity
-import com.currency.rateman.data.model.CurrencyCode
-import com.currency.rateman.data.model.LanguageCode
+import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.Settings
-import com.currency.rateman.data.model.ThemeMode
+import com.currency.rateman.data.model.enums.ThemeMode
 import com.currency.rateman.data.model.toEntity
 import com.currency.rateman.data.model.toSettings
 import kotlinx.coroutines.flow.Flow

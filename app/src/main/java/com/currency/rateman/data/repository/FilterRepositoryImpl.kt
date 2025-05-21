@@ -3,10 +3,10 @@ package com.currency.rateman.data.repository
 import androidx.room.Transaction
 import com.currency.rateman.data.db.dao.FilterDao
 import com.currency.rateman.data.db.entity.FilterEntity
-import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.ProviderType
-import com.currency.rateman.data.model.RateSortType
+import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.data.model.enums.RateSortType
 import com.currency.rateman.data.model.toEntity
 import com.currency.rateman.data.model.toFilter
 import kotlinx.coroutines.flow.Flow

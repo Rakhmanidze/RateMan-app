@@ -11,10 +11,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.api.APIClient
 import com.currency.rateman.api.RateProviderAPI
-import com.currency.rateman.data.model.CurrencyCode
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.ProviderType
-import com.currency.rateman.data.model.RateSortType
+import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.data.model.enums.RateSortType
 import com.currency.rateman.data.repository.FilterRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
@@ -24,7 +24,7 @@ import kotlinx.coroutines.launch
 class RatesViewModel(
     private val rateProviderRepository: RateProviderRepository,
     private val filterRepository: FilterRepository
-    ) : ViewModel() {
+) : ViewModel() {
     private val allProviders = emptyList<RateProvider>()
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
@@ -79,7 +79,6 @@ class RatesViewModel(
             filterRepository.getFilter().collect { loadedFilter ->
                 _filter.value = loadedFilter
             }
-
 //            getRatesAndStore()
         }
     }
@@ -141,3 +140,11 @@ class RatesViewModel(
         }
     }
 }
+
+//private val allProviders = rateProviderRepository.getAllProviders()
+//    .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+//    val providers: StateFlow<List<RateProvider>> = combine(
+//        _searchQuery,
+//        _filter,
+//        allProviders
+//    ) { query, filter, providers ->

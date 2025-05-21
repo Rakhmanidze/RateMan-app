@@ -2,7 +2,7 @@ package com.currency.rateman.data.repository
 
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.RateProviderDao
-import com.currency.rateman.data.model.ProviderType
+import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.data.model.RateProvider
 import com.currency.rateman.api.RateProviderConverter
 import kotlinx.coroutines.flow.Flow

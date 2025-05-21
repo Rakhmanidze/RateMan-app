@@ -2,9 +2,9 @@ package com.currency.rateman.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.currency.rateman.data.model.CurrencyCode
-import com.currency.rateman.data.model.ProviderType
-import com.currency.rateman.data.model.RateSortType
+import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.data.model.enums.RateSortType
 
 @Entity(tableName = "filters")
 data class FilterEntity(

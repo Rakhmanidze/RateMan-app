@@ -1,9 +1,9 @@
 package com.currency.rateman.data.repository
 
-import com.currency.rateman.data.model.CurrencyCode
-import com.currency.rateman.data.model.LanguageCode
+import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.Settings
-import com.currency.rateman.data.model.ThemeMode
+import com.currency.rateman.data.model.enums.ThemeMode
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsRepository {

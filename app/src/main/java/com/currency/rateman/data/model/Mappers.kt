@@ -2,6 +2,11 @@ package com.currency.rateman.data.model
 
 import com.currency.rateman.data.db.entity.FilterEntity
 import com.currency.rateman.data.db.entity.SettingsEntity
+import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.data.model.enums.LanguageCode
+import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.data.model.enums.RateSortType
+import com.currency.rateman.data.model.enums.ThemeMode
 
 fun Settings.toEntity() : SettingsEntity {
     return SettingsEntity(
