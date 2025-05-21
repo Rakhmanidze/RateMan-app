@@ -25,7 +25,8 @@ class RatesViewModel(
     private val rateProviderRepository: RateProviderRepository,
     private val filterRepository: FilterRepository
 ) : ViewModel() {
-    private val allProviders = emptyList<RateProvider>()
+    private val allProviders = rateProviderRepository.getAllProviders()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
     val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
@@ -38,9 +39,10 @@ class RatesViewModel(
 
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
-        _filter
-    ) { query, filter ->
-        var filteredProviders = allProviders
+        _filter,
+        allProviders
+    ) { query, filter, providers ->
+        var filteredProviders = providers
 
         if (query.text.isNotBlank()) {
             filteredProviders = filteredProviders.filter { provider ->
@@ -71,7 +73,7 @@ class RatesViewModel(
         }
 
         filteredProviders
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allProviders)
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     init {
         viewModelScope.launch {
@@ -123,7 +125,7 @@ class RatesViewModel(
         }
     }
 
-    internal suspend fun getRatesAndStore() { //private later
+    internal suspend fun getRatesAndStore() { //TODO private later (should be private?)
         Log.d("RatesViewModel", "getRatesAndStore started")
         try {
             val response = APIClient.ratesAPIService.getExchangeRates()
@@ -140,11 +142,3 @@ class RatesViewModel(
         }
     }
 }
-
-//private val allProviders = rateProviderRepository.getAllProviders()
-//    .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
-//    val providers: StateFlow<List<RateProvider>> = combine(
-//        _searchQuery,
-//        _filter,
-//        allProviders
-//    ) { query, filter, providers ->
