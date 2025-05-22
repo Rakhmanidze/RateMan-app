@@ -42,7 +42,6 @@ fun RatesScreen(
     val providers by viewModel.providers.collectAsStateWithLifecycle()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val filter by viewModel.filter.collectAsState()
-    val apiProviders by viewModel.apiProviders.collectAsState()
     val isFiltersLoading = filter == null
 
     Scaffold(
@@ -86,11 +85,6 @@ fun RatesScreen(
                     },
                     navController = navController
                 )
-                ProvidersList(
-                    providers = providers,
-                    selectedCurrency = filter?.selectedCurrency,
-                    navController = navController
-                )
                 Button(
                     onClick = {
                         viewModel.viewModelScope.launch {
@@ -101,25 +95,11 @@ fun RatesScreen(
                 ) {
                     Text("Fetch Rates Manually (Debug)")
                 }
-//                if (apiProviders.isNotEmpty()) {
-//                    val firstProvider = apiProviders.first()
-//                    Column(
-//                        modifier = Modifier.padding(8.dp)
-//                    ) {
-//                        Text(text = "Bank: ${firstProvider.banka}")
-//                        Text(text = "Date: ${firstProvider.den}")
-//                        Text(text = "Date (Short): ${firstProvider.denc}")
-//                        firstProvider.kurzy["EUR"]?.let { eur ->
-//                            Text(text = "EUR Buy Rate: ${eur.dev_nakup ?: eur.val_nakup ?: "N/A"}")
-//                            Text(text = "EUR Sell Rate: ${eur.dev_prodej ?: eur.val_prodej ?: "N/A"}")
-//                        }
-//                    }
-//                } else {
-//                    Text(
-//                        text = "No API data available",
-//                        modifier = Modifier.padding(8.dp)
-//                    )
-//                }
+                ProvidersList(
+                    providers = providers,
+                    selectedCurrency = filter?.selectedCurrency,
+                    navController = navController
+                )
             }
         }
     }
