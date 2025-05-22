@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.api.APIClient
-import com.currency.rateman.api.RateProviderAPI
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Filter
 import com.currency.rateman.data.model.enums.ProviderType
@@ -34,9 +33,6 @@ class RatesViewModel(
 
     private val _filter = MutableStateFlow<Filter?>(null)
     val filter: StateFlow<Filter?> = _filter.asStateFlow()
-
-    private val _apiProviders = MutableStateFlow<List<RateProviderAPI>>(emptyList())
-    val apiProviders: StateFlow<List<RateProviderAPI>> = _apiProviders.asStateFlow()
 
     val providers: StateFlow<List<RateProvider>> = combine(
         _searchQuery,
@@ -138,12 +134,10 @@ class RatesViewModel(
                 !EXCLUDED_PROVIDERS.contains(provider.banka)
             }
 
-            _apiProviders.value = filteredProviders
             rateProviderRepository.insertApiProviders(filteredProviders)
         } catch (e: Exception) {
             Log.e("RatesViewModel", "API Error: ${e.message}", e)
             Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
-            _apiProviders.value = emptyList()
         }
     }
 }
