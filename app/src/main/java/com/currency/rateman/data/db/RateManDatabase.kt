@@ -30,23 +30,18 @@ abstract class RateManDatabase : RoomDatabase() {
     abstract fun filterDao(): FilterDao
 
     companion object {
-        // Singleton prevents multiple instances of database opening at the same time.
         @Volatile
         private var INSTANCE: RateManDatabase? = null
 
         fun getDatabase(
             context: Context,
-            //scope: CoroutineScope - for coroutines
         ): RateManDatabase {
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 Room.databaseBuilder(
                     context,
                     RateManDatabase::class.java,
                     "rateman_db"
                 )
-//                .fallbackToDestructiveMigration()
                 .build()
                 .also {
                     INSTANCE = it
