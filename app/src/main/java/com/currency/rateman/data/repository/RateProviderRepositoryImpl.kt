@@ -83,7 +83,7 @@ class RateProviderRepositoryImpl (
         }
     }
 
-    override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) {
+    override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) { //TODO loop change to use insertAll
         apiProviders.forEach { apiProvider ->
             val existingProvider = rateProviderDao.getProviderById(apiProvider.banka.hashCode().toLong())
             val providerId = existingProvider?.id

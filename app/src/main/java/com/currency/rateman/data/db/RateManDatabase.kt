@@ -20,8 +20,7 @@ import com.currency.rateman.data.db.entity.SettingsEntity
         SettingsEntity::class,
         FilterEntity::class
        ],
-    version = 3,
-    exportSchema = false
+    version = 1
 )
 abstract class RateManDatabase : RoomDatabase() {
 
@@ -43,11 +42,11 @@ abstract class RateManDatabase : RoomDatabase() {
             // if it is, then create the database
             return INSTANCE ?: synchronized(this) {
                 Room.databaseBuilder(
-                    context.applicationContext,
+                    context,
                     RateManDatabase::class.java,
-                    "rateman.db"
+                    "rateman_db"
                 )
-                .fallbackToDestructiveMigration()
+//                .fallbackToDestructiveMigration()
                 .build()
                 .also {
                     INSTANCE = it

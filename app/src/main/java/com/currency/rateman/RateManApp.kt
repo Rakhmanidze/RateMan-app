@@ -16,7 +16,7 @@ class RateManApp: Application(), KoinComponent {
     override fun onCreate() {
         super.onCreate()
         applicationScope.launch {
-            RateManDatabase.getDatabase(applicationContext).clearAllTables()
+//            RateManDatabase.getDatabase(applicationContext).clearAllTables()
         }
         AppContainer.init(applicationContext)
         startKoin {

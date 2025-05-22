@@ -19,6 +19,7 @@ import com.currency.rateman.ui.navigation.BottomNavItem
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
@@ -39,7 +40,7 @@ fun RatesScreen(
         ?.sharedKoinNavViewModel(navController)
         ?: return
 
-    val providers by viewModel.providers.collectAsState()
+    val providers by viewModel.providers.collectAsStateWithLifecycle()
     val searchQuery by viewModel.searchQuery.collectAsState()
     val filter by viewModel.filter.collectAsState()
     val apiProviders by viewModel.apiProviders.collectAsState()
@@ -86,11 +87,11 @@ fun RatesScreen(
                     },
                     navController = navController
                 )
-//                ProvidersList(
-//                    providers = providers,
-//                    selectedCurrency = filter?.selectedCurrency,
-//                    navController = navController
-//                )
+                ProvidersList(
+                    providers = providers,
+                    selectedCurrency = filter?.selectedCurrency,
+                    navController = navController
+                )
                 Button(
                     onClick = {
                         viewModel.viewModelScope.launch {

@@ -44,7 +44,7 @@ class RatesViewModel(
     ) { query, filter, providers ->
         var filteredProviders = providers
 
-        if (query.text.isNotBlank()) {
+        if (query.text.isNotBlank()) { //TODO fix filtering
             filteredProviders = filteredProviders.filter { provider ->
                 provider.name.contains(query.text, ignoreCase = true)
             }
