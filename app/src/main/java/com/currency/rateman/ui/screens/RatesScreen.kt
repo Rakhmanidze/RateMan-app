@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
@@ -95,7 +94,6 @@ fun RatesScreen(
                 Button(
                     onClick = {
                         viewModel.viewModelScope.launch {
-//                            viewModel.getRates()
                             viewModel.getRatesAndStore()
                         }
                     },
