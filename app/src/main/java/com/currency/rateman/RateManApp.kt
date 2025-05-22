@@ -1,7 +1,6 @@
 package com.currency.rateman
 
 import android.app.Application
-import com.currency.rateman.data.db.RateManDatabase
 import com.currency.rateman.di.appModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,9 +14,6 @@ class RateManApp: Application(), KoinComponent {
 
     override fun onCreate() {
         super.onCreate()
-        applicationScope.launch {
-//            RateManDatabase.getDatabase(applicationContext).clearAllTables()
-        }
         AppContainer.init(applicationContext)
         startKoin {
             androidContext(this@RateManApp)
