@@ -101,25 +101,25 @@ fun RatesScreen(
                 ) {
                     Text("Fetch Rates Manually (Debug)")
                 }
-                if (apiProviders.isNotEmpty()) {
-                    val firstProvider = apiProviders.first()
-                    Column(
-                        modifier = Modifier.padding(8.dp)
-                    ) {
-                        Text(text = "Bank: ${firstProvider.banka}")
-                        Text(text = "Date: ${firstProvider.den}")
-                        Text(text = "Date (Short): ${firstProvider.denc}")
-                        firstProvider.kurzy["EUR"]?.let { eur ->
-                            Text(text = "EUR Buy Rate: ${eur.dev_nakup ?: eur.val_nakup ?: "N/A"}")
-                            Text(text = "EUR Sell Rate: ${eur.dev_prodej ?: eur.val_prodej ?: "N/A"}")
-                        }
-                    }
-                } else {
-                    Text(
-                        text = "No API data available",
-                        modifier = Modifier.padding(8.dp)
-                    )
-                }
+//                if (apiProviders.isNotEmpty()) {
+//                    val firstProvider = apiProviders.first()
+//                    Column(
+//                        modifier = Modifier.padding(8.dp)
+//                    ) {
+//                        Text(text = "Bank: ${firstProvider.banka}")
+//                        Text(text = "Date: ${firstProvider.den}")
+//                        Text(text = "Date (Short): ${firstProvider.denc}")
+//                        firstProvider.kurzy["EUR"]?.let { eur ->
+//                            Text(text = "EUR Buy Rate: ${eur.dev_nakup ?: eur.val_nakup ?: "N/A"}")
+//                            Text(text = "EUR Sell Rate: ${eur.dev_prodej ?: eur.val_prodej ?: "N/A"}")
+//                        }
+//                    }
+//                } else {
+//                    Text(
+//                        text = "No API data available",
+//                        modifier = Modifier.padding(8.dp)
+//                    )
+//                }
             }
         }
     }

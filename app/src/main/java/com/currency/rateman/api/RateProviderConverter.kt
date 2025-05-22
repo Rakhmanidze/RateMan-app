@@ -1,5 +1,6 @@
 package com.currency.rateman.api
 
+import android.util.Log
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.RateProviderEntity
 import com.currency.rateman.data.model.enums.CurrencyCode
@@ -10,6 +11,8 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 object RateProviderConverter {
+    private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
+
     fun toRateProviderEntity(api: RateProviderAPI): RateProviderEntity {
         return RateProviderEntity(
             name = api.banka,
@@ -41,7 +44,13 @@ object RateProviderConverter {
                     foreignCurrency = CurrencyCode.valueOf(rate.foreignCurrency),
                     buyRate = rate.buyRate,
                     sellRate = rate.sellRate,
-                    date = LocalDate.parse(rate.date, DateTimeFormatter.ISO_LOCAL_DATE)
+                    date = try {
+                        LocalDate.parse(rate.date, apiDateFormatter)
+                    } catch (e: Exception) {
+                        // Fallback to current date if parsing fails
+                        Log.e("Converter", "Failed to parse date ${rate.date}", e)
+                        LocalDate.now()
+                    }
                 )
             },
             phoneNumber = entity.phoneNumber,

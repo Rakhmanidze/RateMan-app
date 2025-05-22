@@ -75,6 +75,14 @@ class RatesViewModel(
         filteredProviders
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
+    private val excludedProviders = listOf(
+        "Turecká centrální banka",
+        "Poštovní spořitelna",
+        "Prepocet EURa",
+        "Exchange",
+        "Česká národní banka"
+    )
+
     init {
         viewModelScope.launch {
             filterRepository.ensureFiltersExist()
@@ -133,8 +141,12 @@ class RatesViewModel(
             if (response.isNotEmpty()) {
                 Log.d("RatesViewModel", "First item: ${response[0]}")
             }
-            _apiProviders.value = response
-            rateProviderRepository.insertApiProviders(response)
+            val filteredProviders = response.filter { provider ->
+                !excludedProviders.contains(provider.banka)
+            }
+
+            _apiProviders.value = filteredProviders
+            rateProviderRepository.insertApiProviders(filteredProviders)
         } catch (e: Exception) {
             Log.e("RatesViewModel", "API Error: ${e.message}", e)
             Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
