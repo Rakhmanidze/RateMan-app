@@ -141,3 +141,6 @@ class RatesViewModel(
         }
     }
 }
+
+//TODO change api fetching by delegating it to "Worker" who will fetch data if in db rate_providers table is empty or everyday
+//TODO and remove that tmp fetch btn from rates screen

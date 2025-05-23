@@ -81,15 +81,15 @@ class RateProviderRepositoryImpl (
         }
     }
 
-    override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) { //TODO loop change to use insertAll
-        apiProviders.forEach { apiProvider ->
-            val existingProvider = rateProviderDao.getProviderById(apiProvider.banka.hashCode().toLong())
-            val providerId = existingProvider?.id
-                ?: rateProviderDao.insertProvider(
-                    RateProviderConverter.toRateProviderEntity(apiProvider)
-                )
-            val rateEntities = RateProviderConverter.toCurrencyRateEntities(apiProvider, providerId)
-            currencyRateDao.insertAllRates(rateEntities)
+    override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) {
+        val providerEntities = apiProviders.map { apiProvider ->
+            RateProviderConverter.toRateProviderEntity(apiProvider)
         }
+        val providerIds = rateProviderDao.insertAllProvidersAndReturnIds(providerEntities)
+
+        val ratesToInsert = apiProviders.flatMapIndexed { index, apiProvider ->
+            RateProviderConverter.toCurrencyRateEntities(apiProvider, providerIds[index])
+        }
+        currencyRateDao.insertAllRates(ratesToInsert)
     }
 }
