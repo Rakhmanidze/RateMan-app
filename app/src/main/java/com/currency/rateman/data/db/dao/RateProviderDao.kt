@@ -15,9 +15,6 @@ interface RateProviderDao {
     suspend fun insertProvider(provider: RateProviderEntity): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertAllProviders(providers: List<RateProviderEntity>)
-
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllProvidersAndReturnIds(providers: List<RateProviderEntity>): List<Long>
 
     @Query("SELECT * FROM rate_providers WHERE id = :id")
