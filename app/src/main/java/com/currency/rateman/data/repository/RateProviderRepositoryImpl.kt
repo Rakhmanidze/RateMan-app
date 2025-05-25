@@ -46,10 +46,7 @@ class RateProviderRepositoryImpl (
 
     override suspend fun getProviderById(id: Long): RateProvider? {
         val entity = rateProviderDao.getProviderById(id) ?: return null
-        val rates = currencyRateDao.getRatesForProvider(id)
-            .map { rates -> rates }
-            .stateIn(coroutineScope, SharingStarted.Lazily, emptyList())
-            .value
+        val rates = currencyRateDao.getRatesForProvider(id).first()
         return RateProviderConverter.toRateProvider(entity, rates)
     }
 

@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class ProviderDetailsViewModel(
-    private val rateProviderRepository: RateProviderRepository
+    private val rateProviderRepository: RateProviderRepository,
 ) : ViewModel() {
 
     private val _provider = MutableStateFlow<RateProvider?>(null)
