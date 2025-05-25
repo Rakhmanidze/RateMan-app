@@ -6,6 +6,7 @@ import com.currency.rateman.data.model.RateProvider
 import kotlinx.coroutines.flow.Flow
 
 interface RateProviderRepository {
+
     fun getAllProviders() : Flow<List<RateProvider>>
 
     fun getProvidersByType(providerType: ProviderType) : Flow<List<RateProvider>>

@@ -30,6 +30,7 @@ abstract class RateManDatabase : RoomDatabase() {
     abstract fun filterDao(): FilterDao
 
     companion object {
+
         @Volatile
         private var INSTANCE: RateManDatabase? = null
 

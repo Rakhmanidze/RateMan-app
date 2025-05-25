@@ -13,6 +13,7 @@ import kotlinx.coroutines.runBlocking
 import java.util.*
 
 object LanguageManager {
+
     private fun getSettingsRepository(context: Context): SettingsRepository {
         return SettingsRepositoryImpl(RateManDatabase.getDatabase(context).settingsDao())
     }

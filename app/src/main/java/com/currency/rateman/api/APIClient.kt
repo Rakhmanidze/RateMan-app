@@ -8,6 +8,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
 
 object APIClient {
+
     private const val BASE_URL = "https://data.kurzy.cz/"
 
     private val logging = HttpLoggingInterceptor().apply {

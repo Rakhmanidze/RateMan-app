@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
 class SettingsViewModel(private val repository: SettingsRepository) : ViewModel() {
+
     private val _settings = MutableStateFlow<Settings?>(null)
     val settings: StateFlow<Settings?> = _settings.asStateFlow()
 

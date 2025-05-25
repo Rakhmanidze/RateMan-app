@@ -11,6 +11,7 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 object RateProviderConverter {
+
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
     fun toRateProviderEntity(api: RateProviderAPI): RateProviderEntity {

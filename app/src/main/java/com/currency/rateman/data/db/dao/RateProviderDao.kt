@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface RateProviderDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProvider(provider: RateProviderEntity): Long
 

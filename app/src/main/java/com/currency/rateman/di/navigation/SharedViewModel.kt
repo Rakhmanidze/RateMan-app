@@ -13,6 +13,7 @@ import org.koin.core.annotation.KoinExperimentalAPI
 inline fun <reified T : ViewModel> NavBackStackEntry.sharedKoinNavViewModel(
     navController: NavController
 ): T {
+
     val navGraphRoute = destination.parent?.route ?: return koinNavViewModel()
     val parentEntry = remember(this) {
         navController.getBackStackEntry(navGraphRoute)

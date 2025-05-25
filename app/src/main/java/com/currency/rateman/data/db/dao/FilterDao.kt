@@ -10,6 +10,7 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface FilterDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertFilter(filter: FilterEntity)
 

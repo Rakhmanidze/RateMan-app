@@ -25,6 +25,7 @@ class RatesViewModel(
     private val rateProviderRepository: RateProviderRepository,
     private val filterRepository: FilterRepository
 ) : ViewModel() {
+
     private val allProviders = rateProviderRepository.getAllProviders()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
@@ -141,6 +142,3 @@ class RatesViewModel(
         }
     }
 }
-
-//TODO change api fetching by delegating it to "Worker" who will fetch data if in db rate_providers table is empty or everyday
-//TODO and remove that tmp fetch btn from rates screen

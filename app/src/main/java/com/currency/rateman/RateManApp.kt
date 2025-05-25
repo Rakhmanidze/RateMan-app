@@ -11,6 +11,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class RateManApp: Application(), KoinComponent {
+
     private val applicationScope = CoroutineScope(Dispatchers.IO)
 
     override fun onCreate() {
