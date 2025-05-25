@@ -104,9 +104,9 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable(
             route = "providerDetail/{id}",
-            arguments = listOf(navArgument("id") { type = NavType.IntType })
+            arguments = listOf(navArgument("id") { type = NavType.LongType })
         ) { backStackEntry ->
-            val providerId = backStackEntry.arguments?.getInt("id")
+            val providerId = backStackEntry.arguments?.getLong("id")
             ProviderDetailsScreen(
                 providerId = providerId,
                 navController = navController

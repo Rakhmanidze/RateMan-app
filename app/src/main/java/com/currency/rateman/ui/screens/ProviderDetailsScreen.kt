@@ -17,22 +17,34 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.currency.rateman.ui.viewmodels.RatesViewModel
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.viewmodels.ProviderDetailsViewModel
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.res.stringResource
+import com.currency.rateman.R
 
 @Composable
 fun ProviderDetailsScreen(
-    providerId: Int?,
+    providerId: Long?,
     navController: NavHostController
 ) {
-    val viewModel: RatesViewModel = navController
+    val viewModel: ProviderDetailsViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
         ?: return
+    val provider by viewModel.provider.collectAsState()
+
+    providerId?.let { id ->
+        viewModel.getProviderById(id)
+    } ?: run {
+        navController.popBackStack()
+        return
+    }
 
     Scaffold { paddingValues ->
         Column(
@@ -54,7 +66,7 @@ fun ProviderDetailsScreen(
                         .clickable { navController.popBackStack() }
                 )
                 Text(
-                    text = "Provider's name",
+                    text = provider?.name ?: (stringResource(id = R.string.loading) + "..."),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
