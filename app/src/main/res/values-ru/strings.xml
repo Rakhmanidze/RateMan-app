@@ -18,7 +18,6 @@
     <!-- Selection -->
     <string name="select_currency">Выбрать валюту</string>
     <string name="find_currencies">Найти валюты</string>
-    <string name="buy_sell">Покупка / Продажа</string>
     <string name="buy">Покупка</string>
     <string name="sell">Продажа</string>
 

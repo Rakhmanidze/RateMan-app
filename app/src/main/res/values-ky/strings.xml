@@ -17,7 +17,6 @@
     <!-- Selection -->
     <string name="select_currency">Валютаны тандаңыз</string>
     <string name="find_currencies">Валюталарды табуу</string>
-    <string name="buy_sell">Сатып алуу / Сатуу</string>
     <string name="buy">Сатып алуу</string>
     <string name="sell">Сатуу</string>
 

@@ -17,7 +17,6 @@
     <!-- Selection -->
     <string name="select_currency">Para birimi seç</string>
     <string name="find_currencies">Para birimlerini bul</string>
-    <string name="buy_sell">Alış / Satış</string>
     <string name="buy">Alış</string>
     <string name="sell">Satış</string>
 

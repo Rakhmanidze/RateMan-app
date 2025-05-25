@@ -18,7 +18,6 @@
     <!-- Selection -->
     <string name="select_currency">Vybrať menu</string>
     <string name="find_currencies">Nájsť meny</string>
-    <string name="buy_sell">Nákup / Predaj</string>
     <string name="buy">Nákup</string>
     <string name="sell">Predaj</string>
 
