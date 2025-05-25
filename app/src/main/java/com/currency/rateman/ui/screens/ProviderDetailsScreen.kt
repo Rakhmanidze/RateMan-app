@@ -81,6 +81,20 @@ fun ProviderDetailsScreen(
             }
             Spacer(modifier = Modifier.height(16.dp))
 
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 24.dp, vertical = 4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Spacer(modifier = Modifier.weight(1f))
+                Text(
+                    text = stringResource(id = R.string.buy_sell),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+            }
+
             LazyColumn(Modifier.weight(1f)) {
                 if (provider?.rates.isNullOrEmpty()) {
                     item {
@@ -112,6 +126,15 @@ fun ProviderDetailsScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
+                            Text(
+                                text = rate.buyRate.toString(),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
+                            Spacer(modifier = Modifier.width(16.dp))
+                            Text(
+                                text = rate.sellRate.toString(),
+                                style = MaterialTheme.typography.bodyMedium
+                            )
                         }
                         HorizontalDivider(
                             modifier = Modifier.padding(vertical = 4.dp),
