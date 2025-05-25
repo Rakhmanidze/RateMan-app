@@ -3,6 +3,7 @@ package com.currency.rateman.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -84,21 +85,36 @@ fun ProviderDetailsScreen(
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(horizontal = 24.dp, vertical = 4.dp),
+                    .padding(horizontal = 24.dp),
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Spacer(modifier = Modifier.weight(1f))
-                Text(
-                    text = stringResource(id = R.string.buy),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-                Spacer(modifier = Modifier.width(16.dp))
-                Text(
-                    text = stringResource(id = R.string.sell),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
+                Box(modifier = Modifier.weight(1f))
+
+                Box(
+                    modifier = Modifier
+                        .width(100.dp)
+                        .padding(start = 37.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.buy),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
+
+                Box(
+                    modifier = Modifier
+                        .width(100.dp)
+                        .padding(start = 37.dp),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.sell),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onSurface
+                    )
+                }
             }
 
             LazyColumn(Modifier.weight(1f)) {
@@ -132,15 +148,24 @@ fun ProviderDetailsScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            Text(
-                                text = rate.buyRate.toString(),
-                                style = MaterialTheme.typography.bodyMedium
-                            )
-                            Spacer(modifier = Modifier.width(16.dp))
-                            Text(
-                                text = rate.sellRate.toString(),
-                                style = MaterialTheme.typography.bodyMedium
-                            )
+                            Box(
+                                modifier = Modifier.width(100.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "%.4f".format(rate.buyRate),
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                            }
+                            Box(
+                                modifier = Modifier.width(100.dp),
+                                contentAlignment = Alignment.Center
+                            ) {
+                                Text(
+                                    text = "%.4f".format(rate.sellRate),
+                                    style = MaterialTheme.typography.bodyMedium
+                                )
+                            }
                         }
                         HorizontalDivider(
                             modifier = Modifier.padding(vertical = 4.dp),
