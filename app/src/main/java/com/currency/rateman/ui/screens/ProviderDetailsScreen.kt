@@ -89,7 +89,13 @@ fun ProviderDetailsScreen(
             ) {
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
-                    text = stringResource(id = R.string.buy_sell),
+                    text = stringResource(id = R.string.buy),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurface
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    text = stringResource(id = R.string.sell),
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
