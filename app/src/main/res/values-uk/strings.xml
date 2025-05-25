@@ -18,6 +18,8 @@
     <string name="select_currency">Вибрати валюту</string>
     <string name="find_currencies">Знайти валюти</string>
     <string name="buy_sell">Купити / Продати</string>
+    <string name="buy">Купити</string>
+    <string name="sell">Продати</string>
 
     <!-- UI State -->
     <string name="loading">Завантаження</string>

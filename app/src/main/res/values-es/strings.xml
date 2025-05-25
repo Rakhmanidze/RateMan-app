@@ -19,6 +19,8 @@
     <string name="select_currency">Seleccionar moneda</string>
     <string name="find_currencies">Buscar monedas</string>
     <string name="buy_sell">Compra / Venta</string>
+    <string name="buy">Compra</string>
+    <string name="sell">Venta</string>
 
     <!-- UI State -->
     <string name="loading">Cargando</string>
