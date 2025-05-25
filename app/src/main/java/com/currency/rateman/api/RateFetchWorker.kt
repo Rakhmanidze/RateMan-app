@@ -6,7 +6,6 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.currency.rateman.data.repository.RateProviderRepository
 import com.currency.rateman.utils.ProviderConstants.EXCLUDED_PROVIDERS
-import kotlinx.coroutines.flow.first
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -20,13 +19,8 @@ class RateFetchWorker(
     override suspend fun doWork(): Result {
         Log.d("RateFetchWorker", "Starting API fetch")
         return try {
-            val providers = rateProviderRepository.getAllProviders().first()
-            if (providers.isEmpty()) {
-                Log.d("RateFetchWorker", "Database is empty, fetching rates")
-                fetchAndStoreRates()
-            } else {
-                Log.d("RateFetchWorker", "Database is not empty, skipping fetch")
-            }
+            Log.d("RateFetchWorker", "Trying to fetch rates")
+            fetchAndStoreRates()
             Result.success()
         } catch (e: Exception) {
             Log.e("RateFetchWorker", "Error fetching rates: ${e.message}", e)
