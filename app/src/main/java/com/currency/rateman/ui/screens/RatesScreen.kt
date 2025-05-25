@@ -6,10 +6,8 @@ import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBars
-import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
@@ -19,13 +17,11 @@ import com.currency.rateman.ui.viewmodels.RatesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.BottomNavBar
 import com.currency.rateman.ui.components.ProvidersList
 import com.currency.rateman.ui.components.SearchAndFilterHeader
-import kotlinx.coroutines.launch
 
 @Composable
 fun RatesScreen(
@@ -85,16 +81,6 @@ fun RatesScreen(
                     },
                     navController = navController
                 )
-                Button(
-                    onClick = {
-                        viewModel.viewModelScope.launch {
-                            viewModel.getRatesAndStore()
-                        }
-                    },
-                    modifier = Modifier.padding(bottom = 16.dp)
-                ) {
-                    Text("Fetch Rates Manually (Debug)")
-                }
                 ProvidersList(
                     providers = providers,
                     selectedCurrency = filter?.selectedCurrency,

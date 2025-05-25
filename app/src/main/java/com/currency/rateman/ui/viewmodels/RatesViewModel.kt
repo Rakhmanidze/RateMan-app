@@ -1,6 +1,5 @@
 package com.currency.rateman.ui.viewmodels
 
-import android.util.Log
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import com.currency.rateman.data.model.RateProvider
@@ -9,13 +8,11 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.api.APIClient
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Filter
 import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.data.model.enums.RateSortType
 import com.currency.rateman.data.repository.FilterRepository
-import com.currency.rateman.utils.ProviderConstants.EXCLUDED_PROVIDERS
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
@@ -79,7 +76,6 @@ class RatesViewModel(
             filterRepository.getFilter().collect { loadedFilter ->
                 _filter.value = loadedFilter
             }
-//            getRatesAndStore()
         }
     }
 
@@ -120,25 +116,6 @@ class RatesViewModel(
                 selectedCurrency = currentFilter.selectedCurrency,
                 selectedRateSortType = currentFilter.selectedRateSortType
             )
-        }
-    }
-
-    internal suspend fun getRatesAndStore() { //TODO private later (should be private?)
-        Log.d("RatesViewModel", "getRatesAndStore started")
-        try {
-            val response = APIClient.ratesAPIService.getExchangeRates()
-            Log.d("RatesViewModel", "API Response received, size: ${response.size}")
-            if (response.isNotEmpty()) {
-                Log.d("RatesViewModel", "First item: ${response[0]}")
-            }
-            val filteredProviders = response.filter { provider ->
-                !EXCLUDED_PROVIDERS.contains(provider.banka)
-            }
-
-            rateProviderRepository.insertApiProviders(filteredProviders)
-        } catch (e: Exception) {
-            Log.e("RatesViewModel", "API Error: ${e.message}", e)
-            Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")
         }
     }
 }
