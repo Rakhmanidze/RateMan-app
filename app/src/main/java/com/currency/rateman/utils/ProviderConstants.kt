@@ -17,6 +17,12 @@ object ProviderConstants {
         "Raiffeisenbank",
         "Unicredit Bank",
         "Fio Banka",
-        "Air Bank"
+        "Air Bank",
+        "MONETA",
+        "Max banka",
+        "ČSOB",
+        "mBank",
+        "Trinity Bank",
+        "Oberbank AG"
     )
 }
