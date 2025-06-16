@@ -46,10 +46,4 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
             repository.editSettings(currencyCode = newCurrency)
         }
     }
-
-    fun resetSettings() {
-        viewModelScope.launch {
-            repository.resetSettings()
-        }
-    }
 }
