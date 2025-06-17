@@ -1,13 +1,11 @@
 package com.currency.rateman.data.repository
 
-import androidx.room.Transaction
 import com.currency.rateman.data.db.dao.SettingsDao
 import com.currency.rateman.data.db.entity.SettingsEntity
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.enums.ThemeMode
-import com.currency.rateman.data.model.toEntity
 import com.currency.rateman.data.model.toSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -19,10 +17,6 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         return settingsDao.getSettings().map { entity ->
             entity?.toSettings() ?: getDefaultSettings()
         }
-    }
-
-    override suspend fun saveSettings(settings: Settings) {
-        settingsDao.insertSettings(settings.toEntity().copy(id = 0))
     }
 
     override suspend fun editSettings(
@@ -37,13 +31,6 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
             uiLanguage = languageCode?.name ?: current.uiLanguage,
             themeMode = themeMode?.name ?: current.themeMode
         ))
-    }
-
-
-    @Transaction
-    override suspend fun resetSettings() {
-        settingsDao.deleteAllSettings()
-        settingsDao.insertSettings(SettingsEntity(id = 0))
     }
 
     override suspend fun ensureSettingsExist() {
