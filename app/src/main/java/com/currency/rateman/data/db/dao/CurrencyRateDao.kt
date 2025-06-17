@@ -32,13 +32,4 @@ interface CurrencyRateDao {
 
     @Query("UPDATE currency_rates SET buyRate = :buyRate, sellRate = :sellRate WHERE id = :rateId")
     suspend fun updateRateValues(rateId: Long, buyRate: Double, sellRate: Double)
-
-    @Delete
-    suspend fun deleteRate(rate: CurrencyRateEntity)
-
-    @Query("DELETE FROM currency_rates WHERE providerId = :providerId")
-    suspend fun deleteRatesForProvider(providerId: Long)
-
-    @Query("DELETE FROM currency_rates")
-    suspend fun deleteAllRates()
 }
