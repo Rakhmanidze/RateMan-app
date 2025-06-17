@@ -20,9 +20,6 @@ interface SettingsDao {
     @Query("SELECT * FROM settings WHERE id = 0")
     fun getSettings(): Flow<SettingsEntity?>
 
-    @Query("DELETE FROM settings")
-    suspend fun deleteAllSettings()
-
     @Query("SELECT COUNT(*) FROM settings")
     suspend fun getSettingsCount(): Int
 }

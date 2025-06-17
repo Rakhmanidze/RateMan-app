@@ -20,9 +20,6 @@ interface FilterDao {
     @Query("SELECT * FROM filters WHERE id = 0")
     fun getFilter(): Flow<FilterEntity?>
 
-    @Query("DELETE FROM filters")
-    suspend fun deleteAllFilters()
-
     @Query("SELECT COUNT(*) FROM filters")
     suspend fun getFilterCount(): Int
 }
