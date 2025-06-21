@@ -1,4 +1,4 @@
-package com.currency.rateman
+package com.currency.rateman.di
 
 import android.content.Context
 import com.currency.rateman.data.db.RateManDatabase
@@ -9,6 +9,6 @@ object AppContainer {
         private set
 
     fun init(context: Context) {
-        rateManDatabase = RateManDatabase.getDatabase(context)
+        rateManDatabase = RateManDatabase.Companion.getDatabase(context)
     }
 }

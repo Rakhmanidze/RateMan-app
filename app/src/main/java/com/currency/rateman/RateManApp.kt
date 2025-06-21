@@ -11,6 +11,7 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.currency.rateman.api.RateFetchWorker
+import com.currency.rateman.di.AppContainer
 import java.util.concurrent.TimeUnit
 
 class RateManApp: Application(), KoinComponent {
