@@ -3,7 +3,7 @@ package com.currency.rateman.ui.viewmodels
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import com.currency.rateman.data.model.RateProvider
-import com.currency.rateman.data.repository.RateProviderRepository
+import com.currency.rateman.data.repository.ProviderRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -19,11 +19,11 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
 class RatesViewModel(
-    private val rateProviderRepository: RateProviderRepository,
+    private val providerRepository: ProviderRepository,
     private val filterRepository: FilterRepository
 ) : ViewModel() {
 
-    private val allProviders = rateProviderRepository.getAllProviders()
+    private val allProviders = providerRepository.getAllProviders()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))

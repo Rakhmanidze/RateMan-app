@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.currency.rateman.data.repository.RateProviderRepository
+import com.currency.rateman.data.repository.ProviderRepository
 import com.currency.rateman.utils.ProviderConstants.EXCLUDED_PROVIDERS
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -14,7 +14,7 @@ class RateFetchWorker(
     params: WorkerParameters
 ) : CoroutineWorker(context, params), KoinComponent {
 
-    private val rateProviderRepository: RateProviderRepository by inject()
+    private val providerRepository: ProviderRepository by inject()
 
     override suspend fun doWork(): Result {
         Log.d("RateFetchWorker", "Starting API fetch")
@@ -36,7 +36,7 @@ class RateFetchWorker(
             val filteredProviders = response.filter { provider ->
                 !EXCLUDED_PROVIDERS.contains(provider.banka)
             }
-            rateProviderRepository.insertApiProviders(filteredProviders)
+            providerRepository.insertApiProviders(filteredProviders)
         } catch (e: Exception) {
             Log.e("RatesViewModel", "API Error: ${e.message}", e)
             Log.e("RatesViewModel", "Stack trace: ${e.stackTraceToString()}")

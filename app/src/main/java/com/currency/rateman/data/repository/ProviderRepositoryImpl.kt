@@ -11,10 +11,10 @@ import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.RateProviderEntity
 import kotlinx.coroutines.flow.first
 
-class RateProviderRepositoryImpl (
+class ProviderRepositoryImpl (
     private val rateProviderDao: RateProviderDao,
     private val currencyRateDao: CurrencyRateDao
-) : RateProviderRepository {
+) : ProviderRepository {
 
     override fun getAllProviders(): Flow<List<RateProvider>> {
         return rateProviderDao.getAllProviders().map { providerEntities ->
