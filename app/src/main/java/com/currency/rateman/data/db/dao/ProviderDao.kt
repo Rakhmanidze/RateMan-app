@@ -9,7 +9,7 @@ import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface RateProviderDao {
+interface ProviderDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertProvider(provider: ProviderEntity): Long

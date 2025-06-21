@@ -8,7 +8,7 @@ import com.currency.rateman.data.db.entity.ProviderEntity
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.FilterDao
-import com.currency.rateman.data.db.dao.RateProviderDao
+import com.currency.rateman.data.db.dao.ProviderDao
 import com.currency.rateman.data.db.dao.SettingsDao
 import com.currency.rateman.data.db.entity.FilterEntity
 import com.currency.rateman.data.db.entity.SettingsEntity
@@ -24,7 +24,7 @@ import com.currency.rateman.data.db.entity.SettingsEntity
 )
 abstract class RateManDatabase : RoomDatabase() {
 
-    abstract  fun rateProviderDao(): RateProviderDao
+    abstract  fun rateProviderDao(): ProviderDao
     abstract fun currencyRateDao(): CurrencyRateDao
     abstract fun settingsDao(): SettingsDao
     abstract fun filterDao(): FilterDao

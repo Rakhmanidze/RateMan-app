@@ -1,7 +1,7 @@
 package com.currency.rateman.data.repository
 
 import com.currency.rateman.data.db.dao.CurrencyRateDao
-import com.currency.rateman.data.db.dao.RateProviderDao
+import com.currency.rateman.data.db.dao.ProviderDao
 import com.currency.rateman.data.model.Provider
 import com.currency.rateman.api.RateProviderConverter
 import kotlinx.coroutines.flow.Flow
@@ -12,12 +12,12 @@ import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
 
 class ProviderRepositoryImpl (
-    private val rateProviderDao: RateProviderDao,
+    private val providerDao: ProviderDao,
     private val currencyRateDao: CurrencyRateDao
 ) : ProviderRepository {
 
     override fun getAllProviders(): Flow<List<Provider>> {
-        return rateProviderDao.getAllProviders().map { providerEntities ->
+        return providerDao.getAllProviders().map { providerEntities ->
             providerEntities.map { entity ->
                 val rates = currencyRateDao.getRatesForProvider(entity.id).first()
                 RateProviderConverter.toRateProvider(entity, rates)
@@ -26,7 +26,7 @@ class ProviderRepositoryImpl (
     }
 
     override suspend fun getProviderById(id: Long): Provider? {
-        val entity = rateProviderDao.getProviderById(id) ?: return null
+        val entity = providerDao.getProviderById(id) ?: return null
         val rates = currencyRateDao.getRatesForProvider(id).first()
         return RateProviderConverter.toRateProvider(entity, rates)
     }
@@ -38,7 +38,7 @@ class ProviderRepositoryImpl (
             phoneNumber = provider.phoneNumber,
             type = provider.type.name
         )
-        val providerId = rateProviderDao.insertProvider(entity)
+        val providerId = providerDao.insertProvider(entity)
         val rateEntities = provider.rates.map { rate ->
             CurrencyRateEntity(
                 providerId = providerId,
@@ -56,7 +56,7 @@ class ProviderRepositoryImpl (
         val providerEntities = apiProviders.map { apiProvider ->
             RateProviderConverter.toRateProviderEntity(apiProvider)
         }
-        val providerIds = rateProviderDao.insertAllProvidersAndReturnIds(providerEntities)
+        val providerIds = providerDao.insertAllProvidersAndReturnIds(providerEntities)
 
         val ratesToInsert = apiProviders.flatMapIndexed { index, apiProvider ->
             RateProviderConverter.toCurrencyRateEntities(apiProvider, providerIds[index])
