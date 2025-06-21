@@ -16,11 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.CurrencyRate
-import com.currency.rateman.data.model.RateProvider
+import com.currency.rateman.data.model.Provider
 
 @Composable
 fun ProviderItem(
-    provider: RateProvider,
+    provider: Provider,
     ratesToDisplay : List<CurrencyRate>,
     onClick: (Int) -> Unit,
     modifier: Modifier = Modifier

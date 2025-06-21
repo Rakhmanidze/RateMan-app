@@ -6,7 +6,7 @@ import com.currency.rateman.data.db.entity.RateProviderEntity
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.data.model.RateProvider
+import com.currency.rateman.data.model.Provider
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
@@ -35,8 +35,8 @@ object RateProviderConverter {
         }
     }
 
-    fun toRateProvider(entity: RateProviderEntity, rates: List<CurrencyRateEntity>): RateProvider {
-        return RateProvider(
+    fun toRateProvider(entity: RateProviderEntity, rates: List<CurrencyRateEntity>): Provider {
+        return Provider(
             id = entity.id.toLong(),
             name = entity.name,
             baseCurrency = CurrencyCode.valueOf(entity.baseCurrency),

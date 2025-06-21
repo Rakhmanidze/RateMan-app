@@ -3,7 +3,7 @@ package com.currency.rateman.data.model
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
 
-data class RateProvider(
+data class Provider(
     val id: Long,
     val name: String,
     val baseCurrency: CurrencyCode,

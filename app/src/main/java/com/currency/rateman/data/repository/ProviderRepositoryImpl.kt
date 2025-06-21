@@ -2,7 +2,7 @@ package com.currency.rateman.data.repository
 
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.RateProviderDao
-import com.currency.rateman.data.model.RateProvider
+import com.currency.rateman.data.model.Provider
 import com.currency.rateman.api.RateProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -16,7 +16,7 @@ class ProviderRepositoryImpl (
     private val currencyRateDao: CurrencyRateDao
 ) : ProviderRepository {
 
-    override fun getAllProviders(): Flow<List<RateProvider>> {
+    override fun getAllProviders(): Flow<List<Provider>> {
         return rateProviderDao.getAllProviders().map { providerEntities ->
             providerEntities.map { entity ->
                 val rates = currencyRateDao.getRatesForProvider(entity.id).first()
@@ -25,13 +25,13 @@ class ProviderRepositoryImpl (
         }
     }
 
-    override suspend fun getProviderById(id: Long): RateProvider? {
+    override suspend fun getProviderById(id: Long): Provider? {
         val entity = rateProviderDao.getProviderById(id) ?: return null
         val rates = currencyRateDao.getRatesForProvider(id).first()
         return RateProviderConverter.toRateProvider(entity, rates)
     }
 
-    override suspend fun insertProvider(provider: RateProvider): Long {
+    override suspend fun insertProvider(provider: Provider): Long {
         val entity = RateProviderEntity(
             name = provider.name,
             baseCurrency = provider.baseCurrency.name,

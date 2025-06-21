@@ -18,7 +18,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.RateProvider
+import com.currency.rateman.data.model.Provider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
@@ -27,12 +27,12 @@ import com.currency.rateman.R
 
 @Composable
 fun ProvidersList(
-    providers: List<RateProvider>,
+    providers: List<Provider>,
     selectedCurrency: CurrencyCode?,
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
-    var selectedProvider by remember { mutableStateOf<RateProvider?>(null) }
+    var selectedProvider by remember { mutableStateOf<Provider?>(null) }
 
     if (providers.isEmpty()) {
         Box(
