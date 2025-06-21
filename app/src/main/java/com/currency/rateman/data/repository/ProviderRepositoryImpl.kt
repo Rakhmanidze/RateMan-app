@@ -20,7 +20,7 @@ class ProviderRepositoryImpl (
         return providerDao.getAllProviders().map { providerEntities ->
             providerEntities.map { entity ->
                 val rates = currencyRateDao.getRatesForProvider(entity.id).first()
-                ProviderConverter.toRateProvider(entity, rates)
+                ProviderConverter.toProvider(entity, rates)
             }
         }
     }
@@ -28,7 +28,7 @@ class ProviderRepositoryImpl (
     override suspend fun getProviderById(id: Long): Provider? {
         val entity = providerDao.getProviderById(id) ?: return null
         val rates = currencyRateDao.getRatesForProvider(id).first()
-        return ProviderConverter.toRateProvider(entity, rates)
+        return ProviderConverter.toProvider(entity, rates)
     }
 
     override suspend fun insertProvider(provider: Provider): Long {
@@ -54,7 +54,7 @@ class ProviderRepositoryImpl (
 
     override suspend fun insertApiProviders(apiProviders: List<ProviderAPI>) {
         val providerEntities = apiProviders.map { apiProvider ->
-            ProviderConverter.toRateProviderEntity(apiProvider)
+            ProviderConverter.toProviderEntity(apiProvider)
         }
         val providerIds = providerDao.insertAllProvidersAndReturnIds(providerEntities)
 

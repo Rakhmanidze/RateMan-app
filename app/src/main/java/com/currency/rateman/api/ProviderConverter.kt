@@ -14,7 +14,7 @@ object ProviderConverter {
 
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
-    fun toRateProviderEntity(api: ProviderAPI): ProviderEntity {
+    fun toProviderEntity(api: ProviderAPI): ProviderEntity {
         return ProviderEntity(
             name = api.banka,
             baseCurrency = "CZK",
@@ -35,7 +35,7 @@ object ProviderConverter {
         }
     }
 
-    fun toRateProvider(entity: ProviderEntity, rates: List<CurrencyRateEntity>): Provider {
+    fun toProvider(entity: ProviderEntity, rates: List<CurrencyRateEntity>): Provider {
         return Provider(
             id = entity.id.toLong(),
             name = entity.name,
