@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ProviderDetailsViewModel(
+class ProviderViewModel(
     private val rateProviderRepository: RateProviderRepository,
 ) : ViewModel() {
 
