@@ -24,7 +24,7 @@ import com.currency.rateman.data.db.entity.SettingsEntity
 )
 abstract class RateManDatabase : RoomDatabase() {
 
-    abstract  fun rateProviderDao(): ProviderDao
+    abstract  fun providerDao(): ProviderDao
     abstract fun currencyRateDao(): CurrencyRateDao
     abstract fun settingsDao(): SettingsDao
     abstract fun filterDao(): FilterDao

@@ -6,7 +6,7 @@ import com.currency.rateman.data.model.Provider
 import com.currency.rateman.api.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import com.currency.rateman.api.RateProviderAPI
+import com.currency.rateman.api.ProviderAPI
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
@@ -52,7 +52,7 @@ class ProviderRepositoryImpl (
         return providerId
     }
 
-    override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) {
+    override suspend fun insertApiProviders(apiProviders: List<ProviderAPI>) {
         val providerEntities = apiProviders.map { apiProvider ->
             ProviderConverter.toRateProviderEntity(apiProvider)
         }

@@ -1,6 +1,6 @@
 package com.currency.rateman.data.repository
 
-import com.currency.rateman.api.RateProviderAPI
+import com.currency.rateman.api.ProviderAPI
 import com.currency.rateman.data.model.Provider
 import kotlinx.coroutines.flow.Flow
 
@@ -12,5 +12,5 @@ interface ProviderRepository {
 
     suspend fun insertProvider(provider: Provider) : Long
 
-    suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>)
+    suspend fun insertApiProviders(apiProviders: List<ProviderAPI>)
 }

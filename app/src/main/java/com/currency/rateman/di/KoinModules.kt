@@ -17,7 +17,7 @@ import org.koin.dsl.module
 val appModule = module {
 
     single { AppContainer.rateManDatabase.currencyRateDao() }
-    single { AppContainer.rateManDatabase.rateProviderDao() }
+    single { AppContainer.rateManDatabase.providerDao() }
     single { AppContainer.rateManDatabase.settingsDao() }
     single { AppContainer.rateManDatabase.filterDao() }
 
