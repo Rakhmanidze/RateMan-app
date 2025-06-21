@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.RateProviderAPI
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
-import com.currency.rateman.data.db.entity.RateProviderEntity
+import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
 
 class ProviderRepositoryImpl (
@@ -32,7 +32,7 @@ class ProviderRepositoryImpl (
     }
 
     override suspend fun insertProvider(provider: Provider): Long {
-        val entity = RateProviderEntity(
+        val entity = ProviderEntity(
             name = provider.name,
             baseCurrency = provider.baseCurrency.name,
             phoneNumber = provider.phoneNumber,

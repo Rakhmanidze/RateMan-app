@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.currency.rateman.data.db.entity.RateProviderEntity
+import com.currency.rateman.data.db.entity.ProviderEntity
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.FilterDao
@@ -15,7 +15,7 @@ import com.currency.rateman.data.db.entity.SettingsEntity
 
 @Database(
     entities = [
-        RateProviderEntity::class,
+        ProviderEntity::class,
         CurrencyRateEntity::class,
         SettingsEntity::class,
         FilterEntity::class

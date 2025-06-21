@@ -2,7 +2,7 @@ package com.currency.rateman.api
 
 import android.util.Log
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
-import com.currency.rateman.data.db.entity.RateProviderEntity
+import com.currency.rateman.data.db.entity.ProviderEntity
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.ProviderType
@@ -14,8 +14,8 @@ object RateProviderConverter {
 
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
-    fun toRateProviderEntity(api: RateProviderAPI): RateProviderEntity {
-        return RateProviderEntity(
+    fun toRateProviderEntity(api: RateProviderAPI): ProviderEntity {
+        return ProviderEntity(
             name = api.banka,
             baseCurrency = "CZK",
             phoneNumber = "",
@@ -35,7 +35,7 @@ object RateProviderConverter {
         }
     }
 
-    fun toRateProvider(entity: RateProviderEntity, rates: List<CurrencyRateEntity>): Provider {
+    fun toRateProvider(entity: ProviderEntity, rates: List<CurrencyRateEntity>): Provider {
         return Provider(
             id = entity.id.toLong(),
             name = entity.name,

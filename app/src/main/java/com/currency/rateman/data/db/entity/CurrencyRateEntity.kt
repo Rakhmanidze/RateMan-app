@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(
     tableName = "currency_rates",
     foreignKeys = [ForeignKey(
-        entity = RateProviderEntity::class,
+        entity = ProviderEntity::class,
         parentColumns = ["id"],
         childColumns = ["providerId"],
         onDelete = ForeignKey.CASCADE,
