@@ -1,7 +1,9 @@
-package com.currency.rateman.data.model
+package com.currency.rateman.data.mappers
 
 import com.currency.rateman.data.db.entity.FilterEntity
 import com.currency.rateman.data.db.entity.SettingsEntity
+import com.currency.rateman.data.model.Filter
+import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.enums.ProviderType

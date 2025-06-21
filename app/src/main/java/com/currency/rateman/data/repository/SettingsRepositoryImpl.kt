@@ -6,7 +6,7 @@ import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.Settings
 import com.currency.rateman.data.model.enums.ThemeMode
-import com.currency.rateman.data.model.toSettings
+import com.currency.rateman.data.mappers.toSettings
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first
