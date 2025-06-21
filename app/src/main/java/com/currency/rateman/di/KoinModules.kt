@@ -1,6 +1,5 @@
 package com.currency.rateman.di
 
-import com.currency.rateman.di.AppContainer
 import com.currency.rateman.data.repository.FilterRepository
 import com.currency.rateman.data.repository.FilterRepositoryImpl
 import com.currency.rateman.data.repository.ProviderRepository
