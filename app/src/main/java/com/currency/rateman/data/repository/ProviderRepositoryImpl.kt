@@ -3,7 +3,7 @@ package com.currency.rateman.data.repository
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.ProviderDao
 import com.currency.rateman.data.model.Provider
-import com.currency.rateman.api.RateProviderConverter
+import com.currency.rateman.api.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.RateProviderAPI
@@ -20,7 +20,7 @@ class ProviderRepositoryImpl (
         return providerDao.getAllProviders().map { providerEntities ->
             providerEntities.map { entity ->
                 val rates = currencyRateDao.getRatesForProvider(entity.id).first()
-                RateProviderConverter.toRateProvider(entity, rates)
+                ProviderConverter.toRateProvider(entity, rates)
             }
         }
     }
@@ -28,7 +28,7 @@ class ProviderRepositoryImpl (
     override suspend fun getProviderById(id: Long): Provider? {
         val entity = providerDao.getProviderById(id) ?: return null
         val rates = currencyRateDao.getRatesForProvider(id).first()
-        return RateProviderConverter.toRateProvider(entity, rates)
+        return ProviderConverter.toRateProvider(entity, rates)
     }
 
     override suspend fun insertProvider(provider: Provider): Long {
@@ -54,12 +54,12 @@ class ProviderRepositoryImpl (
 
     override suspend fun insertApiProviders(apiProviders: List<RateProviderAPI>) {
         val providerEntities = apiProviders.map { apiProvider ->
-            RateProviderConverter.toRateProviderEntity(apiProvider)
+            ProviderConverter.toRateProviderEntity(apiProvider)
         }
         val providerIds = providerDao.insertAllProvidersAndReturnIds(providerEntities)
 
         val ratesToInsert = apiProviders.flatMapIndexed { index, apiProvider ->
-            RateProviderConverter.toCurrencyRateEntities(apiProvider, providerIds[index])
+            ProviderConverter.toCurrencyRateEntities(apiProvider, providerIds[index])
         }
         currencyRateDao.insertAllRates(ratesToInsert)
     }

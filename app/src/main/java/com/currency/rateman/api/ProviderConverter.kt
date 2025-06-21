@@ -10,7 +10,7 @@ import com.currency.rateman.data.model.Provider
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-object RateProviderConverter {
+object ProviderConverter {
 
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
