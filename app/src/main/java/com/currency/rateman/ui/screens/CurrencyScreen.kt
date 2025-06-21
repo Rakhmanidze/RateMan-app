@@ -35,7 +35,7 @@ import com.currency.rateman.R
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
-import com.currency.rateman.ui.viewmodels.CurrencySelectionViewModel
+import com.currency.rateman.ui.viewmodels.CurrencyViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -45,7 +45,7 @@ fun CurrencyScreen(
     selectedCurrency: CurrencyCode?,
     prevRoute : String
 ) {
-    val viewModel: CurrencySelectionViewModel = koinViewModel()
+    val viewModel: CurrencyViewModel = koinViewModel()
     val searchCurrency by viewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by viewModel.filteredCurrencies.collectAsState()
 

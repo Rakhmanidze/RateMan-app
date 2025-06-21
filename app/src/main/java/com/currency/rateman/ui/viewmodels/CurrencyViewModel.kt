@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-class CurrencySelectionViewModel : ViewModel() {
+class CurrencyViewModel : ViewModel() {
 
     private val _currencySearchQuery = MutableStateFlow("")
     val currencySearchQuery: StateFlow<String> = _currencySearchQuery.asStateFlow()
