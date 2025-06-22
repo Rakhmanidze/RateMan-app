@@ -32,4 +32,4 @@ class MainActivity : ComponentActivity() {
         val updatedContext = LanguageManager.wrapContextWithSavedLanguage(newBase)
         super.attachBaseContext(updatedContext)
     }
-} //tmp check email
+}
