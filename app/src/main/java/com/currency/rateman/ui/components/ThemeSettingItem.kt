@@ -43,7 +43,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                 Icon(
                     painter = painterResource(id = iconRes),
                     contentDescription = label,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                    tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                         .size(24.dp)
                         .padding(end = 8.dp)
