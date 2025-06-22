@@ -12,7 +12,6 @@ import com.currency.rateman.utils.LanguageManager
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
