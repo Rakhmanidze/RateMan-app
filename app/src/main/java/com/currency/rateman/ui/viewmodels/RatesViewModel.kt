@@ -63,7 +63,7 @@ class RatesViewModel(
                 RateSortType.BEST_BUY -> filteredProviders.sortedByDescending { provider ->
                     provider.rates.firstOrNull { it.foreignCurrency == filter.selectedCurrency }?.buyRate?: Double.NEGATIVE_INFINITY
                 }
-                RateSortType.BEST_RATE ->  filteredProviders
+                RateSortType.BEST_RATE ->  filteredProviders.sortedBy { it.name }
             }
         }
 
