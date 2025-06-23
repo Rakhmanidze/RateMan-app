@@ -88,7 +88,7 @@ fun SettingsScreen(
                         viewModel.updateTheme(theme)
                     },
                     modifier = Modifier.padding(top = 8.dp),
-                    iconRes = R.drawable.theme
+                    iconRes = R.drawable.ic_theme
                 )
 
                 CurrencySettingItem(
