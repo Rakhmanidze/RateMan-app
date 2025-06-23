@@ -38,7 +38,7 @@ fun MainAppRouter(navController: NavHostController) {
         listOf(
             BottomNavItem(
                 route = Routes.Rates.route,
-                iconRes = R.drawable.rates,
+                iconRes = R.drawable.ic_rates,
                 contentDescription = "Currency rates",
                 onClick = {
                     navigateToBottomNavItem(navController, Routes.Rates.route)
