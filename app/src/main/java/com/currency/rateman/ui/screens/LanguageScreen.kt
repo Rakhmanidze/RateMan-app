@@ -95,7 +95,7 @@ fun LanguageScreen(
                         )
                         if (language == settings?.uiLanguage) {
                             Icon(
-                                painter = painterResource(id = R.drawable.select),
+                                painter = painterResource(id = R.drawable.ic_select),
                                 contentDescription = "Selected",
                                 modifier = Modifier.size(24.dp)
                             )

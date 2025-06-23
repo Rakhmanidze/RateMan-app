@@ -123,7 +123,7 @@ fun CurrencyScreen(
                             }
                             if (currency == selectedCurrency) {
                                 Icon(
-                                    painter = painterResource(id = R.drawable.select),
+                                    painter = painterResource(id = R.drawable.ic_select),
                                     contentDescription = "Selected",
                                     modifier = Modifier.size(24.dp)
                                 )
