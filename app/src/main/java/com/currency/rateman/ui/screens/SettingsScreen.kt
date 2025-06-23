@@ -76,7 +76,7 @@ fun SettingsScreen(
                     label = stringResource(id = R.string.app_language),
                     value = locale.getDisplayName(locale)
                         .replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() },
-                    iconRes = R.drawable.language,
+                    iconRes = R.drawable.ic_language,
                     navController = navController
                 )
 
