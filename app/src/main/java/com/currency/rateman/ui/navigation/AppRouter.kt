@@ -46,7 +46,7 @@ fun MainAppRouter(navController: NavHostController) {
             ),
             BottomNavItem(
                 route = Routes.Settings.route,
-                iconRes = R.drawable.settings,
+                iconRes = R.drawable.ic_settings,
                 contentDescription = "User profile",
                 onClick = {
                     navigateToBottomNavItem(navController, Routes.Settings.route)
