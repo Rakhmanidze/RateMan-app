@@ -63,7 +63,8 @@ fun ProvidersList(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = "${stringResource(id = R.string.buy)} / ${stringResource(id = R.string.sell)}",                    style = MaterialTheme.typography.labelMedium,
+                    text = "${stringResource(id = R.string.buy)} / ${stringResource(id = R.string.sell)}",
+                    style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
