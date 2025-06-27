@@ -23,14 +23,12 @@ import com.currency.rateman.data.db.entity.SettingsEntity
     version = 1
 )
 abstract class RateManDatabase : RoomDatabase() {
-
     abstract  fun providerDao(): ProviderDao
     abstract fun currencyRateDao(): CurrencyRateDao
     abstract fun settingsDao(): SettingsDao
     abstract fun filterDao(): FilterDao
 
     companion object {
-
         @Volatile
         private var INSTANCE: RateManDatabase? = null
 
