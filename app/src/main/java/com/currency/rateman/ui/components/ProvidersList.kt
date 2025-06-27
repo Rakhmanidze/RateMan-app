@@ -19,8 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Provider
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
@@ -32,8 +30,6 @@ fun ProvidersList(
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
-    var selectedProvider by remember { mutableStateOf<Provider?>(null) }
-
     if (providers.isEmpty()) {
         Box(
             modifier = Modifier
