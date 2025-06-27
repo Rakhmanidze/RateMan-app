@@ -13,7 +13,6 @@ class RateFetchWorker(
     context: Context,
     params: WorkerParameters
 ) : CoroutineWorker(context, params), KoinComponent {
-
     private val providerRepository: ProviderRepository by inject()
 
     override suspend fun doWork(): Result {

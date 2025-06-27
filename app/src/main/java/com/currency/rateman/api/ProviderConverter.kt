@@ -11,7 +11,6 @@ import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 object ProviderConverter {
-
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
 
     fun toProviderEntity(api: ProviderAPI): ProviderEntity {
