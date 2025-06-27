@@ -29,7 +29,7 @@ object ThemeManager {
     fun setAppTheme(theme: ThemeMode) {
         val nightMode = when (theme) {
             ThemeMode.DARK -> AppCompatDelegate.MODE_NIGHT_YES
-            else -> AppCompatDelegate.MODE_NIGHT_NO
+            ThemeMode.LIGHT -> AppCompatDelegate.MODE_NIGHT_NO
         }
         AppCompatDelegate.setDefaultNightMode(nightMode)
     }
