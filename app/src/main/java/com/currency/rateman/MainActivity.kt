@@ -5,14 +5,18 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.lifecycle.lifecycleScope
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
 import com.currency.rateman.utils.LanguageManager
 import com.currency.rateman.utils.ThemeManager
+import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.initTheme(this)
+        lifecycleScope.launch {
+            ThemeManager.initTheme(this@MainActivity)
+        }
         LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,7 +30,9 @@ class MainActivity : ComponentActivity() {
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
         LanguageManager.initLanguage(this)
-        ThemeManager.initTheme(this)
+        lifecycleScope.launch {
+            ThemeManager.initTheme(this@MainActivity)
+        }
     }
 
     override fun attachBaseContext(newBase: Context) {

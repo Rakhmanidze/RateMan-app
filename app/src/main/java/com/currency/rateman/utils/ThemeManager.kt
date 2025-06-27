@@ -7,7 +7,6 @@ import com.currency.rateman.data.model.enums.ThemeMode
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.data.repository.SettingsRepositoryImpl
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
 
 object ThemeManager {
     private fun getSettingsRepository(context: Context): SettingsRepository {
@@ -18,11 +17,9 @@ object ThemeManager {
         return getSettingsRepository(context).getSettings().first().themeMode
     }
 
-    fun initTheme(context: Context) {
-        runBlocking {
+    suspend fun initTheme(context: Context) {
             val savedTheme = getSavedTheme(context)
             setAppTheme(savedTheme)
-        }
     }
 
     fun setAppTheme(theme: ThemeMode) {
