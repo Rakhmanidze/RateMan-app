@@ -10,7 +10,6 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 
 object ThemeManager {
-
     private fun getSettingsRepository(context: Context): SettingsRepository {
         return SettingsRepositoryImpl(RateManDatabase.getDatabase(context).settingsDao())
     }

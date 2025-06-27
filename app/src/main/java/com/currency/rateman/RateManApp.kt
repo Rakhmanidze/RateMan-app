@@ -15,7 +15,6 @@ import com.currency.rateman.di.AppContainer
 import java.util.concurrent.TimeUnit
 
 class RateManApp: Application(), KoinComponent {
-
     override fun onCreate() {
         super.onCreate()
         AppContainer.init(applicationContext)

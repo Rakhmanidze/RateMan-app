@@ -1,7 +1,6 @@
 package com.currency.rateman.utils
 
 object ProviderConstants {
-
     val EXCLUDED_PROVIDERS = listOf(
         "Turecká centrální banka",
         "Poštovní spořitelna",

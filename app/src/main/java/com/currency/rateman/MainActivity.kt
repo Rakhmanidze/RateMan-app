@@ -11,7 +11,6 @@ import com.currency.rateman.utils.LanguageManager
 import com.currency.rateman.utils.ThemeManager
 
 class MainActivity : ComponentActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.initTheme(this)
         LanguageManager.initLanguage(this)
