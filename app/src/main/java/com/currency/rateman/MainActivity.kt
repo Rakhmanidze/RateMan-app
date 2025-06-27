@@ -8,10 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import com.currency.rateman.ui.navigation.AppRouter
 import com.currency.rateman.ui.theme.RateManAppTheme
 import com.currency.rateman.utils.LanguageManager
+import com.currency.rateman.utils.ThemeManager
 
 class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeManager.initTheme(this)
         LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -25,6 +27,7 @@ class MainActivity : ComponentActivity() {
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
         LanguageManager.initLanguage(this)
+        ThemeManager.initTheme(this)
     }
 
     override fun attachBaseContext(newBase: Context) {

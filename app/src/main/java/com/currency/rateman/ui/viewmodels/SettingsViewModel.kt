@@ -9,6 +9,7 @@ import com.currency.rateman.data.model.enums.LanguageCode
 import com.currency.rateman.data.model.enums.ThemeMode
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.utils.LanguageManager
+import com.currency.rateman.utils.ThemeManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -38,6 +39,7 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     fun updateTheme(newTheme: ThemeMode) {
         viewModelScope.launch {
             repository.editSettings(themeMode = newTheme)
+            ThemeManager.setAppTheme(newTheme)
         }
     }
 

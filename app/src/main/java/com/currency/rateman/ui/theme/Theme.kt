@@ -39,12 +39,11 @@ fun RateManAppTheme(
     val viewModel: SettingsViewModel = koinViewModel()
     val settings by viewModel.settings.collectAsState()
 
-    val darkTheme = when (settings?.themeMode) {
-        ThemeMode.DARK -> true
-        else -> false
+    val colorScheme = when (settings?.themeMode) {
+        ThemeMode.DARK -> DarkColorScheme
+        ThemeMode.LIGHT -> LightColorScheme
+        null -> DarkColorScheme
     }
-
-    val colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme
 
     MaterialTheme(
         colorScheme = colorScheme,
