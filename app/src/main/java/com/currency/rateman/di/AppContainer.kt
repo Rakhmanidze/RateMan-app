@@ -4,7 +4,6 @@ import android.content.Context
 import com.currency.rateman.data.db.RateManDatabase
 
 object AppContainer {
-
     lateinit var rateManDatabase : RateManDatabase
         private set
 
