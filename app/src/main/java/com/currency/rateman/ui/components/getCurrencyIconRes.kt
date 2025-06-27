@@ -6,7 +6,6 @@ import com.currency.rateman.R
 
 @DrawableRes
 fun getCurrencyIconRes(currency: CurrencyCode): Int {
-
     val specialCases = mapOf(
         CurrencyCode.TRY to R.drawable.tryy
     )

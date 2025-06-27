@@ -22,7 +22,6 @@ class RatesViewModel(
     private val providerRepository: ProviderRepository,
     private val filterRepository: FilterRepository
 ) : ViewModel() {
-
     private val allProviders = providerRepository.getAllProviders()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
