@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first
 
 class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRepository {
-
     override fun getSettings(): Flow<Settings> {
         return settingsDao.getSettings().map { entity ->
             entity?.toSettings() ?: getDefaultSettings()

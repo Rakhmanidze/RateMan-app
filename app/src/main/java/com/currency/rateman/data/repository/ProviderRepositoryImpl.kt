@@ -15,7 +15,6 @@ class ProviderRepositoryImpl (
     private val providerDao: ProviderDao,
     private val currencyRateDao: CurrencyRateDao
 ) : ProviderRepository {
-
     override fun getAllProviders(): Flow<List<Provider>> {
         return providerDao.getAllProviders().map { providerEntities ->
             providerEntities.map { entity ->

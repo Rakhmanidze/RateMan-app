@@ -7,7 +7,6 @@ import com.currency.rateman.data.model.enums.ThemeMode
 import kotlinx.coroutines.flow.Flow
 
 interface SettingsRepository {
-
     fun getSettings(): Flow<Settings>
 
     suspend fun editSettings(

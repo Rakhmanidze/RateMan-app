@@ -5,7 +5,6 @@ import com.currency.rateman.data.model.Provider
 import kotlinx.coroutines.flow.Flow
 
 interface ProviderRepository {
-
     fun getAllProviders() : Flow<List<Provider>>
 
     suspend fun getProviderById(id: Long) : Provider?

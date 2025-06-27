@@ -12,7 +12,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first
 
 class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository {
-
     override fun getFilter(): Flow<Filter> {
         return filterDao.getFilter().map { entity ->
             entity?.toFilter() ?: getDefaultFilter()
