@@ -15,3 +15,7 @@ sealed class Routes (val route: String) {
     @Serializable
     data object Currency : Routes("currency")
 }
+
+//TODO:Rename default currency to base currency to more clear name.
+// after it version of db increase by 1TODO: rename all default to
+// base in all languages which i have
