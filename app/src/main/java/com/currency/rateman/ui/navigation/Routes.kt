@@ -22,8 +22,6 @@ sealed class Routes (val route: String) {
 // after it version of db increase by 1TODO: rename all default to
 // base in all languages which i have
 
-//TODO: Rename CurrencyScreen to TargetCurrency and variable currency to targetCurrency
-
 //TODO: in base currency screen have title saying choose base currency and in targetcurrency
 // screen say choose target or something instead of target but not just choose currency
 
