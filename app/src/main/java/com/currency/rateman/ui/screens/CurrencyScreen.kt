@@ -32,22 +32,26 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
-import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel
+import com.currency.rateman.ui.viewmodels.RatesViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CurrencyScreen(
     navController: NavHostController,
-    onCurrencySelected: (CurrencyCode) -> Unit,
-    selectedCurrency: CurrencyCode?,
-    prevRoute : String
 ) {
+    val ratesViewModel: RatesViewModel = navController
+        .currentBackStackEntry
+        ?.sharedKoinNavViewModel(navController)
+        ?: return
+
     val viewModel: CurrencyViewModel = koinViewModel()
     val searchCurrency by viewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by viewModel.filteredCurrencies.collectAsState()
+    val filter by ratesViewModel.filter.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -67,7 +71,7 @@ fun CurrencyScreen(
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
                         .size(32.dp)
-                        .clickable { navController.navigate(prevRoute) }
+                        .clickable { navController.popBackStack() }
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
@@ -103,8 +107,8 @@ fun CurrencyScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    onCurrencySelected(currency)
-                                    navController.navigate(prevRoute)
+                                    ratesViewModel.updateCurrency(currency)
+                                    navController.popBackStack()
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
@@ -121,7 +125,7 @@ fun CurrencyScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            if (currency == selectedCurrency) {
+                            if (currency == filter?.selectedCurrency) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_select),
                                     contentDescription = "Selected",

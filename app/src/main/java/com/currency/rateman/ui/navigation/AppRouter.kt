@@ -124,43 +124,48 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Currency.route) {
-            val prevRoute = navController.previousBackStackEntry?.destination?.route
-
-            when (prevRoute) {
-                Routes.Settings.route -> {
-                    val vm: SettingsViewModel = navController
-                        .currentBackStackEntry
-                        ?.sharedKoinNavViewModel(navController)
-                        ?: return@composable
-                    val settingsState = vm.settings.collectAsState()
-                    val settings = settingsState.value
-                    CurrencyScreen(
-                        navController = navController,
-                        onCurrencySelected = { currency ->
-                           vm.updateCurrency(currency)
-                        },
-                        selectedCurrency = settings?.defaultCurrency,
-                        prevRoute = prevRoute
-                    )
-                }
-                Routes.Rates.route -> {
-                    val vm: RatesViewModel = navController
-                        .currentBackStackEntry
-                        ?.sharedKoinNavViewModel(navController)
-                        ?: return@composable
-                    val filterState = vm.filter.collectAsState()
-                    val filter = filterState.value
-                    CurrencyScreen(
-                        navController = navController,
-                        onCurrencySelected = { currency ->
-                            vm.updateCurrency(currency)
-                        },
-                        selectedCurrency = filter?.selectedCurrency,
-                        prevRoute = prevRoute
-                    )
-                }
-            }
+            CurrencyScreen(
+                navController = navController
+            )
         }
+//        composable(Routes.Currency.route) {
+//            val prevRoute = navController.previousBackStackEntry?.destination?.route
+//
+//            when (prevRoute) {
+//                Routes.Settings.route -> {
+//                    val vm: SettingsViewModel = navController
+//                        .currentBackStackEntry
+//                        ?.sharedKoinNavViewModel(navController)
+//                        ?: return@composable
+//                    val settingsState = vm.settings.collectAsState()
+//                    val settings = settingsState.value
+//                    CurrencyScreen(
+//                        navController = navController,
+//                        onCurrencySelected = { currency ->
+//                           vm.updateCurrency(currency)
+//                        },
+//                        selectedCurrency = settings?.defaultCurrency,
+//                        prevRoute = prevRoute
+//                    )
+//                }
+//                Routes.Rates.route -> {
+//                    val vm: RatesViewModel = navController
+//                        .currentBackStackEntry
+//                        ?.sharedKoinNavViewModel(navController)
+//                        ?: return@composable
+//                    val filterState = vm.filter.collectAsState()
+//                    val filter = filterState.value
+//                    CurrencyScreen(
+//                        navController = navController,
+//                        onCurrencySelected = { currency ->
+//                            vm.updateCurrency(currency)
+//                        },
+//                        selectedCurrency = filter?.selectedCurrency,
+//                        prevRoute = prevRoute
+//                    )
+//                }
+//            }
+//        }
     }
 }
 
