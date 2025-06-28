@@ -13,7 +13,7 @@ sealed class Routes (val route: String) {
     @Serializable
     data object Language : Routes("language")
     @Serializable
-    data object Currency : Routes("currency")
+    data object TargetCurrency : Routes("targetCurrency")
     @Serializable
     data object BaseCurrency : Routes("baseCurrency")
 }

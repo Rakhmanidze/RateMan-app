@@ -125,7 +125,7 @@ fun SearchAndFilterHeader(
 
             Box {
                 OutlinedButton(
-                    onClick = { navController.navigate(Routes.Currency.route) },
+                    onClick = { navController.navigate(Routes.TargetCurrency.route) },
                     colors = ButtonDefaults.outlinedButtonColors(
                         containerColor = MaterialTheme.colorScheme.surface,
                         contentColor = MaterialTheme.colorScheme.onSurface

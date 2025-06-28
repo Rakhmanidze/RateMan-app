@@ -119,7 +119,7 @@ fun MainAppRouter(navController: NavHostController) {
                 navController = navController
             )
         }
-        composable(Routes.Currency.route) {
+        composable(Routes.TargetCurrency.route) {
             CurrencyScreen(
                 navController = navController
             )
