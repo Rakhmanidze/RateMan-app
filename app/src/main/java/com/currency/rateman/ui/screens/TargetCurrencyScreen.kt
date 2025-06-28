@@ -75,7 +75,7 @@ fun CurrencyScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = stringResource(R.string.select_base_currency),
+                    text = stringResource(R.string.select_target_currency),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
