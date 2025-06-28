@@ -15,7 +15,8 @@
     <string name="crypto_exchanges">Крипто обменниктер</string>
 
     <!-- Selection -->
-    <string name="select_currency">Валютаны тандаңыз</string>
+    <string name="select_base_currency">Валютаны тандаңыз (base)</string>
+    <string name="select_target_currency">Select receiving currency</string>
     <string name="find_currencies">Валюталарды табуу</string>
     <string name="buy">Сатып алуу</string>
     <string name="sell">Сатуу</string>
@@ -28,7 +29,6 @@
     <string name="settings">Жөндөөлөр</string>
     <string name="app_language">Колдонмо тили</string>
     <string name="theme">Тема</string>
-    <string name="target_currency">Target currency</string>
     <string name="base_currency">Негизги валюта</string>
 
     <!-- Theme Options -->

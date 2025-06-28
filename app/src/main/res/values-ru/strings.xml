@@ -16,7 +16,8 @@
     <string name="crypto_exchanges">Криптообменники</string>
 
     <!-- Selection -->
-    <string name="select_currency">Выбрать валюту</string>
+    <string name="select_base_currency">Выбрать валюту (base)</string>
+    <string name="select_target_currency">Select receiving currency</string>
     <string name="find_currencies">Найти валюты</string>
     <string name="buy">Покупка</string>
     <string name="sell">Продажа</string>
@@ -29,7 +30,6 @@
     <string name="settings">Настройки</string>
     <string name="app_language">Язык приложения</string>
     <string name="theme">Тема</string>
-    <string name="target_currency">Target currency</string>
     <string name="base_currency">Валюта по умолчанию</string>
 
     <!-- Theme Options -->

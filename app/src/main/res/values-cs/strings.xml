@@ -16,7 +16,8 @@
     <string name="crypto_exchanges">Krypto směnárny</string>
 
     <!-- Selection -->
-    <string name="select_currency">Vyberte měnu</string>
+    <string name="select_base_currency">Vyberte měnu (base)</string>
+    <string name="select_target_currency">Select receiving currency</string>
     <string name="find_currencies">Vyhledat měny</string>
     <string name="buy">Nákup</string>
     <string name="sell">Prodej</string>
@@ -29,7 +30,6 @@
     <string name="settings">Nastavení</string>
     <string name="app_language">Jazyk aplikace</string>
     <string name="theme">Vzhled</string>
-    <string name="target_currency">Target currency</string>
     <string name="base_currency">Výchozí měna</string>
 
     <!-- Theme Options -->
