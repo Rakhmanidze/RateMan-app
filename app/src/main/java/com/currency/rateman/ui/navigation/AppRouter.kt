@@ -16,11 +16,7 @@ import com.currency.rateman.ui.screens.ProviderDetailsScreen
 import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
-import androidx.compose.runtime.collectAsState
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.screens.BaseCurrencyScreen
-import com.currency.rateman.ui.viewmodels.RatesViewModel
-import com.currency.rateman.ui.viewmodels.SettingsViewModel
 
 @Composable
 fun AppRouter() {
@@ -128,44 +124,6 @@ fun MainAppRouter(navController: NavHostController) {
                 navController = navController
             )
         }
-//        composable(Routes.Currency.route) {
-//            val prevRoute = navController.previousBackStackEntry?.destination?.route
-//
-//            when (prevRoute) {
-//                Routes.Settings.route -> {
-//                    val vm: SettingsViewModel = navController
-//                        .currentBackStackEntry
-//                        ?.sharedKoinNavViewModel(navController)
-//                        ?: return@composable
-//                    val settingsState = vm.settings.collectAsState()
-//                    val settings = settingsState.value
-//                    CurrencyScreen(
-//                        navController = navController,
-//                        onCurrencySelected = { currency ->
-//                           vm.updateCurrency(currency)
-//                        },
-//                        selectedCurrency = settings?.defaultCurrency,
-//                        prevRoute = prevRoute
-//                    )
-//                }
-//                Routes.Rates.route -> {
-//                    val vm: RatesViewModel = navController
-//                        .currentBackStackEntry
-//                        ?.sharedKoinNavViewModel(navController)
-//                        ?: return@composable
-//                    val filterState = vm.filter.collectAsState()
-//                    val filter = filterState.value
-//                    CurrencyScreen(
-//                        navController = navController,
-//                        onCurrencySelected = { currency ->
-//                            vm.updateCurrency(currency)
-//                        },
-//                        selectedCurrency = filter?.selectedCurrency,
-//                        prevRoute = prevRoute
-//                    )
-//                }
-//            }
-//        }
     }
 }
 
