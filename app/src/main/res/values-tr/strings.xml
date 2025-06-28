@@ -28,7 +28,8 @@
     <string name="settings">Ayarlar</string>
     <string name="app_language">Uygulama dili</string>
     <string name="theme">Tema</string>
-    <string name="default_currency">Varsayılan para birimi</string>
+    <string name="target_currency">Target currency</string>
+    <string name="base_currency">Varsayılan para birimi</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Karanlık</string>

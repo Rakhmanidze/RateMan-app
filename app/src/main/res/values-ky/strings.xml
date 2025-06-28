@@ -28,7 +28,8 @@
     <string name="settings">Жөндөөлөр</string>
     <string name="app_language">Колдонмо тили</string>
     <string name="theme">Тема</string>
-    <string name="default_currency">Негизги валюта</string>
+    <string name="target_currency">Target currency</string>
+    <string name="base_currency">Негизги валюта</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Караңгы</string>

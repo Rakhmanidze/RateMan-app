@@ -28,7 +28,8 @@
     <string name="settings">Налаштування</string>
     <string name="app_language">Мова програми</string>
     <string name="theme">Тема</string>
-    <string name="default_currency">Валюта за замовчуванням</string>
+    <string name="target_currency">Target currency</string>
+    <string name="base_currency">Валюта за замовчуванням</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Темна</string>
