@@ -22,3 +22,5 @@ sealed class Routes (val route: String) {
 //TODO: rename selectedCurrency variable to targetCurrency in filter entity and class
 // after it version of db increase by 1TODO: rename all default to
 // base in all languages which i have
+
+//TODO:translate strings.xml select_target_currency and select_base_currency to all left languages
