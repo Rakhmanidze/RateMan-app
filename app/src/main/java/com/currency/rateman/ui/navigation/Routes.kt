@@ -14,6 +14,8 @@ sealed class Routes (val route: String) {
     data object Language : Routes("language")
     @Serializable
     data object Currency : Routes("currency")
+    @Serializable
+    data object BaseCurrency : Routes("baseCurrency")
 }
 
 //TODO:Rename default currency to base currency to more clear name.
@@ -22,4 +24,5 @@ sealed class Routes (val route: String) {
 
 //TODO: Rename CurrencyScreen to TargetCurrency and variable currency to targetCurrency
 
-//TODO: in base currency screen have title saying choose base currency and in targetcurrency screen say choose target or something instead of target but not just choose currency
+//TODO: in base currency screen have title saying choose base currency and in targetcurrency
+// screen say choose target or something instead of target but not just choose currency

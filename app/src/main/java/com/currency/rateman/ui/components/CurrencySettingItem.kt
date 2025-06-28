@@ -33,7 +33,7 @@ fun CurrencySettingItem(
                 MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { navController.navigate(Routes.Currency.route) }
+            .clickable { navController.navigate(Routes.BaseCurrency.route) }
             .padding(12.dp)
     ) {
         Row(

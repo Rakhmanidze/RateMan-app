@@ -18,6 +18,7 @@ import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
 import androidx.compose.runtime.collectAsState
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.ui.screens.BaseCurrencyScreen
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 
@@ -114,6 +115,11 @@ fun MainAppRouter(navController: NavHostController) {
         }
         composable(Routes.Language.route) {
             LanguageScreen(
+                navController = navController
+            )
+        }
+        composable(Routes.BaseCurrency.route) {
+            BaseCurrencyScreen(
                 navController = navController
             )
         }
