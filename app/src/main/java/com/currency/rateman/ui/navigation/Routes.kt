@@ -27,6 +27,4 @@ sealed class Routes (val route: String) {
 //TODO: in base currency screen have title saying choose base currency and in targetcurrency
 // screen say choose target or something instead of target but not just choose currency
 
-//TODO: rename in currency screen and base view model to currencyviewmodel variable
-
 //TODO: rename selectedCurrency variable to targetCurrency in filter entity and class

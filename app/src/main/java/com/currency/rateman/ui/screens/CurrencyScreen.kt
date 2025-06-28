@@ -48,9 +48,9 @@ fun CurrencyScreen(
         ?.sharedKoinNavViewModel(navController)
         ?: return
 
-    val viewModel: CurrencyViewModel = koinViewModel()
-    val searchCurrency by viewModel.currencySearchQuery.collectAsState()
-    val filteredCurrencies by viewModel.filteredCurrencies.collectAsState()
+    val currencyViewModel: CurrencyViewModel = koinViewModel()
+    val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
+    val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
     val filter by ratesViewModel.filter.collectAsState()
 
     Scaffold { paddingValues ->
@@ -84,7 +84,7 @@ fun CurrencyScreen(
 
             SearchInput(
                 value = searchCurrency,
-                onValueChange = { viewModel.updateCurrencySearchQuery(it) },
+                onValueChange = { currencyViewModel.updateCurrencySearchQuery(it) },
                 placeholderResId = R.string.find_currencies,
                 modifier = Modifier.fillMaxWidth(),
             )
