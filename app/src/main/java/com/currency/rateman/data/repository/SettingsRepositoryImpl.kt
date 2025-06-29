@@ -26,7 +26,7 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         ensureSettingsExist()
         val current = settingsDao.getSettings().first() ?: return
         settingsDao.updateSettings(current.copy(
-            defaultCurrency = currencyCode?.name ?: current.defaultCurrency,
+            baseCurrency = currencyCode?.name ?: current.baseCurrency,
             uiLanguage = languageCode?.name ?: current.uiLanguage,
             themeMode = themeMode?.name ?: current.themeMode
         ))

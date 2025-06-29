@@ -10,7 +10,7 @@ import com.currency.rateman.data.model.enums.ThemeMode
 data class SettingsEntity(
     @PrimaryKey
     val id: Long = 0,
-    val defaultCurrency: String = CurrencyCode.EUR.name,
+    val baseCurrency: String = CurrencyCode.EUR.name,
     val uiLanguage: String = LanguageCode.EN.name,
     val themeMode: String = ThemeMode.DARK.name,
 )
