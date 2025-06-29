@@ -28,7 +28,7 @@
 
     <!-- Settings -->
     <string name="settings">Nastavení</string>
-    <string name="app_language">Jazyk aplikace</string>
+    <string name="app_language">Vyberte jazyk aplikace</string>
     <string name="theme">Vzhled</string>
     <string name="base_currency">Hlavní měna</string>
 
