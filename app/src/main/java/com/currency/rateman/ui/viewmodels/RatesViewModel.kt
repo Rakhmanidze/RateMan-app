@@ -103,7 +103,7 @@ class RatesViewModel(
         }
     }
 
-    private fun saveFilter() {а
+    private fun saveFilter() {
         viewModelScope.launch {
             val currentFilter = _filter.value ?: Filter(
                 selectedProviderType = ProviderType.ALL,
