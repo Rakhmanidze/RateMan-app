@@ -66,7 +66,7 @@ fun LanguageScreen(
                         .clickable { navController.popBackStack() }
                 )
                 Text(
-                    text = stringResource(R.string.app_language),
+                    text = stringResource(R.string.select_app_language),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
