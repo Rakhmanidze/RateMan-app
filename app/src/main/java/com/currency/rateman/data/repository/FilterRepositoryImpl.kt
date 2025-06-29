@@ -28,7 +28,7 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
         val current = filterDao.getFilter().first() ?: return
         filterDao.updateFilter(current.copy(
             selectedProviderType = selectedProviderType?.name ?: current.selectedProviderType,
-            selectedCurrency = selectedCurrency?.name ?: current.selectedCurrency,
+            targetCurrency = selectedCurrency?.name ?: current.targetCurrency,
             selectedRateSortType = selectedRateSortType?.name ?: current.selectedRateSortType
         ))
     }
@@ -42,7 +42,7 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
     private fun getDefaultFilter(): Filter {
         return Filter(
             selectedProviderType = ProviderType.ALL,
-            selectedCurrency = CurrencyCode.EUR,
+            targetCurrency = CurrencyCode.EUR,
             selectedRateSortType = RateSortType.BEST_RATE
         )
     }

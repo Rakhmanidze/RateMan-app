@@ -51,16 +51,16 @@ class RatesViewModel(
                 ProviderType.CRYPTO_EXCHANGE -> filteredProviders.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
             }
         }
-        if (filter?.selectedCurrency != null) {
+        if (filter?.targetCurrency != null) {
             filteredProviders = filteredProviders.filter { provider ->
-                provider.rates.any { rate -> rate.foreignCurrency == filter.selectedCurrency }
+                provider.rates.any { rate -> rate.foreignCurrency == filter.targetCurrency }
             }
             filteredProviders = when (filter.selectedRateSortType) {
                 RateSortType.BEST_SELL -> filteredProviders.sortedBy { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.selectedCurrency }?.sellRate ?: Double.POSITIVE_INFINITY
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate ?: Double.POSITIVE_INFINITY
                 }
                 RateSortType.BEST_BUY -> filteredProviders.sortedByDescending { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.selectedCurrency }?.buyRate?: Double.NEGATIVE_INFINITY
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate?: Double.NEGATIVE_INFINITY
                 }
                 RateSortType.BEST_RATE ->  filteredProviders.sortedBy { it.name }
             }
@@ -91,7 +91,7 @@ class RatesViewModel(
 
     fun updateCurrency(newCurrency: CurrencyCode) {
         _filter.value?.let { current ->
-            _filter.value = current.copy(selectedCurrency = newCurrency)
+            _filter.value = current.copy(targetCurrency = newCurrency)
             saveFilter()
         }
     }
@@ -107,12 +107,12 @@ class RatesViewModel(
         viewModelScope.launch {
             val currentFilter = _filter.value ?: Filter(
                 selectedProviderType = ProviderType.ALL,
-                selectedCurrency = CurrencyCode.EUR,
+                targetCurrency = CurrencyCode.EUR,
                 selectedRateSortType = RateSortType.BEST_RATE
             )
             filterRepository.editFilters(
                 selectedProviderType = currentFilter.selectedProviderType,
-                selectedCurrency = currentFilter.selectedCurrency,
+                selectedCurrency = currentFilter.targetCurrency,
                 selectedRateSortType = currentFilter.selectedRateSortType
             )
         }

@@ -125,7 +125,7 @@ fun CurrencyScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            if (currency == filter?.selectedCurrency) {
+                            if (currency == filter?.targetCurrency) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_select),
                                     contentDescription = "Selected",

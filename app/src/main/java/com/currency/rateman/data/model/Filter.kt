@@ -11,6 +11,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Filter(
     val selectedProviderType: ProviderType,
-    val selectedCurrency: CurrencyCode,
+    val targetCurrency: CurrencyCode,
     val selectedRateSortType: RateSortType
 ) : Parcelable

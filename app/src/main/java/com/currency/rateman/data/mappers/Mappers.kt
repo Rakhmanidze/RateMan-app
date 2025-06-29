@@ -31,7 +31,7 @@ fun Filter.toEntity() : FilterEntity {
     return FilterEntity(
         id = 0,
         selectedProviderType = selectedProviderType.name,
-        selectedCurrency = selectedCurrency.name,
+        targetCurrency = targetCurrency.name,
         selectedRateSortType = selectedRateSortType.name
     )
 }
@@ -39,7 +39,7 @@ fun Filter.toEntity() : FilterEntity {
 fun FilterEntity.toFilter() : Filter {
     return Filter(
         selectedProviderType = ProviderType.valueOf(selectedProviderType),
-        selectedCurrency = CurrencyCode.valueOf(selectedCurrency),
+        targetCurrency = CurrencyCode.valueOf(targetCurrency),
         selectedRateSortType = RateSortType.valueOf(selectedRateSortType)
     )
 }

@@ -11,6 +11,6 @@ data class FilterEntity(
     @PrimaryKey
     val id: Long = 0,
     val selectedProviderType: String = ProviderType.ALL.name,
-    val selectedCurrency: String = CurrencyCode.EUR.name,
+    val targetCurrency: String = CurrencyCode.EUR.name,
     val selectedRateSortType: String = RateSortType.BEST_RATE.name
 )
