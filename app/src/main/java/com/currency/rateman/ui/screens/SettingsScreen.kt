@@ -93,7 +93,7 @@ fun SettingsScreen(
 
                 CurrencySettingItem(
                     label = stringResource(id = R.string.base_currency),
-                    value = settings!!.defaultCurrency.name,
+                    value = settings!!.baseCurrency.name,
                     modifier = Modifier.padding(top = 8.dp),
                     iconRes = R.drawable.ic_currency,
                     navController = navController

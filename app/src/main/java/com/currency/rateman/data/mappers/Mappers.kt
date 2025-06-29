@@ -13,7 +13,7 @@ import com.currency.rateman.data.model.enums.ThemeMode
 fun Settings.toEntity() : SettingsEntity {
     return SettingsEntity(
         id = 0,
-        defaultCurrency = defaultCurrency.name,
+        defaultCurrency = baseCurrency.name,
         uiLanguage = uiLanguage.name,
         themeMode = themeMode.name
     )
@@ -21,7 +21,7 @@ fun Settings.toEntity() : SettingsEntity {
 
 fun SettingsEntity.toSettings() : Settings {
     return Settings(
-        defaultCurrency = CurrencyCode.valueOf(defaultCurrency),
+        baseCurrency = CurrencyCode.valueOf(defaultCurrency),
         uiLanguage = LanguageCode.valueOf(uiLanguage),
         themeMode = ThemeMode.valueOf(themeMode)
     )

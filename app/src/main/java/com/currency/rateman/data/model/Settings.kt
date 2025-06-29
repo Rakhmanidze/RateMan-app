@@ -10,7 +10,7 @@ import kotlinx.serialization.Serializable
 @Parcelize
 @Serializable
 data class Settings(
-    val defaultCurrency: CurrencyCode,
+    val baseCurrency: CurrencyCode,
     val uiLanguage: LanguageCode,
     val themeMode: ThemeMode
 ) : Parcelable

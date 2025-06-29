@@ -125,7 +125,7 @@ fun BaseCurrencyScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            if (currency == settings?.defaultCurrency) {
+                            if (currency == settings?.baseCurrency) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_select),
                                     contentDescription = "Selected",

@@ -40,7 +40,7 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
 
     private fun getDefaultSettings(): Settings {
         return Settings(
-            defaultCurrency = CurrencyCode.DKK,
+            baseCurrency = CurrencyCode.DKK,
             uiLanguage = LanguageCode.EN,
             themeMode = ThemeMode.DARK
         )
