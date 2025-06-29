@@ -27,7 +27,7 @@
 
     <!-- Settings -->
     <string name="settings">Налаштування</string>
-    <string name="app_language">Мова програми</string>
+    <string name="app_language">Виберіть мову програми</string>
     <string name="theme">Тема</string>
     <string name="base_currency">Основна валюта</string>
 
