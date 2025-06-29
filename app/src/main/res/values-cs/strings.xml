@@ -16,8 +16,8 @@
     <string name="crypto_exchanges">Krypto směnárny</string>
 
     <!-- Selection -->
-    <string name="select_base_currency">Vyberte měnu (base)</string>
-    <string name="select_target_currency">Select receiving currency</string>
+    <string name="select_base_currency">Vyberte hlavní měnu</string>
+    <string name="select_target_currency">Vyberte cílovou měnu</string>
     <string name="find_currencies">Vyhledat měny</string>
     <string name="buy">Nákup</string>
     <string name="sell">Prodej</string>

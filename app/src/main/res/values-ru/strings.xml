@@ -16,8 +16,8 @@
     <string name="crypto_exchanges">Криптообменники</string>
 
     <!-- Selection -->
-    <string name="select_base_currency">Выбрать валюту (base)</string>
-    <string name="select_target_currency">Select receiving currency</string>
+    <string name="select_base_currency">Выбрать основную валюту</string>
+    <string name="select_target_currency">Выбрать валюту получения</string>
     <string name="find_currencies">Найти валюты</string>
     <string name="buy">Покупка</string>
     <string name="sell">Продажа</string>
