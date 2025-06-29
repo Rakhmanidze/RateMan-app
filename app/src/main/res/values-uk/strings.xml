@@ -17,7 +17,7 @@
     <!-- Selection -->
     <string name="select_base_currency">Виберіть основну валюту</string>
     <string name="select_target_currency">Виберіть валюту отримання</string>
-    <string name="select_app_language">Select app language</string>
+    <string name="select_app_language">Виберіть мову програми</string>
     <string name="find_currencies">Знайти валюти</string>
     <string name="buy">Купити</string>
     <string name="sell">Продати</string>
@@ -28,7 +28,7 @@
 
     <!-- Settings -->
     <string name="settings">Налаштування</string>
-    <string name="app_language">Виберіть мову програми</string>
+    <string name="app_language">Мова програми</string>
     <string name="theme">Тема</string>
     <string name="base_currency">Основна валюта</string>
 
