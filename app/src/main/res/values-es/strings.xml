@@ -16,8 +16,8 @@
     <string name="crypto_exchanges">Criptocasas</string>
 
     <!-- Selection -->
-    <string name="select_base_currency">Seleccionar moneda principal</string>
-    <string name="select_target_currency">Seleccionar moneda de destino</string>
+    <string name="select_base_currency">Seleccione la moneda principal</string>
+    <string name="select_target_currency">Seleccione la moneda de destino</string>
     <string name="find_currencies">Buscar monedas</string>
     <string name="buy">Compra</string>
     <string name="sell">Venta</string>
