@@ -15,8 +15,8 @@
     <string name="crypto_exchanges">Kripto borsaları</string>
 
     <!-- Selection -->
-    <string name="select_base_currency">Para birimi seç (base)</string>
-    <string name="select_target_currency">Select receiving currency</string>
+    <string name="select_base_currency">Ana para birimini seçin</string>
+    <string name="select_target_currency">Alınacak para birimini seçin</string>
     <string name="find_currencies">Para birimlerini bul</string>
     <string name="buy">Alış</string>
     <string name="sell">Satış</string>
