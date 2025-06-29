@@ -30,7 +30,7 @@
     <string name="settings">Nastavenia</string>
     <string name="app_language">Jazyk aplikácie</string>
     <string name="theme">Vzhľad</string>
-    <string name="base_currency">Predvolená mena</string>
+    <string name="base_currency">Hlavná mena</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Tmavá</string>
