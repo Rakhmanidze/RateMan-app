@@ -30,7 +30,7 @@
     <string name="settings">Nastavení</string>
     <string name="app_language">Jazyk aplikace</string>
     <string name="theme">Vzhled</string>
-    <string name="base_currency">Výchozí měna</string>
+    <string name="base_currency">Hlavní měna</string>
 
     <!-- Theme Options -->
     <string name="theme_dark">Tmavé</string>
