@@ -15,8 +15,8 @@
     <string name="crypto_exchanges">Крипто обменниктер</string>
 
     <!-- Selection -->
-    <string name="select_base_currency">Валютаны тандаңыз (base)</string>
-    <string name="select_target_currency">Select receiving currency</string>
+    <string name="select_base_currency">Негизги валютаны тандаңыз</string>
+    <string name="select_target_currency">Кабыл алуучу валютаны тандаңыз</string>
     <string name="find_currencies">Валюталарды табуу</string>
     <string name="buy">Сатып алуу</string>
     <string name="sell">Сатуу</string>
