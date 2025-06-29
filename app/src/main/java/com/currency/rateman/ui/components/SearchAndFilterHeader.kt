@@ -41,7 +41,7 @@ fun SearchAndFilterHeader(
     onSearchQueryChange: (TextFieldValue) -> Unit,
     selectedProviderType: ProviderType?,
     onProviderTypeChange: (ProviderType) -> Unit,
-    selectedCurrency: CurrencyCode?,
+    targetCurrency: CurrencyCode?,
     selectedRateSortType: RateSortType?,
     onRateSortTypeChange: (RateSortType) -> Unit,
     navController: NavHostController,
@@ -132,19 +132,19 @@ fun SearchAndFilterHeader(
                     ),
                     modifier = Modifier
                         .width(95.dp),
-                    enabled = selectedCurrency != null
+                    enabled = targetCurrency != null
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                         horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Image(
-                            painter = painterResource(id = getCurrencyIconRes(selectedCurrency ?: CurrencyCode.EUR)),
-                            contentDescription = "${selectedCurrency?.name ?: "Loading"} icon",
+                            painter = painterResource(id = getCurrencyIconRes(targetCurrency ?: CurrencyCode.EUR)),
+                            contentDescription = "${targetCurrency?.name ?: "Loading"} icon",
                             modifier = Modifier.size(16.dp)
                         )
                         Text(
-                            text = selectedCurrency?.name ?: stringResource(id = AppR.string.loading),
+                            text = targetCurrency?.name ?: stringResource(id = AppR.string.loading),
                             style = MaterialTheme.typography.bodySmall,
                             maxLines = 1
                         )

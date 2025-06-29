@@ -20,7 +20,7 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
 
     override suspend fun editFilters(
         selectedProviderType: ProviderType?,
-        selectedCurrency: CurrencyCode?,
+        targetCurrency: CurrencyCode?,
         selectedRateSortType: RateSortType?
     ) {
         ensureFiltersExist()
@@ -28,7 +28,7 @@ class FilterRepositoryImpl(private val filterDao: FilterDao) : FilterRepository 
         val current = filterDao.getFilter().first() ?: return
         filterDao.updateFilter(current.copy(
             selectedProviderType = selectedProviderType?.name ?: current.selectedProviderType,
-            targetCurrency = selectedCurrency?.name ?: current.targetCurrency,
+            targetCurrency = targetCurrency?.name ?: current.targetCurrency,
             selectedRateSortType = selectedRateSortType?.name ?: current.selectedRateSortType
         ))
     }

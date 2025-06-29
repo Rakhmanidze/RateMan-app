@@ -74,7 +74,7 @@ fun RatesScreen(
                     },
                     selectedProviderType = filter!!.selectedProviderType,
                     onProviderTypeChange = { viewModel.updateProviderType(it) },
-                    selectedCurrency = filter!!.targetCurrency,
+                    targetCurrency = filter!!.targetCurrency,
                     selectedRateSortType = filter!!.selectedRateSortType,
                     onRateSortTypeChange = { newSortType ->
                         viewModel.updateRateSortType(newSortType)
@@ -83,7 +83,7 @@ fun RatesScreen(
                 )
                 ProvidersList(
                     providers = providers,
-                    selectedCurrency = filter?.targetCurrency,
+                    targetCurrency = filter?.targetCurrency,
                     navController = navController
                 )
             }

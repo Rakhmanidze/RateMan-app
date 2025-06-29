@@ -103,7 +103,7 @@ class RatesViewModel(
         }
     }
 
-    private fun saveFilter() {
+    private fun saveFilter() {а
         viewModelScope.launch {
             val currentFilter = _filter.value ?: Filter(
                 selectedProviderType = ProviderType.ALL,
@@ -112,7 +112,7 @@ class RatesViewModel(
             )
             filterRepository.editFilters(
                 selectedProviderType = currentFilter.selectedProviderType,
-                selectedCurrency = currentFilter.targetCurrency,
+                targetCurrency = currentFilter.targetCurrency,
                 selectedRateSortType = currentFilter.selectedRateSortType
             )
         }

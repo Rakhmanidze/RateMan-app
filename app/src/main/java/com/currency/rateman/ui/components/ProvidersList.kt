@@ -26,7 +26,7 @@ import com.currency.rateman.R
 @Composable
 fun ProvidersList(
     providers: List<Provider>,
-    selectedCurrency: CurrencyCode?,
+    targetCurrency: CurrencyCode?,
     modifier: Modifier = Modifier,
     navController: NavHostController
 ) {
@@ -71,7 +71,7 @@ fun ProvidersList(
             ) {
                 items(providers) { provider ->
                     val displayRates = provider.rates.filter { rate ->
-                        rate.foreignCurrency == selectedCurrency
+                        rate.foreignCurrency == targetCurrency
                     }
                     ProviderItem(
                         provider = provider,

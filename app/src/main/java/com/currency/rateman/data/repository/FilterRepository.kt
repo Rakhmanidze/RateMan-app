@@ -11,7 +11,7 @@ interface FilterRepository {
 
     suspend fun editFilters(
         selectedProviderType: ProviderType? = null,
-        selectedCurrency: CurrencyCode? = null,
+        targetCurrency: CurrencyCode? = null,
         selectedRateSortType: RateSortType? = null
     )
 
