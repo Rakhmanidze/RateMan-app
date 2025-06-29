@@ -18,6 +18,7 @@
     <!-- Selection -->
     <string name="select_base_currency">Vyberte hlavní měnu</string>
     <string name="select_target_currency">Vyberte cílovou měnu</string>
+    <string name="select_app_language">Vyberte jazyk aplikace</string>
     <string name="find_currencies">Vyhledat měny</string>
     <string name="buy">Nákup</string>
     <string name="sell">Prodej</string>
@@ -28,7 +29,7 @@
 
     <!-- Settings -->
     <string name="settings">Nastavení</string>
-    <string name="app_language">Vyberte jazyk aplikace</string>
+    <string name="app_language">Jazyk aplikace</string>
     <string name="theme">Vzhled</string>
     <string name="base_currency">Hlavní měna</string>
 

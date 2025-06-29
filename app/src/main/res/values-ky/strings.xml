@@ -17,6 +17,7 @@
     <!-- Selection -->
     <string name="select_base_currency">Негизги валютаны тандаңыз</string>
     <string name="select_target_currency">Кабыл алуучу валютаны тандаңыз</string>
+    <string name="select_app_language">Select app language</string>
     <string name="find_currencies">Валюталарды табуу</string>
     <string name="buy">Сатып алуу</string>
     <string name="sell">Сатуу</string>
@@ -27,7 +28,7 @@
 
     <!-- Settings -->
     <string name="settings">Жөндөөлөр</string>
-    <string name="app_language">Колдонмо тили</string>
+    <string name="app_language">Колдонмо тилин тандаңыз</string>
     <string name="theme">Тема</string>
     <string name="base_currency">Негизги валюта</string>
 
