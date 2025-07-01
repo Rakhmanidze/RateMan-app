@@ -36,6 +36,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.currency.rateman.R
 import com.currency.rateman.ui.components.getCurrencyIconRes
+import com.currency.rateman.utils.formatRate
 
 @Composable
 fun ProviderDetailsScreen(
@@ -153,7 +154,7 @@ fun ProviderDetailsScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = "${rate.buyRate}",
+                                    text = "${rate.buyRate.formatRate()}",
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
@@ -162,7 +163,7 @@ fun ProviderDetailsScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = "${rate.sellRate}",
+                                    text = "${rate.sellRate.formatRate()}",
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
