@@ -153,7 +153,7 @@ fun ProviderDetailsScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = "%.4f".format(rate.buyRate),
+                                    text = "${rate.buyRate}",
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
@@ -162,7 +162,7 @@ fun ProviderDetailsScreen(
                                 contentAlignment = Alignment.Center
                             ) {
                                 Text(
-                                    text = "%.4f".format(rate.sellRate),
+                                    text = "${rate.sellRate}",
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
