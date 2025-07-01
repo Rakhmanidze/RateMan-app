@@ -32,9 +32,17 @@ class RateFetchWorker(
             val response = APIClient.ratesAPIService.getExchangeRates()
             Log.d("RatesViewModel", "API Response received, size: ${response.size}")
 
-            val filteredProviders = response.filter { provider ->
+            val filteredProviders = response
+                .filter { provider ->
                 !EXCLUDED_PROVIDERS.contains(provider.banka)
-            }
+                }
+                .map { provider ->
+                    if (provider.banka == "Exchange VIP") {
+                        provider.copy(banka = "Směnárna Štefánikova")
+                    } else {
+                        provider
+                    }
+                }
             providerRepository.insertApiProviders(filteredProviders)
         } catch (e: Exception) {
             Log.e("RatesViewModel", "API Error: ${e.message}", e)
