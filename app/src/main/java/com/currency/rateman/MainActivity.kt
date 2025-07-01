@@ -40,4 +40,3 @@ class MainActivity : ComponentActivity() {
         super.attachBaseContext(updatedContext)
     }
 }
-//TODO: rename Exchange VIP to SMĚNÁRNA Štefánikova
