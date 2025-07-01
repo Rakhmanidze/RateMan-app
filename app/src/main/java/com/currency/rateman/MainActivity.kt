@@ -40,5 +40,4 @@ class MainActivity : ComponentActivity() {
         super.attachBaseContext(updatedContext)
     }
 }
-//TODO: remove 0 after . in Provider screen and in rates screen
 //TODO: rename Exchange VIP to SMĚNÁRNA Štefánikova
