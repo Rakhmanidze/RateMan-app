@@ -47,7 +47,6 @@ object ProviderConverter {
                     date = try {
                         LocalDate.parse(rate.date, apiDateFormatter)
                     } catch (e: Exception) {
-                        // Fallback to current date if parsing fails
                         Log.e("Converter", "Failed to parse date ${rate.date}", e)
                         LocalDate.now()
                     }
