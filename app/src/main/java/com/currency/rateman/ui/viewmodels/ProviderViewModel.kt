@@ -22,7 +22,9 @@ class ProviderViewModel(
             _provider.value = provider
 
             _provider.value = provider?.copy(
-                rates = provider.rates.sortedBy { rate ->
+                rates = provider.rates
+                    .filter { it.buyRate != 0.0 && it.sellRate != 0.0 }
+                    .sortedBy { rate ->
                     CurrencyCode.entries.toTypedArray().indexOfFirst { it == rate.foreignCurrency }
                 }
             )
