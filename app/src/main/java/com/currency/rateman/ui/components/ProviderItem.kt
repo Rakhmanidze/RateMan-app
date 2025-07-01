@@ -17,6 +17,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.Provider
+import com.currency.rateman.utils.formatRate
 
 @Composable
 fun ProviderItem(
@@ -57,7 +58,7 @@ fun ProviderItem(
                             .padding(end = 16.dp)
                     )
                     Text(
-                        text = "${rate.buyRate} / ${rate.sellRate} CZK",
+                        text = "${rate.buyRate.formatRate()} / ${rate.sellRate.formatRate()} CZK",
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.wrapContentWidth()
