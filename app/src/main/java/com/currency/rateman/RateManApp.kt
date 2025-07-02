@@ -32,6 +32,7 @@ class RateManApp: Application(), KoinComponent {
         CoroutineScope(Dispatchers.IO).launch {
             val repo: ProviderRepository by inject()
             repo.refreshTopExchangeRates()
+            repo.refreshAlfaPragueRates()
         }
     }
 

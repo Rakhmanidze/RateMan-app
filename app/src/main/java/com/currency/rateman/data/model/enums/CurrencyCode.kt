@@ -40,5 +40,6 @@ enum class CurrencyCode {
     XDR,
     ZAR,
     EGP,
-    SAR
+    SAR,
+    HRK
 }

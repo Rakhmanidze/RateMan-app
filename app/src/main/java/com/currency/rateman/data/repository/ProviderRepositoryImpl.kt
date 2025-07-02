@@ -7,6 +7,7 @@ import com.currency.rateman.api.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.ProviderAPI
+import com.currency.rateman.apiSingle.fetchAlfaPragueRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
@@ -74,6 +75,38 @@ class ProviderRepositoryImpl (
         if (exchangeRates.isEmpty()) return
 
         val providerName = "Top Exchange"
+
+        val rates = exchangeRates.mapNotNull { er ->
+            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
+            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
+
+            if (buy != null && sell != null) {
+                CurrencyRate(
+                    foreignCurrency = CurrencyCode.valueOf(er.currency),
+                    buyRate = buy,
+                    sellRate = sell,
+                    date = LocalDate.now()
+                )
+            } else null
+        }
+
+        val provider = Provider(
+            id = 0,
+            name = providerName,
+            baseCurrency = CurrencyCode.CZK,
+            phoneNumber = "",
+            type = ProviderType.EXCHANGE,
+            rates = rates
+        )
+        insertProvider(provider)
+    }
+
+    override suspend fun refreshAlfaPragueRates() {
+        val exchangeRates = fetchAlfaPragueRates()
+
+        if (exchangeRates.isEmpty()) return
+
+        val providerName = "Alfa Prague"
 
         val rates = exchangeRates.mapNotNull { er ->
             val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
