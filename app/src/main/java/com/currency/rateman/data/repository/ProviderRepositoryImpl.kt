@@ -69,25 +69,17 @@ class ProviderRepositoryImpl (
     }
 
     override suspend fun refreshTopExchangeRates() {
-        // Call your Jsoup scraper API
         val exchangeRates = fetchTopExchangeRates()
 
         if (exchangeRates.isEmpty()) return
 
-        // Convert ExchangeRate to your domain model
-        // Example: create Provider and rates from scraped data
+        val providerName = "Top Exchange"
 
-        val providerName = "Top Exchange" // name of this provider
-
-        // Map ExchangeRate to your domain Rate model (assuming)
         val rates = exchangeRates.mapNotNull { er ->
-            // Parse buy/sell rates as Double, ignore if invalid
             val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
             val sell = er.weSell.replace(",", ".").toDoubleOrNull()
 
             if (buy != null && sell != null) {
-                // Assuming your Rate data class has:
-                // foreignCurrency: CurrencyCode, buyRate: Double, sellRate: Double, date: String
                 CurrencyRate(
                     foreignCurrency = CurrencyCode.valueOf(er.currency),
                     buyRate = buy,
@@ -97,18 +89,14 @@ class ProviderRepositoryImpl (
             } else null
         }
 
-        // Create Provider domain object
         val provider = Provider(
-            id = 0, // will be auto-generated
+            id = 0,
             name = providerName,
-            baseCurrency = CurrencyCode.CZK, // assuming CZK base currency
-            phoneNumber = "", // if no phone number available
-            type = ProviderType.EXCHANGE, // or whatever type enum you have
+            baseCurrency = CurrencyCode.CZK,
+            phoneNumber = "",
+            type = ProviderType.EXCHANGE,
             rates = rates
         )
-
-        // Insert provider and rates (you may want to delete old data for this provider first)
-        // For simplicity, just insert for now:
         insertProvider(provider)
     }
 }
