@@ -32,3 +32,4 @@ class CurrencyViewModel : ViewModel() {
         _currencySearchQuery.value = query
     }
 }
+//TODO: divide JPY and HUF rates to 100 cause the rates value is per 100 units of those currencies not  1 unit as others
