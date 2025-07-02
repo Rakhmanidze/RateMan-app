@@ -38,5 +38,7 @@ enum class CurrencyCode {
     UAH,
     VND,
     XDR,
-    ZAR
+    ZAR,
+    EGP,
+    SAR
 }

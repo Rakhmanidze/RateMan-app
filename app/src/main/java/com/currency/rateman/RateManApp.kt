@@ -11,8 +11,13 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.currency.rateman.api.RateFetchWorker
+import com.currency.rateman.data.repository.ProviderRepository
 import com.currency.rateman.di.AppContainer
 import java.util.concurrent.TimeUnit
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import org.koin.core.component.inject
 
 class RateManApp: Application(), KoinComponent {
     override fun onCreate() {
@@ -23,6 +28,11 @@ class RateManApp: Application(), KoinComponent {
             modules(appModule)
         }
         scheduleRateFetchWorker()
+
+        CoroutineScope(Dispatchers.IO).launch {
+            val repo: ProviderRepository by inject()
+            repo.refreshTopExchangeRates()
+        }
     }
 
     private fun scheduleRateFetchWorker() {

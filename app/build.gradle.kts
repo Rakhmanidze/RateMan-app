@@ -84,4 +84,5 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.jsoup)
 }
