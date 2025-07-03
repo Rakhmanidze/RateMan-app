@@ -11,6 +11,7 @@ import com.currency.rateman.api.scraper.ExchangeRate
 import com.currency.rateman.api.scraper.fetchAlfaPragueRates
 import com.currency.rateman.api.scraper.fetchEuroChangeRates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
+import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
@@ -116,4 +117,7 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshEuroChangeRates() =
         refreshRates(::fetchEuroChangeRates, ProviderConstants.Scraped_providers.EURO_CHANGE)
+
+    override suspend fun refreshRoyalExchangeRates() =
+        refreshRates(::fetchRoyalExchangeRates, ProviderConstants.Scraped_providers.ROYAL_EXCHANGE)
 }

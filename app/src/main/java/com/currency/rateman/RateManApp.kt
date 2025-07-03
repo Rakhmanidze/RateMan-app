@@ -36,6 +36,7 @@ class RateManApp: Application(), KoinComponent {
             repo.refreshAlfaPragueRates()
             repo.refreshJindrisskaExchangeRates()
             repo.refreshEuroChangeRates()
+            repo.refreshRoyalExchangeRates()
         }
     }
 
