@@ -46,9 +46,13 @@ object ProviderConverter {
                     sellRate = rate.sellRate,
                     date = try {
                         LocalDate.parse(rate.date, apiDateFormatter)
-                    } catch (e: Exception) {
-                        Log.e("Converter", "Failed to parse date ${rate.date}", e)
-                        LocalDate.now()
+                    } catch (_: Exception) {
+                        try {
+                            LocalDate.parse(rate.date, DateTimeFormatter.ISO_LOCAL_DATE)
+                        } catch (e2: Exception) {
+                            Log.e("Converter", "Failed to parse date $rate.date", e2)
+                            LocalDate.now()
+                        }
                     }
                 )
             },

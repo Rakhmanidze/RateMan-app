@@ -8,6 +8,7 @@ import org.koin.core.context.startKoin
 import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.NetworkType
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.currency.rateman.api.RateFetchWorker
@@ -33,6 +34,7 @@ class RateManApp: Application(), KoinComponent {
             val repo: ProviderRepository by inject()
             repo.refreshTopExchangeRates()
             repo.refreshAlfaPragueRates()
+            repo.refreshJindrisskaExchangeRates()
         }
     }
 
@@ -41,14 +43,22 @@ class RateManApp: Application(), KoinComponent {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val workRequest = PeriodicWorkRequestBuilder<RateFetchWorker>(1, TimeUnit.DAYS)
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<RateFetchWorker>(1, TimeUnit.DAYS)
             .setConstraints(constraints)
             .build()
 
-        WorkManager.getInstance(applicationContext).enqueueUniquePeriodicWork(
+        val immediateWorkRequest = OneTimeWorkRequestBuilder<RateFetchWorker>()
+            .setConstraints(constraints)
+            .build()
+
+        val workManager = WorkManager.getInstance(applicationContext)
+
+        workManager.enqueue(immediateWorkRequest)
+
+        workManager.enqueueUniquePeriodicWork(
             "RateFetchWork",
             ExistingPeriodicWorkPolicy.KEEP,
-            workRequest
+            periodicWorkRequest
         )
     }
 }
