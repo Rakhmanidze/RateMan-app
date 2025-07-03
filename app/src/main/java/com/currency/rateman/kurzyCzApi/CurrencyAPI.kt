@@ -1,4 +1,4 @@
-package com.currency.rateman.api
+package com.currency.rateman.kurzyCzApi
 
 import kotlinx.serialization.Serializable
 

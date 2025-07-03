@@ -11,7 +11,7 @@ import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
-import com.currency.rateman.api.RateFetchWorker
+import com.currency.rateman.kurzyCzApi.RateFetchWorker
 import com.currency.rateman.data.repository.ProviderRepository
 import com.currency.rateman.di.AppContainer
 import java.util.concurrent.TimeUnit

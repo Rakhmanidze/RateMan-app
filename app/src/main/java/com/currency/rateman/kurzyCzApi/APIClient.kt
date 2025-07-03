@@ -1,4 +1,4 @@
-package com.currency.rateman.api
+package com.currency.rateman.kurzyCzApi
 
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
