@@ -1,4 +1,4 @@
-package com.currency.rateman.kurzyCzApi
+package com.currency.rateman.api
 
 import android.util.Log
 import com.currency.rateman.data.db.entity.CurrencyRateEntity

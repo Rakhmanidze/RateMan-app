@@ -1,4 +1,4 @@
-package com.currency.rateman.kurzyCzApi
+package com.currency.rateman.api
 
 import android.content.Context
 import android.util.Log

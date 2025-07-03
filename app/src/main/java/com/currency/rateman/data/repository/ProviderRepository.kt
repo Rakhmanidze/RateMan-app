@@ -1,6 +1,6 @@
 package com.currency.rateman.data.repository
 
-import com.currency.rateman.kurzyCzApi.ProviderAPI
+import com.currency.rateman.api.ProviderAPI
 import com.currency.rateman.data.model.Provider
 import kotlinx.coroutines.flow.Flow
 

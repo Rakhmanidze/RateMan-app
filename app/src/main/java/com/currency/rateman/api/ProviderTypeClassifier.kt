@@ -1,4 +1,4 @@
-package com.currency.rateman.kurzyCzApi
+package com.currency.rateman.api
 
 import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.utils.ProviderConstants.KNOWN_BANKS
