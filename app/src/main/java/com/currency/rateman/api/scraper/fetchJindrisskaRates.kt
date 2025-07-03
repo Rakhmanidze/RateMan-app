@@ -1,4 +1,4 @@
-package com.currency.rateman.api.apiSingle
+package com.currency.rateman.api.scraper
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
