@@ -10,10 +10,7 @@ suspend fun fetchAlfaPragueRates(): List<ExchangeRate> = withContext(Dispatchers
     val result = mutableListOf<ExchangeRate>()
 
     try {
-        val doc = Jsoup.connect(url)
-            .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
-            .header("Referer", "https://www.alfaprague.cz/")
-            .get()
+        val doc = Jsoup.connect(url).get()
 
         val table = doc.selectFirst("table")
         val rows = table?.select("tr") ?: emptyList()

@@ -10,10 +10,7 @@ suspend fun fetchJindrisskaExchangeRates(): List<ExchangeRate> = withContext(Dis
     val result = mutableListOf<ExchangeRate>()
 
     try {
-        val doc = Jsoup.connect(url)
-            .header("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
-            .header("Referer", "https://www.google.com/")
-            .get()
+        val doc = Jsoup.connect(url).get()
 
         val table = doc.selectFirst("table.kurzy") ?: return@withContext emptyList()
         val rows = table.select("tr")
