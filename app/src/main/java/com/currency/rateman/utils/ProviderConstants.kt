@@ -32,11 +32,13 @@ object ProviderConstants {
         const val TOP_EXCHANGE = "Top Exchange"
         const val ALFA_PRAGUE = "Alfa Prague"
         const val JINDRISSKA_EXCHANGE = "Jindrisska Exchange"
+        const val EURO_CHANGE = "Euro Change"
     }
 
     object Urls {
         const val ALFA_PRAGUE = "https://www.alfaprague.cz/web2/"
         const val JINDRISSKA_EXCHANGE = "https://jindrisska-exchange.cz/"
         const val TOP_EXCHANGE = "https://top-exchange.cz/"
+        const val EURO_CHANGE = "https://www.eurochange.cz/"
     }
 }

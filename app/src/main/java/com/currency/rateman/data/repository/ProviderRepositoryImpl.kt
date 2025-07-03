@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.kurzyCz.ProviderAPI
 import com.currency.rateman.api.scraper.ExchangeRate
 import com.currency.rateman.api.scraper.fetchAlfaPragueRates
+import com.currency.rateman.api.scraper.fetchEuroChangeRates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
@@ -20,6 +21,7 @@ import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.ALFA_PRAGUE
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.TOP_EXCHANGE
+import com.currency.rateman.utils.ProviderConstants.Urls.EURO_CHANGE
 import java.time.LocalDate
 
 class ProviderRepositoryImpl (
@@ -114,4 +116,7 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshJindrisskaExchangeRates() =
         refreshRates(::fetchJindrisskaExchangeRates, JINDRISSKA_EXCHANGE)
+
+    override suspend fun refreshEuroChangeRates() =
+        refreshRates(::fetchEuroChangeRates, EURO_CHANGE)
 }
