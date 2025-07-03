@@ -21,7 +21,7 @@ import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.ALFA_PRAGUE
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE
 import com.currency.rateman.utils.ProviderConstants.Scraped_providers.TOP_EXCHANGE
-import com.currency.rateman.utils.ProviderConstants.Urls.EURO_CHANGE
+import com.currency.rateman.utils.ProviderConstants.Scraped_providers.EURO_CHANGE
 import java.time.LocalDate
 
 class ProviderRepositoryImpl (
