@@ -18,10 +18,7 @@ import com.currency.rateman.api.scraper.fetchTopExchangeRates
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.utils.ProviderConstants.Scraped_providers.ALFA_PRAGUE
-import com.currency.rateman.utils.ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE
-import com.currency.rateman.utils.ProviderConstants.Scraped_providers.TOP_EXCHANGE
-import com.currency.rateman.utils.ProviderConstants.Scraped_providers.EURO_CHANGE
+import com.currency.rateman.utils.ProviderConstants
 import java.time.LocalDate
 
 class ProviderRepositoryImpl (
@@ -109,14 +106,14 @@ class ProviderRepositoryImpl (
     }
 
     override suspend fun refreshTopExchangeRates() =
-        refreshRates(::fetchTopExchangeRates, TOP_EXCHANGE)
+        refreshRates(::fetchTopExchangeRates, ProviderConstants.Scraped_providers.TOP_EXCHANGE)
 
     override suspend fun refreshAlfaPragueRates() =
-        refreshRates(::fetchAlfaPragueRates, ALFA_PRAGUE)
+        refreshRates(::fetchAlfaPragueRates, ProviderConstants.Scraped_providers.ALFA_PRAGUE)
 
     override suspend fun refreshJindrisskaExchangeRates() =
-        refreshRates(::fetchJindrisskaExchangeRates, JINDRISSKA_EXCHANGE)
+        refreshRates(::fetchJindrisskaExchangeRates, ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE)
 
     override suspend fun refreshEuroChangeRates() =
-        refreshRates(::fetchEuroChangeRates, EURO_CHANGE)
+        refreshRates(::fetchEuroChangeRates, ProviderConstants.Scraped_providers.EURO_CHANGE)
 }
