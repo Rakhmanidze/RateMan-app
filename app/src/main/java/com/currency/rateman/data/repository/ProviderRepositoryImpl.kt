@@ -7,6 +7,7 @@ import com.currency.rateman.api.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.ProviderAPI
+import com.currency.rateman.apiSingle.ExchangeRate
 import com.currency.rateman.apiSingle.fetchAlfaPragueRates
 import com.currency.rateman.apiSingle.fetchJindrisskaExchangeRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
@@ -70,12 +71,108 @@ class ProviderRepositoryImpl (
         currencyRateDao.insertAllRates(ratesToInsert)
     }
 
-    override suspend fun refreshTopExchangeRates() {
-        val exchangeRates = fetchTopExchangeRates()
+//    override suspend fun refreshTopExchangeRates() {
+//        val exchangeRates = fetchTopExchangeRates()
+//
+//        if (exchangeRates.isEmpty()) return
+//
+//        val providerName = "Top Exchange"
+//
+//        val rates = exchangeRates.mapNotNull { er ->
+//            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
+//            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
+//
+//            if (buy != null && sell != null) {
+//                CurrencyRate(
+//                    foreignCurrency = CurrencyCode.valueOf(er.currency),
+//                    buyRate = buy,
+//                    sellRate = sell,
+//                    date = LocalDate.now()
+//                )
+//            } else null
+//        }
+//
+//        val provider = Provider(
+//            id = 0,
+//            name = providerName,
+//            baseCurrency = CurrencyCode.CZK,
+//            phoneNumber = "",
+//            type = ProviderType.EXCHANGE,
+//            rates = rates
+//        )
+//        insertProvider(provider)
+//    }
+//
+//    override suspend fun refreshAlfaPragueRates() {
+//        val exchangeRates = fetchAlfaPragueRates()
+//
+//        if (exchangeRates.isEmpty()) return
+//
+//        val providerName = "Alfa Prague"
+//
+//        val rates = exchangeRates.mapNotNull { er ->
+//            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
+//            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
+//
+//            if (buy != null && sell != null) {
+//                CurrencyRate(
+//                    foreignCurrency = CurrencyCode.valueOf(er.currency),
+//                    buyRate = buy,
+//                    sellRate = sell,
+//                    date = LocalDate.now()
+//                )
+//            } else null
+//        }
+//
+//        val provider = Provider(
+//            id = 0,
+//            name = providerName,
+//            baseCurrency = CurrencyCode.CZK,
+//            phoneNumber = "",
+//            type = ProviderType.EXCHANGE,
+//            rates = rates
+//        )
+//        insertProvider(provider)
+//    }
+//
+//    override suspend fun refreshJindrisskaExchangeRates() {
+//        val exchangeRates = fetchJindrisskaExchangeRates()
+//
+//        if (exchangeRates.isEmpty()) return
+//
+//        val providerName = "Jindrisska Exchange"
+//
+//        val rates = exchangeRates.mapNotNull { er ->
+//            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
+//            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
+//
+//            if (buy != null && sell != null) {
+//                CurrencyRate(
+//                    foreignCurrency = CurrencyCode.valueOf(er.currency),
+//                    buyRate = buy,
+//                    sellRate = sell,
+//                    date = LocalDate.now()
+//                )
+//            } else null
+//        }
+//
+//        val provider = Provider(
+//            id = 0,
+//            name = providerName,
+//            baseCurrency = CurrencyCode.CZK,
+//            phoneNumber = "",
+//            type = ProviderType.EXCHANGE,
+//            rates = rates
+//        )
+//        insertProvider(provider)
+//    }
 
+    private suspend fun refreshRates(
+        fetchRates: suspend () -> List<ExchangeRate>,
+        providerName: String
+    ) {
+        val exchangeRates = fetchRates()
         if (exchangeRates.isEmpty()) return
-
-        val providerName = "Top Exchange"
 
         val rates = exchangeRates.mapNotNull { er ->
             val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
@@ -102,67 +199,13 @@ class ProviderRepositoryImpl (
         insertProvider(provider)
     }
 
-    override suspend fun refreshAlfaPragueRates() {
-        val exchangeRates = fetchAlfaPragueRates()
+    override suspend fun refreshTopExchangeRates() =
+        refreshRates(::fetchTopExchangeRates, "Top Exchange")
 
-        if (exchangeRates.isEmpty()) return
+    override suspend fun refreshAlfaPragueRates() =
+        refreshRates(::fetchAlfaPragueRates, "Alfa Prague")
 
-        val providerName = "Alfa Prague"
+    override suspend fun refreshJindrisskaExchangeRates() =
+        refreshRates(::fetchJindrisskaExchangeRates, "Jindrisska Exchange")
 
-        val rates = exchangeRates.mapNotNull { er ->
-            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
-            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
-
-            if (buy != null && sell != null) {
-                CurrencyRate(
-                    foreignCurrency = CurrencyCode.valueOf(er.currency),
-                    buyRate = buy,
-                    sellRate = sell,
-                    date = LocalDate.now()
-                )
-            } else null
-        }
-
-        val provider = Provider(
-            id = 0,
-            name = providerName,
-            baseCurrency = CurrencyCode.CZK,
-            phoneNumber = "",
-            type = ProviderType.EXCHANGE,
-            rates = rates
-        )
-        insertProvider(provider)
-    }
-
-    override suspend fun refreshJindrisskaExchangeRates() {
-        val exchangeRates = fetchJindrisskaExchangeRates()
-
-        if (exchangeRates.isEmpty()) return
-
-        val providerName = "Jindrisska Exchange"
-
-        val rates = exchangeRates.mapNotNull { er ->
-            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
-            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
-
-            if (buy != null && sell != null) {
-                CurrencyRate(
-                    foreignCurrency = CurrencyCode.valueOf(er.currency),
-                    buyRate = buy,
-                    sellRate = sell,
-                    date = LocalDate.now()
-                )
-            } else null
-        }
-
-        val provider = Provider(
-            id = 0,
-            name = providerName,
-            baseCurrency = CurrencyCode.CZK,
-            phoneNumber = "",
-            type = ProviderType.EXCHANGE,
-            rates = rates
-        )
-        insertProvider(provider)
-    }
 }
