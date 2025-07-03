@@ -1,12 +1,13 @@
 package com.currency.rateman.api.scraper
 
+import com.currency.rateman.utils.ProviderConstants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 
 suspend fun fetchTopExchangeRates(): List<ExchangeRate> = withContext(Dispatchers.IO) {
-    val url = "https://top-exchange.cz/"
+    val url = ProviderConstants.Urls.TOP_EXCHANGE
     val result = mutableListOf<ExchangeRate>()
 
     try {

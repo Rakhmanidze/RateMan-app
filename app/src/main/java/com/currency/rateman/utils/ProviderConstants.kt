@@ -27,4 +27,10 @@ object ProviderConstants {
         "Trinity Bank",
         "Oberbank AG"
     )
+
+    object Urls {
+        const val ALFA_PRAGUE = "https://www.alfaprague.cz/web2/"
+        const val JINDRISSKA_EXCHANGE = "https://jindrisska-exchange.cz/"
+        const val TOP_EXCHANGE = "https://top-exchange.cz/"
+    }
 }

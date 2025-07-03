@@ -1,11 +1,12 @@
 package com.currency.rateman.api.scraper
 
+import com.currency.rateman.utils.ProviderConstants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
 
 suspend fun fetchAlfaPragueRates(): List<ExchangeRate> = withContext(Dispatchers.IO) {
-    val url = "https://www.alfaprague.cz/web2/"
+    val url = ProviderConstants.Urls.ALFA_PRAGUE
     val result = mutableListOf<ExchangeRate>()
 
     try {
