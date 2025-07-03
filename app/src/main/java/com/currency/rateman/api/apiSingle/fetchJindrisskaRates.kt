@@ -1,4 +1,4 @@
-package com.currency.rateman.apiSingle
+package com.currency.rateman.api.apiSingle
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

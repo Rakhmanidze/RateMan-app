@@ -7,13 +7,13 @@ import com.currency.rateman.api.kurzyCz.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.kurzyCz.ProviderAPI
-import com.currency.rateman.apiSingle.ExchangeRate
-import com.currency.rateman.apiSingle.fetchAlfaPragueRates
-import com.currency.rateman.apiSingle.fetchJindrisskaExchangeRates
+import com.currency.rateman.api.apiSingle.ExchangeRate
+import com.currency.rateman.api.apiSingle.fetchAlfaPragueRates
+import com.currency.rateman.api.apiSingle.fetchJindrisskaExchangeRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
 import kotlinx.coroutines.flow.first
-import com.currency.rateman.apiSingle.fetchTopExchangeRates
+import com.currency.rateman.api.apiSingle.fetchTopExchangeRates
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
