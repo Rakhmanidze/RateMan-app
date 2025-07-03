@@ -17,6 +17,9 @@ import com.currency.rateman.api.scraper.fetchTopExchangeRates
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.utils.ProviderConstants.Scraped_providers.ALFA_PRAGUE
+import com.currency.rateman.utils.ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE
+import com.currency.rateman.utils.ProviderConstants.Scraped_providers.TOP_EXCHANGE
 import java.time.LocalDate
 
 class ProviderRepositoryImpl (
@@ -104,11 +107,11 @@ class ProviderRepositoryImpl (
     }
 
     override suspend fun refreshTopExchangeRates() =
-        refreshRates(::fetchTopExchangeRates, "Top Exchange")
+        refreshRates(::fetchTopExchangeRates, TOP_EXCHANGE)
 
     override suspend fun refreshAlfaPragueRates() =
-        refreshRates(::fetchAlfaPragueRates, "Alfa Prague")
+        refreshRates(::fetchAlfaPragueRates, ALFA_PRAGUE)
 
     override suspend fun refreshJindrisskaExchangeRates() =
-        refreshRates(::fetchJindrisskaExchangeRates, "Jindrisska Exchange")
+        refreshRates(::fetchJindrisskaExchangeRates, JINDRISSKA_EXCHANGE)
 }

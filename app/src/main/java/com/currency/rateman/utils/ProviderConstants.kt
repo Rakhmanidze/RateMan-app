@@ -28,6 +28,12 @@ object ProviderConstants {
         "Oberbank AG"
     )
 
+    object Scraped_providers {
+        const val TOP_EXCHANGE = "Top Exchange"
+        const val ALFA_PRAGUE = "Alfa Prague"
+        const val JINDRISSKA_EXCHANGE = "Jindrisska Exchange"
+    }
+
     object Urls {
         const val ALFA_PRAGUE = "https://www.alfaprague.cz/web2/"
         const val JINDRISSKA_EXCHANGE = "https://jindrisska-exchange.cz/"
