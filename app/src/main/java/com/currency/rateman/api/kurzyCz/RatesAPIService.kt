@@ -1,4 +1,4 @@
-package com.currency.rateman.api
+package com.currency.rateman.api.kurzyCz
 
 import retrofit2.http.GET
 

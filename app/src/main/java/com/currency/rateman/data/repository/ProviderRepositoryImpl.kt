@@ -3,10 +3,10 @@ package com.currency.rateman.data.repository
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.ProviderDao
 import com.currency.rateman.data.model.Provider
-import com.currency.rateman.api.ProviderConverter
+import com.currency.rateman.api.kurzyCz.ProviderConverter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import com.currency.rateman.api.ProviderAPI
+import com.currency.rateman.api.kurzyCz.ProviderAPI
 import com.currency.rateman.apiSingle.ExchangeRate
 import com.currency.rateman.apiSingle.fetchAlfaPragueRates
 import com.currency.rateman.apiSingle.fetchJindrisskaExchangeRates

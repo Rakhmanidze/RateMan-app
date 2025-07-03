@@ -1,5 +1,6 @@
-package com.currency.rateman.api
+package com.currency.rateman.api.kurzyCz
 
+import com.currency.rateman.api.kurzyCz.RatesAPIService
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient

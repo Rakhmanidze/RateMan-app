@@ -1,11 +1,11 @@
-package com.currency.rateman.api
+package com.currency.rateman.api.kurzyCz
 
 import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.currency.rateman.data.repository.ProviderRepository
-import com.currency.rateman.utils.ProviderConstants.EXCLUDED_PROVIDERS
+import com.currency.rateman.utils.ProviderConstants
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
@@ -34,7 +34,7 @@ class RateFetchWorker(
 
             val filteredProviders = response
                 .filter { provider ->
-                !EXCLUDED_PROVIDERS.contains(provider.banka)
+                !ProviderConstants.EXCLUDED_PROVIDERS.contains(provider.banka)
                 }
                 .map { provider ->
                     if (provider.banka == "Exchange VIP") {
