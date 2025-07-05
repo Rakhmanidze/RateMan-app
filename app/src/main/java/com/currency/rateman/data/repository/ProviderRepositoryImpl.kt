@@ -9,6 +9,7 @@ import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.kurzyCz.ProviderAPI
 import com.currency.rateman.api.scraper.ExchangeRate
 import com.currency.rateman.api.scraper.fetchAlfaPragueRates
+import com.currency.rateman.api.scraper.fetchCernaRuzeExchangeRates
 import com.currency.rateman.api.scraper.fetchEuroChangeRates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
@@ -120,4 +121,7 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshRoyalExchangeRates() =
         refreshRates(::fetchRoyalExchangeRates, ProviderConstants.Scraped_providers.ROYAL_EXCHANGE)
+
+    override suspend fun refreshCernaRuzeExchangeRates() =
+        refreshRates(::fetchCernaRuzeExchangeRates, ProviderConstants.Scraped_providers.CERNA_RUZE_EXCHANGE)
 }
