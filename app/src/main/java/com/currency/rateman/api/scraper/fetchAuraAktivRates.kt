@@ -11,9 +11,7 @@ suspend fun fetchAuraAktivRates(): List<ExchangeRate> = withContext(Dispatchers.
     val result = mutableListOf<ExchangeRate>()
 
     try {
-        val doc = Jsoup.connect(url)
-            .userAgent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36")
-            .get()
+        val doc = Jsoup.connect(url).get()
         val tbody = doc.selectFirst("tbody") ?: return@withContext emptyList()
         val rows = tbody.select("tr")
 
