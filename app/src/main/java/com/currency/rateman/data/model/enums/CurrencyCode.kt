@@ -43,5 +43,6 @@ enum class CurrencyCode {
     SAR,
     HRK,
     RSD,
-    TWD
+    TWD,
+    USDT
 }
