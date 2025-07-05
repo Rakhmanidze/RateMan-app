@@ -131,7 +131,7 @@ fun SearchAndFilterHeader(
                         contentColor = MaterialTheme.colorScheme.onSurface
                     ),
                     modifier = Modifier
-                        .width(95.dp),
+                        .width(99.dp),
                     enabled = targetCurrency != null
                 ) {
                     Row(
