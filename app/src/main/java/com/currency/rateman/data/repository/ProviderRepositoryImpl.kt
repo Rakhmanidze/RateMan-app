@@ -11,6 +11,7 @@ import com.currency.rateman.api.scraper.ExchangeRate
 import com.currency.rateman.api.scraper.fetchAlfaPragueRates
 import com.currency.rateman.api.scraper.fetchCernaRuzeExchangeRates
 import com.currency.rateman.api.scraper.fetchEuroChangeRates
+import com.currency.rateman.api.scraper.fetchExchange8Rates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
@@ -124,4 +125,7 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshCernaRuzeExchangeRates() =
         refreshRates(::fetchCernaRuzeExchangeRates, ProviderConstants.Scraped_providers.CERNA_RUZE_EXCHANGE)
+
+    override suspend fun refreshExchange8Rates() =
+        refreshRates(::fetchExchange8Rates, ProviderConstants.Scraped_providers.EXCHANGE8)
 }

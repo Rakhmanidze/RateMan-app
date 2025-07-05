@@ -35,6 +35,7 @@ object ProviderConstants {
         const val EURO_CHANGE = "Euro Change"
         const val ROYAL_EXCHANGE = "Royal Exchange"
         const val CERNA_RUZE_EXCHANGE = "Černá Růže Exchange"
+        const val EXCHANGE8 = "Exchange8"
     }
 
     object Urls {
@@ -44,5 +45,6 @@ object ProviderConstants {
         const val EURO_CHANGE = "https://www.eurochange.cz/"
         const val ROYAL_EXCHANGE = "https://www.royalexchange.cz/"
         const val CERNA_RUZE_EXCHANGE = "https://www.cernaruze-exchange.cz/"
+        const val EXCHANGE8 = "https://www.exchange8.cz/"
     }
 }

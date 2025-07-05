@@ -24,4 +24,6 @@ interface ProviderRepository {
     suspend fun refreshRoyalExchangeRates()
 
     suspend fun refreshCernaRuzeExchangeRates()
+
+    suspend fun refreshExchange8Rates()
 }
