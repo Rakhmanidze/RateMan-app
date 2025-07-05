@@ -21,10 +21,10 @@ suspend fun fetchCernaRuzeExchangeRates(): List<ExchangeRate> = withContext(Disp
             val rateBlocks = row.select("div.col-md-3").takeLast(2)
             if (rateBlocks.size < 2) continue
 
-            val buyRates = rateBlocks[0].select("p.p-5-style")
+            val rates = rateBlocks[0].select("p.p-5-style")
 
-            val weBuy = buyRates.getOrNull(0)?.text()?.trim()?.replace(",", ".") ?: continue
-            val weSell = buyRates.getOrNull(1)?.text()?.trim()?.replace(",", ".") ?: continue
+            val weBuy = rates.getOrNull(0)?.text()?.trim()?.replace(",", ".") ?: continue
+            val weSell = rates.getOrNull(1)?.text()?.trim()?.replace(",", ".") ?: continue
 
             if (weBuy.isNotEmpty() && weSell.isNotEmpty()) {
                 result.add(ExchangeRate(currency, weBuy, weSell))
