@@ -36,6 +36,7 @@ object ProviderConstants {
         const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
         const val ROYAL_EXCHANGE = "Royal Exchange"
         const val TOP_EXCHANGE = "Top Exchange"
+        const val AURA_AKTIV = "Aura Aktiv"
     }
 
     object Urls {
@@ -46,5 +47,6 @@ object ProviderConstants {
         const val JINDRISSKA_EXCHANGE = "https://jindrisska-exchange.cz/"
         const val ROYAL_EXCHANGE = "https://www.royalexchange.cz/"
         const val TOP_EXCHANGE = "https://top-exchange.cz/"
+        const val AURA_AKTIV = "https://smenarna-praha-1.cz/en/"
     }
 }
