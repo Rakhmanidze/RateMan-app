@@ -31,10 +31,10 @@ object ProviderConstants {
     object Scraped_providers {
         const val TOP_EXCHANGE = "Top Exchange"
         const val ALFA_PRAGUE = "Alfa Prague"
-        const val JINDRISSKA_EXCHANGE = "Jindrisska Exchange"
+        const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
         const val EURO_CHANGE = "Euro Change"
         const val ROYAL_EXCHANGE = "Royal Exchange"
-        const val CERNA_RUZE_EXCHANGE = "Cerna Ruze Exchange"
+        const val CERNA_RUZE_EXCHANGE = "Černá Růže Exchange"
     }
 
     object Urls {
