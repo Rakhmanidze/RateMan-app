@@ -22,7 +22,6 @@ suspend fun fetchCernaRuzeExchangeRates(): List<ExchangeRate> = withContext(Disp
             if (rateBlocks.size < 2) continue
 
             val buyRates = rateBlocks[0].select("p.p-5-style")
-            val sellRates = rateBlocks[1].select("p.p-5-style")
 
             val weBuy = buyRates.getOrNull(0)?.text()?.trim()?.replace(",", ".") ?: continue
             val weSell = buyRates.getOrNull(1)?.text()?.trim()?.replace(",", ".") ?: continue
