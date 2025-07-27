@@ -32,7 +32,6 @@ object ProviderConstants {
         const val ALFA_PRAGUE = "Alfa Prague"
         const val AURA_AKTIV = "Aura Aktiv"
         const val CERNA_RUZE_EXCHANGE = "Černá Růže Exchange"
-        const val BITCIB = "BitCib Exchange"
         const val EURO_CHANGE = "Euro Change"
         const val EXCHANGE8 = "Exchange8"
         const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
@@ -43,7 +42,6 @@ object ProviderConstants {
     object Urls {
         const val ALFA_PRAGUE = "https://www.alfaprague.cz/web2/"
         const val AURA_AKTIV = "https://smenarna-praha-1.cz/en/"
-        const val BITCIB = "https://bitcib-exchange.com/ru"
         const val CERNA_RUZE_EXCHANGE = "https://www.cernaruze-exchange.cz/"
         const val EURO_CHANGE = "https://www.eurochange.cz/"
         const val EXCHANGE8 = "https://www.exchange8.cz/"
