@@ -30,6 +30,7 @@ class CurrencyViewModel : ViewModel() {
 
     fun updateCurrencySearchQuery(query: String) {
         _currencySearchQuery.value = query
-    }
+    } 
 }
 //TODO: divide JPY and HUF rates to 100 cause the rates value is per 100 units of those currencies not  1 unit as others
+// so i should divide rates to 100 and have as other currencies rates per one currency its rates not 100
