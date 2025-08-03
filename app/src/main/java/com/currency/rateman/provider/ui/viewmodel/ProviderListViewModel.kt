@@ -24,7 +24,7 @@ class ProviderListViewModel(
     private val filterRepository: FilterRepository,
     private val getAllProvidersUseCase: GetAllProvidersUseCaseImpl
 ) : ViewModel() {
-    private val allProviders = providerRepository.getAllProviders()
+    private val allProviders = getAllProvidersUseCase.execute()
         .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
