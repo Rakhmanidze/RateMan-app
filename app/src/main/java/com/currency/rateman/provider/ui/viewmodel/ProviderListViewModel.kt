@@ -10,6 +10,7 @@ import com.currency.rateman.data.model.enums.RateSortType
 import com.currency.rateman.data.repository.FilterRepository
 import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.repository.ProviderRepository
+import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCaseImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -21,6 +22,7 @@ import kotlinx.coroutines.launch
 class ProviderListViewModel(
     private val providerRepository: ProviderRepository,
     private val filterRepository: FilterRepository,
+    private val getAllProvidersUseCase: GetAllProvidersUseCaseImpl
 ) : ViewModel() {
     private val allProviders = providerRepository.getAllProviders()
         .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
