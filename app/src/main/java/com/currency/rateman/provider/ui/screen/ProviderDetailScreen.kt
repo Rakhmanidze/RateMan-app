@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.provider.ui.viewmodel.ProviderViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -43,7 +43,7 @@ fun ProviderDetailsScreen(
     providerId: Long?,
     navController: NavHostController
 ) {
-    val viewModel: ProviderViewModel = navController
+    val viewModel: ProviderDetailViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
         ?: return

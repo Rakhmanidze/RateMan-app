@@ -14,7 +14,7 @@ import com.currency.rateman.ui.screens.CurrencyScreen
 import com.currency.rateman.ui.screens.LanguageScreen
 import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
 import com.currency.rateman.ui.screens.SettingsScreen
-import com.currency.rateman.ui.screens.RatesScreen
+import com.currency.rateman.provider.ui.screen.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen
 import com.currency.rateman.ui.screens.BaseCurrencyScreen
 
