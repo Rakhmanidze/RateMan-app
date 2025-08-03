@@ -13,7 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.ui.navigation.BottomNavItem
-import com.currency.rateman.ui.viewmodels.RatesViewModel
+import com.currency.rateman.provider.ui.viewmodel.RatesViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.lifecycle.compose.collectAsStateWithLifecycle

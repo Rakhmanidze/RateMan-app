@@ -1,19 +1,19 @@
-package com.currency.rateman.ui.viewmodels
+package com.currency.rateman.provider.ui.viewmodel
 
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
-import com.currency.rateman.provider.data.model.Provider
-import com.currency.rateman.provider.domain.repository.ProviderRepository
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.Filter
+import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
 import com.currency.rateman.data.model.enums.RateSortType
 import com.currency.rateman.data.repository.FilterRepository
+import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.repository.ProviderRepository
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
@@ -23,7 +23,7 @@ class RatesViewModel(
     private val filterRepository: FilterRepository
 ) : ViewModel() {
     private val allProviders = providerRepository.getAllProviders()
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+        .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
 
     private val _searchQuery = MutableStateFlow(TextFieldValue(""))
     val searchQuery: StateFlow<TextFieldValue> = _searchQuery.asStateFlow()
@@ -57,17 +57,21 @@ class RatesViewModel(
             }
             filteredProviders = when (filter.selectedRateSortType) {
                 RateSortType.BEST_SELL -> filteredProviders.sortedBy { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate ?: Double.POSITIVE_INFINITY
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate
+                        ?: Double.POSITIVE_INFINITY
                 }
+
                 RateSortType.BEST_BUY -> filteredProviders.sortedByDescending { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate?: Double.NEGATIVE_INFINITY
+                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate
+                        ?: Double.NEGATIVE_INFINITY
                 }
-                RateSortType.BEST_RATE ->  filteredProviders.sortedBy { it.name }
+
+                RateSortType.BEST_RATE -> filteredProviders.sortedBy { it.name }
             }
         }
 
         filteredProviders
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+    }.stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
 
     init {
         viewModelScope.launch {

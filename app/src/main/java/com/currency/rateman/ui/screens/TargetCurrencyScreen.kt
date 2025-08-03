@@ -36,7 +36,7 @@ import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel
-import com.currency.rateman.ui.viewmodels.RatesViewModel
+import com.currency.rateman.provider.ui.viewmodel.RatesViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
