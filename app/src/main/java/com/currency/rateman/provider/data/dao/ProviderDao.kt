@@ -1,4 +1,4 @@
-package com.currency.rateman.data.db.dao
+package com.currency.rateman.provider.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -10,10 +10,10 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface ProviderDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertProvider(provider: ProviderEntity): Long
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertAllProvidersAndReturnIds(providers: List<ProviderEntity>): List<Long>
 
     @Query("SELECT * FROM rate_providers WHERE id = :id")

@@ -1,4 +1,4 @@
-package com.currency.rateman.utils
+package com.currency.rateman.provider.utils
 
 object ProviderConstants {
     val EXCLUDED_PROVIDERS = listOf(

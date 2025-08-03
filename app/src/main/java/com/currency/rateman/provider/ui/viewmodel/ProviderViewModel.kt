@@ -1,10 +1,10 @@
-package com.currency.rateman.ui.viewmodels
+package com.currency.rateman.provider.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.data.model.Provider
 import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.repository.ProviderRepository
+import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.repository.ProviderRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

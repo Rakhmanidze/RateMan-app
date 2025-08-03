@@ -1,12 +1,7 @@
-package com.currency.rateman.data.repository
+package com.currency.rateman.provider.data.repository
 
-import com.currency.rateman.data.db.dao.CurrencyRateDao
-import com.currency.rateman.data.db.dao.ProviderDao
-import com.currency.rateman.data.model.Provider
-import com.currency.rateman.api.kurzyCz.ProviderConverter
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import com.currency.rateman.api.kurzyCz.ProviderAPI
+import com.currency.rateman.api.kurzyCz.ProviderConverter
 import com.currency.rateman.api.scraper.ExchangeRate
 import com.currency.rateman.api.scraper.fetchAlfaPragueRates
 import com.currency.rateman.api.scraper.fetchAuraAktivRates
@@ -15,14 +10,20 @@ import com.currency.rateman.api.scraper.fetchEuroChangeRates
 import com.currency.rateman.api.scraper.fetchExchange8Rates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
+import com.currency.rateman.api.scraper.fetchTopExchangeRates
+import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.entity.ProviderEntity
-import kotlinx.coroutines.flow.first
-import com.currency.rateman.api.scraper.fetchTopExchangeRates
 import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.utils.ProviderConstants
+import com.currency.rateman.provider.data.dao.ProviderDao
+import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.repository.ProviderRepository
+import com.currency.rateman.provider.utils.ProviderConstants
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 
 class ProviderRepositoryImpl (

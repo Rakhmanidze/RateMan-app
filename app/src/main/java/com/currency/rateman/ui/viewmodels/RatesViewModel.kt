@@ -2,8 +2,8 @@ package com.currency.rateman.ui.viewmodels
 
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
-import com.currency.rateman.data.model.Provider
-import com.currency.rateman.data.repository.ProviderRepository
+import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.repository.ProviderRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

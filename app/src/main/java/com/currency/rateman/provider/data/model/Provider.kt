@@ -1,5 +1,6 @@
-package com.currency.rateman.data.model
+package com.currency.rateman.provider.data.model
 
+import com.currency.rateman.data.model.CurrencyRate
 import com.currency.rateman.data.model.enums.CurrencyCode
 import com.currency.rateman.data.model.enums.ProviderType
 

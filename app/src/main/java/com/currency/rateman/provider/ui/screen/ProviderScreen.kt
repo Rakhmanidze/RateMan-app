@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.screens
+package com.currency.rateman.provider.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Alignment
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.ui.viewmodels.ProviderViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource

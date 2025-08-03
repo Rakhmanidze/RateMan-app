@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.components
+package com.currency.rateman.provider.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
@@ -13,10 +13,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.data.model.CurrencyRate
-import com.currency.rateman.data.model.Provider
+import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.utils.formatRate
 
 @Composable
@@ -48,7 +49,7 @@ fun ProviderItem(
                     Text(
                         text = provider.name,
                         style = MaterialTheme.typography.titleMedium.copy(
-                            fontWeight = androidx.compose.ui.text.font.FontWeight.Medium
+                            fontWeight = FontWeight.Medium
                         ),
                         color = MaterialTheme.colorScheme.onSurface,
                         maxLines = 1,

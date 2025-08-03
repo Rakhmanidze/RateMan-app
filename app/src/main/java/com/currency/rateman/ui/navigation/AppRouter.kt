@@ -12,7 +12,7 @@ import androidx.navigation.navArgument
 import com.currency.rateman.R
 import com.currency.rateman.ui.screens.CurrencyScreen
 import com.currency.rateman.ui.screens.LanguageScreen
-import com.currency.rateman.ui.screens.ProviderDetailsScreen
+import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
 import com.currency.rateman.ui.screens.SettingsScreen
 import com.currency.rateman.ui.screens.RatesScreen
 import com.currency.rateman.ui.screens.Splashscreen

@@ -8,7 +8,7 @@ import com.currency.rateman.data.db.entity.ProviderEntity
 import com.currency.rateman.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.data.db.dao.CurrencyRateDao
 import com.currency.rateman.data.db.dao.FilterDao
-import com.currency.rateman.data.db.dao.ProviderDao
+import com.currency.rateman.provider.data.dao.ProviderDao
 import com.currency.rateman.data.db.dao.SettingsDao
 import com.currency.rateman.data.db.entity.FilterEntity
 import com.currency.rateman.data.db.entity.SettingsEntity

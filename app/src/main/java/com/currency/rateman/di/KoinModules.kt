@@ -2,12 +2,12 @@ package com.currency.rateman.di
 
 import com.currency.rateman.data.repository.FilterRepository
 import com.currency.rateman.data.repository.FilterRepositoryImpl
-import com.currency.rateman.data.repository.ProviderRepository
-import com.currency.rateman.data.repository.ProviderRepositoryImpl
+import com.currency.rateman.provider.domain.repository.ProviderRepository
+import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel
-import com.currency.rateman.ui.viewmodels.ProviderViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderViewModel
 import com.currency.rateman.ui.viewmodels.RatesViewModel
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
