@@ -20,7 +20,7 @@ import kotlinx.coroutines.launch
 
 class ProviderListViewModel(
     private val providerRepository: ProviderRepository,
-    private val filterRepository: FilterRepository
+    private val filterRepository: FilterRepository,
 ) : ViewModel() {
     private val allProviders = providerRepository.getAllProviders()
         .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
