@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 
-class RatesViewModel(
+class ProviderListViewModel(
     private val providerRepository: ProviderRepository,
     private val filterRepository: FilterRepository
 ) : ViewModel() {

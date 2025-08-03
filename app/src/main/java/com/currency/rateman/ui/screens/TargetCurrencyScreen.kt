@@ -36,14 +36,14 @@ import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.ui.components.SearchInput
 import com.currency.rateman.ui.components.getCurrencyIconRes
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel
-import com.currency.rateman.provider.ui.viewmodel.RatesViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun CurrencyScreen(
     navController: NavHostController,
 ) {
-    val ratesViewModel: RatesViewModel = navController
+    val providerListViewModel: ProviderListViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
         ?: return
@@ -51,7 +51,7 @@ fun CurrencyScreen(
     val currencyViewModel: CurrencyViewModel = koinViewModel()
     val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
-    val filter by ratesViewModel.filter.collectAsState()
+    val filter by providerListViewModel.filter.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -107,7 +107,7 @@ fun CurrencyScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    ratesViewModel.updateCurrency(currency)
+                                    providerListViewModel.updateCurrency(currency)
                                     navController.popBackStack()
                                 }
                                 .padding(vertical = 12.dp),
