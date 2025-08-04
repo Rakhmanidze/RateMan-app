@@ -26,7 +26,7 @@ val appModule = module {
 
     single { GetAllProvidersUseCaseImpl(get()) }
 
-    viewModel { ProviderListViewModel(get(), get(), get()) }
+    viewModel { ProviderListViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
     viewModel { CurrencyViewModel() }
     viewModel { ProviderDetailViewModel(get()) }
