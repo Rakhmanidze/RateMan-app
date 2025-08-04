@@ -4,5 +4,5 @@ import com.currency.rateman.provider.data.model.Provider
 import kotlinx.coroutines.flow.Flow
 
 interface GetProviderByIdUseCase {
-    fun execute(): Flow<Provider>
+    suspend fun execute(id: Long): Provider?
 }
