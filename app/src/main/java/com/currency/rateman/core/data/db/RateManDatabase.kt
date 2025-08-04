@@ -1,17 +1,17 @@
-package com.currency.rateman.data.db
+package com.currency.rateman.core.data.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.currency.rateman.core.data.db.dao.CurrencyRateDao
+import com.currency.rateman.core.data.db.dao.FilterDao
+import com.currency.rateman.core.data.db.dao.SettingsDao
+import com.currency.rateman.core.data.db.entity.CurrencyRateEntity
+import com.currency.rateman.core.data.db.entity.FilterEntity
+import com.currency.rateman.core.data.db.entity.SettingsEntity
 import com.currency.rateman.provider.data.entity.ProviderEntity
-import com.currency.rateman.data.db.entity.CurrencyRateEntity
-import com.currency.rateman.data.db.dao.CurrencyRateDao
-import com.currency.rateman.data.db.dao.FilterDao
 import com.currency.rateman.provider.data.dao.ProviderDao
-import com.currency.rateman.data.db.dao.SettingsDao
-import com.currency.rateman.data.db.entity.FilterEntity
-import com.currency.rateman.data.db.entity.SettingsEntity
 
 @Database(
     entities = [

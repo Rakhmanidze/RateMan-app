@@ -1,11 +1,11 @@
-package com.currency.rateman.data.db.dao
+package com.currency.rateman.core.data.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.currency.rateman.data.db.entity.FilterEntity
+import com.currency.rateman.core.data.db.entity.FilterEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

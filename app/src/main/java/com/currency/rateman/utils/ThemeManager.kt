@@ -2,10 +2,10 @@ package com.currency.rateman.utils
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
-import com.currency.rateman.data.db.RateManDatabase
-import com.currency.rateman.data.model.enums.ThemeMode
-import com.currency.rateman.data.repository.SettingsRepository
-import com.currency.rateman.data.repository.SettingsRepositoryImpl
+import com.currency.rateman.core.data.db.RateManDatabase
+import com.currency.rateman.core.data.model.enums.ThemeMode
+import com.currency.rateman.core.data.repository.SettingsRepository
+import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import kotlinx.coroutines.flow.first
 
 object ThemeManager {

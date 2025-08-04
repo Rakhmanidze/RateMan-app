@@ -1,12 +1,12 @@
-package com.currency.rateman.data.repository
+package com.currency.rateman.core.data.repository
 
-import com.currency.rateman.data.db.dao.FilterDao
-import com.currency.rateman.data.db.entity.FilterEntity
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.data.model.enums.RateSortType
-import com.currency.rateman.data.mappers.toFilter
+import com.currency.rateman.core.data.db.dao.FilterDao
+import com.currency.rateman.core.data.db.entity.FilterEntity
+import com.currency.rateman.core.data.mappers.toFilter
+import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.RateSortType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first

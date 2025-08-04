@@ -1,11 +1,11 @@
 package com.currency.rateman.di
 
-import com.currency.rateman.data.repository.FilterRepository
-import com.currency.rateman.data.repository.FilterRepositoryImpl
+import com.currency.rateman.core.data.repository.FilterRepository
+import com.currency.rateman.core.data.repository.FilterRepositoryImpl
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
-import com.currency.rateman.data.repository.SettingsRepository
-import com.currency.rateman.data.repository.SettingsRepositoryImpl
+import com.currency.rateman.core.data.repository.SettingsRepository
+import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCaseImpl
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel

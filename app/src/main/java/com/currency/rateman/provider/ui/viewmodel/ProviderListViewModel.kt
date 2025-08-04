@@ -3,11 +3,11 @@ package com.currency.rateman.provider.ui.viewmodel
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.data.model.enums.RateSortType
-import com.currency.rateman.data.repository.FilterRepository
+import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.RateSortType
+import com.currency.rateman.core.data.repository.FilterRepository
 import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import kotlinx.coroutines.flow.MutableStateFlow

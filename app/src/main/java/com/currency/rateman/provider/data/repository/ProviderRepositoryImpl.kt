@@ -11,12 +11,12 @@ import com.currency.rateman.api.scraper.fetchExchange8Rates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
 import com.currency.rateman.api.scraper.fetchTopExchangeRates
-import com.currency.rateman.data.db.dao.CurrencyRateDao
-import com.currency.rateman.data.db.entity.CurrencyRateEntity
+import com.currency.rateman.core.data.db.dao.CurrencyRateDao
+import com.currency.rateman.core.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.entity.ProviderEntity
-import com.currency.rateman.data.model.CurrencyRate
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.CurrencyRate
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.ProviderType
 import com.currency.rateman.provider.data.dao.ProviderDao
 import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.repository.ProviderRepository

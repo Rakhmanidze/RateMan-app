@@ -1,9 +1,9 @@
-package com.currency.rateman.data.repository
+package com.currency.rateman.core.data.repository
 
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.data.model.enums.RateSortType
+import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.RateSortType
 import kotlinx.coroutines.flow.Flow
 
 interface FilterRepository {

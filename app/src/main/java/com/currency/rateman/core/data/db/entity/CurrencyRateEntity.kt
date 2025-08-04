@@ -1,4 +1,4 @@
-package com.currency.rateman.data.db.entity
+package com.currency.rateman.core.data.db.entity
 
 import androidx.room.Entity
 import androidx.room.ForeignKey

@@ -1,6 +1,6 @@
 package com.currency.rateman.api.kurzyCz
 
-import com.currency.rateman.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.ProviderType
 import com.currency.rateman.provider.utils.ProviderConstants
 
 object ProviderTypeClassifier {

@@ -1,12 +1,12 @@
-package com.currency.rateman.data.repository
+package com.currency.rateman.core.data.repository
 
-import com.currency.rateman.data.db.dao.SettingsDao
-import com.currency.rateman.data.db.entity.SettingsEntity
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.enums.LanguageCode
-import com.currency.rateman.data.model.Settings
-import com.currency.rateman.data.model.enums.ThemeMode
-import com.currency.rateman.data.mappers.toSettings
+import com.currency.rateman.core.data.db.dao.SettingsDao
+import com.currency.rateman.core.data.db.entity.SettingsEntity
+import com.currency.rateman.core.data.mappers.toSettings
+import com.currency.rateman.core.data.model.Settings
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.LanguageCode
+import com.currency.rateman.core.data.model.enums.ThemeMode
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first

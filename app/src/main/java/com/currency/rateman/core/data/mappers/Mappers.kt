@@ -1,14 +1,14 @@
-package com.currency.rateman.data.mappers
+package com.currency.rateman.core.data.mappers
 
-import com.currency.rateman.data.db.entity.FilterEntity
-import com.currency.rateman.data.db.entity.SettingsEntity
-import com.currency.rateman.data.model.Filter
-import com.currency.rateman.data.model.Settings
-import com.currency.rateman.data.model.enums.CurrencyCode
-import com.currency.rateman.data.model.enums.LanguageCode
-import com.currency.rateman.data.model.enums.ProviderType
-import com.currency.rateman.data.model.enums.RateSortType
-import com.currency.rateman.data.model.enums.ThemeMode
+import com.currency.rateman.core.data.db.entity.FilterEntity
+import com.currency.rateman.core.data.db.entity.SettingsEntity
+import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.data.model.Settings
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.LanguageCode
+import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.RateSortType
+import com.currency.rateman.core.data.model.enums.ThemeMode
 
 fun Settings.toEntity() : SettingsEntity {
     return SettingsEntity(

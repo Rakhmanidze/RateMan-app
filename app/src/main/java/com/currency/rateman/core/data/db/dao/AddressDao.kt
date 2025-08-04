@@ -1,4 +1,4 @@
-package com.currency.rateman.data.db.dao
+package com.currency.rateman.core.data.db.dao
 
 import androidx.room.Dao
 

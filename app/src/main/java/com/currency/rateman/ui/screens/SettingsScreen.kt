@@ -6,7 +6,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
 import com.currency.rateman.ui.navigation.BottomNavItem
-import com.currency.rateman.data.model.enums.ThemeMode
+import com.currency.rateman.core.data.model.enums.ThemeMode
 import com.currency.rateman.ui.components.LanguageSettingItem
 import com.currency.rateman.ui.viewmodels.SettingsViewModel
 import androidx.compose.foundation.layout.Column

@@ -17,7 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.currency.rateman.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.provider.data.model.Provider
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
