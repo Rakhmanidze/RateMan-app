@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.components
+package com.currency.rateman.core.ui.components
 
 import com.currency.rateman.R as AppR
 import androidx.compose.foundation.Image
@@ -17,7 +17,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
-import com.currency.rateman.ui.navigation.Routes
+import com.currency.rateman.core.ui.navigation.Routes
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentWidth

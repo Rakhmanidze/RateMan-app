@@ -1,11 +1,11 @@
-package com.currency.rateman.ui.theme
+package com.currency.rateman.core.ui.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import com.currency.rateman.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.getValue
 import com.currency.rateman.core.data.model.enums.ThemeMode

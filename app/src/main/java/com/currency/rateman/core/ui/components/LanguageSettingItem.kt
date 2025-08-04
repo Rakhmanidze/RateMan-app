@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.components
+package com.currency.rateman.core.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -12,14 +12,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavHostController
-import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.ui.navigation.Routes
+import com.currency.rateman.core.ui.navigation.Routes
 
 @Composable
-fun CurrencySettingItem(
+fun <T : Enum<T>> LanguageSettingItem(
     label: String,
     value: String,
     @DrawableRes iconRes: Int,
@@ -33,7 +31,7 @@ fun CurrencySettingItem(
                 MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(12.dp)
             )
-            .clickable { navController.navigate(Routes.BaseCurrency.route) }
+            .clickable { navController.navigate(Routes.Language.route) }
             .padding(12.dp)
     ) {
         Row(
@@ -43,7 +41,7 @@ fun CurrencySettingItem(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
-            ){
+            ) {
                 Icon(
                     painter = painterResource(id = iconRes),
                     contentDescription = label,
@@ -52,6 +50,7 @@ fun CurrencySettingItem(
                         .size(24.dp)
                         .padding(end = 8.dp)
                 )
+
                 Text(
                     text = label,
                     style = MaterialTheme.typography.bodyLarge,
@@ -59,14 +58,8 @@ fun CurrencySettingItem(
                 )
             }
             Row(
-                verticalAlignment = Alignment.CenterVertically
+              verticalAlignment = Alignment.CenterVertically,
             ) {
-                Image(
-                    painter = painterResource(id = getCurrencyIconRes(CurrencyCode.valueOf(value))),
-                    contentDescription = "$value icon",
-                    modifier = Modifier.size(16.dp)
-                )
-                Spacer(modifier = Modifier.width(4.dp))
                 Text(
                     text = value,
                     style = MaterialTheme.typography.bodyMedium,

@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.components
+package com.currency.rateman.core.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -8,19 +8,22 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.ui.Alignment
 import androidx.annotation.DrawableRes
+import androidx.compose.foundation.Image
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import com.currency.rateman.R
+import androidx.navigation.NavHostController
+import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.ui.navigation.Routes
 
 @Composable
-fun <T : Enum<T>> ThemeSettingItem(
+fun CurrencySettingItem(
     label: String,
     value: String,
-    options: List<T>,
-    onValueChange: (T) -> Unit,
     @DrawableRes iconRes: Int,
+    navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
     Box(
@@ -30,6 +33,7 @@ fun <T : Enum<T>> ThemeSettingItem(
                 MaterialTheme.colorScheme.surface,
                 shape = RoundedCornerShape(12.dp)
             )
+            .clickable { navController.navigate(Routes.BaseCurrency.route) }
             .padding(12.dp)
     ) {
         Row(
@@ -39,7 +43,7 @@ fun <T : Enum<T>> ThemeSettingItem(
         ) {
             Row(
                 verticalAlignment = Alignment.CenterVertically
-            ) {
+            ){
                 Icon(
                     painter = painterResource(id = iconRes),
                     contentDescription = label,
@@ -48,7 +52,6 @@ fun <T : Enum<T>> ThemeSettingItem(
                         .size(24.dp)
                         .padding(end = 8.dp)
                 )
-
                 Text(
                     text = label,
                     style = MaterialTheme.typography.bodyLarge,
@@ -56,34 +59,26 @@ fun <T : Enum<T>> ThemeSettingItem(
                 )
             }
             Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                options.forEach { option ->
-                    val isSelected = option.name == value
-
-                    val displayText = when (option.name) {
-                        "DARK" -> stringResource(R.string.theme_dark)
-                        "LIGHT" -> stringResource(R.string.theme_light)
-                        else -> option.name.lowercase().replaceFirstChar { it.uppercase() }
-                    }
-                    Box(
-                        modifier = Modifier
-                            .background(
-                                color = if (isSelected) MaterialTheme.colorScheme.background else MaterialTheme.colorScheme.tertiary,
-                                shape = RoundedCornerShape(8.dp)
-                            )
-                            .clickable {
-                                onValueChange(option)
-                            }
-                            .padding(horizontal = 12.dp, vertical = 6.dp)
-                    ) {
-                        Text(
-                            text = displayText,
-                            style = MaterialTheme.typography.bodyMedium,
-                            color = MaterialTheme.colorScheme.onSurface
-                        )
-                    }
-                }
+                Image(
+                    painter = painterResource(id = getCurrencyIconRes(CurrencyCode.valueOf(value))),
+                    contentDescription = "$value icon",
+                    modifier = Modifier.size(16.dp)
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = value,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.padding(top = 4.dp)
+                )
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
+                    contentDescription = "Expand",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.size(24.dp)
+                )
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.navigation
+package com.currency.rateman.core.ui.navigation
 
 import kotlinx.serialization.Serializable
 

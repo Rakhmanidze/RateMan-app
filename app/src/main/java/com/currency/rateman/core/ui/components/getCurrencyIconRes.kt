@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.components
+package com.currency.rateman.core.ui.components
 
 import androidx.annotation.DrawableRes
 import com.currency.rateman.core.data.model.enums.CurrencyCode

@@ -1,14 +1,14 @@
-package com.currency.rateman.ui.screens
+package com.currency.rateman.core.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.R
-import com.currency.rateman.ui.navigation.BottomNavItem
+import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.core.data.model.enums.ThemeMode
-import com.currency.rateman.ui.components.LanguageSettingItem
-import com.currency.rateman.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.components.LanguageSettingItem
+import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -19,10 +19,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
+import com.currency.rateman.core.ui.components.BottomNavBar
+import com.currency.rateman.core.ui.components.CurrencySettingItem
+import com.currency.rateman.core.ui.components.ThemeSettingItem
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.ui.components.BottomNavBar
-import com.currency.rateman.ui.components.CurrencySettingItem
-import com.currency.rateman.ui.components.ThemeSettingItem
 import java.util.Locale
 
 @Composable

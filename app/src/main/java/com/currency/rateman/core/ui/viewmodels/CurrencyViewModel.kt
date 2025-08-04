@@ -1,4 +1,4 @@
-package com.currency.rateman.ui.viewmodels
+package com.currency.rateman.core.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

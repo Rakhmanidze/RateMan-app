@@ -35,7 +35,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.currency.rateman.R
-import com.currency.rateman.ui.components.getCurrencyIconRes
+import com.currency.rateman.core.ui.components.getCurrencyIconRes
 import com.currency.rateman.core.utils.formatRate
 
 @Composable
