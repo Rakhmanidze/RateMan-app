@@ -4,7 +4,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.provider.data.model.Provider
-import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +12,6 @@ import kotlinx.coroutines.launch
 
 class ProviderDetailViewModel(
     private val getProviderByIdUseCase: GetProviderByIdUseCase
-//    private val providerRepository: ProviderRepository,
 ) : ViewModel() {
     private val _provider = MutableStateFlow<Provider?>(null)
     val provider: StateFlow<Provider?> = _provider.asStateFlow()
