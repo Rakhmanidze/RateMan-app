@@ -36,7 +36,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.currency.rateman.R
 import com.currency.rateman.ui.components.getCurrencyIconRes
-import com.currency.rateman.utils.formatRate
+import com.currency.rateman.core.utils.formatRate
 
 @Composable
 fun ProviderDetailsScreen(

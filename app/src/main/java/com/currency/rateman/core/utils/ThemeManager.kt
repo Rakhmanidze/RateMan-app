@@ -1,4 +1,4 @@
-package com.currency.rateman.utils
+package com.currency.rateman.core.utils
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
