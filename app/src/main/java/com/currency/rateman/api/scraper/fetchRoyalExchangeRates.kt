@@ -1,6 +1,6 @@
 package com.currency.rateman.api.scraper
 
-import com.currency.rateman.utils.ProviderConstants
+import com.currency.rateman.provider.utils.ProviderConstants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
@@ -18,7 +18,6 @@ suspend fun fetchRoyalExchangeRates(): List<ExchangeRate> = withContext(Dispatch
             val cols = row.select("td")
             if (cols.size >= 9) {
                 val currency = cols[2].text().trim()
-                val count = cols[1].text().trim()
                 val weBuy = cols[7].text().trim()
                 val weSell = cols[8].text().trim()
 

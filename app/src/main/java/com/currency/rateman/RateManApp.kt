@@ -12,7 +12,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.currency.rateman.api.kurzyCz.RateFetchWorker
-import com.currency.rateman.data.repository.ProviderRepository
+import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.di.AppContainer
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.CoroutineScope

@@ -1,15 +1,19 @@
 package com.currency.rateman.di
 
-import com.currency.rateman.data.repository.FilterRepository
-import com.currency.rateman.data.repository.FilterRepositoryImpl
-import com.currency.rateman.data.repository.ProviderRepository
-import com.currency.rateman.data.repository.ProviderRepositoryImpl
-import com.currency.rateman.data.repository.SettingsRepository
-import com.currency.rateman.data.repository.SettingsRepositoryImpl
-import com.currency.rateman.ui.viewmodels.CurrencyViewModel
-import com.currency.rateman.ui.viewmodels.ProviderViewModel
-import com.currency.rateman.ui.viewmodels.RatesViewModel
-import com.currency.rateman.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.data.repository.FilterRepository
+import com.currency.rateman.core.data.repository.FilterRepositoryImpl
+import com.currency.rateman.provider.domain.repository.ProviderRepository
+import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
+import com.currency.rateman.core.data.repository.SettingsRepository
+import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
+import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
+import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCaseImpl
+import com.currency.rateman.core.ui.viewmodels.CurrencyViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
+import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase
+import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCaseImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -23,8 +27,11 @@ val appModule = module {
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single <FilterRepository> { FilterRepositoryImpl(get()) }
 
-    viewModel { RatesViewModel(get(), get()) }
+    single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(get()) }
+    single<GetProviderByIdUseCase> { GetProviderByIdUseCaseImpl(get()) }
+
+    viewModel { ProviderListViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
     viewModel { CurrencyViewModel() }
-    viewModel { ProviderViewModel(get()) }
+    viewModel { ProviderDetailViewModel(get()) }
 }

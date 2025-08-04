@@ -1,7 +1,7 @@
 package com.currency.rateman.di
 
 import android.content.Context
-import com.currency.rateman.data.db.RateManDatabase
+import com.currency.rateman.core.data.db.RateManDatabase
 
 object AppContainer {
     lateinit var rateManDatabase : RateManDatabase

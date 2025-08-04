@@ -6,10 +6,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
-import com.currency.rateman.ui.navigation.AppRouter
-import com.currency.rateman.ui.theme.RateManAppTheme
-import com.currency.rateman.utils.LanguageManager
-import com.currency.rateman.utils.ThemeManager
+import com.currency.rateman.core.ui.navigation.AppRouter
+import com.currency.rateman.core.ui.theme.RateManAppTheme
+import com.currency.rateman.core.utils.LanguageManager
+import com.currency.rateman.core.utils.ThemeManager
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {

@@ -4,8 +4,8 @@ import android.content.Context
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
-import com.currency.rateman.data.repository.ProviderRepository
-import com.currency.rateman.utils.ProviderConstants
+import com.currency.rateman.provider.domain.repository.ProviderRepository
+import com.currency.rateman.provider.utils.ProviderConstants
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

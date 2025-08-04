@@ -1,6 +1,6 @@
 package com.currency.rateman.api.scraper
 
-import com.currency.rateman.utils.ProviderConstants
+import com.currency.rateman.provider.utils.ProviderConstants
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.jsoup.Jsoup
