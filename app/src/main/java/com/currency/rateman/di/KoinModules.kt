@@ -6,6 +6,7 @@ import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
 import com.currency.rateman.data.repository.SettingsRepository
 import com.currency.rateman.data.repository.SettingsRepositoryImpl
+import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCaseImpl
 import com.currency.rateman.ui.viewmodels.CurrencyViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
@@ -24,7 +25,7 @@ val appModule = module {
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single <FilterRepository> { FilterRepositoryImpl(get()) }
 
-    single { GetAllProvidersUseCaseImpl(get()) }
+    single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(get()) }
 
     viewModel { ProviderListViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
