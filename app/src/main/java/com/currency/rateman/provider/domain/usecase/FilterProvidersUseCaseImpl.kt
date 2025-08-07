@@ -5,10 +5,9 @@ import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.core.data.model.enums.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.provider.data.model.Provider
-import com.currency.rateman.provider.domain.repository.ProviderRepository
 
 class FilterProvidersUseCaseImpl(
-    private val providerRepository: ProviderRepository) : FilterProvidersUseCase {
+) : FilterProvidersUseCase {
     override suspend fun execute(
         providers: List<Provider>,
         searchQuery: String,
