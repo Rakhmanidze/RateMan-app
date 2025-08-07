@@ -2,6 +2,7 @@ package com.currency.rateman.provider.domain.usecase
 
 import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 
@@ -17,6 +18,8 @@ class FilterProvidersUseCaseImpl(
         filteredProviders = applySearchFilter(filteredProviders, searchQuery)
 
         filteredProviders = applyProviderTypeFilter(filteredProviders, filter?.selectedProviderType)
+
+        filteredProviders = applyCurrencyFilterAndSort(filteredProviders, filter)
 
         return filteredProviders
     }
@@ -43,5 +46,28 @@ class FilterProvidersUseCaseImpl(
         }
     }
 
+    private fun applyCurrencyFilterAndSort(
+        providers: List<Provider>,
+        filter: Filter?
+    ): List<Provider> {
+        val targetCurrency = filter?.targetCurrency ?: return providers
 
+        val currencyFilteredProviders = providers.filter { provider ->
+            provider.rates.any { rate -> rate.foreignCurrency == filter.targetCurrency }
+        }
+
+        return when(filter.selectedRateSortType) {
+            RateSortType.BEST_SELL -> currencyFilteredProviders.sortedBy { provider ->
+                provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate
+                    ?: Double.POSITIVE_INFINITY
+            }
+
+            RateSortType.BEST_BUY -> currencyFilteredProviders.sortedByDescending { provider ->
+                provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate
+                    ?: Double.NEGATIVE_INFINITY
+            }
+
+            RateSortType.BEST_RATE -> currencyFilteredProviders.sortedBy { it.name }
+        }
+    }
 }
