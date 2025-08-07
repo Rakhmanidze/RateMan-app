@@ -1,6 +1,7 @@
 package com.currency.rateman.provider.domain.usecase
 
 import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.core.data.model.enums.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.provider.data.model.Provider
@@ -56,18 +57,26 @@ class FilterProvidersUseCaseImpl(
             provider.rates.any { rate -> rate.foreignCurrency == filter.targetCurrency }
         }
 
-        return when(filter.selectedRateSortType) {
-            RateSortType.BEST_SELL -> currencyFilteredProviders.sortedBy { provider ->
-                provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate
-                    ?: Double.POSITIVE_INFINITY
-            }
-
-            RateSortType.BEST_BUY -> currencyFilteredProviders.sortedByDescending { provider ->
-                provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate
-                    ?: Double.NEGATIVE_INFINITY
-            }
-
+        return when (filter.selectedRateSortType) {
+            RateSortType.BEST_SELL -> sortBySellRate(currencyFilteredProviders, targetCurrency)
+            RateSortType.BEST_BUY -> sortByBuyRate(currencyFilteredProviders, targetCurrency)
             RateSortType.BEST_RATE -> currencyFilteredProviders.sortedBy { it.name }
+        }
+    }
+
+    private fun sortBySellRate(providers: List<Provider>, currency: CurrencyCode): List<Provider> {
+        return providers.sortedByDescending { provider ->
+            provider.rates
+                .firstOrNull { it.foreignCurrency == currency }
+                ?.sellRate ?: Double.POSITIVE_INFINITY
+        }
+    }
+
+    private fun sortByBuyRate(providers: List<Provider>, currency: CurrencyCode): List<Provider> {
+        return providers.sortedBy { provider ->
+            provider.rates
+                .firstOrNull { it.foreignCurrency == currency }
+                ?.sellRate ?: Double.NEGATIVE_INFINITY
         }
     }
 }
