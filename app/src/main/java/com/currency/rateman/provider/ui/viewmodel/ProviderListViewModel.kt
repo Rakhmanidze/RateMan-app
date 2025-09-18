@@ -45,7 +45,6 @@ class ProviderListViewModel(
         )
     }.stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
 
-
     init {
         viewModelScope.launch {
             filterRepository.ensureFiltersExist()
