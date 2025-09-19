@@ -5,10 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.provider.data.model.enums.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.core.data.repository.FilterRepository
 import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -20,7 +21,8 @@ import kotlinx.coroutines.launch
 
 class ProviderListViewModel(
     private val filterRepository: FilterRepository,
-    private val getAllProvidersUseCase: GetAllProvidersUseCase
+    private val getAllProvidersUseCase: GetAllProvidersUseCase,
+    private val filterProvidersUseCase: FilterProvidersUseCase
 ) : ViewModel() {
     private val allProviders = getAllProvidersUseCase.execute()
         .stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
@@ -36,41 +38,11 @@ class ProviderListViewModel(
         _filter,
         allProviders
     ) { query, filter, providers ->
-        var filteredProviders = providers
-
-        if (query.text.isNotBlank()) {
-            filteredProviders = filteredProviders.filter { provider ->
-                provider.name.contains(query.text, ignoreCase = true)
-            }
-        }
-        if (filter?.selectedProviderType != null) {
-            filteredProviders = when (filter.selectedProviderType) {
-                ProviderType.ALL -> filteredProviders
-                ProviderType.BANK -> filteredProviders.filter { it.type == ProviderType.BANK }
-                ProviderType.EXCHANGE -> filteredProviders.filter { it.type == ProviderType.EXCHANGE }
-                ProviderType.CRYPTO_EXCHANGE -> filteredProviders.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
-            }
-        }
-        if (filter?.targetCurrency != null) {
-            filteredProviders = filteredProviders.filter { provider ->
-                provider.rates.any { rate -> rate.foreignCurrency == filter.targetCurrency }
-            }
-            filteredProviders = when (filter.selectedRateSortType) {
-                RateSortType.BEST_SELL -> filteredProviders.sortedBy { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.sellRate
-                        ?: Double.POSITIVE_INFINITY
-                }
-
-                RateSortType.BEST_BUY -> filteredProviders.sortedByDescending { provider ->
-                    provider.rates.firstOrNull { it.foreignCurrency == filter.targetCurrency }?.buyRate
-                        ?: Double.NEGATIVE_INFINITY
-                }
-
-                RateSortType.BEST_RATE -> filteredProviders.sortedBy { it.name }
-            }
-        }
-
-        filteredProviders
+        filterProvidersUseCase.execute(
+            providers,
+            query.text,
+            filter
+        )
     }.stateIn(viewModelScope, SharingStarted.Companion.WhileSubscribed(5000), emptyList())
 
     init {

@@ -12,6 +12,8 @@ import com.currency.rateman.core.ui.viewmodels.CurrencyViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCase
+import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCaseImpl
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCaseImpl
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -29,8 +31,9 @@ val appModule = module {
 
     single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(get()) }
     single<GetProviderByIdUseCase> { GetProviderByIdUseCaseImpl(get()) }
+    single<FilterProvidersUseCase> { FilterProvidersUseCaseImpl() }
 
-    viewModel { ProviderListViewModel(get(), get()) }
+    viewModel { ProviderListViewModel(get(), get(), get()) }
     viewModel { SettingsViewModel(get()) }
     viewModel { CurrencyViewModel() }
     viewModel { ProviderDetailViewModel(get()) }

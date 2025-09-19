@@ -10,9 +10,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 
-class ProviderDetailViewModel(
-    private val getProviderByIdUseCase: GetProviderByIdUseCase
-) : ViewModel() {
+class ProviderDetailViewModel(private val getProviderByIdUseCase: GetProviderByIdUseCase) : ViewModel() {
     private val _provider = MutableStateFlow<Provider?>(null)
     val provider: StateFlow<Provider?> = _provider.asStateFlow()
 

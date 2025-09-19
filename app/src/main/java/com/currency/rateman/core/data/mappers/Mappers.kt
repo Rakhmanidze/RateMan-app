@@ -6,7 +6,7 @@ import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.data.model.Settings
 import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.core.data.model.enums.LanguageCode
-import com.currency.rateman.core.data.model.enums.ProviderType
+import com.currency.rateman.provider.data.model.enums.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.core.data.model.enums.ThemeMode
 
