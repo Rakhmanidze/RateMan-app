@@ -6,8 +6,7 @@ import com.currency.rateman.provider.data.model.enums.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import com.currency.rateman.provider.data.model.Provider
 
-class FilterProvidersUseCaseImpl(
-) : FilterProvidersUseCase {
+class FilterProvidersUseCaseImpl() : FilterProvidersUseCase {
     override suspend fun execute(
         providers: List<Provider>,
         searchQuery: String,
