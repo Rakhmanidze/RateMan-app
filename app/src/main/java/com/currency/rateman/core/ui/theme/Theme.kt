@@ -8,7 +8,7 @@ import androidx.compose.runtime.collectAsState
 import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.getValue
-import com.currency.rateman.core.ui.model.app.ThemeMode
+import com.currency.rateman.core.domain.app.ThemeMode
 
 private val DarkColorScheme = darkColorScheme(
     primary = DarkPrimary,

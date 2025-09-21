@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.currency.rateman.core.data.model.enums.CurrencyCode
 import com.currency.rateman.core.data.model.enums.LanguageCode
-import com.currency.rateman.core.ui.model.app.ThemeMode
+import com.currency.rateman.core.domain.app.ThemeMode
 
 @Entity(tableName = "settings")
 data class SettingsEntity(

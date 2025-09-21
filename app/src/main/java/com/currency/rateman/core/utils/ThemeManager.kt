@@ -3,7 +3,7 @@ package com.currency.rateman.core.utils
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
 import com.currency.rateman.core.data.db.RateManDatabase
-import com.currency.rateman.core.ui.model.app.ThemeMode
+import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.data.repository.SettingsRepository
 import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import kotlinx.coroutines.flow.first
