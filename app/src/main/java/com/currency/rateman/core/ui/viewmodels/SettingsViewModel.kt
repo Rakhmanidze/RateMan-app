@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.data.model.Settings
 import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.core.data.model.enums.LanguageCode
+import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.data.repository.SettingsRepository
 import com.currency.rateman.core.utils.LanguageManager

@@ -3,7 +3,7 @@ package com.currency.rateman.core.data.db.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.core.data.model.enums.LanguageCode
+import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 
 @Entity(tableName = "settings")

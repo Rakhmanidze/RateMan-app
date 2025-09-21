@@ -31,7 +31,7 @@ import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
 import com.currency.rateman.R
-import com.currency.rateman.core.data.model.enums.LanguageCode
+import com.currency.rateman.core.domain.app.LanguageCode
 import java.util.Locale
 
 @Composable
