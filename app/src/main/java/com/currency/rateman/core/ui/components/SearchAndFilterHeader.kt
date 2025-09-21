@@ -32,7 +32,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.provider.data.model.enums.ProviderType
+import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 
 @Composable
