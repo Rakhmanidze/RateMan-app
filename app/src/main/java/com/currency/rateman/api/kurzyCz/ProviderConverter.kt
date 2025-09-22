@@ -1,7 +1,7 @@
 package com.currency.rateman.api.kurzyCz
 
 import android.util.Log
-import com.currency.rateman.core.data.db.entity.CurrencyRateEntity
+import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
 import com.currency.rateman.core.data.model.CurrencyRate
 import com.currency.rateman.provider.data.model.Provider

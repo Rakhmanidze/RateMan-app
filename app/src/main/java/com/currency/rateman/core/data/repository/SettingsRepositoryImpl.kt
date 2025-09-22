@@ -1,7 +1,7 @@
 package com.currency.rateman.core.data.repository
 
 import com.currency.rateman.core.data.dao.SettingsDao
-import com.currency.rateman.core.data.db.entity.SettingsEntity
+import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.data.mappers.toSettings
 import com.currency.rateman.core.data.model.Settings
 import com.currency.rateman.core.data.model.enums.CurrencyCode
