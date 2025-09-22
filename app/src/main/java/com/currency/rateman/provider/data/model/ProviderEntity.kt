@@ -1,4 +1,4 @@
-package com.currency.rateman.provider.data.entity
+package com.currency.rateman.provider.data.model
 
 import androidx.room.Entity
 import androidx.room.Index

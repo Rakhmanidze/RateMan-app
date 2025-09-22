@@ -2,7 +2,7 @@ package com.currency.rateman.core.data.repository
 
 import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.data.model.enums.CurrencyCode
-import com.currency.rateman.provider.data.model.enums.ProviderType
+import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import kotlinx.coroutines.flow.Flow
 

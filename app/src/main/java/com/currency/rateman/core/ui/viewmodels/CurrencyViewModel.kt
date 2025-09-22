@@ -3,6 +3,7 @@ package com.currency.rateman.core.ui.viewmodels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -10,11 +11,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
-class CurrencyViewModel : ViewModel() {
+class CurrencyViewModel(private val getAllCurrenciesUseCase: GetAllCurrenciesUseCase) : ViewModel() {
     private val _currencySearchQuery = MutableStateFlow("")
     val currencySearchQuery: StateFlow<String> = _currencySearchQuery.asStateFlow()
 
-    private val allCurrencies = CurrencyCode.entries.toList()
+    private val allCurrencies = getAllCurrenciesUseCase.execute()
 
     val filteredCurrencies: StateFlow<List<CurrencyCode>> = _currencySearchQuery
         .map { query ->
