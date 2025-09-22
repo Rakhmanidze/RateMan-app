@@ -11,7 +11,7 @@ import com.currency.rateman.api.scraper.fetchExchange8Rates
 import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
 import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
 import com.currency.rateman.api.scraper.fetchTopExchangeRates
-import com.currency.rateman.core.data.db.dao.CurrencyRateDao
+import com.currency.rateman.core.data.dao.CurrencyRateDao
 import com.currency.rateman.core.data.db.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
 import com.currency.rateman.core.data.model.CurrencyRate
