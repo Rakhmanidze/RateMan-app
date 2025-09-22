@@ -7,7 +7,7 @@ import com.currency.rateman.core.data.model.Settings
 import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.provider.data.model.ProviderType
-import com.currency.rateman.core.data.model.enums.RateSortType
+import com.currency.rateman.core.data.model.RateSortType
 import com.currency.rateman.core.domain.app.ThemeMode
 
 fun Settings.toEntity() : SettingsEntity {

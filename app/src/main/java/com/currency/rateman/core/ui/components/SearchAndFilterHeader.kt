@@ -33,7 +33,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.text.input.TextFieldValue
 import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
-import com.currency.rateman.core.data.model.enums.RateSortType
+import com.currency.rateman.core.data.model.RateSortType
 
 @Composable
 fun SearchAndFilterHeader(
