@@ -1,7 +1,7 @@
 package com.currency.rateman.core.data.model
 
 import android.os.Parcelable
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import kotlinx.parcelize.Parcelize

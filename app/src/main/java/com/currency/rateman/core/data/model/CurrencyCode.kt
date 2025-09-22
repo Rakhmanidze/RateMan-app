@@ -1,4 +1,4 @@
-package com.currency.rateman.core.data.model.enums
+package com.currency.rateman.core.data.model
 
 enum class CurrencyCode {
     USD,

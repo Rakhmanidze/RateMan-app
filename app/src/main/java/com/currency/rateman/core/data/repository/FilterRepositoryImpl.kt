@@ -4,7 +4,7 @@ import com.currency.rateman.core.data.dao.FilterDao
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.mappers.toFilter
 import com.currency.rateman.core.data.model.Filter
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.data.model.enums.RateSortType
 import kotlinx.coroutines.flow.Flow

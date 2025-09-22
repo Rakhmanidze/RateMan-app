@@ -1,6 +1,6 @@
 package com.currency.rateman.core.domain.usecase
 
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.CurrencyCode
 
 class GetAllCurrenciesUseCaseImpl : GetAllCurrenciesUseCase {
     override fun execute(): List<CurrencyCode> {

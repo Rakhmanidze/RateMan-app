@@ -2,7 +2,7 @@ package com.currency.rateman.core.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
