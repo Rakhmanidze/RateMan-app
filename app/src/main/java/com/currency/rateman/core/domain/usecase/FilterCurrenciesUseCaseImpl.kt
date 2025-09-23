@@ -7,6 +7,12 @@ class FilterCurrenciesUseCaseImpl : FilterCurrenciesUseCase {
         query: String,
         currencies: List<CurrencyCode>
     ): List<CurrencyCode> {
-        TODO("Not yet implemented")
+        return if (query.isBlank()) {
+            currencies
+        } else {
+            currencies.filter { currency ->
+                currency.name.contains(query, ignoreCase = true)
+            }
+        }
     }
 }
