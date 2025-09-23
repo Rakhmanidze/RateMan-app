@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 
 class CurrencyViewModel(private val getAllCurrenciesUseCase: GetAllCurrenciesUseCase) : ViewModel() {
@@ -16,9 +16,10 @@ class CurrencyViewModel(private val getAllCurrenciesUseCase: GetAllCurrenciesUse
     val currencySearchQuery: StateFlow<String> = _currencySearchQuery.asStateFlow()
 
     private val allCurrencies = getAllCurrenciesUseCase.execute()
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     val filteredCurrencies: StateFlow<List<CurrencyCode>> = _currencySearchQuery
-        .map { query ->
+        .combine(allCurrencies) { query, allCurrencies ->
             if (query.isBlank()) {
                 allCurrencies
             } else {
@@ -27,7 +28,7 @@ class CurrencyViewModel(private val getAllCurrenciesUseCase: GetAllCurrenciesUse
                 }
             }
         }
-        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), allCurrencies)
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
     fun updateCurrencySearchQuery(query: String) {
         _currencySearchQuery.value = query
