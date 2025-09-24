@@ -34,8 +34,8 @@ import androidx.navigation.NavHostController
 import com.currency.rateman.R
 import com.currency.rateman.core.ui.component.SearchInput
 import com.currency.rateman.core.ui.component.getCurrencyIconRes
-import com.currency.rateman.core.ui.viewmodels.CurrencyViewModel
-import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodel.CurrencyViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import org.koin.androidx.compose.koinViewModel
 

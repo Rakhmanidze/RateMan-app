@@ -5,7 +5,7 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import org.koin.androidx.compose.koinViewModel
 import androidx.compose.runtime.getValue
 import com.currency.rateman.core.domain.app.ThemeMode

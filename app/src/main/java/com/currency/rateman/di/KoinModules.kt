@@ -12,10 +12,10 @@ import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCase
 import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCaseImpl
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCaseImpl
-import com.currency.rateman.core.ui.viewmodels.CurrencyViewModel
+import com.currency.rateman.core.ui.viewmodel.CurrencyViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
-import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCaseImpl
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase

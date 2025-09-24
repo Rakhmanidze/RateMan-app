@@ -8,7 +8,7 @@ import com.currency.rateman.R
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.ui.component.LanguageSettingItem
-import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding

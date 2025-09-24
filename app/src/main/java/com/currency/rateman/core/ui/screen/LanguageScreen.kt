@@ -29,7 +29,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.core.ui.viewmodels.SettingsViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.R
 import com.currency.rateman.core.domain.app.LanguageCode
 import java.util.Locale
