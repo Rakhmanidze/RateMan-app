@@ -4,7 +4,7 @@ import android.util.Log
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
 import com.currency.rateman.core.data.model.CurrencyRate
-import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import java.time.LocalDate

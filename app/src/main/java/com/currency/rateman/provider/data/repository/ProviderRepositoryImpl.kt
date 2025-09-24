@@ -18,7 +18,7 @@ import com.currency.rateman.core.data.model.CurrencyRate
 import com.currency.rateman.core.data.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.provider.data.dao.ProviderDao
-import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.utils.ProviderConstants
 import kotlinx.coroutines.flow.Flow

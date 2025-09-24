@@ -1,7 +1,7 @@
-package com.currency.rateman.provider.data.model
+package com.currency.rateman.provider.domain.model
 
-import com.currency.rateman.core.data.model.CurrencyRate
 import com.currency.rateman.core.data.model.CurrencyCode
+import com.currency.rateman.core.data.model.CurrencyRate
 import com.currency.rateman.provider.data.model.ProviderType
 
 data class Provider(
