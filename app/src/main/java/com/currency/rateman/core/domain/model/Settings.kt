@@ -1,6 +1,5 @@
-package com.currency.rateman.core.data.model
+package com.currency.rateman.core.domain.model
 
-import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 
