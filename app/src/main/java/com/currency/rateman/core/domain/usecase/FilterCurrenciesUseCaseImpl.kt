@@ -1,6 +1,6 @@
 package com.currency.rateman.core.domain.usecase
 
-import com.currency.rateman.core.data.model.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 
 class FilterCurrenciesUseCaseImpl : FilterCurrenciesUseCase {
     override fun execute(

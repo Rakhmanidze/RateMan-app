@@ -15,7 +15,7 @@ import com.currency.rateman.core.data.dao.CurrencyRateDao
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
 import com.currency.rateman.core.data.model.CurrencyRate
-import com.currency.rateman.core.data.model.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.provider.data.dao.ProviderDao
 import com.currency.rateman.provider.domain.model.Provider
