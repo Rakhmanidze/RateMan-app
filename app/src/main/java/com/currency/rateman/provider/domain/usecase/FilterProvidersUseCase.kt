@@ -1,6 +1,6 @@
 package com.currency.rateman.provider.domain.usecase
 
-import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.provider.domain.model.Provider
 
 interface FilterProvidersUseCase {

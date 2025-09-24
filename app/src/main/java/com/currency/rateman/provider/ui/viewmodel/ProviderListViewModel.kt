@@ -3,7 +3,7 @@ package com.currency.rateman.provider.ui.viewmodel
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.currency.rateman.core.data.model.Filter
+import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.domain.model.RateSortType
