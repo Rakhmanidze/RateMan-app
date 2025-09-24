@@ -3,7 +3,7 @@ package com.currency.rateman.provider.domain.usecase
 import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
-import com.currency.rateman.core.data.model.RateSortType
+import com.currency.rateman.core.domain.model.RateSortType
 import com.currency.rateman.provider.domain.model.Provider
 
 class FilterProvidersUseCaseImpl() : FilterProvidersUseCase {

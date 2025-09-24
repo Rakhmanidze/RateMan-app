@@ -6,7 +6,7 @@ import com.currency.rateman.core.data.mappers.toFilter
 import com.currency.rateman.core.data.model.Filter
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
-import com.currency.rateman.core.data.model.RateSortType
+import com.currency.rateman.core.domain.model.RateSortType
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first

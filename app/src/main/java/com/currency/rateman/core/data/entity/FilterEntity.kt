@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
-import com.currency.rateman.core.data.model.RateSortType
+import com.currency.rateman.core.domain.model.RateSortType
 
 @Entity(tableName = "filters")
 data class FilterEntity(
