@@ -1,6 +1,5 @@
-package com.currency.rateman.core.data.model
+package com.currency.rateman.core.domain.model
 
-import com.currency.rateman.core.domain.model.CurrencyCode
 import java.time.LocalDate
 
 data class CurrencyRate(
