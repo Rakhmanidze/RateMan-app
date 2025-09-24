@@ -1,4 +1,4 @@
-package com.currency.rateman.core.data.mappers
+package com.currency.rateman.core.data.mapper
 
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.entity.SettingsEntity
