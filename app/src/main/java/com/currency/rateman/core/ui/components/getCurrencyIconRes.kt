@@ -1,7 +1,7 @@
 package com.currency.rateman.core.ui.components
 
 import androidx.annotation.DrawableRes
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.R
 
 @DrawableRes

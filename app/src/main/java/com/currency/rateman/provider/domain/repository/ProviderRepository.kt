@@ -1,7 +1,7 @@
 package com.currency.rateman.provider.domain.repository
 
 import com.currency.rateman.api.kurzyCz.ProviderAPI
-import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.model.Provider
 import kotlinx.coroutines.flow.Flow
 
 interface ProviderRepository {

@@ -1,11 +1,11 @@
 package com.currency.rateman.api.kurzyCz
 
 import android.util.Log
-import com.currency.rateman.core.data.db.entity.CurrencyRateEntity
+import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
-import com.currency.rateman.core.data.model.CurrencyRate
-import com.currency.rateman.provider.data.model.Provider
-import com.currency.rateman.core.data.model.enums.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyRate
+import com.currency.rateman.provider.domain.model.Provider
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
