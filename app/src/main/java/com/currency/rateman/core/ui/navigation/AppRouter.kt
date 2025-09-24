@@ -10,11 +10,11 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.currency.rateman.R
-import com.currency.rateman.core.ui.screens.BaseCurrencyScreen
-import com.currency.rateman.core.ui.screens.CurrencyScreen
-import com.currency.rateman.core.ui.screens.LanguageScreen
-import com.currency.rateman.core.ui.screens.SettingsScreen
-import com.currency.rateman.core.ui.screens.Splashscreen
+import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
+import com.currency.rateman.core.ui.screen.CurrencyScreen
+import com.currency.rateman.core.ui.screen.LanguageScreen
+import com.currency.rateman.core.ui.screen.SettingsScreen
+import com.currency.rateman.core.ui.screen.Splashscreen
 import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
 import com.currency.rateman.provider.ui.screen.RatesScreen
 

@@ -1,4 +1,4 @@
-package com.currency.rateman.core.ui.components
+package com.currency.rateman.core.ui.component
 
 import com.currency.rateman.R as AppR
 import androidx.compose.foundation.Image

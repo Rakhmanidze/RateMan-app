@@ -1,4 +1,4 @@
-package com.currency.rateman.core.ui.screens
+package com.currency.rateman.core.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -32,18 +32,18 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
-import com.currency.rateman.core.ui.components.SearchInput
-import com.currency.rateman.core.ui.components.getCurrencyIconRes
-import com.currency.rateman.core.ui.viewmodels.CurrencyViewModel
+import com.currency.rateman.core.ui.component.SearchInput
+import com.currency.rateman.core.ui.component.getCurrencyIconRes
+import com.currency.rateman.core.ui.viewmodel.CurrencyViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CurrencyScreen(
+fun BaseCurrencyScreen(
     navController: NavHostController,
 ) {
-    val providerListViewModel: ProviderListViewModel = navController
+    val settingsViewModel: SettingsViewModel = navController
         .currentBackStackEntry
         ?.sharedKoinNavViewModel(navController)
         ?: return
@@ -51,7 +51,7 @@ fun CurrencyScreen(
     val currencyViewModel: CurrencyViewModel = koinViewModel()
     val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
-    val filter by providerListViewModel.filter.collectAsState()
+    val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -75,7 +75,7 @@ fun CurrencyScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = stringResource(R.string.select_target_currency),
+                    text = stringResource(R.string.select_base_currency),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -107,7 +107,7 @@ fun CurrencyScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    providerListViewModel.updateCurrency(currency)
+                                    settingsViewModel.updateCurrency(currency)
                                     navController.popBackStack()
                                 }
                                 .padding(vertical = 12.dp),
@@ -125,7 +125,7 @@ fun CurrencyScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            if (currency == filter?.targetCurrency) {
+                            if (currency == settings?.baseCurrency) {
                                 Icon(
                                     painter = painterResource(id = R.drawable.ic_select),
                                     contentDescription = "Selected",
