@@ -1,4 +1,4 @@
-package com.currency.rateman.provider.ui.components
+package com.currency.rateman.provider.ui.component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement

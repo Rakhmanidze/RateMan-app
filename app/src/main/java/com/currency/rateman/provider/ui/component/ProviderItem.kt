@@ -1,4 +1,4 @@
-package com.currency.rateman.provider.ui.components
+package com.currency.rateman.provider.ui.component
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row

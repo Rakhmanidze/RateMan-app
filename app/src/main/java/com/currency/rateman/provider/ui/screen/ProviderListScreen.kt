@@ -20,7 +20,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.core.ui.component.BottomNavBar
-import com.currency.rateman.provider.ui.components.ProvidersList
+import com.currency.rateman.provider.ui.component.ProvidersList
 import com.currency.rateman.core.ui.component.SearchAndFilterHeader
 
 @Composable
