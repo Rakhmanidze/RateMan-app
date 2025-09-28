@@ -1,4 +1,7 @@
-## How RateMan Looks
+## RateMan
+ [Project Website](https://www.notion.so/2c9573d79278465aa51d2c4c852b9ade?v=27c6ac326eda8033b3a5000ce36fb344&source=copy_link)
+
+## App Screens
 
 <img src="https://github.com/user-attachments/assets/137c9eeb-0659-49be-80e0-734909b1aaa3" alt="Provider List" width="339" height="657" />
 <br>
