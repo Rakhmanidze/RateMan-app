@@ -40,7 +40,7 @@ import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
-fun CurrencyScreen(
+fun TargetCurrencyScreen(
     navController: NavHostController,
 ) {
     val providerListViewModel: ProviderListViewModel = navController
