@@ -24,7 +24,7 @@ import com.currency.rateman.provider.ui.component.ProvidersList
 import com.currency.rateman.core.ui.component.SearchAndFilterHeader
 
 @Composable
-fun RatesScreen(
+fun ProviderListScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,

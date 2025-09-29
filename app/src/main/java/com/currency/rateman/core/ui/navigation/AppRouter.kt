@@ -16,7 +16,7 @@ import com.currency.rateman.core.ui.screen.LanguageScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
 import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
-import com.currency.rateman.provider.ui.screen.RatesScreen
+import com.currency.rateman.provider.ui.screen.ProviderListScreen
 
 @Composable
 fun AppRouter() {
@@ -68,7 +68,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Rates.route) {
-            RatesScreen(
+            ProviderListScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->
