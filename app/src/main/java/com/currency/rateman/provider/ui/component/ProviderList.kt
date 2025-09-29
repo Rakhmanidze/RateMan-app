@@ -24,7 +24,7 @@ import androidx.navigation.NavHostController
 import com.currency.rateman.R
 
 @Composable
-fun ProvidersList(
+fun ProviderList(
     providers: List<Provider>,
     targetCurrency: CurrencyCode?,
     modifier: Modifier = Modifier,

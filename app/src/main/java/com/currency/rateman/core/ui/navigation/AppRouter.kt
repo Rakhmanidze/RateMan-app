@@ -11,12 +11,12 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.currency.rateman.R
 import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
-import com.currency.rateman.core.ui.screen.CurrencyScreen
+import com.currency.rateman.core.ui.screen.TargetCurrencyScreen
 import com.currency.rateman.core.ui.screen.LanguageScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
-import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
-import com.currency.rateman.provider.ui.screen.RatesScreen
+import com.currency.rateman.provider.ui.screen.ProviderDetailScreen
+import com.currency.rateman.provider.ui.screen.ProviderListScreen
 
 @Composable
 fun AppRouter() {
@@ -68,7 +68,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Rates.route) {
-            RatesScreen(
+            ProviderListScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->
@@ -104,7 +104,7 @@ fun MainAppRouter(navController: NavHostController) {
             arguments = listOf(navArgument("id") { type = NavType.LongType })
         ) { backStackEntry ->
             val providerId = backStackEntry.arguments?.getLong("id")
-            ProviderDetailsScreen(
+            ProviderDetailScreen(
                 providerId = providerId,
                 navController = navController
             )
@@ -120,7 +120,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.TargetCurrency.route) {
-            CurrencyScreen(
+            TargetCurrencyScreen(
                 navController = navController
             )
         }

@@ -20,11 +20,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.core.ui.component.BottomNavBar
-import com.currency.rateman.provider.ui.component.ProvidersList
+import com.currency.rateman.provider.ui.component.ProviderList
 import com.currency.rateman.core.ui.component.SearchAndFilterHeader
 
 @Composable
-fun RatesScreen(
+fun ProviderListScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
@@ -81,7 +81,7 @@ fun RatesScreen(
                     },
                     navController = navController
                 )
-                ProvidersList(
+                ProviderList(
                     providers = providers,
                     targetCurrency = filter?.targetCurrency,
                     navController = navController

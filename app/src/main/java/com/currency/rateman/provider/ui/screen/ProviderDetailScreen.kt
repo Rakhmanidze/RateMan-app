@@ -39,7 +39,7 @@ import com.currency.rateman.core.ui.component.getCurrencyIconRes
 import com.currency.rateman.core.utils.formatRate
 
 @Composable
-fun ProviderDetailsScreen(
+fun ProviderDetailScreen(
     providerId: Long?,
     navController: NavHostController
 ) {
