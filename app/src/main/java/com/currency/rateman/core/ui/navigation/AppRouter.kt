@@ -15,7 +15,7 @@ import com.currency.rateman.core.ui.screen.CurrencyScreen
 import com.currency.rateman.core.ui.screen.LanguageScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
-import com.currency.rateman.provider.ui.screen.ProviderDetailsScreen
+import com.currency.rateman.provider.ui.screen.ProviderDetailScreen
 import com.currency.rateman.provider.ui.screen.ProviderListScreen
 
 @Composable
@@ -104,7 +104,7 @@ fun MainAppRouter(navController: NavHostController) {
             arguments = listOf(navArgument("id") { type = NavType.LongType })
         ) { backStackEntry ->
             val providerId = backStackEntry.arguments?.getLong("id")
-            ProviderDetailsScreen(
+            ProviderDetailScreen(
                 providerId = providerId,
                 navController = navController
             )
