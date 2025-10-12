@@ -17,7 +17,7 @@ object ProviderConstants {
         "Česká Spořitelna",
         "ČSOB",
         "Fio banka",
-        "Komerční Banka",
+        "Komerční banka",
         "Max banka",
         "mBank",
         "Moneta Money Bank",
