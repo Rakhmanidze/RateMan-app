@@ -15,7 +15,7 @@ object ProviderConstants {
     val KNOWN_BANKS = listOf(
         "Air Bank",
         "Česká Spořitelna",  //Czech Savings Bank for non-czech languages
-        "ČSOB",
+        "ČSOB", //CSOB for non-czech languages
         "Fio banka", //Fio Bank for non-czech languages
         "Komerční banka", //Commercial Bank for non-czech languages
         "Max banka", //Max Bank for non-czech languages
