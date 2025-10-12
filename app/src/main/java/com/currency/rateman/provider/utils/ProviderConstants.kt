@@ -23,7 +23,7 @@ object ProviderConstants {
         "Moneta Money Bank", //is official name.
         "MONETA",
         "Oberbank",
-        "Raiffeisenbank",
+        "Raiffeisenbank", //Raiffeisen Bank for non-czech languages
         "Trinity Bank",
         "UniCredit Bank"
     )
