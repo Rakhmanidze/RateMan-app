@@ -16,7 +16,7 @@ object ProviderConstants {
         "Air Bank",
         "Česká Spořitelna",  //Czech Savings Bank for non-czech languages
         "ČSOB",
-        "Fio banka",
+        "Fio banka", //Fio Bank for non-czech languages
         "Komerční banka",
         "Max banka",
         "mBank",
