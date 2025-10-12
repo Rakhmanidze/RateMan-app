@@ -25,7 +25,7 @@ object ProviderConstants {
         "Oberbank AG",
         "Raiffeisenbank",
         "Trinity Bank",
-        "Unicredit Bank"
+        "UniCredit Bank"
     )
 
     object Scraped_providers {
