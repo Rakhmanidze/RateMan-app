@@ -22,7 +22,7 @@ object ProviderConstants {
         "mBank",
         "Moneta Money Bank",
         "MONETA",
-        "Oberbank AG",
+        "Oberbank",
         "Raiffeisenbank",
         "Trinity Bank",
         "UniCredit Bank"
