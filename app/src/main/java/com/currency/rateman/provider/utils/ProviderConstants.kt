@@ -20,7 +20,7 @@ object ProviderConstants {
         "Komerční banka",
         "Max banka",
         "mBank",
-        "Moneta Money Bank",
+        "Moneta Money Bank", //is official name.
         "MONETA",
         "Oberbank",
         "Raiffeisenbank",
