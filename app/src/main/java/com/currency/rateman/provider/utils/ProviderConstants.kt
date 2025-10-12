@@ -18,7 +18,7 @@ object ProviderConstants {
         "ČSOB",
         "Fio banka", //Fio Bank for non-czech languages
         "Komerční banka", //Commercial Bank for non-czech languages
-        "Max banka",
+        "Max banka", //Max Bank for non-czech languages
         "mBank",
         "Moneta Money Bank", //is official name.
         "MONETA",
