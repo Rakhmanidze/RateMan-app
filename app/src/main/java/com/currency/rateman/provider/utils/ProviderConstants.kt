@@ -14,29 +14,29 @@ object ProviderConstants {
 
     val KNOWN_BANKS = listOf(
         "Air Bank",
-        "Česká Spořitelna",
-        "ČSOB",
-        "Fio Banka",
-        "Komerční Banka",
-        "Max banka",
+        "Česká Spořitelna",  //Czech Savings Bank for non-czech languages
+        "ČSOB", //CSOB for non-czech languages
+        "Fio banka", //Fio Bank for non-czech languages
+        "Komerční banka", //Commercial Bank for non-czech languages
+        "Max banka", //Max Bank for non-czech languages
         "mBank",
-        "Moneta Money Bank",
+        "Moneta Money Bank", //is official name.
         "MONETA",
-        "Oberbank AG",
-        "Raiffeisenbank",
+        "Oberbank",
+        "Raiffeisenbank", //Raiffeisen Bank for non-czech languages
         "Trinity Bank",
-        "Unicredit Bank"
+        "UniCredit Bank"
     )
 
     object Scraped_providers {
         const val ALFA_PRAGUE = "Alfa Prague"
         const val AURA_AKTIV = "Aura Aktiv"
         const val CERNA_RUZE_EXCHANGE = "Černá Růže Exchange"
-        const val EURO_CHANGE = "Euro Change"
+        const val EURO_CHANGE = "Eurochange"
         const val EXCHANGE8 = "Exchange8"
         const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
         const val ROYAL_EXCHANGE = "Royal Exchange"
-        const val TOP_EXCHANGE = "Top Exchange"
+        const val TOP_EXCHANGE = "Samiko"
     }
 
     object Urls {
