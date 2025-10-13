@@ -36,7 +36,7 @@ object ProviderConstants {
         const val EXCHANGE8 = "Exchange8"
         const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
         const val ROYAL_EXCHANGE = "Royal Exchange"
-        const val TOP_EXCHANGE = "Top Exchange"
+        const val TOP_EXCHANGE = "Samiko"
     }
 
     object Urls {
