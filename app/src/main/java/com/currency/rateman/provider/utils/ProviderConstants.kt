@@ -32,7 +32,7 @@ object ProviderConstants {
         const val ALFA_PRAGUE = "Alfa Prague"
         const val AURA_AKTIV = "Aura Aktiv"
         const val CERNA_RUZE_EXCHANGE = "Černá Růže Exchange"
-        const val EURO_CHANGE = "Euro Change"
+        const val EURO_CHANGE = "Eurochange"
         const val EXCHANGE8 = "Exchange8"
         const val JINDRISSKA_EXCHANGE = "Jindřišská Exchange"
         const val ROYAL_EXCHANGE = "Royal Exchange"
