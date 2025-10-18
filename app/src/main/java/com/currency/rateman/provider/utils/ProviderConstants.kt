@@ -9,7 +9,8 @@ object ProviderConstants {
         "Poštovní spořitelna",
         "Prepocet EURa",
         "RoklenFX",
-        "Turecká centrální banka"
+        "Turecká centrální banka",
+        "Směnárna PETRA FINANCE"
     )
 
     val KNOWN_BANKS = listOf(
