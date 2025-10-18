@@ -41,7 +41,6 @@ class FilterProvidersUseCaseImpl() : FilterProvidersUseCase {
             null, ProviderType.ALL -> providers
             ProviderType.BANK -> providers.filter { it.type == ProviderType.BANK }
             ProviderType.EXCHANGE -> providers.filter { it.type == ProviderType.EXCHANGE }
-            ProviderType.CRYPTO_EXCHANGE -> providers.filter { it.type == ProviderType.CRYPTO_EXCHANGE }
         }
     }
 

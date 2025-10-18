@@ -86,7 +86,6 @@ fun SearchAndFilterHeader(
                             ProviderType.ALL -> stringResource(id = AppR.string.all)
                             ProviderType.BANK -> stringResource(id = AppR.string.banks)
                             ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
-                            ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
                             null -> stringResource(id = AppR.string.loading)
                         },
                         style = MaterialTheme.typography.bodySmall,
@@ -108,7 +107,6 @@ fun SearchAndFilterHeader(
                                         ProviderType.ALL -> stringResource(id = AppR.string.all)
                                         ProviderType.BANK -> stringResource(id = AppR.string.banks)
                                         ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
-                                        ProviderType.CRYPTO_EXCHANGE -> stringResource(id = AppR.string.crypto_exchanges)
                                     },
                                     color = MaterialTheme.colorScheme.onSurface,
                                     style = MaterialTheme.typography.bodySmall
