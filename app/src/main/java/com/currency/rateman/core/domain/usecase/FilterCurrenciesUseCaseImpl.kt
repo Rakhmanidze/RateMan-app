@@ -7,10 +7,13 @@ class FilterCurrenciesUseCaseImpl : FilterCurrenciesUseCase {
         query: String,
         currencies: List<CurrencyCode>
     ): List<CurrencyCode> {
+        val filteredCurrencies = currencies.filter {
+            it != CurrencyCode.CZK
+        }
         return if (query.isBlank()) {
-            currencies
+            filteredCurrencies
         } else {
-            currencies.filter { currency ->
+            filteredCurrencies.filter { currency ->
                 currency.name.contains(query, ignoreCase = true)
             }
         }
