@@ -62,18 +62,18 @@ class FilterProvidersUseCaseImpl() : FilterProvidersUseCase {
     }
 
     private fun sortBySellRate(providers: List<Provider>, currency: CurrencyCode): List<Provider> {
-        return providers.sortedByDescending { provider ->
-            provider.rates
-                .firstOrNull { it.foreignCurrency == currency }
-                ?.sellRate ?: Double.POSITIVE_INFINITY
-        }
-    }
-
-    private fun sortByBuyRate(providers: List<Provider>, currency: CurrencyCode): List<Provider> {
         return providers.sortedBy { provider ->
             provider.rates
                 .firstOrNull { it.foreignCurrency == currency }
                 ?.sellRate ?: Double.NEGATIVE_INFINITY
+        }
+    }
+
+    private fun sortByBuyRate(providers: List<Provider>, currency: CurrencyCode): List<Provider> {
+        return providers.sortedByDescending { provider ->
+            provider.rates
+                .firstOrNull { it.foreignCurrency == currency }
+                ?.buyRate ?: Double.POSITIVE_INFINITY
         }
     }
 }
