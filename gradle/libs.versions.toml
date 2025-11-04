@@ -13,11 +13,9 @@ activityCompose = "1.10.0"
 composeBom = "2024.04.01"
 ksp = "2.0.0-1.0.24"
 room = "2.6.1"
-squareupRetrofit = "2.11.0"
 desugar = "2.1.5"
 koin = "4.0.0"
 kotlinxCoroutines = "1.9.0"
-retrofitConverterGson = "2.11.0"
 okhttpLogging = "4.12.0"
 workRuntimeKtx = "2.9.1"
 ktor = "3.0.0"
@@ -69,4 +67,3 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization",  version.ref = "kotlin" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlin" }
 google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-
