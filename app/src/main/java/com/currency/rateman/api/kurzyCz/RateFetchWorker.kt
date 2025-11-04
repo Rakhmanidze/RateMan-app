@@ -29,7 +29,7 @@ class RateFetchWorker(
 
     private suspend fun fetchAndStoreRates() {
         try {
-            val response = APIClient.ratesAPIService.getExchangeRates()
+            val response: List<ProviderAPI> = APIClient.getRates("json/meny/b%5B-1%5D.json")
             Log.d("RatesViewModel", "API Response received, size: ${response.size}")
 
             val filteredProviders = response

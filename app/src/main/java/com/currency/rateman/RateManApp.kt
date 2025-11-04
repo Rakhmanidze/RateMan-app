@@ -48,7 +48,7 @@ class RateManApp: Application(), KoinComponent {
             .setRequiredNetworkType(NetworkType.CONNECTED)
             .build()
 
-        val periodicWorkRequest = PeriodicWorkRequestBuilder<RateFetchWorker>(1, TimeUnit.DAYS)
+        val periodicWorkRequest = PeriodicWorkRequestBuilder<RateFetchWorker>(10, TimeUnit.HOURS)
             .setConstraints(constraints)
             .build()
 

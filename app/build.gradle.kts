@@ -85,4 +85,8 @@ dependencies {
     implementation(libs.okhttp3.logging.interceptor)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.jsoup)
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.content.negotiation)
+    implementation(libs.ktor.serialization.kotlinx.json)
 }
