@@ -20,4 +20,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "RateMan"
-include(":app")
+include(":androidApp")
+include(":shared")
