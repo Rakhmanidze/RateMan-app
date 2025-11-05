@@ -12,6 +12,4 @@ interface ProviderRepository {
     suspend fun insertProvider(provider: Provider) : Long
 
     suspend fun insertApiProviders(apiProviders: List<ProviderAPI>)
-
-    suspend fun refreshJindrisskaExchangeRates()
 }
