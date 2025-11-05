@@ -111,7 +111,4 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshTopExchangeRates() =
         refreshRates(::fetchTopExchangeRates, ProviderConstants.Scraped_providers.TOP_EXCHANGE)
-
-    override suspend fun refreshAlfaPragueRates() =
-        refreshRates(::fetchAlfaPragueRates, ProviderConstants.Scraped_providers.ALFA_PRAGUE)
 }
