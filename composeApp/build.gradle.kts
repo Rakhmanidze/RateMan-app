@@ -1,6 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
-val appVersion = "2.0.1"
+val appVersion = "1.0.1"
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -40,6 +40,7 @@ kotlin {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
