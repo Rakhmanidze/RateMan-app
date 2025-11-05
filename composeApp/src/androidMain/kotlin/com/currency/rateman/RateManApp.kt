@@ -5,15 +5,7 @@ import com.currency.rateman.di.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.component.KoinComponent
 import org.koin.core.context.startKoin
-import androidx.work.Constraints
-import androidx.work.ExistingPeriodicWorkPolicy
-import androidx.work.NetworkType
-import androidx.work.OneTimeWorkRequestBuilder
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import com.currency.rateman.api.kurzyCz.RateFetchWorker
 import com.currency.rateman.di.AppContainer
-import java.util.concurrent.TimeUnit
 
 class RateManApp: Application(), KoinComponent {
     override fun onCreate() {
@@ -23,30 +15,5 @@ class RateManApp: Application(), KoinComponent {
             androidContext(this@RateManApp)
             modules(appModule)
         }
-        scheduleRateFetchWorker()
-    }
-
-    private fun scheduleRateFetchWorker() {
-        val constraints = Constraints.Builder()
-            .setRequiredNetworkType(NetworkType.CONNECTED)
-            .build()
-
-        val periodicWorkRequest = PeriodicWorkRequestBuilder<RateFetchWorker>(10, TimeUnit.HOURS)
-            .setConstraints(constraints)
-            .build()
-
-        val immediateWorkRequest = OneTimeWorkRequestBuilder<RateFetchWorker>()
-            .setConstraints(constraints)
-            .build()
-
-        val workManager = WorkManager.getInstance(applicationContext)
-
-        workManager.enqueue(immediateWorkRequest)
-
-        workManager.enqueueUniquePeriodicWork(
-            "RateFetchWork",
-            ExistingPeriodicWorkPolicy.KEEP,
-            periodicWorkRequest
-        )
     }
 }
