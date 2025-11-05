@@ -123,7 +123,4 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshRoyalExchangeRates() =
         refreshRates(::fetchRoyalExchangeRates, ProviderConstants.Scraped_providers.ROYAL_EXCHANGE)
-
-    override suspend fun refreshCernaRuzeExchangeRates() =
-        refreshRates(::fetchCernaRuzeExchangeRates, ProviderConstants.Scraped_providers.CERNA_RUZE_EXCHANGE)
 }
