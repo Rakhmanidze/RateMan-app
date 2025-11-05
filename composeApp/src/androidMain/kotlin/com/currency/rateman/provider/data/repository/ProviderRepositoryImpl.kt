@@ -68,36 +68,4 @@ class ProviderRepositoryImpl (
         }
         currencyRateDao.insertAllRates(ratesToInsert)
     }
-
-    private suspend fun refreshRates(
-        fetchRates: suspend () -> List<ExchangeRate>,
-        providerName: String
-    ) {
-        val exchangeRates = fetchRates()
-        if (exchangeRates.isEmpty()) return
-
-        val rates = exchangeRates.mapNotNull { er ->
-            val buy = er.weBuy.replace(",", ".").toDoubleOrNull()
-            val sell = er.weSell.replace(",", ".").toDoubleOrNull()
-
-            if (buy != null && sell != null) {
-                CurrencyRate(
-                    foreignCurrency = CurrencyCode.valueOf(er.currency),
-                    buyRate = buy,
-                    sellRate = sell,
-                    date = LocalDate.now()
-                )
-            } else null
-        }
-
-        val provider = Provider(
-            id = 0,
-            name = providerName,
-            baseCurrency = CurrencyCode.CZK,
-            phoneNumber = "",
-            type = ProviderType.EXCHANGE,
-            rates = rates
-        )
-        insertProvider(provider)
-    }
 }
