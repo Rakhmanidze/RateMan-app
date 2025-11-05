@@ -32,7 +32,7 @@ object ProviderConverter {
 
     fun toProvider(entity: ProviderEntity, rates: List<CurrencyRateEntity>): Provider {
         return Provider(
-            id = entity.id.toLong(),
+            id = entity.id,
             name = entity.name,
             baseCurrency = CurrencyCode.valueOf(entity.baseCurrency),
             rates = rates.map { rate ->
