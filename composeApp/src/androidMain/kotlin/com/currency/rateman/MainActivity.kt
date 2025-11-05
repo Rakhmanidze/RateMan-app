@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
+import com.currency.rateman.api.kurzyCz.RateFetcher.fetchAndStoreRates
 import com.currency.rateman.core.ui.navigation.AppRouter
 import com.currency.rateman.core.ui.theme.RateManAppTheme
 import com.currency.rateman.core.utils.LanguageManager
@@ -16,6 +17,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleScope.launch {
             ThemeManager.initTheme(this@MainActivity)
+            fetchAndStoreRates()
         }
         LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
