@@ -1,14 +1,13 @@
 package com.currency.rateman.api.kurzyCz
 
-import android.util.Log
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
 import com.currency.rateman.core.domain.model.CurrencyRate
 import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
-import java.time.LocalDate
 import java.time.format.DateTimeFormatter
+import kotlinx.datetime.LocalDate
 
 object ProviderConverter {
     private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
@@ -45,13 +44,21 @@ object ProviderConverter {
                     buyRate = rate.buyRate,
                     sellRate = rate.sellRate,
                     date = try {
-                        LocalDate.parse(rate.date, apiDateFormatter)
+                        LocalDate.parse(rate.date)
                     } catch (_: Exception) {
                         try {
-                            LocalDate.parse(rate.date, DateTimeFormatter.ISO_LOCAL_DATE)
+                            val parts = rate.date.split(".", "-", "/")
+                            if (parts.size == 3) {
+                                val day = parts[0].toInt()
+                                val month = parts[1].toInt()
+                                val year = parts[2].toInt()
+                                LocalDate(year, month, day)
+                            } else {
+                                LocalDate(2000, 1, 1)
+                            }
                         } catch (e2: Exception) {
-                            Log.e("Converter", "Failed to parse date $rate.date", e2)
-                            LocalDate.now()
+                            println("Failed to parse date: ${rate.date} -> ${e2.message}")
+                            LocalDate(2000, 1, 1)
                         }
                     }
                 )
