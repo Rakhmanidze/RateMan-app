@@ -1,6 +1,6 @@
 package com.currency.rateman.core.domain.model
 
-import java.time.LocalDate
+import kotlinx.datetime.LocalDate
 
 data class CurrencyRate(
     val foreignCurrency: CurrencyCode,
