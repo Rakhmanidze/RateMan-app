@@ -129,7 +129,4 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshExchange8Rates() =
         refreshRates(::fetchExchange8Rates, ProviderConstants.Scraped_providers.EXCHANGE8)
-
-    override suspend fun refreshAuraAktivRates() =
-        refreshRates(::fetchAuraAktivRates, ProviderConstants.Scraped_providers.AURA_AKTIV)
 }
