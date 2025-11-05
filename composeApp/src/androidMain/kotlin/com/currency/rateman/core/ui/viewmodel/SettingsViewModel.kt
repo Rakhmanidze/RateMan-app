@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.domain.model.Settings
-import com.currency.shared.core.domain.model.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.data.repository.SettingsRepository

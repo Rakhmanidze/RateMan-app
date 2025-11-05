@@ -4,7 +4,7 @@ import com.currency.rateman.core.data.dao.SettingsDao
 import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.data.mapper.toSettings
 import com.currency.rateman.core.domain.model.Settings
-import com.currency.shared.core.domain.model.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 import kotlinx.coroutines.flow.Flow

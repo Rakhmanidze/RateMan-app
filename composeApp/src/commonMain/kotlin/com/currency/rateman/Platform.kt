@@ -1,3 +1,3 @@
-package com.currency.shared
+package com.currency.rateman
 
 expect fun platform(): String

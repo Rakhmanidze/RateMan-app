@@ -1,7 +1,7 @@
 package com.currency.rateman.core.data.repository
 
 import com.currency.rateman.core.domain.model.Settings
-import com.currency.shared.core.domain.model.CurrencyCode
+import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
 import kotlinx.coroutines.flow.Flow
