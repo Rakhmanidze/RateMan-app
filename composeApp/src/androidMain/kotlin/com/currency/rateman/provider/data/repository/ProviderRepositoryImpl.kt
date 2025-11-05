@@ -108,7 +108,4 @@ class ProviderRepositoryImpl (
         )
         insertProvider(provider)
     }
-
-    override suspend fun refreshTopExchangeRates() =
-        refreshRates(::fetchTopExchangeRates, ProviderConstants.Scraped_providers.TOP_EXCHANGE)
 }
