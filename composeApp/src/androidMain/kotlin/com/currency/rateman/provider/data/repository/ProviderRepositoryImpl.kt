@@ -120,7 +120,4 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshEuroChangeRates() =
         refreshRates(::fetchEuroChangeRates, ProviderConstants.Scraped_providers.EURO_CHANGE)
-
-    override suspend fun refreshRoyalExchangeRates() =
-        refreshRates(::fetchRoyalExchangeRates, ProviderConstants.Scraped_providers.ROYAL_EXCHANGE)
 }
