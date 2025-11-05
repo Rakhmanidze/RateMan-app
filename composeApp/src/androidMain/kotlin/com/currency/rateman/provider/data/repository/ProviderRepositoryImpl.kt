@@ -2,14 +2,6 @@ package com.currency.rateman.provider.data.repository
 
 import com.currency.rateman.api.kurzyCz.ProviderAPI
 import com.currency.rateman.api.kurzyCz.ProviderConverter
-import com.currency.rateman.api.scraper.fetchAlfaPragueRates
-import com.currency.rateman.api.scraper.fetchAuraAktivRates
-import com.currency.rateman.api.scraper.fetchCernaRuzeExchangeRates
-import com.currency.rateman.api.scraper.fetchEuroChangeRates
-import com.currency.rateman.api.scraper.fetchExchange8Rates
-import com.currency.rateman.api.scraper.fetchJindrisskaExchangeRates
-import com.currency.rateman.api.scraper.fetchRoyalExchangeRates
-import com.currency.rateman.api.scraper.fetchTopExchangeRates
 import com.currency.rateman.core.data.dao.CurrencyRateDao
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.model.ProviderEntity
