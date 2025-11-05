@@ -13,8 +13,6 @@ interface ProviderRepository {
 
     suspend fun insertApiProviders(apiProviders: List<ProviderAPI>)
 
-    suspend fun refreshAlfaPragueRates()
-
     suspend fun refreshJindrisskaExchangeRates()
 
     suspend fun refreshEuroChangeRates()
