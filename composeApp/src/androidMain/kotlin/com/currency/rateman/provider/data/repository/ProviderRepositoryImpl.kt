@@ -117,7 +117,4 @@ class ProviderRepositoryImpl (
 
     override suspend fun refreshJindrisskaExchangeRates() =
         refreshRates(::fetchJindrisskaExchangeRates, ProviderConstants.Scraped_providers.JINDRISSKA_EXCHANGE)
-
-    override suspend fun refreshEuroChangeRates() =
-        refreshRates(::fetchEuroChangeRates, ProviderConstants.Scraped_providers.EURO_CHANGE)
 }
