@@ -10,8 +10,6 @@ import java.time.format.DateTimeFormatter
 import kotlinx.datetime.LocalDate
 
 object ProviderConverter {
-    private val apiDateFormatter = DateTimeFormatter.ofPattern("yyyyMMdd")
-
     fun toProviderEntity(api: ProviderAPI): ProviderEntity {
         return ProviderEntity(
             name = api.banka,
