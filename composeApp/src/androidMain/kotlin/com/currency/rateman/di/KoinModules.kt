@@ -4,7 +4,7 @@ import com.currency.rateman.core.domain.repository.FilterRepository
 import com.currency.rateman.core.data.repository.FilterRepositoryImpl
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
-import com.currency.rateman.core.data.repository.SettingsRepository
+import com.currency.rateman.core.domain.repository.SettingsRepository
 import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.core.domain.usecase.FilterCurrenciesUseCase
 import com.currency.rateman.core.domain.usecase.FilterCurrenciesUseCaseImpl

@@ -7,6 +7,7 @@ import com.currency.rateman.core.domain.model.Settings
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
+import com.currency.rateman.core.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first

@@ -1,4 +1,4 @@
-package com.currency.rateman.core.data.repository
+package com.currency.rateman.core.domain.repository
 
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
