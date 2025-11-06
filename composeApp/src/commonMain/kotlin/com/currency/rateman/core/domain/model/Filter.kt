@@ -1,6 +1,6 @@
 package com.currency.rateman.core.domain.model
 
-import com.currency.rateman.provider.data.model.ProviderType
+import com.currency.rateman.provider.domain.model.ProviderType
 
 data class Filter(
     val selectedProviderType: ProviderType,
