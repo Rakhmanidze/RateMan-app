@@ -3,7 +3,7 @@ package com.currency.rateman.core.data.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-import com.currency.rateman.provider.data.model.ProviderEntity
+import com.currency.rateman.provider.data.entity.ProviderEntity
 
 @Entity(
     tableName = "currency_rates",

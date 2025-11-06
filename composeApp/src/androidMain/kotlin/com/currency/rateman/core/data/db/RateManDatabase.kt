@@ -10,7 +10,7 @@ import com.currency.rateman.core.data.dao.SettingsDao
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.entity.SettingsEntity
-import com.currency.rateman.provider.data.model.ProviderEntity
+import com.currency.rateman.provider.data.entity.ProviderEntity
 import com.currency.rateman.provider.data.dao.ProviderDao
 
 @Database(

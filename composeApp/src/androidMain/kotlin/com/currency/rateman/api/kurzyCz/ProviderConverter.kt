@@ -1,7 +1,7 @@
 package com.currency.rateman.api.kurzyCz
 
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
-import com.currency.rateman.provider.data.model.ProviderEntity
+import com.currency.rateman.provider.data.entity.ProviderEntity
 import com.currency.rateman.core.domain.model.CurrencyRate
 import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.core.domain.model.CurrencyCode
