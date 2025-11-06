@@ -1,7 +1,7 @@
 package com.currency.rateman.provider.domain.usecase
 
 import com.currency.rateman.core.domain.model.Filter
-import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.model.Provider
 
 interface FilterProvidersUseCase {
     suspend fun execute(

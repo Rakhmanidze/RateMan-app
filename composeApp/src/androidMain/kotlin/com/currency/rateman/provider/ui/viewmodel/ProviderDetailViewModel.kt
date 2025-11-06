@@ -3,7 +3,7 @@ package com.currency.rateman.provider.ui.viewmodel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.currency.rateman.core.domain.model.CurrencyCode
-import com.currency.rateman.provider.data.model.Provider
+import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
