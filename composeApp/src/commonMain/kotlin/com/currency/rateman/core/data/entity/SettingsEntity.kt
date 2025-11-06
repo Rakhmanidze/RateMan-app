@@ -2,9 +2,9 @@ package com.currency.rateman.core.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
+import com.currency.rateman.core.domain.model.CurrencyCode
 
 @Entity(tableName = "settings")
 data class SettingsEntity(
