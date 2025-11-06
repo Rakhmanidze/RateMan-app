@@ -3,8 +3,8 @@ package com.currency.rateman.core.data.entity
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.currency.rateman.core.domain.model.CurrencyCode
-import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.domain.model.RateSortType
+import com.currency.rateman.provider.data.model.ProviderType
 
 @Entity(tableName = "filters")
 data class FilterEntity(
