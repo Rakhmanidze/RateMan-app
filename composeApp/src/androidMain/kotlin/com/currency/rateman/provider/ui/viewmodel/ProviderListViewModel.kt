@@ -8,7 +8,7 @@ import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.data.model.ProviderType
 import com.currency.rateman.core.domain.model.RateSortType
 import com.currency.rateman.core.data.repository.FilterRepository
-import com.currency.rateman.provider.domain.model.Provider
+import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCase
 import com.currency.rateman.provider.domain.usecase.GetAllProvidersUseCase
 import kotlinx.coroutines.flow.MutableStateFlow

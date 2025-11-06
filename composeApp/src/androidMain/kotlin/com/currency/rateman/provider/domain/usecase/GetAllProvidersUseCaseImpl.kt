@@ -1,6 +1,6 @@
 package com.currency.rateman.provider.domain.usecase
 
-import com.currency.rateman.provider.domain.model.Provider
+import com.currency.rateman.provider.data.model.Provider
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import kotlinx.coroutines.flow.Flow
 
