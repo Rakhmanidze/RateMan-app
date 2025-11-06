@@ -16,6 +16,5 @@ externalNativeBuild/
 cxx/
 *.log
 .DS_Store
-kotlin/
 *.klib
 composeApp/schemas/
