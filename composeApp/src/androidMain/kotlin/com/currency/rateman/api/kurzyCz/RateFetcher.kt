@@ -1,5 +1,6 @@
 package com.currency.rateman.api.kurzyCz
 
+import com.currency.rateman.api.ProviderAPI
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.utils.ProviderConstants
 import org.koin.core.component.KoinComponent
