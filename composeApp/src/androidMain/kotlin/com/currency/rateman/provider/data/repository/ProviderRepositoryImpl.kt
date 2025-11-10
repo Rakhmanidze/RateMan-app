@@ -1,7 +1,7 @@
 package com.currency.rateman.provider.data.repository
 
 import com.currency.rateman.api.ProviderAPI
-import com.currency.rateman.api.kurzyCz.ProviderConverter
+import com.currency.rateman.api.ProviderConverter
 import com.currency.rateman.core.data.dao.CurrencyRateDao
 import com.currency.rateman.core.data.entity.CurrencyRateEntity
 import com.currency.rateman.provider.data.entity.ProviderEntity
