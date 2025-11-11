@@ -36,6 +36,8 @@ val appModule = module {
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single <FilterRepository> { FilterRepositoryImpl(get()) }
 
+    /* ---------- Use Cases ---------- */
+
     single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(get()) }
     single<GetProviderByIdUseCase> { GetProviderByIdUseCaseImpl(get()) }
     single<FilterProvidersUseCase> { FilterProvidersUseCaseImpl() }
