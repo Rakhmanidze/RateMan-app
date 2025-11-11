@@ -44,6 +44,8 @@ val appModule = module {
     single<GetAllCurrenciesUseCase> { GetAllCurrenciesUseCaseImpl() }
     single<FilterCurrenciesUseCase> { FilterCurrenciesUseCaseImpl() }
 
+    /* ---------- View Models ---------- */
+
     viewModel { ProviderListViewModel(get(), get(), get()) }
     viewModel { SettingsViewModel(get()) }
     viewModel { CurrencyViewModel(get(), get()) }
