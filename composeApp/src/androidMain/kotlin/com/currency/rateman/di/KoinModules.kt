@@ -25,6 +25,12 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
+    /* ---------- DAOs ---------- */
+    single { AppContainer.rateManDatabase.currencyRateDao() }
+    single { AppContainer.rateManDatabase.providerDao() }
+    single { AppContainer.rateManDatabase.settingsDao() }
+    single { AppContainer.rateManDatabase.filterDao() }
+
     single { AppContainer.rateManDatabase.currencyRateDao() }
     single { AppContainer.rateManDatabase.providerDao() }
     single { AppContainer.rateManDatabase.settingsDao() }
