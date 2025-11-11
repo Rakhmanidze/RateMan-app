@@ -1,5 +1,6 @@
 package com.currency.rateman.di
 
+import com.currency.rateman.api.RateFetcher
 import com.currency.rateman.core.domain.repository.FilterRepository
 import com.currency.rateman.core.data.repository.FilterRepositoryImpl
 import com.currency.rateman.provider.domain.repository.ProviderRepository
@@ -43,4 +44,6 @@ val appModule = module {
     viewModel { SettingsViewModel(get()) }
     viewModel { CurrencyViewModel(get(), get()) }
     viewModel { ProviderDetailViewModel(get()) }
+
+    single<RateFetcher> { RateFetcher(httpClient = get(), providerRepository = get()) }
 }

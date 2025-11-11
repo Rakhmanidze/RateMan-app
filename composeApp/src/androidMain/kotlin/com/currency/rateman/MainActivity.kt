@@ -6,18 +6,21 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.lifecycle.lifecycleScope
-import com.currency.rateman.api.kurzyCz.RateFetcher.fetchAndStoreRates
+import com.currency.rateman.api.RateFetcher
 import com.currency.rateman.core.ui.navigation.AppRouter
 import com.currency.rateman.core.ui.theme.RateManAppTheme
 import com.currency.rateman.core.utils.LanguageManager
 import com.currency.rateman.core.utils.ThemeManager
 import kotlinx.coroutines.launch
+import org.koin.android.ext.android.inject
 
 class MainActivity : ComponentActivity() {
+    private val rateFetcher: RateFetcher by inject()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleScope.launch {
             ThemeManager.initTheme(this@MainActivity)
-            fetchAndStoreRates()
+            rateFetcher.fetchAndStoreRates()
         }
         LanguageManager.initLanguage(this)
         super.onCreate(savedInstanceState)
