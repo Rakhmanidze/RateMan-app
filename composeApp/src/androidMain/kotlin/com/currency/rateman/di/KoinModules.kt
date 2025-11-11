@@ -51,5 +51,7 @@ val appModule = module {
     viewModel { CurrencyViewModel(get(), get()) }
     viewModel { ProviderDetailViewModel(get()) }
 
+    /* ---------- Other ---------- */
+
     single<RateFetcher> { RateFetcher(httpClient = get(), providerRepository = get()) }
 }
