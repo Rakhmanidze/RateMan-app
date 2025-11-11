@@ -38,24 +38,24 @@ val appModule = module {
 
     /* ---------- Repositories ---------- */
 
-    single<ProviderRepository> { ProviderRepositoryImpl(get(), get()) }
-    single<SettingsRepository> { SettingsRepositoryImpl(get()) }
-    single <FilterRepository> { FilterRepositoryImpl(get()) }
+    single<ProviderRepository> { ProviderRepositoryImpl(providerDao = get(), currencyRateDao = get()) }
+    single<SettingsRepository> { SettingsRepositoryImpl(settingsDao = get()) }
+    single <FilterRepository> { FilterRepositoryImpl(filterDao = get()) }
 
     /* ---------- Use Cases ---------- */
 
-    single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(get()) }
-    single<GetProviderByIdUseCase> { GetProviderByIdUseCaseImpl(get()) }
+    single<GetAllProvidersUseCase> { GetAllProvidersUseCaseImpl(providerRepository = get()) }
+    single<GetProviderByIdUseCase> { GetProviderByIdUseCaseImpl(providerRepository = get()) }
     single<FilterProvidersUseCase> { FilterProvidersUseCaseImpl() }
     single<GetAllCurrenciesUseCase> { GetAllCurrenciesUseCaseImpl() }
     single<FilterCurrenciesUseCase> { FilterCurrenciesUseCaseImpl() }
 
     /* ---------- View Models ---------- */
 
-    viewModel { ProviderListViewModel(get(), get(), get()) }
-    viewModel { SettingsViewModel(get()) }
-    viewModel { CurrencyViewModel(get(), get()) }
-    viewModel { ProviderDetailViewModel(get()) }
+    viewModel { ProviderListViewModel(filterRepository = get(), getAllProvidersUseCase =  get(), filterProvidersUseCase = get()) }
+    viewModel { SettingsViewModel(repository = get()) }
+    viewModel { CurrencyViewModel(getAllCurrenciesUseCase = get(), filterCurrenciesUseCase = get()) }
+    viewModel { ProviderDetailViewModel(getProviderByIdUseCase = get()) }
 
     /* ---------- Other ---------- */
 
