@@ -30,6 +30,8 @@ val appModule = module {
     single { AppContainer.rateManDatabase.settingsDao() }
     single { AppContainer.rateManDatabase.filterDao() }
 
+    /* ---------- Repositories ---------- */
+
     single<ProviderRepository> { ProviderRepositoryImpl(get(), get()) }
     single<SettingsRepository> { SettingsRepositoryImpl(get()) }
     single <FilterRepository> { FilterRepositoryImpl(get()) }
