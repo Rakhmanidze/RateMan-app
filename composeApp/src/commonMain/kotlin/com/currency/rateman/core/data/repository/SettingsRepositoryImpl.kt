@@ -3,14 +3,14 @@ package com.currency.rateman.core.data.repository
 import com.currency.rateman.core.data.dao.SettingsDao
 import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.data.mapper.toSettings
-import com.currency.rateman.core.domain.model.Settings
-import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.app.ThemeMode
+import com.currency.rateman.core.domain.model.CurrencyCode
+import com.currency.rateman.core.domain.model.Settings
 import com.currency.rateman.core.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 
 class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRepository {
     override fun getSettings(): Flow<Settings> {
