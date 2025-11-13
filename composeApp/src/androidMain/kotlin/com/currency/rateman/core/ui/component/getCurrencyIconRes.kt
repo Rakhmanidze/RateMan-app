@@ -1,8 +1,8 @@
 package com.currency.rateman.core.ui.component
 
 import androidx.annotation.DrawableRes
-import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.R
+import com.currency.rateman.core.domain.model.CurrencyCode
 
 @DrawableRes
 fun getCurrencyIconRes(currency: CurrencyCode): Int {
