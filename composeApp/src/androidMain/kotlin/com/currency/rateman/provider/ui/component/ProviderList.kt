@@ -16,12 +16,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.currency.rateman.core.domain.model.CurrencyCode
-import com.currency.rateman.provider.domain.model.Provider
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
+import com.currency.rateman.core.domain.model.CurrencyCode
+import com.currency.rateman.provider.domain.model.Provider
 
 @Composable
 fun ProviderList(
