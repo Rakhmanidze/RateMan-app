@@ -17,8 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.core.domain.model.CurrencyRate
-import com.currency.rateman.provider.domain.model.Provider
 import com.currency.rateman.core.utils.formatRate
+import com.currency.rateman.provider.domain.model.Provider
 
 @Composable
 fun ProviderItem(
