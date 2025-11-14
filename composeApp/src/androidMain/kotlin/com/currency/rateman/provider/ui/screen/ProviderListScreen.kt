@@ -10,18 +10,18 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import com.currency.rateman.core.ui.navigation.BottomNavItem
-import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.core.ui.component.BottomNavBar
-import com.currency.rateman.provider.ui.component.ProviderList
 import com.currency.rateman.core.ui.component.SearchAndFilterHeader
+import com.currency.rateman.core.ui.navigation.BottomNavItem
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.provider.ui.component.ProviderList
+import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 
 @Composable
 fun ProviderListScreen(
