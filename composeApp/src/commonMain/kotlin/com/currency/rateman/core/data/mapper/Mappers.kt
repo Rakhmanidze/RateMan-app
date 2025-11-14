@@ -2,13 +2,13 @@ package com.currency.rateman.core.data.mapper
 
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.entity.SettingsEntity
-import com.currency.rateman.core.domain.model.Filter
-import com.currency.rateman.core.domain.model.Settings
-import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.app.LanguageCode
-import com.currency.rateman.provider.domain.model.ProviderType
-import com.currency.rateman.core.domain.model.RateSortType
 import com.currency.rateman.core.domain.app.ThemeMode
+import com.currency.rateman.core.domain.model.CurrencyCode
+import com.currency.rateman.core.domain.model.Filter
+import com.currency.rateman.core.domain.model.RateSortType
+import com.currency.rateman.core.domain.model.Settings
+import com.currency.rateman.provider.domain.model.ProviderType
 
 fun Settings.toEntity() : SettingsEntity {
     return SettingsEntity(
