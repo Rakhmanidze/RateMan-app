@@ -2,10 +2,11 @@ package com.currency.rateman.api
 
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.utils.ProviderConstants
-import io.ktor.client.*
-import io.ktor.client.call.*
-import io.ktor.client.request.*
-import io.ktor.http.*
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.accept
+import io.ktor.client.request.get
+import io.ktor.http.ContentType
 
 class RateFetcher(
     private val httpClient: HttpClient,
