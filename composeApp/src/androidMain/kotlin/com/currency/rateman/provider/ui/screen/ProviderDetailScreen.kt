@@ -25,18 +25,18 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.Alignment
-import androidx.navigation.NavHostController
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.currency.rateman.R
 import com.currency.rateman.core.ui.component.getCurrencyIconRes
 import com.currency.rateman.core.utils.formatRate
+import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 
 @Composable
 fun ProviderDetailScreen(
