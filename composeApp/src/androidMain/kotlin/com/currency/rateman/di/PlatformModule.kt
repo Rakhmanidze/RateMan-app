@@ -24,9 +24,5 @@ actual val platformModule = module {
         }
     }
 
-    single<RateManDatabase> {
-        getRoomDatabase(
-            getDatabaseBuilder(androidContext())
-        )
-    }
+    single<RateManDatabase> { getRoomDatabase(getDatabaseBuilder(androidContext())) }
 }
