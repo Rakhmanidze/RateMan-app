@@ -1,10 +1,10 @@
 package com.currency.rateman.provider.domain.usecase
 
-import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.core.domain.model.CurrencyCode
-import com.currency.rateman.provider.domain.model.ProviderType
+import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.core.domain.model.RateSortType
 import com.currency.rateman.provider.domain.model.Provider
+import com.currency.rateman.provider.domain.model.ProviderType
 
 class FilterProvidersUseCaseImpl() : FilterProvidersUseCase {
     override suspend fun execute(
