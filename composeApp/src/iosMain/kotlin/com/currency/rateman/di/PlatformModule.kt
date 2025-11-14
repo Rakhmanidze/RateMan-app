@@ -1,5 +1,8 @@
 package com.currency.rateman.di
 
+import com.currency.rateman.core.data.db.RateManDatabase
+import com.currency.rateman.core.data.db.getDatabaseBuilder
+import com.currency.rateman.core.data.db.getRoomDatabase
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.darwin.Darwin
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -19,4 +22,7 @@ actual val platformModule = module {
             }
         }
     }
+
+
+    single<RateManDatabase> { getRoomDatabase(getDatabaseBuilder()) }
 }
