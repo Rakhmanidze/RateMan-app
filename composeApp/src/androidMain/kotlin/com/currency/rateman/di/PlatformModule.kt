@@ -1,6 +1,8 @@
 package com.currency.rateman.di
 
 import com.currency.rateman.core.data.db.RateManDatabase
+import com.currency.rateman.core.data.db.getDatabaseBuilder
+import com.currency.rateman.core.data.db.getRoomDatabase
 import com.currency.rateman.core.db.getRateManDataBase
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.okhttp.OkHttp
@@ -23,5 +25,9 @@ actual val platformModule = module {
         }
     }
 
-    single<RateManDatabase> { getRateManDataBase(androidContext()) }
+    single<RateManDatabase> {
+        getRoomDatabase(
+            getDatabaseBuilder(androidContext())
+        )
+    }
 }
