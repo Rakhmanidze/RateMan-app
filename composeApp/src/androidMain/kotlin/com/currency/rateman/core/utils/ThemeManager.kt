@@ -2,19 +2,18 @@ package com.currency.rateman.core.utils
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatDelegate
-import com.currency.rateman.core.data.db.RateManDatabase
-import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.first
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 
-object ThemeManager {
-    private fun getSettingsRepository(context: Context): SettingsRepository {
-        return SettingsRepositoryImpl(RateManDatabase.getDatabase(context).settingsDao())
-    }
+object ThemeManager: KoinComponent {
+    private val settingsRepository: SettingsRepository by inject()
+    private val context: Context by inject()
 
     private suspend fun getSavedTheme(context: Context): ThemeMode {
-        return getSettingsRepository(context).getSettings().first().themeMode
+        return settingsRepository.getSettings().first().themeMode
     }
 
     suspend fun initTheme(context: Context) {

@@ -1,6 +1,7 @@
 package com.currency.rateman.di
 
 import com.currency.rateman.api.RateFetcher
+import com.currency.rateman.core.data.db.RateManDatabase
 import com.currency.rateman.core.data.repository.FilterRepositoryImpl
 import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.core.domain.repository.FilterRepository
@@ -26,15 +27,10 @@ import org.koin.dsl.module
 
 val appModule = module {
     /* ---------- DAOs ---------- */
-    single { AppContainer.rateManDatabase.currencyRateDao() }
-    single { AppContainer.rateManDatabase.providerDao() }
-    single { AppContainer.rateManDatabase.settingsDao() }
-    single { AppContainer.rateManDatabase.filterDao() }
-
-    single { AppContainer.rateManDatabase.currencyRateDao() }
-    single { AppContainer.rateManDatabase.providerDao() }
-    single { AppContainer.rateManDatabase.settingsDao() }
-    single { AppContainer.rateManDatabase.filterDao() }
+    single { get<RateManDatabase>().currencyRateDao() }
+    single {  get<RateManDatabase>().providerDao() }
+    single {  get<RateManDatabase>().settingsDao() }
+    single {  get<RateManDatabase>().filterDao() }
 
     /* ---------- Repositories ---------- */
 

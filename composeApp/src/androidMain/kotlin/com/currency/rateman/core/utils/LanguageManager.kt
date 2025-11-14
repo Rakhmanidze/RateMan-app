@@ -4,21 +4,20 @@ import android.content.Context
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import com.currency.rateman.core.data.db.RateManDatabase
-import com.currency.rateman.core.data.repository.SettingsRepositoryImpl
 import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.repository.SettingsRepository
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
+import org.koin.core.component.KoinComponent
+import org.koin.core.component.inject
 import java.util.Locale
 
-object LanguageManager {
-    private fun getSettingsRepository(context: Context): SettingsRepository {
-        return SettingsRepositoryImpl(RateManDatabase.getDatabase(context).settingsDao())
-    }
+object LanguageManager: KoinComponent {
+    private val settingsRepository: SettingsRepository by inject()
+    private val context: Context by inject()
 
     private suspend fun getSavedLanguage(context: Context): LanguageCode {
-        return getSettingsRepository(context).getSettings().first().uiLanguage
+        return settingsRepository.getSettings().first().uiLanguage
     }
 
     fun initLanguage(context: Context) {

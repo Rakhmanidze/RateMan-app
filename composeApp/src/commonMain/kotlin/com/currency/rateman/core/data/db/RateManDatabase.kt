@@ -1,6 +1,5 @@
 package com.currency.rateman.core.data.db
 
-import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -19,7 +18,7 @@ import com.currency.rateman.provider.data.entity.ProviderEntity
         CurrencyRateEntity::class,
         SettingsEntity::class,
         FilterEntity::class
-       ],
+    ],
     version = 1
 )
 abstract class RateManDatabase : RoomDatabase() {
@@ -28,24 +27,24 @@ abstract class RateManDatabase : RoomDatabase() {
     abstract fun settingsDao(): SettingsDao
     abstract fun filterDao(): FilterDao
 
-    companion object {
-        @Volatile
-        private var INSTANCE: RateManDatabase? = null
-
-        fun getDatabase(
-            context: Context,
-        ): RateManDatabase {
-            return INSTANCE ?: synchronized(this) {
-                Room.databaseBuilder(
-                    context,
-                    RateManDatabase::class.java,
-                    "rateman_db"
-                )
-                .build()
-                .also {
-                    INSTANCE = it
-                }
-            }
-        }
-    }
+//    companion object {
+//        @Volatile
+//        private var INSTANCE: RateManDatabase? = null
+//
+//        fun getDatabase(
+//            context: Context,
+//        ): RateManDatabase {
+//            return INSTANCE ?: synchronized(this) {
+//                Room.databaseBuilder(
+//                    context,
+//                    RateManDatabase::class.java,
+//                    "rateman_db"
+//                )
+//                    .build()
+//                    .also {
+//                        INSTANCE = it
+//                    }
+//            }
+//        }
+//    }
 }
