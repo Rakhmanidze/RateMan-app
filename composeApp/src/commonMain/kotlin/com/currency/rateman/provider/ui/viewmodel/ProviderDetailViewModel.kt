@@ -23,8 +23,8 @@ class ProviderDetailViewModel(private val getProviderByIdUseCase: GetProviderByI
                 rates = provider.rates
                     .filter { it.buyRate != 0.0 || it.sellRate != 0.0 }
                     .sortedBy { rate ->
-                    CurrencyCode.entries.toTypedArray().indexOfFirst { it == rate.foreignCurrency }
-                }
+                        CurrencyCode.entries.toTypedArray().indexOfFirst { it == rate.foreignCurrency }
+                    }
             )
         }
     }
