@@ -27,5 +27,5 @@ class CurrencyViewModel(private val getAllCurrenciesUseCase: GetAllCurrenciesUse
 
     fun updateCurrencySearchQuery(query: String) {
         _currencySearchQuery.value = query
-    } 
+    }
 }
