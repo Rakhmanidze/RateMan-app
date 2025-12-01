@@ -1,0 +1,36 @@
+<resources>
+
+    <!-- Home / Tabs -->
+    <string name="find_providers">Najít banky a směnárny</string>
+    <string name="best_rate">Nejlepší kurz</string>
+    <string name="best_buy">Nejlepší nákup</string>
+    <string name="best_sell">Nejlepší prodej</string>
+    <string name="all">Vše</string>
+
+    <!-- Categories -->
+    <string name="banks">Banky</string>
+    <string name="exchanges">Směnárny</string>
+    <string name="crypto_exchanges">Krypto směnárny</string>
+
+    <!-- Selection -->
+    <string name="select_base_currency">Vyberte hlavní měnu</string>
+    <string name="select_target_currency">Vyberte cílovou měnu</string>
+    <string name="select_app_language">Vyberte jazyk aplikace</string>
+    <string name="find_currencies">Vyhledat měny</string>
+    <string name="buy">Nákup</string>
+    <string name="sell">Prodej</string>
+
+    <!-- UI State -->
+    <string name="loading">Načítání</string>
+    <string name="no_results">Žádné výsledky</string>
+
+    <!-- Settings -->
+    <string name="settings">Nastavení</string>
+    <string name="app_language">Jazyk aplikace</string>
+    <string name="theme">Vzhled</string>
+    <string name="base_currency">Hlavní měna</string>
+
+    <!-- Theme Options -->
+    <string name="theme_dark">Tmavé</string>
+    <string name="theme_light">Světlé</string>
+</resources>
