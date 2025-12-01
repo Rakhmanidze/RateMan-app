@@ -17,11 +17,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.currency.rateman.R
-import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.ui.component.BottomNavBar
 import com.currency.rateman.core.ui.component.CurrencySettingItem
 import com.currency.rateman.core.ui.component.LanguageSettingItem
-import com.currency.rateman.core.ui.component.ThemeSettingItem
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
@@ -80,17 +78,6 @@ fun SettingsScreen(
                         .replaceFirstChar { if (it.isLowerCase()) it.uppercase() else it.toString() },
                     iconRes = R.drawable.ic_language,
                     navController = navController
-                )
-
-                ThemeSettingItem(
-                    label = stringResource(id = R.string.theme),
-                    value = settings!!.themeMode.name,
-                    options = enumValues<ThemeMode>().toList(),
-                    onValueChange = { theme ->
-                        viewModel.updateTheme(theme)
-                    },
-                    modifier = Modifier.padding(top = 8.dp),
-                    iconRes = R.drawable.ic_theme
                 )
 
                 CurrencySettingItem(

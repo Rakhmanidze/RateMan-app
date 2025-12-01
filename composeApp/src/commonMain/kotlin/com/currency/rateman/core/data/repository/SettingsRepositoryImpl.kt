@@ -29,7 +29,6 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         settingsDao.updateSettings(current.copy(
             baseCurrency = currencyCode?.name ?: current.baseCurrency,
             uiLanguage = languageCode?.name ?: current.uiLanguage,
-            themeMode = themeMode?.name ?: current.themeMode
         ))
     }
 
@@ -43,7 +42,6 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
         return Settings(
             baseCurrency = CurrencyCode.DKK,
             uiLanguage = LanguageCode.EN,
-            themeMode = ThemeMode.DARK
         )
     }
 }

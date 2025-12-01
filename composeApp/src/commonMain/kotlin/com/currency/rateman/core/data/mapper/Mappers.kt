@@ -3,7 +3,6 @@ package com.currency.rateman.core.data.mapper
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.domain.app.LanguageCode
-import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.core.domain.model.RateSortType
@@ -15,7 +14,6 @@ fun Settings.toEntity() : SettingsEntity {
         id = 0,
         baseCurrency = baseCurrency.name,
         uiLanguage = uiLanguage.name,
-        themeMode = themeMode.name
     )
 }
 
@@ -23,7 +21,6 @@ fun SettingsEntity.toSettings() : Settings {
     return Settings(
         baseCurrency = CurrencyCode.valueOf(baseCurrency),
         uiLanguage = LanguageCode.valueOf(uiLanguage),
-        themeMode = ThemeMode.valueOf(themeMode)
     )
 }
 
