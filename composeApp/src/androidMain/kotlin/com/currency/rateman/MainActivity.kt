@@ -18,7 +18,6 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         lifecycleScope.launch {
-//            ThemeManager.initTheme(this@MainActivity)
             rateFetcher.fetchAndStoreRates()
         }
         LanguageManager.initLanguage(this)
@@ -34,9 +33,6 @@ class MainActivity : ComponentActivity() {
     override fun onConfigurationChanged(newConfig: android.content.res.Configuration) {
         super.onConfigurationChanged(newConfig)
         LanguageManager.initLanguage(this)
-//        lifecycleScope.launch {
-//            ThemeManager.initTheme(this@MainActivity)
-//        }
     }
 
     override fun attachBaseContext(newBase: Context) {
