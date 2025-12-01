@@ -21,7 +21,8 @@ fun BottomNavBar(
     onItemClick: (BottomNavItem) -> Unit
 ) {
     NavigationBar(
-        modifier = Modifier.height(56.dp)
+        modifier = Modifier.height(56.dp),
+        containerColor = MaterialTheme.colorScheme.surface
     ) {
         bottomNavItems.forEach { item ->
             NavigationBarItem(
