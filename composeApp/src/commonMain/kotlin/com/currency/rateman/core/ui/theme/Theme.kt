@@ -4,11 +4,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import com.currency.rateman.core.domain.app.ThemeMode
-import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
-import org.koin.androidx.compose.koinViewModel
 
 private val DarkColorScheme = darkColorScheme(
     primary = DarkPrimary,
@@ -34,15 +30,13 @@ private val LightColorScheme = lightColorScheme(
 
 @Composable
 fun RateManAppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val viewModel: SettingsViewModel = koinViewModel()
-    val settings by viewModel.settings.collectAsState()
-
-    val colorScheme = when (settings?.themeMode) {
-        ThemeMode.DARK -> DarkColorScheme
-        ThemeMode.LIGHT -> LightColorScheme
-        null -> DarkColorScheme
+    val colorScheme = if (darkTheme) {
+        DarkColorScheme
+    } else {
+        LightColorScheme
     }
 
     MaterialTheme(
