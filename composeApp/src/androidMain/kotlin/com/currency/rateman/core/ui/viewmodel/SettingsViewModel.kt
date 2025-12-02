@@ -7,7 +7,6 @@ import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.Settings
 import com.currency.rateman.core.domain.repository.SettingsRepository
-import com.currency.rateman.core.utils.LanguageManager
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -30,7 +29,6 @@ class SettingsViewModel(private val repository: SettingsRepository) : ViewModel(
     fun updateLanguage(context: Context, language: LanguageCode) {
         viewModelScope.launch {
             repository.editSettings(languageCode = language)
-            LanguageManager.setAppLanguage(context, language)
         }
     }
 
