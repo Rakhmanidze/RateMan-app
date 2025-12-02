@@ -3,7 +3,6 @@ package com.currency.rateman.core.data.repository
 import com.currency.rateman.core.data.dao.SettingsDao
 import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.data.mapper.toSettings
-import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.Settings
 import com.currency.rateman.core.domain.repository.SettingsRepository
@@ -36,8 +35,7 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
 
     private fun getDefaultSettings(): Settings {
         return Settings(
-            baseCurrency = CurrencyCode.DKK,
-            uiLanguage = LanguageCode.EN,
+            baseCurrency = CurrencyCode.DKK
         )
     }
 }

@@ -2,7 +2,6 @@ package com.currency.rateman.core.data.mapper
 
 import com.currency.rateman.core.data.entity.FilterEntity
 import com.currency.rateman.core.data.entity.SettingsEntity
-import com.currency.rateman.core.domain.app.LanguageCode
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.Filter
 import com.currency.rateman.core.domain.model.RateSortType
@@ -12,15 +11,13 @@ import com.currency.rateman.provider.domain.model.ProviderType
 fun Settings.toEntity() : SettingsEntity {
     return SettingsEntity(
         id = 0,
-        baseCurrency = baseCurrency.name,
-        uiLanguage = uiLanguage.name,
+        baseCurrency = baseCurrency.name
     )
 }
 
 fun SettingsEntity.toSettings() : Settings {
     return Settings(
-        baseCurrency = CurrencyCode.valueOf(baseCurrency),
-        uiLanguage = LanguageCode.valueOf(uiLanguage),
+        baseCurrency = CurrencyCode.valueOf(baseCurrency)
     )
 }
 
