@@ -11,7 +11,6 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.currency.rateman.R
 import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
-import com.currency.rateman.core.ui.screen.LanguageScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
 import com.currency.rateman.core.ui.screen.TargetCurrencyScreen
@@ -106,11 +105,6 @@ fun MainAppRouter(navController: NavHostController) {
             val providerId = backStackEntry.arguments?.getLong("id")
             ProviderDetailScreen(
                 providerId = providerId,
-                navController = navController
-            )
-        }
-        composable(Routes.Language.route) {
-            LanguageScreen(
                 navController = navController
             )
         }
