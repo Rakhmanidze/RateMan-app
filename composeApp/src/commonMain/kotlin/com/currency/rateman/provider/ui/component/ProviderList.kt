@@ -16,12 +16,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.currency.rateman.R
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.domain.model.Provider
+import org.jetbrains.compose.resources.stringResource
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.no_results
 
 @Composable
 fun ProviderList(
@@ -41,7 +42,7 @@ fun ProviderList(
         ) {
 
             Text(
-                text = stringResource(id = R.string.no_results),
+                text = stringResource(Res.string.no_results),
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier.padding(top = 8.dp)
             )
@@ -59,7 +60,7 @@ fun ProviderList(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = "${stringResource(id = R.string.buy)} / ${stringResource(id = R.string.sell)}",
+                    text = "", //"${stringResource(SharedRes.strings.buy)} / ${stringResource(SharedRes.strings.sell)}"
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )

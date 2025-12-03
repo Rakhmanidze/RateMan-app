@@ -163,5 +163,5 @@ afterEvaluate {
 
 multiplatformResources {
     resourcesPackage.set("com.currency.rateman")
-    resourcesClassName.set("SharedRes")
+//    resourcesClassName.set("SharedRes")
 }
