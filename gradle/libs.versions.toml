@@ -25,7 +25,6 @@ koin = "4.1.0"
 # Utilities
 datetime = "0.7.1"
 kotlinx-serialization = "1.9.0"
-moko-resources = "0.25.1"
 okio = "3.16.2"
 # Test
 junit = "4.13.2"
@@ -79,8 +78,6 @@ koin-compose-viewmodel-navigation = { group = "io.insert-koin", name = "koin-com
 kotlinx-datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetime" }
 kotlinx-serialization-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-core", version.ref = "kotlinx-serialization" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
-moko-resources = { group = "dev.icerock.moko", name = "resources", version.ref = "moko-resources" }
-moko-resources-compose = { group = "dev.icerock.moko", name = "resources-compose", version.ref = "moko-resources" }
 okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 # Testing
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -99,4 +96,3 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 room = { id = "androidx.room", version.ref = "room" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-mobile-multiplatform-resources = { id = "dev.icerock.mobile.multiplatform-resources", version.ref = "moko-resources" }

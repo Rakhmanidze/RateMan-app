@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.mobile.multiplatform.resources)
 }
 
 kotlin {
@@ -71,8 +70,6 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
-            implementation(libs.moko.resources)
-            implementation(libs.moko.resources.compose)
             implementation(libs.okio)
         }
 
@@ -163,5 +160,4 @@ afterEvaluate {
 
 multiplatformResources {
     resourcesPackage.set("com.currency.rateman")
-//    resourcesClassName.set("SharedRes")
 }
