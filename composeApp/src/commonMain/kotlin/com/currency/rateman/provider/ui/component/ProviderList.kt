@@ -22,7 +22,9 @@ import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.provider.domain.model.Provider
 import org.jetbrains.compose.resources.stringResource
 import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.buy
 import rateman.composeapp.generated.resources.no_results
+import rateman.composeapp.generated.resources.sell
 
 @Composable
 fun ProviderList(
@@ -60,7 +62,7 @@ fun ProviderList(
                 horizontalArrangement = Arrangement.End
             ) {
                 Text(
-                    text = "", //"${stringResource(SharedRes.strings.buy)} / ${stringResource(SharedRes.strings.sell)}"
+                    text = "${stringResource(Res.string.buy)} / ${stringResource(Res.string.sell)}",
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onSurface
                 )
