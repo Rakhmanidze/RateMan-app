@@ -22,7 +22,7 @@ import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCase
 import com.currency.rateman.provider.domain.usecase.GetProviderByIdUseCaseImpl
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
-import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
