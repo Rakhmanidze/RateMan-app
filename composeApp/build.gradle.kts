@@ -157,7 +157,3 @@ afterEvaluate {
         enabled = false
     }
 }
-
-multiplatformResources {
-    resourcesPackage.set("com.currency.rateman")
-}
