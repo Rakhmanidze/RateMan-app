@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- App name -->
-    <string name="app_name">RateMan</string>
 
     <!-- Home / Tabs -->
     <string name="find_providers">Buscar bancos y casas de cambio</string>
