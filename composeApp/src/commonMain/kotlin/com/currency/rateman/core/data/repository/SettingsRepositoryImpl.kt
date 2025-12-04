@@ -3,8 +3,6 @@ package com.currency.rateman.core.data.repository
 import com.currency.rateman.core.data.dao.SettingsDao
 import com.currency.rateman.core.data.entity.SettingsEntity
 import com.currency.rateman.core.data.mapper.toSettings
-import com.currency.rateman.core.domain.app.LanguageCode
-import com.currency.rateman.core.domain.app.ThemeMode
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.Settings
 import com.currency.rateman.core.domain.repository.SettingsRepository
@@ -20,16 +18,12 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
     }
 
     override suspend fun editSettings(
-        currencyCode: CurrencyCode?,
-        languageCode: LanguageCode?,
-        themeMode: ThemeMode?
+        currencyCode: CurrencyCode?
     ) {
         ensureSettingsExist()
         val current = settingsDao.getSettings().first() ?: return
         settingsDao.updateSettings(current.copy(
             baseCurrency = currencyCode?.name ?: current.baseCurrency,
-            uiLanguage = languageCode?.name ?: current.uiLanguage,
-            themeMode = themeMode?.name ?: current.themeMode
         ))
     }
 
@@ -41,9 +35,7 @@ class SettingsRepositoryImpl(private val settingsDao: SettingsDao) : SettingsRep
 
     private fun getDefaultSettings(): Settings {
         return Settings(
-            baseCurrency = CurrencyCode.DKK,
-            uiLanguage = LanguageCode.EN,
-            themeMode = ThemeMode.DARK
+            baseCurrency = CurrencyCode.DKK
         )
     }
 }

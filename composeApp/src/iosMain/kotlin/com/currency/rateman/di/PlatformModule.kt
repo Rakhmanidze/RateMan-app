@@ -1,13 +1,21 @@
 package com.currency.rateman.di
 
-import io.ktor.client.*
-import io.ktor.client.engine.darwin.*
-import io.ktor.client.plugins.contentnegotiation.*
-import io.ktor.serialization.kotlinx.json.*
+import com.currency.rateman.core.data.db.RateManDatabase
+import com.currency.rateman.core.data.db.getLocalDatabaseBuilder
+import com.currency.rateman.core.data.db.getRoomDatabase
+import com.currency.rateman.core.data.preferences.getSecureStorage
+import com.russhwolf.settings.Settings
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.darwin.Darwin
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import org.koin.dsl.module
 
 actual val platformModule = module {
+
+    /* ---------- Network ---------- */
+
     factory<HttpClient> {
         HttpClient(Darwin) {
             install(ContentNegotiation) {
@@ -19,4 +27,17 @@ actual val platformModule = module {
             }
         }
     }
+
+    /* ---------- Database ---------- */
+
+    single<RateManDatabase> {
+        getRoomDatabase(builder = getLocalDatabaseBuilder())
+    }
+
+    /* ---------- Preferences ---------- */
+
+    single<Settings> {
+        getSecureStorage()
+    }
+
 }

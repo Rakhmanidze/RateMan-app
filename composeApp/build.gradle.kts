@@ -11,7 +11,6 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.room)
     alias(libs.plugins.kotlin.serialization)
-    alias(libs.plugins.mobile.multiplatform.resources)
 }
 
 kotlin {
@@ -47,6 +46,7 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtime.compose)
+            implementation(libs.androidx.navigation.compose)
             // Coroutines
             implementation(libs.kotlinx.coroutines.core)
             // Room & SQLite
@@ -55,6 +55,7 @@ kotlin {
             // Preferences
             implementation(libs.androidx.datastore)
             implementation(libs.androidx.datastore.preferences)
+            implementation(libs.multiplatform.settings)
             // Ktor
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
@@ -71,8 +72,6 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.kotlinx.serialization.core)
             implementation(libs.kotlinx.serialization.json)
-            implementation(libs.moko.resources)
-            implementation(libs.moko.resources.compose)
             implementation(libs.okio)
         }
 
@@ -82,6 +81,8 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.compose)
             // Coroutines
+            // Preferences
+            implementation(libs.androidx.security.crypto)
             implementation(libs.kotlinx.coroutines.android)
             // Ktor
             implementation(libs.ktor.client.android)
@@ -159,9 +160,4 @@ afterEvaluate {
     tasks.named("copyRoomSchemasToAndroidTestAssetsDebugAndroidTest").configure {
         enabled = false
     }
-}
-
-multiplatformResources {
-    resourcesPackage.set("com.currency.rateman")
-    resourcesClassName.set("SharedRes")
 }
