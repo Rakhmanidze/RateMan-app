@@ -26,7 +26,9 @@ import org.koin.core.module.dsl.viewModel
 import org.koin.dsl.module
 
 val appModule = module {
+
     /* ---------- DAOs ---------- */
+
     single { get<RateManDatabase>().currencyRateDao() }
     single {  get<RateManDatabase>().providerDao() }
     single {  get<RateManDatabase>().settingsDao() }
@@ -56,4 +58,5 @@ val appModule = module {
     /* ---------- Other ---------- */
 
     single<RateFetcher> { RateFetcher(httpClient = get(), providerRepository = get()) }
+
 }
