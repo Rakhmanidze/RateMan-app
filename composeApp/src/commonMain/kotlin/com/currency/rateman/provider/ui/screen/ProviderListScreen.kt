@@ -41,7 +41,7 @@ fun ProviderListScreen(
         bottomBar = {
             BottomNavBar(
                 bottomNavItems = bottomNavItems,
-                currentRoute = currentRoute,
+                navController = navController,
                 onItemClick = onNavItemClick
             )
         },

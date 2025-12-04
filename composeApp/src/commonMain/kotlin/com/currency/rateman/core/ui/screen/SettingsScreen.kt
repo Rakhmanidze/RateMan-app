@@ -40,7 +40,7 @@ fun SettingsScreen(
         bottomBar = {
             BottomNavBar(
                 bottomNavItems = bottomNavItems,
-                currentRoute = currentRoute,
+                navController = navController,
                 onItemClick = onNavItemClick
             )
         }

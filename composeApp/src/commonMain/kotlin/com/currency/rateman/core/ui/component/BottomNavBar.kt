@@ -11,29 +11,29 @@ import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
 import com.currency.rateman.core.ui.navigation.BottomNavItem
-import com.currency.rateman.core.ui.navigation.Routes
 
 @Composable
 fun BottomNavBar(
     bottomNavItems: List<BottomNavItem>,
-    currentRoute: String?,
+    navController: NavHostController,
     onItemClick: (BottomNavItem) -> Unit
 ) {
+    val currentBackStackEntry = navController.currentBackStackEntryAsState().value
+
     NavigationBar(
         modifier = Modifier.height(56.dp),
         containerColor = MaterialTheme.colorScheme.surface
     ) {
         bottomNavItems.forEach { item ->
-            val isSelected = when (item.route) {
-                Routes.Rates -> currentRoute?.contains("Rates") == true
-                Routes.Settings -> currentRoute?.contains("Settings") == true
-                else -> false
-            }
+            val selected = currentBackStackEntry?.destination?.route == item.route.toString() ||
+                    currentBackStackEntry?.destination?.parent?.route == item.route.toString()
 
             NavigationBarItem(
                 modifier = Modifier.padding(top = 10.dp),
-                selected = isSelected,
+                selected = selected,
                 onClick = { onItemClick(item) },
                 icon = {
                     Icon(
