@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Home / Tabs -->
     <string name="find_providers">Find banks and exchanges</string>
     <string name="best_rate">Best rate</string>

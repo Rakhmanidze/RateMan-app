@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <!-- Home / Tabs -->
     <string name="find_providers">Najít banky a směnárny</string>
     <string name="best_rate">Nejlepší kurz</string>
