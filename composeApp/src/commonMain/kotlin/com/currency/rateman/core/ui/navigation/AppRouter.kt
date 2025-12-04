@@ -63,7 +63,6 @@ fun MainAppRouter(navController: NavHostController) {
         composable<Routes.Rates> {
             ProviderListScreen(
                 bottomNavItems = bottomNavItems,
-                currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->
                     navController.navigate(item.route) {
                         popUpTo(navController.graph.startDestinationId) {
@@ -80,7 +79,6 @@ fun MainAppRouter(navController: NavHostController) {
         composable<Routes.Settings> {
             SettingsScreen(
                 bottomNavItems = bottomNavItems,
-                currentRoute = currentBackStackEntry.value?.destination?.route,
                 onNavItemClick = { item ->
                     navController.navigate(item.route) {
                         popUpTo(navController.graph.startDestinationId) {

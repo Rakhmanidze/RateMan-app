@@ -26,7 +26,6 @@ import org.koin.compose.viewmodel.koinViewModel
 @Composable
 fun ProviderListScreen(
     bottomNavItems: List<BottomNavItem>,
-    currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
     navController: NavHostController,
 ) {

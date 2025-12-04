@@ -29,7 +29,6 @@ import rateman.composeapp.generated.resources.settings
 @Composable
 fun SettingsScreen(
     bottomNavItems: List<BottomNavItem>,
-    currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
     navController: NavHostController
 ) {
