@@ -12,13 +12,9 @@ import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
 import com.currency.rateman.core.ui.screen.TargetCurrencyScreen
-import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.provider.ui.screen.ProviderDetailScreen
 import com.currency.rateman.provider.ui.screen.ProviderListScreen
-import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
-import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import org.jetbrains.compose.resources.painterResource
-import org.koin.compose.viewmodel.koinViewModel
 import rateman.composeapp.generated.resources.Res
 import rateman.composeapp.generated.resources.ic_rates
 import rateman.composeapp.generated.resources.ic_settings
@@ -71,7 +67,6 @@ fun MainAppRouter(navController: NavHostController) {
         }
 
         composable<Routes.Rates> {
-            val providerListViewModel: ProviderListViewModel = koinViewModel()
             ProviderListScreen(
                 bottomNavItems = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -84,13 +79,11 @@ fun MainAppRouter(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                navController = navController,
-                providerListViewModel = providerListViewModel
+                navController = navController
             )
         }
 
         composable<Routes.Settings> {
-            val settingsViewModel: SettingsViewModel = koinViewModel()
             SettingsScreen(
                 bottomNavItems = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -103,34 +96,27 @@ fun MainAppRouter(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                navController = navController,
-                settingsViewModel = settingsViewModel
+                navController = navController
             )
         }
 
         composable<Routes.ProviderDetail> {
             val args = it.toRoute<Routes.ProviderDetail>()
-            val providerDetailViewModel: ProviderDetailViewModel = koinViewModel()
             ProviderDetailScreen(
                 providerId = args.id,
-                navController = navController,
-                providerDetailViewModel = providerDetailViewModel
+                navController = navController
             )
         }
 
         composable<Routes.BaseCurrency> {
-            val settingsViewModel: SettingsViewModel = koinViewModel()
             BaseCurrencyScreen(
-                navController = navController,
-                settingsViewModel = settingsViewModel
+                navController = navController
             )
         }
 
         composable<Routes.TargetCurrency> {
-            val providerListViewModel: ProviderListViewModel = koinViewModel()
             TargetCurrencyScreen(
-                navController = navController,
-                providerListViewModel = providerListViewModel,
+                navController = navController
             )
         }
     }

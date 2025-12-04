@@ -21,6 +21,7 @@ import com.currency.rateman.core.ui.component.SearchAndFilterHeader
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.provider.ui.component.ProviderList
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun ProviderListScreen(
@@ -28,8 +29,9 @@ fun ProviderListScreen(
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
     navController: NavHostController,
-    providerListViewModel: ProviderListViewModel
 ) {
+    val providerListViewModel = koinViewModel<ProviderListViewModel>()
+
     val providers by providerListViewModel.providers.collectAsStateWithLifecycle()
     val searchQuery by providerListViewModel.searchQuery.collectAsState()
     val filter by providerListViewModel.filter.collectAsState()

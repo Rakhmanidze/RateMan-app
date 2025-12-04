@@ -44,10 +44,11 @@ import rateman.composeapp.generated.resources.select_target_currency
 
 @Composable
 fun TargetCurrencyScreen(
-    navController: NavHostController,
-    providerListViewModel: ProviderListViewModel,
-    currencyViewModel: CurrencyViewModel = koinViewModel(),
+    navController: NavHostController
 ) {
+    val providerListViewModel = koinViewModel<ProviderListViewModel>()
+    val currencyViewModel = koinViewModel<CurrencyViewModel>()
+
     val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
     val filter by providerListViewModel.filter.collectAsState()

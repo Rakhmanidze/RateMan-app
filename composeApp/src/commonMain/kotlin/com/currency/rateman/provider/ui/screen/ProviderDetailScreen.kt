@@ -35,6 +35,7 @@ import com.currency.rateman.core.utils.formatRate
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
 import rateman.composeapp.generated.resources.Res
 import rateman.composeapp.generated.resources.buy
 import rateman.composeapp.generated.resources.loading
@@ -44,9 +45,10 @@ import rateman.composeapp.generated.resources.sell
 @Composable
 fun ProviderDetailScreen(
     providerId: Long?,
-    navController: NavHostController,
-    providerDetailViewModel: ProviderDetailViewModel
+    navController: NavHostController
 ) {
+    val providerDetailViewModel = koinViewModel<ProviderDetailViewModel>()
+
     val provider by providerDetailViewModel.provider.collectAsState()
 
     providerId?.let { id ->

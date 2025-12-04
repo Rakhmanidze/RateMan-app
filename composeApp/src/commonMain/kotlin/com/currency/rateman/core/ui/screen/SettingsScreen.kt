@@ -20,6 +20,7 @@ import com.currency.rateman.core.ui.component.CurrencySettingItem
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
 import rateman.composeapp.generated.resources.Res
 import rateman.composeapp.generated.resources.base_currency
 import rateman.composeapp.generated.resources.ic_currency
@@ -30,9 +31,9 @@ fun SettingsScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
-    navController: NavHostController,
-    settingsViewModel: SettingsViewModel,
+    navController: NavHostController
 ) {
+    val settingsViewModel = koinViewModel<SettingsViewModel>()
     val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold(
