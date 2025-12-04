@@ -12,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.core.ui.navigation.BottomNavItem
+import com.currency.rateman.core.ui.navigation.Routes
 
 @Composable
 fun BottomNavBar(
@@ -24,9 +25,15 @@ fun BottomNavBar(
         containerColor = MaterialTheme.colorScheme.surface
     ) {
         bottomNavItems.forEach { item ->
+            val isSelected = when (item.route) {
+                Routes.Rates -> currentRoute?.contains("Rates") == true
+                Routes.Settings -> currentRoute?.contains("Settings") == true
+                else -> false
+            }
+
             NavigationBarItem(
                 modifier = Modifier.padding(top = 10.dp),
-                selected = currentRoute == item.route,
+                selected = isSelected,
                 onClick = { onItemClick(item) },
                 icon = {
                     Icon(

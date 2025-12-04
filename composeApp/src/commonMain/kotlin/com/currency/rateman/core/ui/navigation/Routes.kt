@@ -3,17 +3,25 @@ package com.currency.rateman.core.ui.navigation
 import kotlinx.serialization.Serializable
 
 @Serializable
-sealed class Routes (val route: String) {
+sealed interface Routes {
     @Serializable
-    data object Rates : Routes("rates")
+    data object Rates : Routes
+
     @Serializable
-    data object Settings : Routes("settings")
+    data object Settings : Routes
+
     @Serializable
-    data object Splash : Routes("splash")
+    data object Splash : Routes
+
     @Serializable
-    data object Language : Routes("language")
+    data object Language : Routes
+
     @Serializable
-    data object TargetCurrency : Routes("targetCurrency")
+    data object TargetCurrency : Routes
+
     @Serializable
-    data object BaseCurrency : Routes("baseCurrency")
+    data object BaseCurrency : Routes
+
+    @Serializable
+    data class ProviderDetail(val id: Long) : Routes
 }
