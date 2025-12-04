@@ -5,7 +5,6 @@ import androidx.compose.runtime.remember
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
@@ -27,8 +26,6 @@ fun AppRouter() {
 
 @Composable
 fun MainAppRouter(navController: NavHostController) {
-    val currentBackStackEntry = navController.currentBackStackEntryAsState()
-
     val bottomNavItems = remember {
         listOf(
             BottomNavItem(
@@ -63,15 +60,7 @@ fun MainAppRouter(navController: NavHostController) {
         composable<Routes.Rates> {
             ProviderListScreen(
                 bottomNavItems = bottomNavItems,
-                onNavItemClick = { item ->
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
+                onNavItemClick = { navController.navigateToBottomTab(it.route) },
                 navController = navController
             )
         }
@@ -79,15 +68,7 @@ fun MainAppRouter(navController: NavHostController) {
         composable<Routes.Settings> {
             SettingsScreen(
                 bottomNavItems = bottomNavItems,
-                onNavItemClick = { item ->
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
-                },
+                onNavItemClick = { navController.navigateToBottomTab(it.route) },
                 navController = navController
             )
         }
