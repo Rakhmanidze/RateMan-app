@@ -55,6 +55,7 @@ kotlin {
             // Preferences
             implementation(libs.androidx.datastore)
             implementation(libs.androidx.datastore.preferences)
+            implementation(libs.multiplatform.settings)
             // Ktor
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
@@ -80,6 +81,8 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.activity.compose)
             // Coroutines
+            // Preferences
+            implementation(libs.androidx.security.crypto)
             implementation(libs.kotlinx.coroutines.android)
             // Ktor
             implementation(libs.ktor.client.android)
