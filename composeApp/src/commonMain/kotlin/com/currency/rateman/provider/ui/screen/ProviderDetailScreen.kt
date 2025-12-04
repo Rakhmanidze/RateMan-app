@@ -32,7 +32,6 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.currency.rateman.core.ui.component.getCurrencyIcon
 import com.currency.rateman.core.utils.formatRate
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -45,16 +44,13 @@ import rateman.composeapp.generated.resources.sell
 @Composable
 fun ProviderDetailScreen(
     providerId: Long?,
-    navController: NavHostController
+    navController: NavHostController,
+    providerDetailViewModel: ProviderDetailViewModel
 ) {
-    val viewModel: ProviderDetailViewModel = navController
-        .currentBackStackEntry
-        ?.sharedKoinNavViewModel(navController)
-        ?: return
-    val provider by viewModel.provider.collectAsState()
+    val provider by providerDetailViewModel.provider.collectAsState()
 
     providerId?.let { id ->
-        viewModel.getProviderById(id)
+        providerDetailViewModel.getProviderById(id)
     } ?: run {
         navController.popBackStack()
         return

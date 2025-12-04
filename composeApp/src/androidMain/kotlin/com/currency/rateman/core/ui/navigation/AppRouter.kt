@@ -16,6 +16,7 @@ import com.currency.rateman.core.ui.screen.TargetCurrencyScreen
 import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.provider.ui.screen.ProviderDetailScreen
 import com.currency.rateman.provider.ui.screen.ProviderListScreen
+import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.koin.compose.viewmodel.koinViewModel
@@ -111,9 +112,11 @@ fun MainAppRouter(navController: NavHostController) {
             arguments = listOf(navArgument("id") { type = NavType.LongType })
         ) { backStackEntry ->
             val providerId = backStackEntry.arguments?.getLong("id")
+            val providerDetailViewModel: ProviderDetailViewModel = koinViewModel()
             ProviderDetailScreen(
                 providerId = providerId,
-                navController = navController
+                navController = navController,
+                providerDetailViewModel = providerDetailViewModel
             )
         }
         composable(Routes.BaseCurrency.route) {
