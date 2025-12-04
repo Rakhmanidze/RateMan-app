@@ -1,9 +1,8 @@
-package com.currency.rateman.provider.ui.screen
+package com.currency.rateman.core.presentation.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -30,33 +29,29 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.currency.rateman.core.presentation.component.SearchInput
 import com.currency.rateman.core.presentation.component.getCurrencyIcon
-import com.currency.rateman.core.utils.formatRate
-import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
+import com.currency.rateman.core.presentation.viewmodel.CurrencyViewModel
+import com.currency.rateman.core.presentation.viewmodel.SettingsViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 import rateman.composeapp.generated.resources.Res
-import rateman.composeapp.generated.resources.buy
-import rateman.composeapp.generated.resources.loading
+import rateman.composeapp.generated.resources.find_currencies
+import rateman.composeapp.generated.resources.ic_select
 import rateman.composeapp.generated.resources.no_results
-import rateman.composeapp.generated.resources.sell
+import rateman.composeapp.generated.resources.select_base_currency
 
 @Composable
-fun ProviderDetailScreen(
-    providerId: Long?,
+fun BaseCurrencyScreen(
     navController: NavHostController
 ) {
-    val providerDetailViewModel = koinViewModel<ProviderDetailViewModel>()
+    val currencyViewModel = koinViewModel<CurrencyViewModel>()
+    val settingsViewModel = koinViewModel<SettingsViewModel>()
 
-    val provider by providerDetailViewModel.provider.collectAsState()
-
-    providerId?.let { id ->
-        providerDetailViewModel.getProviderById(id)
-    } ?: run {
-        navController.popBackStack()
-        return
-    }
+    val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
+    val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
+    val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -74,54 +69,29 @@ fun ProviderDetailScreen(
                     imageVector = Icons.AutoMirrored.Filled.KeyboardArrowLeft,
                     contentDescription = "Back",
                     tint = MaterialTheme.colorScheme.onSurface,
-                    modifier = Modifier.size(32.dp)
+                    modifier = Modifier
+                        .size(32.dp)
                         .clickable { navController.popBackStack() }
                 )
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = provider?.name ?: (stringResource(Res.string.loading) + "..."),
+                    text = stringResource(Res.string.select_base_currency),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
             }
             Spacer(modifier = Modifier.height(16.dp))
 
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 24.dp),
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                Box(modifier = Modifier.weight(1f))
-
-                Box(
-                    modifier = Modifier
-                        .width(100.dp)
-                        .padding(start = 37.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = stringResource(Res.string.buy),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-
-                Box(
-                    modifier = Modifier
-                        .width(100.dp)
-                        .padding(start = 37.dp),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Text(
-                        text = stringResource(Res.string.sell),
-                        style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.onSurface
-                    )
-                }
-            }
+            SearchInput(
+                value = searchCurrency,
+                onValueChange = { currencyViewModel.updateCurrencySearchQuery(it) },
+                placeholder = Res.string.find_currencies,
+                modifier = Modifier.fillMaxWidth(),
+            )
+            Spacer(modifier = Modifier.height(8.dp))
 
             LazyColumn(Modifier.weight(1f)) {
-                if (provider?.rates.isNullOrEmpty()) {
+                if (filteredCurrencies.isEmpty()) {
                     item {
                         Text(
                             text = stringResource(Res.string.no_results),
@@ -132,41 +102,34 @@ fun ProviderDetailScreen(
                         )
                     }
                 } else {
-                    items(provider?.rates ?: emptyList()) { rate ->
+                    items(filteredCurrencies) { currency ->
                         Row(
                             modifier = Modifier
                                 .fillMaxWidth()
+                                .clickable {
+                                    settingsViewModel.updateCurrency(currency)
+                                    navController.popBackStack()
+                                }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Image(
-                                painter = painterResource(getCurrencyIcon(rate.foreignCurrency)),
-                                contentDescription = "${rate.foreignCurrency.name} icon",
+                                painter = painterResource(getCurrencyIcon(currency)),
+                                contentDescription = "${currency.name} icon",
                                 modifier = Modifier.size(24.dp)
                             )
                             Spacer(modifier = Modifier.width(12.dp))
                             Column(modifier = Modifier.weight(1f)) {
                                 Text(
-                                    text = rate.foreignCurrency.name,
+                                    text = currency.name,
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            Box(
-                                modifier = Modifier.width(100.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = rate.buyRate.formatRate(),
-                                    style = MaterialTheme.typography.bodyMedium
-                                )
-                            }
-                            Box(
-                                modifier = Modifier.width(100.dp),
-                                contentAlignment = Alignment.Center
-                            ) {
-                                Text(
-                                    text = rate.sellRate.formatRate(),
-                                    style = MaterialTheme.typography.bodyMedium
+                            if (currency == settings?.baseCurrency) {
+                                Icon(
+                                    painter = painterResource(Res.drawable.ic_select),
+                                    contentDescription = "Selected",
+                                    modifier = Modifier.size(24.dp)
                                 )
                             }
                         }

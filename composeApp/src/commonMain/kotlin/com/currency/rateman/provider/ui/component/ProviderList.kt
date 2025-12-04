@@ -19,7 +19,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.currency.rateman.core.domain.model.CurrencyCode
-import com.currency.rateman.core.ui.navigation.Routes
+import com.currency.rateman.core.presentation.navigation.Routes
 import com.currency.rateman.provider.domain.model.Provider
 import org.jetbrains.compose.resources.stringResource
 import rateman.composeapp.generated.resources.Res

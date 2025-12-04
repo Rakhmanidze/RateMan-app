@@ -10,8 +10,8 @@ import com.currency.rateman.core.domain.usecase.FilterCurrenciesUseCase
 import com.currency.rateman.core.domain.usecase.FilterCurrenciesUseCaseImpl
 import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCase
 import com.currency.rateman.core.domain.usecase.GetAllCurrenciesUseCaseImpl
-import com.currency.rateman.core.ui.viewmodel.CurrencyViewModel
-import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
+import com.currency.rateman.core.presentation.viewmodel.CurrencyViewModel
+import com.currency.rateman.core.presentation.viewmodel.SettingsViewModel
 import com.currency.rateman.provider.data.repository.ProviderRepositoryImpl
 import com.currency.rateman.provider.domain.repository.ProviderRepository
 import com.currency.rateman.provider.domain.usecase.FilterProvidersUseCase
