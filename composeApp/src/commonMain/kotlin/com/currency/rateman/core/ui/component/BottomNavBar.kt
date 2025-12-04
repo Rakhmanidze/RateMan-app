@@ -9,6 +9,7 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -21,7 +22,7 @@ fun BottomNavBar(
     navController: NavHostController,
     onItemClick: (BottomNavItem) -> Unit
 ) {
-    val currentBackStackEntry = navController.currentBackStackEntryAsState().value
+    val currentBackStackEntry by navController.currentBackStackEntryAsState()
 
     NavigationBar(
         modifier = Modifier.height(56.dp),
