@@ -74,6 +74,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Rates.route) {
+            val providerListViewModel: ProviderListViewModel = koinViewModel()
             ProviderListScreen(
                 bottomNavItems  = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -86,7 +87,8 @@ fun MainAppRouter(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                navController = navController
+                navController = navController,
+                providerListViewModel = providerListViewModel
             )
         }
         composable(Routes.Settings.route) {

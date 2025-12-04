@@ -19,7 +19,6 @@ import androidx.navigation.NavHostController
 import com.currency.rateman.core.ui.component.BottomNavBar
 import com.currency.rateman.core.ui.component.SearchAndFilterHeader
 import com.currency.rateman.core.ui.navigation.BottomNavItem
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.provider.ui.component.ProviderList
 import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
 
@@ -28,16 +27,12 @@ fun ProviderListScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
-    navController: NavHostController
+    navController: NavHostController,
+    providerListViewModel: ProviderListViewModel
 ) {
-    val viewModel: ProviderListViewModel = navController
-        .currentBackStackEntry
-        ?.sharedKoinNavViewModel(navController)
-        ?: return
-
-    val providers by viewModel.providers.collectAsStateWithLifecycle()
-    val searchQuery by viewModel.searchQuery.collectAsState()
-    val filter by viewModel.filter.collectAsState()
+    val providers by providerListViewModel.providers.collectAsStateWithLifecycle()
+    val searchQuery by providerListViewModel.searchQuery.collectAsState()
+    val filter by providerListViewModel.filter.collectAsState()
     val isFiltersLoading = filter == null
 
     Scaffold(
@@ -70,14 +65,14 @@ fun ProviderListScreen(
                 SearchAndFilterHeader(
                     searchQuery = searchQuery,
                     onSearchQueryChange = { newValue ->
-                        viewModel.updateSearchQuery(newValue)
+                        providerListViewModel.updateSearchQuery(newValue)
                     },
                     selectedProviderType = filter!!.selectedProviderType,
-                    onProviderTypeChange = { viewModel.updateProviderType(it) },
+                    onProviderTypeChange = { providerListViewModel.updateProviderType(it) },
                     targetCurrency = filter!!.targetCurrency,
                     selectedRateSortType = filter!!.selectedRateSortType,
                     onRateSortTypeChange = { newSortType ->
-                        viewModel.updateRateSortType(newSortType)
+                        providerListViewModel.updateRateSortType(newSortType)
                     },
                     navController = navController
                 )
