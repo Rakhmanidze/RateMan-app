@@ -14,9 +14,6 @@ sealed interface Routes {
     data object Splash : Routes
 
     @Serializable
-    data object Language : Routes
-
-    @Serializable
     data object TargetCurrency : Routes
 
     @Serializable
