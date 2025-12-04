@@ -24,7 +24,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import android.R as AndroidR
+import com.currency.rateman.R
 
 @Composable
 fun SearchInput(
@@ -56,7 +56,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    painter = painterResource(id = AndroidR.drawable.ic_menu_search),
+                    painter = painterResource(id = R.drawable.ic_search),
                     contentDescription = "search_icon",
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(24.dp)
