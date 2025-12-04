@@ -34,18 +34,12 @@ fun MainAppRouter(navController: NavHostController) {
             BottomNavItem(
                 route = Routes.Rates,
                 icon = { painterResource(Res.drawable.ic_rates) },
-                contentDescription = "Currency rates",
-                onClick = {
-                    navigateToBottomNavItem(navController, Routes.Rates)
-                }
+                contentDescription = "Currency rates"
             ),
             BottomNavItem(
                 route = Routes.Settings,
                 icon = { painterResource(Res.drawable.ic_settings) },
-                contentDescription = "User profile",
-                onClick = {
-                    navigateToBottomNavItem(navController, Routes.Settings)
-                }
+                contentDescription = "User profile"
             ),
         )
     }

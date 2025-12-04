@@ -6,6 +6,5 @@ import androidx.compose.ui.graphics.painter.Painter
 data class BottomNavItem(
     val route: Routes,
     val icon: @Composable () -> Painter,
-    val contentDescription: String,
-    val onClick: () -> Unit
+    val contentDescription: String
 )
