@@ -115,13 +115,3 @@ fun MainAppRouter(navController: NavHostController) {
         }
     }
 }
-
-fun navigateToBottomNavItem(navController: NavHostController, route: Routes) {
-    navController.navigate(route) {
-        popUpTo(navController.graph.startDestinationId) {
-            saveState = true
-        }
-        launchSingleTop = true
-        restoreState = true
-    }
-}
