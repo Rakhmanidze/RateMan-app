@@ -13,29 +13,27 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.currency.rateman.R
 import com.currency.rateman.core.ui.component.BottomNavBar
 import com.currency.rateman.core.ui.component.CurrencySettingItem
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
+import org.jetbrains.compose.resources.stringResource
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.base_currency
+import rateman.composeapp.generated.resources.ic_currency
+import rateman.composeapp.generated.resources.settings
 
 @Composable
 fun SettingsScreen(
     bottomNavItems: List<BottomNavItem>,
     currentRoute: String?,
     onNavItemClick: (BottomNavItem) -> Unit,
-    navController: NavHostController
+    navController: NavHostController,
+    settingsViewModel: SettingsViewModel,
 ) {
-    val viewModel: SettingsViewModel = navController
-        .currentBackStackEntry
-        ?.sharedKoinNavViewModel(navController)
-        ?: return
-
-    val settings by viewModel.settings.collectAsState()
+    val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold(
         bottomBar = {
@@ -64,16 +62,16 @@ fun SettingsScreen(
                     .padding(horizontal = 16.dp, vertical = 8.dp)
             ) {
                 Text(
-                    text = stringResource(id = R.string.settings),
+                    text = stringResource(Res.string.settings),
                     style = MaterialTheme.typography.titleLarge,
                     modifier = Modifier.padding(bottom = 16.dp)
                 )
 
                 CurrencySettingItem(
-                    label = stringResource(id = R.string.base_currency),
+                    label = stringResource(Res.string.base_currency),
                     value = settings!!.baseCurrency.name,
                     modifier = Modifier.padding(top = 8.dp),
-                    iconRes = R.drawable.ic_currency,
+                    iconRes = Res.drawable.ic_currency,
                     navController = navController
                 )
             }

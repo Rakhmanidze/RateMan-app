@@ -10,7 +10,6 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.currency.rateman.core.ui.navigation.BottomNavItem
 
@@ -31,7 +30,7 @@ fun BottomNavBar(
                 onClick = { onItemClick(item) },
                 icon = {
                     Icon(
-                        painter = painterResource(id = item.iconRes),
+                        painter = item.icon(),
                         contentDescription = item.contentDescription,
                         modifier = Modifier.size(24.dp)
                     )

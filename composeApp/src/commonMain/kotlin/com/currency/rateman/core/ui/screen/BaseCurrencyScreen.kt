@@ -27,31 +27,30 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.currency.rateman.R
 import com.currency.rateman.core.ui.component.SearchInput
-import com.currency.rateman.core.ui.component.getCurrencyIconRes
+import com.currency.rateman.core.ui.component.getCurrencyIcon
 import com.currency.rateman.core.ui.viewmodel.CurrencyViewModel
-import com.currency.rateman.di.navigation.sharedKoinNavViewModel
-import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
-import org.koin.androidx.compose.koinViewModel
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import org.koin.compose.viewmodel.koinViewModel
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.find_currencies
+import rateman.composeapp.generated.resources.ic_select
+import rateman.composeapp.generated.resources.no_results
+import rateman.composeapp.generated.resources.select_base_currency
 
 @Composable
-fun TargetCurrencyScreen(
+fun BaseCurrencyScreen(
     navController: NavHostController,
+    settingsViewModel: SettingsViewModel,
+    currencyViewModel: CurrencyViewModel = koinViewModel(),
 ) {
-    val providerListViewModel: ProviderListViewModel = navController
-        .currentBackStackEntry
-        ?.sharedKoinNavViewModel(navController)
-        ?: return
-
-    val currencyViewModel: CurrencyViewModel = koinViewModel()
     val searchCurrency by currencyViewModel.currencySearchQuery.collectAsState()
     val filteredCurrencies by currencyViewModel.filteredCurrencies.collectAsState()
-    val filter by providerListViewModel.filter.collectAsState()
+    val settings by settingsViewModel.settings.collectAsState()
 
     Scaffold { paddingValues ->
         Column(
@@ -75,7 +74,7 @@ fun TargetCurrencyScreen(
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    text = stringResource(R.string.select_target_currency),
+                    text = stringResource(Res.string.select_base_currency),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -85,7 +84,7 @@ fun TargetCurrencyScreen(
             SearchInput(
                 value = searchCurrency,
                 onValueChange = { currencyViewModel.updateCurrencySearchQuery(it) },
-                placeholderResId = R.string.find_currencies,
+                placeholder = Res.string.find_currencies,
                 modifier = Modifier.fillMaxWidth(),
             )
             Spacer(modifier = Modifier.height(8.dp))
@@ -94,7 +93,7 @@ fun TargetCurrencyScreen(
                 if (filteredCurrencies.isEmpty()) {
                     item {
                         Text(
-                            text = stringResource(R.string.no_results),
+                            text = stringResource(Res.string.no_results),
                             modifier = Modifier
                                 .padding(vertical = 16.dp)
                                 .fillMaxWidth()
@@ -107,14 +106,14 @@ fun TargetCurrencyScreen(
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .clickable {
-                                    providerListViewModel.updateCurrency(currency)
+                                    settingsViewModel.updateCurrency(currency)
                                     navController.popBackStack()
                                 }
                                 .padding(vertical = 12.dp),
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Image(
-                                painter = painterResource(id = getCurrencyIconRes(currency)),
+                                painter = painterResource(getCurrencyIcon(currency)),
                                 contentDescription = "${currency.name} icon",
                                 modifier = Modifier.size(24.dp)
                             )
@@ -125,9 +124,9 @@ fun TargetCurrencyScreen(
                                     style = MaterialTheme.typography.bodyMedium
                                 )
                             }
-                            if (currency == filter?.targetCurrency) {
+                            if (currency == settings?.baseCurrency) {
                                 Icon(
-                                    painter = painterResource(id = R.drawable.ic_select),
+                                    painter = painterResource(Res.drawable.ic_select),
                                     contentDescription = "Selected",
                                     modifier = Modifier.size(24.dp)
                                 )

@@ -9,13 +9,19 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.currency.rateman.R
 import com.currency.rateman.core.ui.screen.BaseCurrencyScreen
 import com.currency.rateman.core.ui.screen.SettingsScreen
 import com.currency.rateman.core.ui.screen.Splashscreen
 import com.currency.rateman.core.ui.screen.TargetCurrencyScreen
+import com.currency.rateman.core.ui.viewmodel.SettingsViewModel
 import com.currency.rateman.provider.ui.screen.ProviderDetailScreen
 import com.currency.rateman.provider.ui.screen.ProviderListScreen
+import com.currency.rateman.provider.ui.viewmodel.ProviderListViewModel
+import org.jetbrains.compose.resources.painterResource
+import org.koin.compose.viewmodel.koinViewModel
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.ic_rates
+import rateman.composeapp.generated.resources.ic_settings
 
 @Composable
 fun AppRouter() {
@@ -34,7 +40,7 @@ fun MainAppRouter(navController: NavHostController) {
         listOf(
             BottomNavItem(
                 route = Routes.Rates.route,
-                iconRes = R.drawable.ic_rates,
+                icon = { painterResource(Res.drawable.ic_rates) },
                 contentDescription = "Currency rates",
                 onClick = {
                     navigateToBottomNavItem(navController, Routes.Rates.route)
@@ -42,7 +48,7 @@ fun MainAppRouter(navController: NavHostController) {
             ),
             BottomNavItem(
                 route = Routes.Settings.route,
-                iconRes = R.drawable.ic_settings,
+                icon = { painterResource(Res.drawable.ic_settings) },
                 contentDescription = "User profile",
                 onClick = {
                     navigateToBottomNavItem(navController, Routes.Settings.route)
@@ -83,6 +89,7 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.Settings.route) {
+            val settingsViewModel: SettingsViewModel = koinViewModel()
             SettingsScreen(
                 bottomNavItems = bottomNavItems,
                 currentRoute = currentBackStackEntry.value?.destination?.route,
@@ -95,7 +102,8 @@ fun MainAppRouter(navController: NavHostController) {
                         restoreState = true
                     }
                 },
-                navController = navController
+                navController = navController,
+                settingsViewModel = settingsViewModel
             )
         }
         composable(
@@ -109,13 +117,17 @@ fun MainAppRouter(navController: NavHostController) {
             )
         }
         composable(Routes.BaseCurrency.route) {
+            val settingsViewModel: SettingsViewModel = koinViewModel()
             BaseCurrencyScreen(
-                navController = navController
+                navController = navController,
+                settingsViewModel = settingsViewModel
             )
         }
         composable(Routes.TargetCurrency.route) {
+            val providerListViewModel: ProviderListViewModel = koinViewModel()
             TargetCurrencyScreen(
-                navController = navController
+                navController = navController,
+                providerListViewModel = providerListViewModel,
             )
         }
     }

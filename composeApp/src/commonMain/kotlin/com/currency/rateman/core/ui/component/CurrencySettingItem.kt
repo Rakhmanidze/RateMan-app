@@ -1,6 +1,5 @@
 package com.currency.rateman.core.ui.component
 
-import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -21,17 +20,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.ui.navigation.Routes
+import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun CurrencySettingItem(
     label: String,
     value: String,
-    @DrawableRes iconRes: Int,
+    iconRes: DrawableResource,
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
@@ -54,7 +54,7 @@ fun CurrencySettingItem(
                 verticalAlignment = Alignment.CenterVertically
             ){
                 Icon(
-                    painter = painterResource(id = iconRes),
+                    painter = painterResource(iconRes),
                     contentDescription = label,
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier
@@ -71,7 +71,7 @@ fun CurrencySettingItem(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(
-                    painter = painterResource(id = getCurrencyIconRes(CurrencyCode.valueOf(value))),
+                    painter = painterResource(getCurrencyIcon(CurrencyCode.valueOf(value))),
                     contentDescription = "$value icon",
                     modifier = Modifier.size(16.dp)
                 )

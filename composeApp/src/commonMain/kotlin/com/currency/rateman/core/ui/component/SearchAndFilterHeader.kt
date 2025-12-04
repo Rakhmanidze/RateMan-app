@@ -29,8 +29,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -38,7 +36,17 @@ import com.currency.rateman.core.domain.model.CurrencyCode
 import com.currency.rateman.core.domain.model.RateSortType
 import com.currency.rateman.core.ui.navigation.Routes
 import com.currency.rateman.provider.domain.model.ProviderType
-import com.currency.rateman.R as AppR
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.all
+import rateman.composeapp.generated.resources.banks
+import rateman.composeapp.generated.resources.best_buy
+import rateman.composeapp.generated.resources.best_rate
+import rateman.composeapp.generated.resources.best_sell
+import rateman.composeapp.generated.resources.exchanges
+import rateman.composeapp.generated.resources.find_providers
+import rateman.composeapp.generated.resources.loading
 
 @Composable
 fun SearchAndFilterHeader(
@@ -63,7 +71,7 @@ fun SearchAndFilterHeader(
         SearchInput(
             value = searchQuery.text,
             onValueChange = { newText -> onSearchQueryChange(searchQuery.copy(text = newText)) },
-            placeholderResId = AppR.string.find_providers,
+            placeholder = Res.string.find_providers,
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -88,10 +96,10 @@ fun SearchAndFilterHeader(
                 ) {
                     Text(
                         text = when (selectedProviderType) {
-                            ProviderType.ALL -> stringResource(id = AppR.string.all)
-                            ProviderType.BANK -> stringResource(id = AppR.string.banks)
-                            ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
-                            null -> stringResource(id = AppR.string.loading)
+                            ProviderType.ALL -> stringResource(Res.string.all)
+                            ProviderType.BANK -> stringResource(Res.string.banks)
+                            ProviderType.EXCHANGE -> stringResource(Res.string.exchanges)
+                            null -> stringResource(Res.string.loading)
                         },
                         style = MaterialTheme.typography.bodySmall,
                         maxLines = 1
@@ -109,9 +117,9 @@ fun SearchAndFilterHeader(
                             text = {
                                 Text(
                                     text = when (type) {
-                                        ProviderType.ALL -> stringResource(id = AppR.string.all)
-                                        ProviderType.BANK -> stringResource(id = AppR.string.banks)
-                                        ProviderType.EXCHANGE -> stringResource(id = AppR.string.exchanges)
+                                        ProviderType.ALL -> stringResource(Res.string.all)
+                                        ProviderType.BANK -> stringResource(Res.string.banks)
+                                        ProviderType.EXCHANGE -> stringResource(Res.string.exchanges)
                                     },
                                     color = MaterialTheme.colorScheme.onSurface,
                                     style = MaterialTheme.typography.bodySmall
@@ -142,12 +150,12 @@ fun SearchAndFilterHeader(
                         horizontalArrangement = Arrangement.spacedBy(4.dp)
                     ) {
                         Image(
-                            painter = painterResource(id = getCurrencyIconRes(targetCurrency ?: CurrencyCode.EUR)),
+                            painter = painterResource(getCurrencyIcon(targetCurrency ?: CurrencyCode.EUR)),
                             contentDescription = "${targetCurrency?.name ?: "Loading"} icon",
                             modifier = Modifier.size(16.dp)
                         )
                         Text(
-                            text = targetCurrency?.name ?: stringResource(id = AppR.string.loading),
+                            text = targetCurrency?.name ?: stringResource(Res.string.loading),
                             style = MaterialTheme.typography.bodySmall,
                             maxLines = 1
                         )
@@ -168,10 +176,10 @@ fun SearchAndFilterHeader(
                 ) {
                     Text(
                         text = when (selectedRateSortType) {
-                            RateSortType.BEST_RATE -> stringResource(id = AppR.string.best_rate)
-                            RateSortType.BEST_BUY -> stringResource(id = AppR.string.best_buy)
-                            RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
-                            null -> stringResource(id = AppR.string.loading)
+                            RateSortType.BEST_RATE -> stringResource(Res.string.best_rate)
+                            RateSortType.BEST_BUY -> stringResource(Res.string.best_buy)
+                            RateSortType.BEST_SELL -> stringResource(Res.string.best_sell)
+                            null -> stringResource(Res.string.loading)
                         },
                         color = MaterialTheme.colorScheme.onSurface,
                         style = MaterialTheme.typography.bodySmall,
@@ -190,9 +198,9 @@ fun SearchAndFilterHeader(
                             text = {
                                 Text(
                                     text = when (option) {
-                                        RateSortType.BEST_RATE -> stringResource(id = AppR.string.best_rate)
-                                        RateSortType.BEST_BUY -> stringResource(id = AppR.string.best_buy)
-                                        RateSortType.BEST_SELL -> stringResource(id = AppR.string.best_sell)
+                                        RateSortType.BEST_RATE -> stringResource(Res.string.best_rate)
+                                        RateSortType.BEST_BUY -> stringResource(Res.string.best_buy)
+                                        RateSortType.BEST_SELL -> stringResource(Res.string.best_sell)
                                     },
                                     color = MaterialTheme.colorScheme.onSurface,
                                     style = MaterialTheme.typography.bodySmall

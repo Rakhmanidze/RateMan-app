@@ -20,17 +20,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.onFocusChanged
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import com.currency.rateman.R
+import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.ic_search
 
 @Composable
 fun SearchInput(
     value: String,
     onValueChange: (String) -> Unit,
-    placeholderResId: Int,
+    placeholder: StringResource,
     modifier: Modifier = Modifier,
     textStyle: TextStyle = MaterialTheme.typography.bodyLarge
 ) {
@@ -56,7 +58,7 @@ fun SearchInput(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_search),
+                    painter = painterResource(Res.drawable.ic_search),
                     contentDescription = "search_icon",
                     tint = MaterialTheme.colorScheme.onSurface,
                     modifier = Modifier.size(24.dp)
@@ -64,7 +66,7 @@ fun SearchInput(
                 Spacer(Modifier.width(12.dp))
                 if (!isSearchFocused && value.isEmpty()) {
                     Text(
-                        text = stringResource(placeholderResId),
+                        text = stringResource(placeholder),
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f),
                         style = textStyle
                     )

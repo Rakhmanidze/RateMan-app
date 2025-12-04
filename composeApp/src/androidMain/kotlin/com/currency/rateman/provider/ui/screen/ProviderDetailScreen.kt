@@ -28,15 +28,19 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.currency.rateman.R
-import com.currency.rateman.core.ui.component.getCurrencyIconRes
+import com.currency.rateman.core.ui.component.getCurrencyIcon
 import com.currency.rateman.core.utils.formatRate
 import com.currency.rateman.di.navigation.sharedKoinNavViewModel
 import com.currency.rateman.provider.ui.viewmodel.ProviderDetailViewModel
+import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
+import rateman.composeapp.generated.resources.Res
+import rateman.composeapp.generated.resources.buy
+import rateman.composeapp.generated.resources.loading
+import rateman.composeapp.generated.resources.no_results
+import rateman.composeapp.generated.resources.sell
 
 @Composable
 fun ProviderDetailScreen(
@@ -76,7 +80,7 @@ fun ProviderDetailScreen(
                         .clickable { navController.popBackStack() }
                 )
                 Text(
-                    text = provider?.name ?: (stringResource(id = R.string.loading) + "..."),
+                    text = provider?.name ?: (stringResource(Res.string.loading) + "..."),
                     style = MaterialTheme.typography.titleLarge,
                     color = MaterialTheme.colorScheme.onSurface
                 )
@@ -98,7 +102,7 @@ fun ProviderDetailScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(id = R.string.buy),
+                        text = stringResource(Res.string.buy),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
@@ -111,7 +115,7 @@ fun ProviderDetailScreen(
                     contentAlignment = Alignment.Center
                 ) {
                     Text(
-                        text = stringResource(id = R.string.sell),
+                        text = stringResource(Res.string.sell),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurface
                     )
@@ -122,7 +126,7 @@ fun ProviderDetailScreen(
                 if (provider?.rates.isNullOrEmpty()) {
                     item {
                         Text(
-                            text = stringResource(R.string.no_results),
+                            text = stringResource(Res.string.no_results),
                             modifier = Modifier
                                 .padding(vertical = 16.dp)
                                 .fillMaxWidth()
@@ -138,7 +142,7 @@ fun ProviderDetailScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             Image(
-                                painter = painterResource(id = getCurrencyIconRes(rate.foreignCurrency)),
+                                painter = painterResource(getCurrencyIcon(rate.foreignCurrency)),
                                 contentDescription = "${rate.foreignCurrency.name} icon",
                                 modifier = Modifier.size(24.dp)
                             )
